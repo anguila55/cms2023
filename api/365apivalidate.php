@@ -88,7 +88,7 @@ function getEvent($user, $password)
 function validateUser($user, $password, $token)
 {
     $payload = ["email" => $user, "password" => $password];
-    $response = apiCms(CMS_VALIDATE, "POST", $payload, $token);
+    $response = apiCms('validate/ilf-2023', "POST", $payload, $token);
 
     return $response->message == "Correct user credentials" ? true : false;
 }

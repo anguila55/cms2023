@@ -116,7 +116,7 @@ function updateUsers()
 {
     
     try {
-        if ( isset($_SERVER['PHP_AUTH_PW']) == CMS_PASS && isset($_SERVER['PHP_AUTH_USER']) == CMS_USER ) {
+        if ( isset($_SERVER['PHP_AUTH_PW']) == 'cms123456' && isset($_SERVER['PHP_AUTH_USER']) == 'cms@api.com' ) {
             $payload = json_decode( file_get_contents( 'php://input' ) );
             $conn = sql_conectar();
             updateUser( $payload, $conn);
