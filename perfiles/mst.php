@@ -302,10 +302,17 @@
 			
 			if($peradmin=='') $peradmin=0;
 			
-			if($peravatar==''){ 
-				$peravatar = $imgAvatarNull;
+			if($peravatar!=''){
+				if(strpos($peravatar, "https://") !== false){
+
+					$tmpl->setVariable('peravatar'	, $peravatar);
+				
+				}else{
+					$tmpl->setVariable('peravatar'	, $pathimagenes.$peravatar);
+				}
+				
 			}else{
-				$peravatar = $pathimagenes.$peravatar;
+				$tmpl->setVariable('peravatar'	, $imgAvatarNull);
 			}
 			
 			

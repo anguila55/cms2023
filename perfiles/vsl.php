@@ -215,7 +215,14 @@
 			$tmpl->setVariable('perempdes'	, $perempdes	);
 			
 			if($peravatar!=''){
-				$tmpl->setVariable('peravatar'	, $pathimagenes.$peravatar);
+				if(strpos($peravatar, "https://") !== false){
+	
+					$tmpl->setVariable('peravatar'	, $peravatar);
+				
+				}else{
+					$tmpl->setVariable('peravatar'	, $pathimagenes.$peravatar);
+				}
+				
 			}else{
 				$tmpl->setVariable('peravatar'	, $imgAvatarNull);
 			}

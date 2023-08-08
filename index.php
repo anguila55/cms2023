@@ -1,6 +1,7 @@
 <?
 header('Cache-Control: no cache'); //no cache
 //session_cache_limiter('private_no_expire'); // works
+require('api/365apivalidate.php');
 session_start();
 include $_SERVER["DOCUMENT_ROOT"] . '/func/zglobals.php'; //PRD
 //--------------------------------------------------------------------------------------------------------------
@@ -59,9 +60,10 @@ if ($codigoqr != '') {
 
 }
 if ($percodigo == '') {
-    if ($perusuacc == '' || $perpasacc == '') {
-        header('Location: login');
-        exit;
+    $perusuacc = eventUsers($perusuacc, $perpasacc);
+	if ($perusuacc == '' || $perpasacc == '') {
+		header('Location: login');
+		exit;
     } else {
 
         $perpasacc = md5('BenVido' . $perpasacc . 'PassAcceso' . $perusuacc);
@@ -70,7 +72,7 @@ if ($percodigo == '') {
         $query = " 	SELECT P.PERCODIGO,P.PERNOMBRE,P.PERAPELLI,P.PERCORREO,P.PERUSUACC,P.PERPASACC,P.ESTCODIGO,P.PERADMIN,P.PERAVATAR,
 								P.PERUSADIS,P.PERUSAREU,P.PERUSAMSG,P.PERTIPO,P.PERCLASE,P.PERIDIOMA,P.PERCOMPAN,P.PERCARGO,P.TIMOFFSET,P.PERINGLOG
 						FROM PER_MAEST P
-						WHERE P.PERUSUACC='$perusuacc' AND P.PERPASACC='$perpasacc' AND P.ESTCODIGO!=3 ";
+						WHERE P.PERUSUACC='$perusuacc' AND P.ESTCODIGO!=3 ";
 
         $Table = sql_query($query, $conn);
         if ($Table->Rows_Count > 0) {
@@ -159,10 +161,23 @@ if ($percodigo == '') {
                 init_login($perusuacc, $perpasacc);
 
                 if (trim($row['PERAVATAR']) != '') {
-                    $_SESSION[GLBAPPPORT . 'PERAVATAR'] = $pathimagenes . $percodigo . '/' . trim($row['PERAVATAR']);
-                } else {
-                    $_SESSION[GLBAPPPORT . 'PERAVATAR'] = '../app-assets/img/avatar.png';
-                }
+					
+					if(strpos(trim($row['PERAVATAR']), "https://") !== false){
+
+						$_SESSION[GLBAPPPORT.'PERAVATAR'] 	=  trim($row['PERAVATAR']);
+						
+					
+					}else{
+						$_SESSION[GLBAPPPORT.'PERAVATAR'] 	=  trim($row['PERAVATAR']);
+					}
+				
+				
+				//$_SESSION[GLBAPPPORT . 'PERAVATAR'] =  $pathimagenes . $percodigo . '/' . trim($row['PERAVATAR']);
+					} else {
+						$_SESSION[GLBAPPPORT.'PERAVATAR'] 	=  '../app-assets/img/avatar.png';
+						//$_SESSION[GLBAPPPORT . 'PERAVATAR'] =  '../app-assets/img/avatar.png';
+					}
+                
 
                 //Busco los parametro de clasificacion
                 $query = "	SELECT 1

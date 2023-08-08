@@ -152,7 +152,14 @@
 		$tmpl->setVariable('percompan'	, $percompan);
 	
 		if($peravatar!=''){
-			$tmpl->setVariable('peravatar'	, $pathimagenes.$percodigo.'/'.$peravatar);
+			if(strpos($peravatar, "https://") !== false){
+
+				$tmpl->setVariable('peravatar'	, $peravatar);
+			
+			}else{
+				$tmpl->setVariable('peravatar'	, $pathimagenes.$percodigo.'/'.$peravatar);
+			}
+			
 		}else{
 			$tmpl->setVariable('peravatar'	, $imgAvatarNull);
 		}

@@ -47,6 +47,8 @@ $tmpl->setVariable('SisNombreEvento', NAME_TITLE );
 $tmpl->setVariable('NAME_TITLE', NAME_TITLE );
 $tmpl->setVariable('LOGIN_PERIOD', LOGIN_PERIOD );
 $tmpl->setVariable('LOGIN_EMAIL', SEND_MAIL_LOGIN );
+$tmpl->setVariable('REGISTRO_URL', SEND_MAIL_REGISTRO );
+$tmpl->setVariable('RECUPERAR_URL', SEND_MAIL_RECUPERAR );
 
 $conn= sql_conectar();//Apertura de Conexion
 

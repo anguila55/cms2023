@@ -26,7 +26,7 @@ $colorevento = $colorevento;
   --verde: #6bbc64;
   --gris: #3c3c3b;
   --main: <?=$colorevento?>;
-  --secondary: #FFC210;
+  --secondary: #ff7900;
   --addevent: #286efa;
   --verde-check: #00CE96;
   --celeste-clock: #49CAE8;

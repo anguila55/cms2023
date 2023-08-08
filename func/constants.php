@@ -51,6 +51,8 @@ define("LOGIN_PERIOD",$evefch.' - '.$evefchfin);
 define("MAIL_NAME_APP",$nombreevento);
 define("SEND_MAIL_LOGIN",$mailcontacto);
 define("SEND_MAIL_USUARIO",'no-reply@btoolbox.com');
+define("SEND_MAIL_REGISTRO",'https://live.eventtia.com/es/ilf-2023/Registro');
+define("SEND_MAIL_RECUPERAR",'https://cmseventos.com/password/reset');
 define("URL_WEB",'https://'.$_SERVER['HTTP_HOST'].'/');
 define("MINUTOS_PREVIOS_REUNION",'10');	//Minutos previos a la reunion para enviar el mail de aviso
 define("SUBJECT_RECUPERAR",'Nueva Contraseña Rondas Btbox');
@@ -80,6 +82,10 @@ $perapelli_controlingresos = 'Soporte Btbox';
 $percodigo_controlingresos = 18204 ;
 $arraysuperadmin=[18175,18177];
 $arraysuperadmin1="'18175','18177'";
+#CMS API
+define("CMS_USER", 'cms@api.com');
+define("CMS_PASS", 'cms123456');
+define("CMS_VALIDATE", 'validate/ilf-2023');
 
 
 $jsonperfiles = array("Nombre"=>1, "Apellido"=>1, "Id"=>1, "Empresa" =>1, "Cargo"=>1, "Idioma" =>1, "Industria" =>0, "ZonaHoraria" =>1,"DescripcionEmpresa" =>1,"Correo"=>1, "Telefono"=>1, "Web"=>1, "Linkedin" =>1, "Facebook"=>1, "Twitter" =>1, "Instagram" =>1, "Direccion" =>1,"Ciudad" =>1,"Estado"=>1, "CodigoPostal"=>1, "Pais"=>1 );
