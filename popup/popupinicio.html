@@ -1,0 +1,232 @@
+<head>
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/vendors/css/pickadate/pickadate.css">
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/vendors/css/wizard.css">
+</head>
+<div class="modal-content modal-radius pl-3 pr-3">
+	<button type="button" class="color-main-event boton-x" data-dismiss="modal">X</button>
+	<div class="main-content">
+		<input type="hidden" id="percodigo" name="percodigo" value="{percodigo}">
+		<form id="pasosContainer" action="#" class="number-tab-steps wizard-circle">
+
+	
+		</form>
+
+
+
+	</div>
+	
+</div>
+
+<script>
+	let pasosHabilitados = [{popupinfo}];
+	let pasosContainer = document.querySelector('#pasosContainer');
+	let contadorSteps = 0;
+
+	if (pasosHabilitados[1] === 1){
+		contadorSteps++;
+		pasosContainer.innerHTML += `<h6>{paso} `+contadorSteps +`</h6>
+			<fieldset>
+				<div class="form-group">
+					<p>{textopopinicio1}</p>
+					<label for="fullName">{Idioma_ZonaHoraria}:</label>
+					<select id="timezone" name="timezone" class="form-control">
+						<option value="" selected>{Idioma_Seleccione}...</option>
+						<!-- BEGIN zonahoraria -->
+						<option value="{timregcod}" {timsel}>{timdescri}</option>
+						<!-- END zonahoraria -->
+					</select>
+				</div>
+			</fieldset>`
+		}
+
+		if (pasosHabilitados[2] === 1){
+			
+			contadorSteps++;
+
+			pasosContainer.innerHTML += `<h6>{paso} `+contadorSteps +`</h6>
+			<fieldset>
+				<div class="form-group">
+					<p>{textopopinicio2}</p>
+					<label for="emailAddress">{Idioma_DescripcionEmpresa}:</label>
+					<div class="col-md-12">
+						<textarea class="form-control" id="perempdes" name="perempdes" rows="3"
+							maxlength="5000">{perempdes}</textarea>
+					</div>
+					<br>
+					<p>{seleccionaintereses}</p>
+					<div class="col-12 d-flex justify-content-center">
+						
+						<button id="btnclasifven" type="button" class="btn boton-simple-rounded bg-main-event white mr-1" style="width: 200px;" onclick="viewClasificar('V');">
+							<i class="fa fa-flickr"></i> {ampliada2}
+						</button>
+					
+					</div>
+				</div>
+			</fieldset>`
+
+		}
+		
+		if (pasosHabilitados[3] === 1){
+
+			contadorSteps++;
+
+			pasosContainer.innerHTML += `<h6>{paso} `+contadorSteps +`</h6>
+			<fieldset>
+				<div class="form-group">
+					<p>{textopopinicio3}</p>
+					<div class="col-12 d-flex justify-content-center">
+					<button id="btndisponib" type="button" class="boton-new-rounded-o mb-1" style="{btnviewdisp}; width: 230px;" onclick="viewDisponibilidad();"
+					>
+					<i class="fa fa-calendar"></i> {Idioma_Disponibilidad}
+				</button>
+				</div>
+				</div>
+			</fieldset>`;
+
+		}
+			
+		
+			
+	
+</script>
+
+<script src="../assets-nuevodisenio/js/jquery.steps.min.js"></script>
+<script src="../perfiles/brw.js"></script>
+
+<script>
+
+	
+
+$(".number-tab-steps").steps({
+    headerTag: "h6",
+    bodyTag: "fieldset",
+    transitionEffect: "fade",
+    titleTemplate: '<span class="step">#index#</span> #title#',
+    labels: {
+        finish: '{finalizar}',
+		next:'{siguiente}',
+		previous:'{atras}',
+		loading:'{cargando} ...'
+    },
+    onFinished: function (event, currentIndex) {
+
+		guardarCierrePopUp();
+		$('#DataMaestroViewPopUp').modal('hide');
+		toastr.success('{guardadocorrectamente}', 'INFO');
+
+    },
+	onStepChanged: function (event, currentIndex) {
+
+		guardarPasosRestantes();
+	// toastr.success('{guardadocorrectamente}', 'INFO');
+}
+});
+
+dataDisponibilidad = [{dataDisp}];
+	auxdataDisponibilidad = [];
+	dataClasificarVen	= {	"sectores":[{dataSectoresVen}],
+							"subsectores":[{dataSubsectoresVen}],
+							"categorias":[{dataCategoriasVen}],
+							"subcategorias":[{dataSubcategoriasVen}] };
+							
+	dataClasificarCom	= {	"sectores":[{dataSectoresCom}],
+							"subsectores":[{dataSubsectoresCom}],
+							"categorias":[{dataCategoriasCom}],
+							"subcategorias":[{dataSubcategoriasCom}] };
+
+function viewClasificar(vencom){
+		var percodigo 	= $('#percodigo').val();
+		var pervencom 	= vencom;
+		var dataClasif = null;
+		
+		if(vencom=='V'){
+			dataClasif = dataClasificarVen;
+		}else{
+			dataClasif = dataClasificarCom;
+		}
+		
+		var data = {"percodigo":percodigo,
+					"pervencom":vencom,
+					"dataClasificar":dataClasif};
+		
+		$('#DataClasif').load('../popup/clasificar.php',data);
+		$('#DataMaestroClasif').modal('show');
+	}
+
+
+	function viewDisponibilidad() {
+		//Busco la disponibilidad
+		
+		var percodigo = $('#percodigo').val();
+		var data = {
+			"percodigo": percodigo,
+			"dataDisponibilidad": dataDisponibilidad
+		};
+
+		$('#DataDisp').load('../popup/disponibilidad.php', data);
+		$('#DataMaestroDisp').modal('show');
+	}
+
+	function guardarCierrePopUp(){
+	
+		var formData = new FormData($('#FrmMst')[0]);
+		formData.append("percodigo", $('#percodigo').val());
+
+		$.ajax({
+			type: "POST",
+			url: "../popup/grbfinal.php",
+			dataType: "html",
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false
+		}).done(function (rsp) {
+			
+			data = $.parseJSON(rsp);
+		
+			if(data.errcod == 0){
+					
+			}else{
+				
+			}
+			
+		});
+
+	}
+
+
+	function guardarPasosRestantes(){
+		var formData = new FormData($('#FrmMst')[0]);
+		
+		if (pasosHabilitados[1] === 1){
+			formData.append("timezone", $('#timezone').val());
+		}
+		if (pasosHabilitados[2] === 1){
+			formData.append("perempdes", $('#perempdes').val());
+		}
+		
+		formData.append("percodigo", $('#percodigo').val());
+		
+		
+		$.ajax({
+			type: "POST",
+			url: "../popup/grb.php",
+			dataType: "html",
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false
+		}).done(function (rsp) {
+			
+			data = $.parseJSON(rsp);
+		
+			if(data.errcod == 0){
+					
+			}else{
+				
+			}
+			
+		});
+	}
+	
+</script>

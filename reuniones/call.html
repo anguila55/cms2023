@@ -1,0 +1,213 @@
+<div class="modal-content modal-radius pl-3 pr-3">
+	<button type="button" class="color-main-event boton-x" data-dismiss="modal">X</button>
+	<div class="col-12">
+		<h4 class="meeting-banner_text text-center fw-300">{Idioma_Conferencia}<br> <span class="color-main-event fw-700">{pernombrereunion} {perapellireunion}</span></h4>	
+	</div>
+	<div class="d-block mr-auto ml-auto mt-3">
+		<img src="../assets-nuevodisenio/img/icons/popupcompu.png" width="200px" alt="">
+	</div>
+	<div class="modal-body pl-0 pr-0" >
+		
+		<div class="row col-12 ml-0 mr-0">
+			
+
+				<div class="row col-12 mr-0 ml-0">
+					<div class="col-6 text-center">
+						<p class="text-message-pop fw-200 padding-text-message-l"><i class="fa {iconmensaje} mr-1"></i> {mensaje}</p>
+					</div>
+					<div class="col-6 text-center">
+						<p class="text-message-pop fw-200 padding-text-message-r "><i class="fa fa-clock-o mr-1 color-celeste-clock"></i> {duraciontexto}: {duracionreunion} {minutostexto}</p>
+					</div>
+					
+				</div>
+
+				<div class="row col-12 mr-0 ml-0 mt-2 mb-2 {displayentermeeting}">
+					
+					<div class="col-6 text-center pl-0 pr-0">
+						<a class=" boton-new-rounded-o mr-2" onclick="copyShare()"><i class="icon-share "></i> {callinvitar}</a>
+					</div>
+					<div class="col-6 text-center pl-0 pr-0">
+						<a class=" boton-new-rounded mr-2" onclick="addConnect({reureginv},'{urljoin}')"> {call1}</a>
+					</div>
+
+
+
+					
+				</div>
+				<div class="row mb-2">
+					<div class="col-12 d-flex justify-content-center">
+						<textarea readonly type="text" id="urlshare" name="urlshare" class="form-control" rows="1" style="z-index: -100;">{urljoin1}</textarea>
+					</div>
+				</div>
+				
+
+		</div>
+		
+		
+	</div>
+</div>
+
+	
+<!-- BEGIN VENDOR JS-->
+<script src="../gaming/gaming.js"></script>
+<script src="../assets-nuevodisenio/vendors/js/toastr.min.js"></script>
+	
+	<script>
+		
+
+		function addConnect(exp,url){
+			addPointsGaming(17,exp);
+          var data = {
+            
+                      "reureg":exp
+                      
+                    };
+					
+          $.ajax({
+            type: "POST",
+            url: 'grbpun.php',
+            data: data
+          }).done(function(rsp) {
+			
+            data = $.parseJSON(rsp);			
+            if(data.errcod == 0){
+				
+              window.open(url);
+            }
+            
+          });
+		}
+		function copyShare(){
+			var copyText = document.querySelector("#urlshare");
+			copyText.select();
+			copyText.setSelectionRange(0, 99999)
+			document.execCommand("copy");
+			toastr.success('Copied to Clipboard', 'INVITE');
+		}
+		
+		function guardarPerfilInvitadoMsg(){
+			var errcod=0;
+			var reureginv = $('#reureginv').val();
+			var percodinv = $('#percodinv').val();
+			var percorinv = $('#percorinv').val();
+			
+			if (percorinv == '' || percodinv=='') {
+				errcod = 2;
+				errmsg = 'Enter invited user email';
+			}
+			
+			if (errcod != 0) {
+				toastr.error(errmsg, 'INVITE');
+			}
+
+
+			if (errcod == 0) {
+				var formData = new FormData($('#FrmMst')[0]);
+				formData.append("reureginv", $('#reureginv').val());
+				formData.append("percodinv", $('#percodinv').val());
+				formData.append("percorinv", $('#percorinv').val());
+				$('#btninvitar').css('display','none');
+				
+				$.ajax({
+					type: "POST",
+					url: "invitarperfil.php",
+					dataType: "html",
+					data: formData,
+					cache: false,
+					contentType: false,
+					processData: false
+				}).done(function (rsp) {
+					data = $.parseJSON(rsp);
+
+					if (data.errcod == 0) {
+						toastr.success(data.errmsg, 'INVITE');
+						$('#btndelinv').css('display','');
+					} else {
+						toastr.error(data.errmsg, 'INVITE');
+						$('#btninvitar').css('display','');
+						$('#btndelinv').css('display','none');
+					}
+
+				});
+			}
+		}
+				
+		function findPerfilInvitado() {
+			var formData = new FormData($('#FrmMst')[0]);
+			formData.append("percorinv", $('#percorinv').val());
+
+			$.ajax({
+				type: "POST",
+				url: "bsqperinv.php",
+				dataType: "html",
+				data: formData,
+				cache: false,
+				contentType: false,
+				processData: false
+			}).done(function (rsp) {
+				data = $.parseJSON(rsp);
+
+				if (data.errcod == 0) {
+					$('#percodinv').val(data.percodinv);
+					$('#pernominv').val(data.pernominv);
+					$('#perapeinv').val(data.perapeinv);
+					$('#percominv').val(data.percominv);
+					toastr.success(data.errmsg, 'BUSCAR');
+					
+				} else {
+					$('#percorinv').val('');
+					$('#percodinv').val('');
+					$('#pernominv').val('');
+					$('#perapeinv').val('');
+					$('#percominv').val('');
+					toastr.error(data.errmsg, 'BUSCAR');
+				}
+
+			});
+		}
+		
+		function eliminarPerfilInvitadoMsg(){
+			var errcod=0;
+			var reureginv = $('#reureginv').val();
+			var percodinv = $('#percodinv').val();
+			
+			if (errcod == 0) {
+				var formData = new FormData($('#FrmMst')[0]);
+				formData.append("reureginv", $('#reureginv').val());
+				formData.append("percodinv", $('#percodinv').val());
+			
+				$.ajax({
+					type: "POST",
+					url: "invitarperfildel.php",
+					dataType: "html",
+					data: formData,
+					cache: false,
+					contentType: false,
+					processData: false
+				}).done(function (rsp) {
+					data = $.parseJSON(rsp);
+
+					if (data.errcod == 0) {
+						toastr.success(data.errmsg, 'INVITAR');
+						$('#percorinv').val('');
+						$('#percodinv').val('');
+						$('#pernominv').val('');
+						$('#perapeinv').val('');
+						$('#percominv').val('');
+						$('#btndelinv').css('display','none');
+						$('#btninvitar').css('display','');
+					} else {
+						toastr.error(data.errmsg, 'INVITAR');
+					}
+
+				});
+			}
+		}
+
+		
+
+</script>
+  
+</body>
+
+</html>

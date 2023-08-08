@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171134984-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-171134984-1');
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="CMS 365">
+    <meta name="keywords" content="admin template, cms 365 template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="BtBox">
+    <title>CMS 365</title>
+    <link rel="shortcut icon" type="image/png" href="../imagenes-evento/logo.jpg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900%7CMontserrat:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../app-assets/fonts/feather/style.min.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/fonts/simple-line-icons/style.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/fonts/font-awesome/css/font-awesome.min.css"> 
+    <link rel="stylesheet" type="text/css" href="../app-assets/css/app.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/sweetalert2.min.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/toastr.css">
+
+    <style>
+
+
+
+    </style>
+  </head>
+  <body>
+	<input id="percodnotif" name="percodnotif" type=hidden value="{percodnotif}">
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+      <nav class="navbar navbar-expand-lg navbar-expand-md ev-btn-naranja">
+  <a href="#" class="navbar-brand"><img src="../app-assets/img/logos/cms365.svg" height="60"></a>
+  <!-- <div class="ml-2 display-inline-block"><a id="apps" href="https://youtu.be/LpXwKmb0Nlk" target="_blank"  class="nav-link position-relative"><span class="mx-1 text-white text-bold-400">{ver_video}</span></a>
+  </div> -->
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon white"><i class="fa fa-bars" aria-hidden="true"></i></span>
+  </button>
+  <div class="collapse navbar-collapse " id="navbarText">
+                <div class="navbar-nav mx-auto">
+                    
+                  <a class="nav-item nav-link" href="../index{datainfo}">{home} </a>
+                  <a class="nav-item nav-link" href="../actividades/bsq{datainfo}">{programa}</a>
+                  <!-- <a class="nav-item nav-link" style="border: 1px white solid;border-radius: 10px;" href="https://www.debex.es/" target="_blank">Marketplace</a> -->
+                  <a class="nav-item nav-link" href="../directorio/bsq{datainfo}">{asistentes}</a>
+                  <a class="nav-item nav-link" href="../stand/bsq{datainfo}" >{expo}</a>
+                   <a class="nav-item nav-link" href="../pitch/bsq{datainfo}">Pitch Slot</a>
+                  <!-- <a class="nav-item nav-link" href="../muro/bsq{datainfo}">{comunidad}</a> -->
+                  <a class="nav-item nav-link" href="../chat/bsq{datainfo}">{mensajes}</a>
+                  
+                  <a class="nav-item nav-link active" href="#">{ayuda}</a>
+                </div>
+    <span class="navbar-text">
+<ul class="navbar-nav">
+				<li class="dropdown nav-item mt-1 " id="notigroup">
+					<a id="dropdownBasic2" href="" onclick="notificationupd()" data-toggle="dropdown"
+						class="nav-link position-relative dropdown-toggle">
+						<i class="ft-bell white"></i>
+
+						<span class="notification badge badge-pill badge-danger" id="notinum"> </span>
+
+						<p class="d-none">Notifications</p>
+
+					</a>
+
+					<div class="notification-dropdown dropdown-menu dropdown-menu-right " id="notiopen">
+						<div class="arrow_box_right">
+							<div class="noti-list" id="notification">
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="dropdown nav-item mr-0"><a id="dropdownBasic3" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-user-link dropdown-toggle" aria-expanded="true"><span class="avatar avatar-online"><img id="navbar-avatar" src="{peravatar}"  alt="avatar" title="{pernombre} {perapelli}"></span>
+                    <p class="d-none">User Settings</p></a>
+                  <div aria-labelledby="dropdownBasic3" class="dropdown-menu dropdown-menu-right">
+                    <div class="arrow_box_right">
+                        <a href="../perfiles/miperfil{datainfo}" class="dropdown-item py-1"><i class="ft-edit mr-2"></i><span>{mi_perfil}</span></a>
+                        <a href="../calendario/bsq{datainfo}" class="dropdown-item py-1"><i class="ft-star  mr-2"></i><span>{mi_agenda}</span></a>
+                        <a href="../reuniones/bsq{datainfo}" class="dropdown-item py-1"><i class="ft-calendar mr-2"></i><span>{Mis_reuniones}</span></a>
+                        <div class="dropdown-divider"></div><a href="../login" class="dropdown-item"><i class="ft-power mr-2"></i><span>{salir}</span></a>
+                    </div>
+                  </div>
+                </li>
+</ul>
+    </span>
+  </div>
+</nav>
+<!-- faq starts -->
+<section id="faq">
+  <div class="container-fluid">
+    <div class="row" style="margin-top: 80px; margin-bottom:100px">
+      <div class="col-12">
+        <div class="card">
+          <div class="faq">
+            <div class="accordion" id="accordionExample">
+              <div class="card border-bottom m-0 mx-2">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <a class="m-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                      <i class="fa fa-question mr-2 text-warning"></i> How to Navigate the CMS365 Platform? 
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample" role="tabpanel">
+                  <div class="card-body pl-4 pr-4 pb-3">
+                    Navigating through the CMS365 site is very simple and dynamic. The menu at the top of the site indicates all of the sections that you can explore on the platform. Keep in mind that for returning to the platform's home page, you must click the "HOME" button located in the upper menu. <br>
+                    Next to the CMS365 logo which is also located in the top menu, you will find a video tutorial of the platform.
+                                        
+                  </div>
+                </div>
+              </div>
+              <div class="card border-bottom m-0 mx-2">
+                <div class="card-header" id="headingTwo">
+                  <h5 class="mb-0">
+                    <a class="m-0 collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      <i class="fa fa-question mr-2 text-warning"></i> How to find people of interest in the platform?
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample" role="tabpanel">
+                  <div class="card-body pl-4 pr-4 pb-3">
+                    Before you start looking for your counterparts, make sure you complete your profile, the industry that you work in, and other contact information. <br>
+                    Once you have done so, you can search for your colleagues from the top
+                    menu in the ATTENDEES tab.<br>
+                    In the ATTENDANCE tab, you will access to the complete directory of participants, where you will be able to search and contact all the people registered on the event. You can filter the list according to different parameters, to make your search more efficient and expeditious, either by name, company, industry, etc. <br>
+                    Each participant is identified with a contact sheet, which has three action buttons that will allow you to: save it as a favorite, request a meeting, or start a conversation that after you can follow in the Messages/Chat menu. From the chat window, you can ask the assistant to send you their complete contact details.
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="card border-bottom m-0 mx-2">
+                <div class="card-header" id="headingThree">
+                  <h5 class="mb-0">
+                    <a class="m-0 collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      <i class="fa fa-question mr-2 text-warning"></i> How do I request or reschedule a meeting?
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample" role="tabpanel">
+                  <div class="card-body pl-4 pr-4 pb-3">
+                    Whether you request an unscheduled meeting or reschedule a meeting that has been canceled, it is necessary to request a new meeting. <br>
+                    Clicking on the "Request Meeting" icon inside of the attendee card, it will display a menu with the different days and times to schedule the meeting. This menu compares both agendas, where schedules marked in red and orange will not be available for either (or both) parties. <br>
+                    Once the invitation has been sent, the other party must accept it.
+                    
+
+                  </div>
+                </div>
+              </div>
+              <div class="card border-bottom m-0 mx-2">
+                <div class="card-header" id="headingFour">
+                  <h5 class="mb-0">
+                    <a class="m-0 collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                      <i class="fa fa-question mr-2 text-warning"></i> How do I manage my meetings?
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample" role="tabpanel">
+                  <div class="card-body pl-4 pr-4 pb-3">
+                    You can manage your meetings from your profile icon located in the upper
+                    right corner of the screen - MY MEETINGS. <br>
+                    
+                    Sent meetings: Here you will see the meeting requests sent by you and
+                    pending confirmation from the counterpart. <br>
+                    Received meetings: The meeting requests that you received and are
+                    pending confirmation will be displayed here. By clicking on the &quot;Accept&quot;
+                    button, a menu will be displayed with the availability of your counterpart,
+                    and the time selected by the same for the meeting. To confirm, you must
+                    click on &quot;Accept Meeting&quot;. <br>
+                    Once coordinated, you can see it in the &quot;Confirmed meetings&quot; tab. All your
+                    confirmed meetings are automatically registered in MY AGENDA. <br>
+                    Once a meeting has been confirmed, you will be able to access a private room to chat with your counterpart on the agreed day and time, using the video conference button on the meeting card. <br>
+                    Clicking on "JOIN MEETING" will open a video conferencing room in a new tab.
+                    
+
+                  </div>
+                </div>
+              </div>
+              <div class="card border-bottom m-0 mx-2">
+                <div class="card-header" id="headingFive">
+                  <h5 class="mb-0">
+                    <a class="m-0 collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                      <i class="fa fa-question mr-2 text-warning"></i> How do I administer My Agenda?
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample" role="tabpanel">
+                  <div class="card-body pl-4 pr-4 pb-3">
+                    Confirmed meetings (both sent and received) and program items you have marked as favorites will be shown in the MY AGENDA section which you can access from your PROFILE or the HOME page. <br>
+                    From the card of the scheduled event, you will have an access button to the meetings or the live content streams. <br>
+                    You can use the google calendar function for reminders of events you save by linking them from MY AGENDA.
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="card border-bottom m-0 mx-2">
+                <div class="card-header" id="headingSix">
+                  <h5 class="mb-0">
+                    <a class="m-0 collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                      <i class="fa fa-question mr-2 text-warning"></i> If I missed a live content, can I watch it later?
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample" role="tabpanel">
+                  <div class="card-body pl-4 pr-4 pb-3">
+                    You can access all the contents in deferred from the PROGRAM - ON DEMAND tab. <br>
+                    There you will find past content, videos, and documents of interest that CMS makes available.
+                    
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="card border-bottom m-0 mx-2">
+                <div class="card-header" id="headingSaven">
+                  <h5 class="mb-0">
+                    <a class="m-0 collapsed" data-toggle="collapse" data-target="#collapseSaven" aria-expanded="false" aria-controls="collapseSaven">
+                      <i class="fa fa-question mr-2 text-warning"></i> What can I do in the Netwoking space - HOME?
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseSaven" class="collapse" aria-labelledby="headingSaven" data-parent="#accordionExample" role="tabpanel">
+                  <div class="card-body pl-4 pr-4 pb-3">
+                    In the HOME tab you will find different functions to interact with the rest of
+the attendees. <br>
+There you will find two types of NETWORKING ROOMS in which to
+participate: Express Debates on specific topics of special interest in the
+market and VIP rooms of the event sponsors where you can request to
+interact with them in one click, greet them and learn about the upgrades
+of the best solutions and industry services. <br>
+You will also find the 365WALL of posts to share news and interesting information
+and the ENGAGEMENT GAME board where you can add points when you
+interact on the platform 
+                  </div>
+                </div>
+              </div>
+              <div class="card border-bottom m-0 mx-2">
+                <div class="card-header" id="headingEight">
+                  <h5 class="mb-0">
+                    <a class="m-0 collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                      <i class="fa fa-question mr-2 text-warning"></i> How do I modify my profile data?
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample" role="tabpanel">
+                  <div class="card-body pl-4 pr-4 pb-3">
+                    If you wish to modify or add more data to your profile, you can do so from the icon located at the top right. Click on "MY PROFILE" and make the corresponding changes. <br>
+                    When you finish, always remember to press the "SAVE" button, which is situated at the bottom of the page.
+                    
+
+                  </div>
+                </div>
+              </div>
+              <div class="card border-bottom m-0 mx-2">
+                <div class="card-header" id="headingNine">
+                  <h5 class="mb-0">
+                    <a class="m-0 collapsed" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                      <i class="fa fa-question mr-2 text-warning"></i> How do I recover my password?
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample" role="tabpanel">
+                  <div class="card-body pl-4 pr-4 pb-3">
+                    From your profile icon located in the upper right corner of the screen - MY
+                    PROFILE. <br>
+                    Click on the &quot;Change password&quot; button. <br>
+                    The system will redirect you to a screen to request a password laundering.
+                    You will then receive an email with your new password.
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="card border-bottom m-0 mx-2">
+                <div class="card-header" id="headingTen">
+                  <h5 class="mb-0">
+                    <a class="m-0 collapsed" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                      <i class="fa fa-question mr-2 text-warning"></i> If I need help, who can I contact?
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordionExample" role="tabpanel">
+                  <div class="card-body pl-4 pr-4 pb-3">
+                    If you need support for navigating through the platform you can contact by email to cmsdigital@cmspeople.com 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- faq Ends -->
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <!-- BEGIN VENDOR JS-->
+    <script src="../app-assets/vendors/js/core/jquery-3.3.1.min.js"></script>
+    <script src="../app-assets/vendors/js/core/popper.min.js"></script>
+    <script src="../app-assets/vendors/js/core/bootstrap.min.js"></script>
+    <script src="../app-assets/vendors/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="../app-assets/vendors/js/jquery.matchHeight-min.js"></script>
+    <!-- BEGIN VENDOR JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <!-- END PAGE VENDOR JS-->
+    <!-- BEGIN CONVEX JS-->
+    <script src="../app-assets/js/notification-sidebar.js"></script>
+    <!-- END CONVEX JS-->
+    <!-- BEGIN PAGE LEVEL JS-->
+    <script src="../app-assets/js/socket.io.js"></script>
+		<script src="../app-assets/js/notifnode.js" data-info="{datainfo}"></script>
+    <!-- END PAGE LEVEL JS-->
+  </body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description"
+    content="BTBOX _your business toolbox. Todas las soluciones en una plataforma para potenciar tu próximo evento">
+<meta name="keywords"
+    content="btbox, evento, fisico, hibrido, event, admin, btoolbox, networking, reuniones">
+<meta name="author" content="BTBOX">
+    <title>{SisNombreEvento}</title>
+    <link rel="shortcut icon" type="image/png" href="assets-nuevodisenio/img/favicon.jpg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/index.css">
+
+  </head>
+  <body data-col="1-column" class=" 1-column  blank-page blank-page" id="bodyimg">
+    <div id="bg">
+        <img id="loginweb" src="{bannerhomeimginferior}" alt="">
+        <img id="logincel" src="{bannerhomeimginferiorcel}" alt="">
+    </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+<div id="login">
+    <div class="container-fluid">
+        <div class="row full-height-vh">
+
+            <div class="col-md-8 col-lg-8">
+                
+            </div>
+            <div class="col-md-4 d-flex align-items-center justify-content-center  " >
+                <div class="card px-4 py-2 box-shadow-2 cardtrasparent cardlog">
+                    <div class=" text-right px-0">  
+                        <input type="hidden" id="peridiomaglobal" name="peridiomaglobal" value="{peridioma}">  
+                        <li class="dropdown nav-item mt-1 show"><a id="dropdownBasic" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-toggle" aria-expanded="true"><i class="ft-flag blue-grey darken-4"></i> {Idioma_Idioma}<span class="selected-language d-none"></span></a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                              <div class="arrow_box_right"><a href="../loginerror.php?ID=ING" class="dropdown-item py-1"><img src="../app-assets/img/flags/us.png" alt="English Flag" class="langimg"><span> English</span></a><a href="../loginerror.php?ID=ESP" class="dropdown-item py-1"><img src="../app-assets/img/flags/es.png" alt="Spanish Flag" class="langimg"><span> Spanish</span></a><!--<a href="javascript:;" class="dropdown-item py-1"><img src="../app-assets/img/flags/br.png" alt="Portuguese Flag" class="langimg"><span> Portuguese</span></a><a href="javascript:;" class="dropdown-item"><img src="../app-assets/img/flags/de.png" alt="French Flag" class="langimg"><span> French</span></a>--></div>
+                            </div>
+                          </li>                    
+                    </div>
+                    <div class="card-header text-center p-0">
+                        <img src="../admimg/{file}" alt="company-logo"  width="250">						
+                    </div>
+                    <div class="card-header text-center">
+                        <h4 class=" text-uppercase text-bold-400 color-main-event darken-1 " style="font-weight: 800;">{NAME_TITLE}</h4> 
+                        <p class="" style="font-size: 0.8rem;line-height: 1rem; font-weight: 500;">{LOGIN_PERIOD}</p>
+                         
+                        <!-- <h4 class="text-uppercase text-bold-400 grey darken-1">Iniciar Sesión</h4> -->
+                    </div>
+                    <div class="card-body">
+                        <div class="card-block">
+                            <form class="form" action="index" method="POST">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control form-control-lg" name="perusuacc" id="perusuacc" placeholder="{textousuariologin}" required>
+                                    </div>
+                                </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="password" class="form-control form-control-lg" name="perpasacc" id="perpasacc" placeholder="{textopasswordlogin}" required>
+                            <div class="form-control-position" style=" top: 6px!important;
+                            right: 5px!important;">
+                                <i class="ft-eye font-medium-3" id="togglePassword" style="cursor: pointer; margin-right: 2rem;"></i>
+                            </div>
+                            <p style="color:red;">{usuarioincorrecto}</p>
+                        </div>
+                    </div>
+                    <input type="hidden" id="codigoqr" name="codigoqr" value="{codigoqr}">  
+                    <!--
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0 ml-5">
+                                    <input type="checkbox" class="custom-control-input" checked id="rememberme">
+                                    <label class="custom-control-label float-left" for="rememberme">Remember Me</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+
+                    <div class="form-group">
+                        <div class="text-center col-md-12">
+                            <button type="submit" class=" btn bg-main-event px-4 py-2 text-uppercase white font-small-4 box-shadow-2 border-0">Login</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="card-footer grey darken-1">
+
+            <div class=" text-center {ocultar}">{sincuenta} - <a id="registroidioma" class="color-main-event" href=""><b>{iniciar}</b></a></div>
+            <div class=" text-center mb-1 ">{sincontrasena} - <a id="recuperaridioma" class="color-main-event" href=""><b>{recuperar}</b></a></div>
+            <div class=" text-center mb-1 ">Email - <a class="color-main-event" href="mailto:{LOGIN_EMAIL}"><b>{LOGIN_EMAIL}</b></a></div>
+          
+        </div>
+        <div class="text-center"><p style="font-size:9px;" class="ml-2 mt-2 mb-0"> Powered by <a href="https://btoolbox.com" target="_blank"><img class="ml-1" src="/assets-nuevodisenio/img/btbox.png" width="90px" height="auto" alt=""></a></p></div>
+    </div>
+</div>
+<div class="col-md-4 col-lg-4">
+    
+</div>
+</div>
+</div>
+</div>
+<!--Login Page Ends-->
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+    <!-- BEGIN VENDOR JS-->
+    <script src="assets-nuevodisenio/vendors/js/core/jquery-3.3.1.min.js"></script>
+    <script src="assets-nuevodisenio/vendors/js/core/popper.min.js"></script>
+    <script src="assets-nuevodisenio/vendors/js/core/bootstrap.min.js"></script>
+    <script src="assets-nuevodisenio/vendors/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="assets-nuevodisenio/vendors/js/prism.min.js"></script>
+    <script src="assets-nuevodisenio/vendors/js/jquery.matchHeight-min.js"></script>
+    <script src="assets-nuevodisenio/vendors/js/screenfull.min.js"></script>
+    <script src="assets-nuevodisenio/vendors/js/pace/pace.min.js"></script>
+    <!-- BEGIN VENDOR JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <!-- END PAGE VENDOR JS-->
+    <!-- BEGIN CONVEX JS-->
+    <script src="assets-nuevodisenio/js/app-sidebar.js"></script>
+    <script src="assets-nuevodisenio/js/notification-sidebar.js"></script>
+    <!-- END CONVEX JS-->
+    <!-- BEGIN PAGE LEVEL JS-->
+    <!-- END PAGE LEVEL JS-->
+
+    <script type="text/javascript">
+        
+        $(document).ready(function () {
+			
+			document.querySelector('#registroidioma').href = '../registro.php?USER=0&ID='+document.querySelector('#peridiomaglobal').value;
+
+            document.querySelector('#recuperaridioma').href = '../recuperar.php?USER=0&ID='+document.querySelector('#peridiomaglobal').value;
+            var x = document.getElementById("loginweb");
+            var y = document.getElementById("logincel");
+           
+            if (window.innerWidth < 800){
+            
+            // console.log("entro aca")
+            x.style.display = "none";
+            y.style.display = "";
+           
+
+            }else{
+                
+            x.style.display = "";
+            y.style.display = "none";
+           
+        
+            }
+			});
+
+            const togglePassword = document.querySelector('#togglePassword');
+            const password = document.querySelector('#perpasacc');
+
+            togglePassword.addEventListener('click', function (e) {
+                // toggle the type attribute
+                const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                password.setAttribute('type', type);
+                // toggle the eye slash icon
+                this.classList.toggle('ft-eye-off');
+                this.classList.toggle('ft-eye');
+            });
+	
+
+	
+	  
+	</script>
+
+
+
+
+
+
+  </body>
+
+</html>

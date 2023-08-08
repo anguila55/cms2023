@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="description"
+    content="BTBOX _your business toolbox. Todas las soluciones en una plataforma para potenciar tu próximo evento">
+    <meta name="keywords"
+    content="btbox, evento, fisico, hibrido, event, admin, btoolbox, networking, reuniones">
+    <meta name="author" content="BTBOX">
+	<title>{SisNombreEvento}</title>
+	<link rel="shortcut icon" type="image/png" href="../assets-nuevodisenio/img/favicon.jpg">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/index.css">
+
+	<!-- script para levantar el navbar -->
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body data-col="2-columns" class=" 2-columns ">
+
+	<div class="wrapper nav-collapsed menu-collapsed">
+		<input id="percodnotif" name="percodnotif" type=hidden value="{percodnotif}">
+
+		<!-- Navigation bar -->
+		<div id="nav-placeholder">
+
+		</div>
+
+		<script>
+			$(function () {
+				$("#nav-placeholder").load("../navbar/navbar.php");
+			});
+		</script>
+		<!-- end of Navigation bar -->
+		<div id="DataBrowser"></div>
+
+
+
+	<!-- BEGIN VENDOR JS-->
+	<script src="../assets-nuevodisenio/vendors/js/core/jquery-3.3.1.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/core/popper.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/core/bootstrap.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/perfect-scrollbar.jquery.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/prism.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/jquery.matchHeight-min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/screenfull.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/pace/pace.min.js"></script>
+	<script src="../assets-nuevodisenio/js/autoNumeric.js"></script>
+
+	<script src="../assets-nuevodisenio/js/autoNumeric.min.js"></script>
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<!-- END PAGE VENDOR JS-->
+	<!-- BEGIN CONVEX JS-->
+	<script src="../assets-nuevodisenio/js/app-sidebar.js"></script>
+	<!-- END CONVEX JS-->
+	<!-- BEGIN PAGE LEVEL JS-->
+	<!-- END PAGE LEVEL JS-->
+
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<script src="../assets-nuevodisenio/vendors/js/sweetalert2.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/toastr.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/switchery.min.js"></script>
+	<script src="../assets-nuevodisenio/js/jquery.multiselect.js"></script>
+	<!-- END PAGE VENDOR JS-->
+	<script>
+		$(document).ready(function () {
+			showBrowser();
+		});
+		function showBrowser() {
+			$('#DataBrowser').load('brw.php');
+		}
+	</script>
+
+</body>
+
+</html>

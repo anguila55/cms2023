@@ -1,0 +1,213 @@
+﻿<style>
+	
+
+	.actividad {
+		border-radius: 5px; 
+		text-decoration: none;
+		padding: 10px;
+		-webkit-box-shadow: 0px 0px 20px 0px rgba(222, 222, 222, 1);
+		-moz-box-shadow: 0px 0px 20px 0px rgba(222, 222, 222, 1);
+		box-shadow: 0px 0px 20px 0px rgba(222, 222, 222, 1);
+	}
+
+	.actividad h5 {
+		font-weight: 600;
+		color: #fd8105;
+	}
+	
+
+</style>
+		
+<div class="pt-3 w-100">
+	<div>
+		<div>
+			<div class="nav nav-tabs nav-fill col-12 tab-container mt-3 " id="nav-tab" role="tablist">
+				<!-- BEGIN tabs -->
+				<a id="botonessalas" class="nav-item {active} mx-4 mb-3 {viewsalas}" id="nav-home-tab" data-toggle="tab"
+					href="#{id}" role="tab" aria-controls="nav-home" aria-selected="true">{dia}</a>
+				<!-- END tabs -->
+			</div>
+			<div class="tab-content py-3 px-4" id="nav-tabContent">
+				<!-- BEGIN dias -->
+				<div class="tab-pane fade show {active}" id="{sala}" role="tabpanel"
+					aria-labelledby="nav-home-tab">
+					<div class="act-container d-flex flex-column">
+						<!-- BEGIN actividades -->
+						<p id="horaevento" class="bg-main-event text-muted">{hora} - {agehorfin}</p>
+						<div class="actividad">
+							{msg}
+							<div class="row">
+								<div class="col-sm-8 col-12" style="text-align: left;">
+									<div class="fw-600 card-title-new text-uppercase color-main-event">{agetitulo}</div>
+									<p class="text-muted font-small-3 text-justify lineheightdesc {displayagelugar}">
+										<i class="ft-map-pin" style="margin-right: 8px; font-size: 1.2rem; font-weight: 800; color: var(--main);"></i> {agelugar}
+									</p>
+									<p class="text-muted font-small-3 text-justify lineheightdesc">
+										<i class="ft-file-text" style="margin-right: 8px;font-size: 1.2rem; font-weight: 800;color: var(--main);"></i> {agedescri}
+									</p>
+								</div>
+								<div class="col-sm-4 col-12">
+									<div id="botonesprograma" class="float-right {nohayactividades}" >
+										<a id="botonvideo" class="button-hover align-items-center fw-700 btn  text-uppercase bg-verde white {video}" onclick="viewAgenda({agereg},{verageopc});" style="width: 150px;">
+											<div style="width: 24px;"> 
+												<i class="ft-video" style="margin-right: 8px;"></i>
+											</div>
+											<div>{Idioma_Ingresar}</div>
+										</a>
+										<div class="d-flex align-items-center btn white addeventatc fw-700 text-uppercase mt-2" style="background-color: var(--addevent); z-index:inherit;font-size: 15px!important; box-shadow:none !important; font-family: Open Sans;width: 150px;">
+												<div style="width: 24px;">
+													<i class="ft-calendar" style="margin-right: 8px;"></i>
+												</div>	
+												<div>{Idioma_Agregar}</div>	 
+												<span class="start">{agefch} {hora}</span>
+												<span class="end">{agefch} {agehorfin}</span>
+												<span class="title">{agetitulo}</span>
+												<span class="location">{locationcalendar}</span>
+												<span class="description">{SisNombreEvento}</span>
+										</div>
+										
+										<!---<a id="botonqr" class="button-hover align-items-center fw-700 btn mt-2 text-uppercase bg-color-gris white {mostrarqr}" onclick="viewQR('{qrreg}');" style="width: 150px;">
+											<div style="width: 24px;"> 
+												<i class="fa fa-qrcode" style="margin-right: 8px;"></i>
+											</div>
+											<div>Ver QR</div>
+										</a>-->
+									</div>
+								</div>	
+							</div>
+							<div class="col 12 row text-height-n mt-2">
+							<!--<ul id="listadospeakers" class="text-center justify-content-center align-items-center ">-->	
+							<!-- BEGIN spkimg -->
+								<!--<li>-->
+								<div class="col-md-4 align-items-center" style="display: flex; text-align: left;" >
+									<img class="img-fluid m-3 align-self-center" src="../spkimg/{spkreg}/{spkimg}" width="{imagespk}"
+									alt=" Avatar" style="
+									border-radius: 50%;
+								">
+									<p  id="nombrespeaker" style="width: 100%; line-height: 20px;" class="ml-2"><strong>{skpnombre}</strong><br>{skpempres}<br>{skpcargo}</p>
+								</div>
+								<!--</li> -->
+							<!-- END spkimg -->
+							<!--</ul>-->	
+							</div>
+						</div>
+						<!-- END actividades -->
+					</div>
+				</div>
+				<!-- END dias -->
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
+	<script>
+		function agendarEvento(reg, clase) {
+			var mensaje = '';
+			var titulo = '';
+			var tipo;
+
+			if (clase === 'fa-star') {
+				titulo = 'AGENDA';
+				mensaje = "Do you like to remove the event from your agenda?"
+				tipo = 1;
+			}
+
+			if (clase === 'fa-star-o') {
+				titulo = 'AGENDA';
+				mensaje = "Do you want to add an event to the agenda?"
+				tipo = 2;
+			}
+			swal({
+				title: titulo,
+				text: mensaje,
+				type: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: 'Confirm',
+				cancelButtonText: 'Cancel',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+				var data = { "agereg": reg };
+
+				$.ajax({
+					type: "POST",
+					url: 'agendar.php',
+					data: data
+				}).done(function (rsp) {
+					data = $.parseJSON(rsp);
+
+					if (data.errcod == 0) {
+						if (tipo == 1) {
+							toastr.success('Remove from agenda', 'AGENDA');
+
+						} else {
+
+							toastr.success(data.errmsg, 'AGENDA');
+						}
+
+					} else {
+						toastr.error(data.errmsg, 'AGENDA');
+					}
+					showBrowser();
+				});
+
+
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+		
+		function viewAgenda(reg,opc){
+			if(opc==0){
+				swal({
+					title: "INGRESO A CHARLA",
+					text: "Al ingresar a la charla, se consumira <br>una unidad en su Ticket contratado.<br><br>¿Desea continuar?",
+					type: 'warning',
+					showCancelButton: true,
+					confirmButtonColor: '#0CC27E',
+					cancelButtonColor: '#FF586B',
+					confirmButtonText: 'Aceptar',
+					cancelButtonText: 'Cancelar',
+					confirmButtonClass: 'btn btn-success btn-raised mr-5',
+					cancelButtonClass: 'btn btn-danger btn-raised',
+					buttonsStyling: false
+				}).then(function () {
+					window.location='../sala/bsq.php?A='+reg;
+				}, function (dismiss) {
+					// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+					if (dismiss === 'cancel') {
+					}
+				}).done();
+			}else{
+				window.location='../sala/bsq.php?A='+reg;
+			}
+		}
+		function viewQR(reg){
+				
+				swal({
+					title: "{miqractividad}",
+					text: "<img class='border border-main-event' src='" + reg + "' style='width:200px;'> <br> <p class='mt-2'>{escaneaactividad}</p>",
+					type: '',
+					showCancelButton: false,
+					confirmButtonColor: '#0CC27E',
+					cancelButtonColor: '#FF586B',
+					confirmButtonText: '{Idioma_Cerrar}',
+					cancelButtonText: 'Cancelar',
+					confirmButtonClass: 'btn btn-raised bg-main-event',
+					cancelButtonClass: 'btn btn-raised bg-main-event',
+					buttonsStyling: true
+				}).then(function () {
+					//window.location='../sala/bsq.php?A='+reg;
+				}, function (dismiss) {
+					// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+					if (dismiss === 'cancel') {
+					}
+				}).done();
+			
+		}
+	</script>

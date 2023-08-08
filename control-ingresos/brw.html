@@ -1,0 +1,202 @@
+﻿
+<style>
+	#recent-orders span{
+  display:none;
+}
+</style>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+			<!--<input type="button" value="Print" 
+
+               onclick="window.print()" />-->
+			<!--Arranca la row 1-->
+					
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title-wrap bar-warning">
+										<h4 class="card-title">{backendconting}</h4>
+									</div>
+									<br>
+									<button class="btn bg-color-gris white" onclick="showBrowser();"><i class="fa fa-refresh"> </i>{actualizar}</button>
+									<button class="btn bg-red white" onclick="eliminartodas();"><i class="fa fa-trash"> </i> {backconfcontingeliminar}</button>
+
+								</div>
+								<div class="card-body">
+									<div class="card-block">
+										<div class="table-responsive">
+											<table id="recent-orders" class="table table-striped table-bordered dom-jQuery-events ">
+												<thead>
+													<tr>                               
+														<th class="border-top-0">{idioma_fecha}</th>
+														<th class="border-top-0">{hora}</th>
+														<th class="border-top-0">{backconfreusol}</th>
+														<th class="border-top-0">{conectado}</th>
+														<th class="border-top-0">{backconfreucont}</th>
+														<th class="border-top-0">{conectado}</th>
+														
+														<th class="border-top-0">{backendacciones}</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- BEGIN populares -->
+													<tr>
+														<td class="text-truncate"><span>{agefchorden}</span>{fechareu}</td>
+														<td class="text-truncate">{horareu}</td>
+														<td class="text-truncate">{perfil2reu}</td>
+														<td class="text-truncate">{conectado2reu}</td>
+														<td class="text-truncate">{perfil1reu}</td>
+														<td class="text-truncate">{conectado1reu}</td>
+														
+														<td class="text-truncate">
+															
+															<input type="text" id="urlshare{reureg}" name="urlshare" class="form-control d-none" rows="4" value="{urljoin1}"></input>
+															<a class="success p-0" data-original-title="" title="Entrar a la Reunión como Admin" href="{urljoin1}" target="_blank">
+																<i class="fa fa-handshake-o font-medium-3 mr-2"></i>
+															</a>
+
+															<a class="success p-0" data-original-title="" title="Copiar Link Invitado" onclick="copyShare({reureg});">
+																<i class="fa fa-copy font-medium-3 mr-2"></i>
+															</a>
+														
+															<a class="warning p-0" data-original-title="" title="Ver en vivo" onclick="showView('{meetingID}')" target="_blank">
+																<i class="fa fa-eye font-medium-3 mr-2"></i>
+															</a>
+
+
+															<a class="danger  p-0" data-original-title="" title="Eliminar Reunión"onclick="eliminarreunion({reureg});">
+																<i class="fa fa-trash font-medium-3 mr-2"></i>
+															</a>
+
+														</td>
+															
+	
+													</tr>
+													<!-- END populares -->
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						</div>
+	
+		</div>
+	  </div>
+  <script src="../assets-nuevodisenio/js/data-tables/datatable-advanced.js"></script>
+
+  <script>
+
+function eliminarreunion(reg){
+		var reureg = reg
+		
+		var data = {"reureg":reureg};
+		
+		swal({
+			title: "{Idioma_Eliminar}",
+			text: "{Idioma_ConfEliminarSec}",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#0CC27E',
+			cancelButtonColor: '#FF586B',
+			confirmButtonText: '{Idioma_BotonConf}',
+			cancelButtonText: '{Idioma_BotonCan}',
+			confirmButtonClass: 'btn btn-success btn-raised mr-5',
+			cancelButtonClass: 'btn btn-danger btn-raised',
+			buttonsStyling: false
+		}).then(function () {
+			$.ajax({
+			  type: "POST",
+			  url: 'del.php',
+			  data: data
+			}).done(function( rsp ) {
+				
+				data = $.parseJSON(rsp);
+				
+				if(data.errcod == 0){			
+					toastr.success(data.errmsg, '{Idioma_Eliminar}');
+					//swal("GUARDAR", data.errmsg, "success").done();
+					showBrowser();
+				}else{
+					toastr.error(data.errmsg, '{Idioma_Eliminar}');
+					//swal("GUARDAR", data.errmsg, "error").done();
+				}
+				
+			});
+			
+			
+		}, function (dismiss) {
+			// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+			if (dismiss === 'cancel') {
+			}
+		}).done();
+	}
+
+
+	function eliminartodas(){
+		
+		
+		var data = {"reureg": ''};
+		
+		swal({
+			title: "{Idioma_Eliminar}",
+			text: "{Idioma_ConfEliminarSec}",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#0CC27E',
+			cancelButtonColor: '#FF586B',
+			confirmButtonText: '{Idioma_BotonConf}',
+			cancelButtonText: '{Idioma_BotonCan}',
+			confirmButtonClass: 'btn btn-success btn-raised mr-5',
+			cancelButtonClass: 'btn btn-danger btn-raised',
+			buttonsStyling: false
+		}).then(function () {
+			$.ajax({
+			  type: "POST",
+			  url: 'deltodas.php',
+			  data: data
+			}).done(function( rsp ) {
+				
+				data = $.parseJSON(rsp);
+				
+				if(data.errcod == 0){			
+					toastr.success(data.errmsg, '{Idioma_Eliminar}');
+					//swal("GUARDAR", data.errmsg, "success").done();
+					showBrowser();
+				}else{
+					toastr.error(data.errmsg, '{Idioma_Eliminar}');
+					//swal("GUARDAR", data.errmsg, "error").done();
+				}
+				
+			});
+			
+			
+		}, function (dismiss) {
+			// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+			if (dismiss === 'cancel') {
+			}
+		}).done();
+	}
+
+
+	function copyShare(reg){
+			var copyText = document.querySelector('#urlshare'+reg);
+			copyText.select();
+			copyText.setSelectionRange(0, 99999)
+			
+			 /* Copy the text inside the text field */
+  			navigator.clipboard.writeText(copyText.value);
+			toastr.success('{backconfcontingcopy}', '{backendconting}');
+
+			
+
+ 
+
+  
+
+		}
+
+
+  </script>

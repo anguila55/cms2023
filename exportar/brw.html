@@ -1,0 +1,597 @@
+﻿<section id="minimal-statistics">
+
+	<div class="row">
+
+
+		<div class="col-xl-4 col-lg-6 col-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="card-header">
+						<div class="card-title-wrap bar-success">
+							<h4 class="card-title">Perfiles</h4>
+						</div>
+					</div>
+					<div class="row" style="visibility: hidden;">
+						<div class="col-md-5">
+							<label for="desde">Desde:</label>
+							<input type="date" id="desdePerfiles" placeholder="dd-mm-yyyy" class="form-control" name="desde"
+								value="{desde}" />
+						</div>
+						<div class="col-md-5">
+							<label for="desde">Hasta:</label>
+							<input type="date" id="hastaPerfiles" class="form-control" name="hasta" value="{hasta}" />
+						</div>
+					</div>
+					<div class="px-3 py-3">
+						<div class="media">
+							<div class="media-body text-left align-self-center">
+								<button id="btnfiltrar" type="button" class="btn btn-success " onclick="filtrar('Perfiles')">
+									Exportar
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-4 col-lg-6 col-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="card-header">
+						<div class="card-title-wrap bar-success">
+							<h4 class="card-title">Sponsors</h4>
+						</div>
+					</div>
+					<div class="row" style="visibility: hidden;">
+						<div class="col-md-5">
+							<label for="desde">Desde:</label>
+							<input type="date" id="desdeSponsors" placeholder="dd-mm-yyyy" class="form-control" name="desde"
+								value="{desde}" />
+						</div>
+						<div class="col-md-5">
+							<label for="desde">Hasta:</label>
+							<input type="date" id="hastaSponsors" class="form-control" name="hasta" value="{hasta}" />
+						</div>
+					</div>
+					<div class="px-3 py-3">
+						<div class="media">
+							<div class="media-body text-left align-self-center">
+								<button id="btnfiltrar" type="button" class="btn btn-success " onclick="filtrar('Sponsors')">
+									Exportar
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-4 col-lg-6 col-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="card-header">
+						<div class="card-title-wrap bar-primary">
+							<h4 class="card-title">Reuniones</h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<label for="desde">Desde:</label>
+							<input type="date" id="desdeReuniones" placeholder="dd-mm-yyyy" class="form-control" name="desde"
+								value="{desde}" />
+						</div>
+						<div class="col-md-5">
+							<label for="desde">Hasta:</label>
+							<input type="date" id="hastaReuniones" class="form-control" name="hasta" value="{hasta}" />
+						</div>
+					</div>
+					<div class="px-3 py-3">
+						<div class="media">
+							<div class="media-body text-left align-self-center">
+								<button id="btnfiltrar" type="button" class="btn btn-success " onclick="filtrar('Reuniones')">
+									Exportar
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-4 col-lg-6 col-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="card-header">
+						<div class="card-title-wrap bar-primary">
+							<h4 class="card-title">Chats</h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<label for="desde">Desde:</label>
+							<input type="date" id="desdeChats" placeholder="dd-mm-yyyy" class="form-control" name="desde"
+								value="{desde}" />
+						</div>
+						<div class="col-md-5">
+							<label for="desde">Hasta:</label>
+							<input type="date" id="hastaChats" class="form-control" name="hasta" value="{hasta}" />
+						</div>
+					</div>
+					<div class="px-3 py-3">
+						<div class="media">
+							<div class="media-body text-left align-self-center">
+								<button id="btnfiltrar" type="button" class="btn btn-success " onclick="filtrar('Chats')">
+									Exportar
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-4 col-lg-6 col-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="card-header">
+						<div class="card-title-wrap bar-info">
+							<h4 class="card-title">Visitas a Expositores </h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<label for="desde">Desde:</label>
+							<input type="date" id="desdeQr" placeholder="dd-mm-yyyy" class="form-control" name="desde"
+								value="{desde}" />
+						</div>
+						<div class="col-md-5">
+							<label for="desde">Hasta:</label>
+							<input type="date" id="hastaQr" class="form-control" name="hasta" value="{hasta}" />
+						</div>
+					</div>
+					<div class="px-3 py-3">
+						<div class="media">
+							<div class="media-body text-left align-self-center">
+								<button id="btnfiltrar" type="button" class="btn btn-success " onclick="filtrar('Qr')">
+									Exportar
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-4 col-lg-6 col-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="card-header">
+						<div class="card-title-wrap bar-info">
+							<h4 class="card-title">Clicks en Productos Expositores</h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<label for="desde">Desde:</label>
+							<input type="date" id="desdeFolletos" placeholder="dd-mm-yyyy" class="form-control" name="desde"
+								value="{desde}" />
+						</div>
+						<div class="col-md-5">
+							<label for="desde">Hasta:</label>
+							<input type="date" id="hastaFolletos" class="form-control" name="hasta" value="{hasta}" />
+						</div>
+					</div>
+					
+					<div class="px-3 py-3">
+						<div class="media">
+							<div class="media-body text-left align-self-center">
+								<button id="btnfiltrar" type="button" class="btn btn-success " onclick="filtrar('Folletos')">
+									Exportar
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-4 col-lg-6 col-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="card-header">
+						<div class="card-title-wrap bar-info">
+							<h4 class="card-title">Ingreso a Charlas </h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<label for="desde">Desde:</label>
+							<input type="date" id="desdeSalas" placeholder="dd-mm-yyyy" class="form-control" name="desde"
+								value="{desde}" />
+						</div>
+						<div class="col-md-5">
+							<label for="desde">Hasta:</label>
+							<input type="date" id="hastaSalas" class="form-control" name="hasta" value="{hasta}" />
+						</div>
+					</div>
+					<div class="px-3 py-3">
+						<div class="media">
+							<div class="media-body text-left align-self-center">
+								<button id="btnfiltrar" type="button" class="btn btn-success " onclick="filtrar('Salas')">
+									Exportar
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-4 col-lg-6 col-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="card-header">
+						<div class="card-title-wrap bar-info">
+							<h4 class="card-title">Clicks en video en On Demand </h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<label for="desde">Desde:</label>
+							<input type="date" id="desdeAlaCarta" placeholder="dd-mm-yyyy" class="form-control" name="desde"
+								value="{desde}" />
+						</div>
+						<div class="col-md-5">
+							<label for="desde">Hasta:</label>
+							<input type="date" id="hastaAlaCarta" class="form-control" name="hasta" value="{hasta}" />
+						</div>
+					</div>
+					<div class="px-3 py-3">
+						<div class="media">
+							<div class="media-body text-left align-self-center">
+								<button id="btnfiltrar" type="button" class="btn btn-success " onclick="filtrar('AlaCarta')">
+									Exportar
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-4 col-lg-6 col-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="card-header">
+						<div class="card-title-wrap bar-info">
+							<h4 class="card-title">Visitas a Ofertas</h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<label for="desde">Desde:</label>
+							<input type="date" id="desdeOfertas" placeholder="dd-mm-yyyy" class="form-control" name="desde"
+								value="{desde}" />
+						</div>
+						<div class="col-md-5">
+							<label for="desde">Hasta:</label>
+							<input type="date" id="hastaOfertas" class="form-control" name="hasta" value="{hasta}" />
+						</div>
+					</div>
+					<div class="px-3 py-3">
+						<div class="media">
+							<div class="media-body text-left align-self-center">
+								<button id="btnfiltrar" type="button" class="btn btn-success " onclick="filtrar('Ofertas')">
+									Exportar
+								</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-4 col-lg-6 col-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="card-header">
+						<div class="card-title-wrap bar-info">
+							<h4 class="card-title">Likes en Pitch</h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<label for="desde">Desde:</label>
+							<input type="date" id="desdeLikePitch" placeholder="dd-mm-yyyy" class="form-control" name="desde"
+								value="{desde}" />
+						</div>
+						<div class="col-md-5">
+							<label for="desde">Hasta:</label>
+							<input type="date" id="hastaLikePitch" class="form-control" name="hasta" value="{hasta}" />
+						</div>
+					</div>
+					<div class="px-3 py-3">
+						<div class="media">
+							<div class="media-body text-left align-self-center">
+								<button id="btnfiltrar" type="button" class="btn btn-success " onclick="filtrar('LikePitch')">
+									Exportar
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-4 col-lg-6 col-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="card-header">
+						<div class="card-title-wrap bar-info">
+							<h4 class="card-title">Click en Notas de Prensa</h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<label for="desde">Desde:</label>
+							<input type="date" id="desdeNotas" placeholder="dd-mm-yyyy" class="form-control" name="desde"
+								value="{desde}" />
+						</div>
+						<div class="col-md-5">
+							<label for="desde">Hasta:</label>
+							<input type="date" id="hastaNotas" class="form-control" name="hasta" value="{hasta}" />
+						</div>
+					</div>
+					<div class="px-3 py-3">
+						<div class="media">
+							<div class="media-body text-left align-self-center">
+								<button id="btnfiltrar" type="button" class="btn btn-success " onclick="filtrar('Notas')">
+									Exportar
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-4 col-lg-6 col-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="card-header">
+						<div class="card-title-wrap bar-info">
+							<h4 class="card-title">Exportar Gaming</h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<label for="desde">Desde:</label>
+							<input type="date" id="desdeGaming" placeholder="dd-mm-yyyy" class="form-control" name="desde"
+								value="{desde}" />
+						</div>
+						<div class="col-md-5">
+							<label for="desde">Hasta:</label>
+							<input type="date" id="hastaGaming" class="form-control" name="hasta" value="{hasta}" />
+						</div>
+					</div>
+					<div class="px-3 py-3">
+						<div class="media">
+							<div class="media-body text-left align-self-center">
+								<button id="btnfiltrar" type="button" class="btn btn-success " onclick="filtrar('Gaming')">
+									Exportar
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-4 col-lg-6 col-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="card-header">
+						<div class="card-title-wrap bar-success">
+							<h4 class="card-title">Encuestas</h4>
+						</div>
+					</div>
+					<div class="row" style="visibility: hidden;">
+						<div class="col-md-5">
+							<label for="desde">Desde:</label>
+							<input type="date" id="desdeEncuestas" placeholder="dd-mm-yyyy" class="form-control" name="desde"
+								value="{desde}" />
+						</div>
+						<div class="col-md-5">
+							<label for="desde">Hasta:</label>
+							<input type="date" id="hastaEncuestas" class="form-control" name="hasta" value="{hasta}" />
+						</div>
+					</div>
+					<div class="px-3 py-3">
+						<div class="media">
+							<div class="media-body text-left align-self-center">
+								<button id="btnfiltrar" type="button" class="btn btn-success " onclick="filtrar('Encuestas')">
+									Exportar
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-4 col-lg-6 col-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="card-header">
+						<div class="card-title-wrap bar-info">
+							<h4 class="card-title">Descarga QRs de Perfiles</h4>
+						</div>
+					</div>
+					<div class="row" style="visibility: hidden;">
+						<div class="col-md-5">
+							<label for="desde">Desde:</label>
+							<input type="date" id="desdeQRPerfiles" placeholder="dd-mm-yyyy" class="form-control" name="desde"
+								value="{desde}" />
+						</div>
+						<div class="col-md-5">
+							<label for="desde">Hasta:</label>
+							<input type="date" id="hastaQRPerfiles" class="form-control" name="hasta" value="{hasta}" />
+						</div>
+					</div>
+					<div class="px-3 py-3">
+						<div class="media">
+							<div class="media-body text-left align-self-center">
+								<button id="btnfiltrar" type="button" class="btn btn-success " onclick="filtrar('QRPerfiles')">
+									Descargar
+								</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-4 col-lg-6 col-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="card-header">
+						<div class="card-title-wrap bar-info">
+							<h4 class="card-title">Descarga QRs de Charlas</h4>
+						</div>
+					</div>
+					<div class="row" style="visibility: hidden;">
+						<div class="col-md-5">
+							<label for="desde">Desde:</label>
+							<input type="date" id="desdeQRAgenda" placeholder="dd-mm-yyyy" class="form-control" name="desde"
+								value="{desde}" />
+						</div>
+						<div class="col-md-5">
+							<label for="desde">Hasta:</label>
+							<input type="date" id="hastaQRAgenda" class="form-control" name="hasta" value="{hasta}" />
+						</div>
+					</div>
+					<div class="px-3 py-3">
+						<div class="media">
+							<div class="media-body text-left align-self-center">
+								<button id="btnfiltrar" type="button" class="btn btn-success " onclick="filtrar('QRAgenda')">
+									Descargar
+								</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-4 col-lg-6 col-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="card-header">
+						<div class="card-title-wrap bar-info">
+							<h4 class="card-title">Descarga QRs de Sponsors</h4>
+						</div>
+					</div>
+					<div class="row" style="visibility: hidden;">
+						<div class="col-md-5">
+							<label for="desde">Desde:</label>
+							<input type="date" id="desdeQRSponsors" placeholder="dd-mm-yyyy" class="form-control" name="desde"
+								value="{desde}" />
+						</div>
+						<div class="col-md-5">
+							<label for="desde">Hasta:</label>
+							<input type="date" id="hastaQRSponsors" class="form-control" name="hasta" value="{hasta}" />
+						</div>
+					</div>
+					<div class="px-3 py-3">
+						<div class="media">
+							<div class="media-body text-left align-self-center">
+								<button id="btnfiltrar" type="button" class="btn btn-success " onclick="filtrar('QRSponsors')">
+									Descargar
+								</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-4 col-lg-6 col-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="card-header">
+						<div class="card-title-wrap bar-info">
+							<h4 class="card-title">Descargar todas las Agendas</h4>
+						</div>
+					</div>
+					<div class="row" style="visibility: hidden;">
+						<div class="col-md-5">
+							<label for="desde">Desde:</label>
+							<input type="date" id="desdeAgendasMasivas" placeholder="dd-mm-yyyy" class="form-control" name="desde"
+								value="{desde}" />
+						</div>
+						<div class="col-md-5">
+							<label for="desde">Hasta:</label>
+							<input type="date" id="hastaAgendasMasivas" class="form-control" name="hasta" value="{hasta}" />
+						</div>
+					</div>
+					<div class="px-3 py-3">
+						<div class="media">
+							<div class="media-body text-left align-self-center">
+								<button id="btnfiltrar" type="button" class="btn btn-success " onclick="filtrar('AgendasMasivas')">
+									Descargar
+								</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</section>
+<script>
+
+
+	function filtrar(url) {
+		var desde = $("#desde"+url).val();
+           var hasta = $("#hasta"+url).val();
+           window.location='../exportar/exportar'+url+'?ID='+desde+'||'+hasta;
+}
+/*	var arrayqrJSON = {arrayqrJSON};
+		var nrodeqr=0;
+		var clicksqr=0;
+		function downloadQRs2(){
+			setInterval(function(){
+			if(clicksqr < nrodeqr){
+				
+				var qrprueba = document.querySelector("#QrNro"+clicksqr);
+				qrprueba.click();
+				clicksqr++;
+			}
+		},1500);
+	
+		}
+	   function downloadQRs(){
+			
+		   if (arrayqrJSON!=null){
+			   arrayqrJSON.forEach(qr => {
+	
+				   
+			   
+				   if (qr != null ){
+					   
+					
+						var element = document.createElement('a');
+						element.setAttribute("id","QrNro"+nrodeqr);
+					   element.href = qr.url
+					   element.download = qr.nombre
+					   
+						   // Above code is equivalent to
+						   // <a href="path of file" download="file name">
+					   
+						   document.body.appendChild(element);
+						   nrodeqr++;
+						   //onClick property
+						 
+	
+					
+					   
+				   }
+				   
+			   });
+			   downloadQRs2();
+	
+		   }
+	   }*/
+</script>

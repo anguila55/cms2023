@@ -1,0 +1,64 @@
+<div class="modal-content" style="margin-top: 200px;">
+	<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	</div>
+	<div class="modal-body">
+			<input type="hidden" value="{comreg}" id="comreg">
+			<div class="col-md-12 mt-2">
+				<label for="comdescri">Editar: </label>
+				<input type="text" id="comdescri" name="comdescri" class="form-control"
+					value="{comdescri}">
+			</div>
+			
+
+	  </div>
+	  <div class="modal-footer">
+		<div class="form-actions col-12 text-center">
+			<button id="btnguardar" type="button" class="btn btn-success" onclick="guardarEdit();">
+				<i class="icon-note"></i> Guardar
+			</button>
+		</div>
+	  </div>
+	  
+</div>
+<script>
+
+function guardarEdit() {
+	
+	var comreg = $('#comreg').val();
+	var comdescri = $('#comdescri').val();
+	var data = { "comreg": comreg,
+				 "comdescri": comdescri
+				};
+		
+
+		$.ajax({
+			type: "POST",
+			url: "../muro/editcomentario.php",
+			data: data
+		}).done(function (rsp) {
+			console.log(rsp)
+			data = $.parseJSON(rsp);
+			console.log(rsp)
+			if (data.errcod == 0) {
+				toastr.success(data.errmsg, 'GUARDAR');
+
+				$('#DataMaestroViewMaestro').modal('hide');
+				
+					showBrowserMuro();
+				
+				
+			} else {
+				toastr.error(data.errmsg, 'GUARDAR');
+
+			}
+
+		});
+	}
+
+
+
+</script>
+

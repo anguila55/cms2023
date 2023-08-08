@@ -1,0 +1,127 @@
+
+<section id="horizontal-form-layouts">
+	<div class="row">
+		<div class="col-sm-12">
+			<h2 class="content-header">{maestroagenda}</h2>
+		</div>
+	</div>
+	
+
+	<!--New formulario-->
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-body">
+				<div class="px-3">
+					<form class="form">
+						<div class="form-body">
+
+							<div class="form-group">
+								<label for="timesheetinput1">{titulo}</label>
+								<div class="position-relative has-icon-left">
+									<input type="hidden" id="msgreg" name="msgreg" value="{msgreg}">
+									<input type="text" id="msgtitulo"  name="msgtitulo" class="form-control" value="{msgtitulo}">
+									<div class="form-control-position">
+										<!--En caso que requiera icono-->
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="timesheetinput2">{Idioma_Descripcion}</label>
+								<div class="position-relative has-icon-left">
+									<input type="hidden" id="msgreg" name="msgreg" value="{msgreg}">
+									<textarea class="form-control" rows="4" id="msgdescri"  name="msgdescri" class="form-control" value="{msgdescri}"> {msgdescri} </textarea>
+									<div class="form-control-position">
+										<!--En caso que requiera icono-->
+									</div>
+								</div>
+							</div>
+					
+						</div>
+
+						<div class="form-actions right">
+								<button id="btnguardar" type="button" class="btn btn-success" onclick="guardarMaestroMsg();">
+									<i class="icon-note"></i> {Idioma_Guardar}
+								</button>
+								<button id="btncancelar" type="button" class="btn btn-danger mr-1" onclick="showBrowser();">
+									<i class="icon-trash"></i> {Idioma_BotonCan}
+								</button>
+								&nbsp;&nbsp;
+							</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</section>
+		
+<script>
+	function guardarMaestroMsg(){
+		var errcod = 0;
+		var errmsg = '';
+		//var avireg = $('#avireg').val();
+		//var avititulo = $('#avititulo').val();
+		//var aviurl = $('#aviurl'). val();
+		//var aviimagen = $('#aviimagen').val();
+			
+		if(errcod==0){
+			swal({
+				title: "GUARDAR",
+				text: "¿Confirma guardar los cambios?",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: 'Confirmar',
+				cancelButtonText: 'Cancelar',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+				guardarMaestro();
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+	}
+
+	function guardarMaestro(){
+		var msgreg 	= $('#msgreg').val();
+		var msgtitulo 	= $('#msgtitulo').val();
+		var msgdescri 	= $('#msgdescri').val();
+		var msgestado	= $('#msgestado').val();
+		var data = {"msgreg":msgreg,
+					"msgtitulo":msgtitulo,
+					"msgdescri":msgdescri,
+					"msgestado":msgestado
+					};
+		//console.log(data);
+		$.ajax({
+		  type: "POST",
+		  url: 'grb.php',
+		  data: data
+		}).done(function( rsp ) {
+			data = $.parseJSON(rsp);
+			
+			if(data.errcod == 0){
+				toastr.success(data.errmsg, 'GUARDAR');			
+				//swal("GUARDAR", data.errmsg, "success").done();
+				showBrowser();
+			}else{
+				toastr.error(data.errmsg, 'GUARDAR');	
+				//swal("GUARDAR", data.errmsg, "error").done();
+			}
+			
+		});
+	}
+	
+	
+
+</script>
+	 
+	  
+	  

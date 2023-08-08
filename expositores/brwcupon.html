@@ -1,0 +1,110 @@
+﻿
+
+
+		<!-- <a class="success p-0"style="position:absolute;left:20px;" title="Nuevo Registro" onclick="showMaestro3({encreg});">
+			<i class="fa ft-plus-circle font-medium-5 mr-2">New</i>
+		</a>
+		<a class="danger p-0"style="position:absolute;right:20px;" title="Nuevo Registro" onclick="showBrowser();">
+			<i class="fa ft-plus-circle font-medium-5 mr-2">Cancel</i>
+		</a> -->
+
+	<br>
+
+	<button id="btnguardar" type="button" class="btn btn-success" onclick="showMaestroCupon({expreg});">
+		<i class="icon-note"></i> Nueva Oferta
+	</button>
+	
+	<button id="btncancelar" type="button" class="btn btn-danger mr-1" onclick="showBrowser();">
+		<i class="icon-arrow-left"></i> Atrás
+	</button>
+
+<div class="table-responsive">
+	<table id="recent-orders" class="table table-striped table-bordered dom-jQuery-events">
+		<thead>
+			<tr>
+				<th class="border-top-0">Titulo</th>                           
+				<th class="border-top-0">Descripcion</th>
+				<th class="border-top-0">Valor</th>
+				<th class="border-top-0">Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- BEGIN browser -->
+			<tr>
+				<td class="text-truncate"><span>{expcuptit}</span></td>	
+				<td ><span>{expcupdes}</span></td>	
+				<td class="text-truncate"><span>{expcupval}</span></td>	
+				<!-- <td class="text-truncate"><span>{encreg}</span></td>	 -->
+								
+						
+				
+				<td>
+					<a class="success p-0" data-original-title="" title="Modificar" onclick="showMaestroCupon({expreg},{expcupreg});">
+						<i class="fa fa-pencil font-medium-3 mr-2"></i>
+					</a>
+					
+				
+					<a class="danger p-0" data-original-title="" title="Eliminar" onclick="eliminarMaestroCupon({expreg},{expcupreg});">
+						<i class="fa fa-trash-o font-medium-3 mr-2"></i>
+					</a>
+				</td>
+			</tr>
+			<!-- END browser -->
+			
+		</tbody>
+	</table>
+	<div >
+
+		
+
+	</div>
+	
+</div>
+<script src="../assets-nuevodisenio/js/data-tables/datatable-advanced.js"></script>
+
+
+<script>
+	function eliminarMaestroCupon(reg,item){
+		var data = {"expreg":reg,"expcupreg":item};
+		
+		swal({
+			title: "{Idioma_Eliminar}",
+			text: "{Idioma_ConfEliminarSec}",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#0CC27E',
+			cancelButtonColor: '#FF586B',
+			confirmButtonText: '{Idioma_BotonConf}',
+			cancelButtonText: '{Idioma_BotonCan}',
+			confirmButtonClass: 'btn btn-success btn-raised mr-5',
+			cancelButtonClass: 'btn btn-danger btn-raised',
+			buttonsStyling: false
+		}).then(function () {
+			$.ajax({
+			  type: "POST",
+			  url: 'delcupon.php',
+			  data: data
+			}).done(function( rsp ) {
+				console.log(rsp);
+				data = $.parseJSON(rsp);
+				
+				if(data.errcod == 0){			
+					toastr.success(data.errmsg, '{Idioma_Eliminar}');
+					//swal("GUARDAR", data.errmsg, "success").done();
+					showBrowserCupon(reg);
+				}else{
+					toastr.error(data.errmsg, '{Idioma_Eliminar}');
+					//swal("GUARDAR", data.errmsg, "error").done();
+				}
+				
+			});
+			
+			
+		}, function (dismiss) {
+			// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+			if (dismiss === 'cancel') {
+			}
+		}).done();
+	}
+</script>
+                    

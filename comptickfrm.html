@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="description" content="Convex admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+	<meta name="keywords" content="admin template, Convex admin template, dashboard template, flat admin template, responsive admin template, web app">
+	<meta name="author" content="BTBox">
+	<title>{SisNombreEvento}</title>
+    <link rel="shortcut icon" type="image/png" href="assets-nuevodisenio/img/favicon.jpg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<link rel="stylesheet" type="text/css" href="assets-nuevodisenio/index.css">
+	<script src="https://js.stripe.com/v3/"></script>
+	<style>
+		.mercadopago-button{
+
+			width: 250px;
+			background: #53b6b8!important;
+		}
+		.price-box h5 {
+			width: 100%;
+			display: block;
+			font-size: 32px;
+			font-weight: 800;
+			letter-spacing: 1px;
+			margin-bottom: 5px;
+			color: va;
+		}
+		.price-box .price {
+				width: 100%;
+				display: block;
+				margin-bottom: 0;
+				text-align: center;
+			}
+		.price-box .price .currency {
+			display: inline-block;
+			font-size: 22px;
+			transform: translateY(-24px);
+		}
+		.price-box .price .value {
+			display: inline-block;
+			font-size: 60px;
+			font-weight: 600;
+		}
+		.price-box ul li.active {
+			opacity: 1;
+		}
+		.price-box ul li {
+			display: block;
+			margin-bottom: 15px;
+			padding-left: 30px;
+			list-style: none;
+			text-align: left;
+			font-size: 19px;
+			opacity: 0.5;
+		}
+		.stripe-button-el{
+			width: 250px!important;
+			background: #53b6b8!important; 
+			background-image: none!important;
+			border-radius: 0.2857142857142857em!important;
+			
+		}
+		.stripe-button-el span{
+			background: #53b6b8!important; 
+			font-family: Helvetica Neue, Arial, sans-serif!important; 
+			font-size: 0.875em!important;
+			line-height: 2.7142857142857144!important; 
+			padding: 0 1.7142857142857142em!important;
+			height: auto!important;
+			text-shadow: none!important;
+			font-weight: 100!important;
+
+		}
+	</style>
+	</head>
+    <body data-col="1-column" class=" 1-column  blank-page blank-page">
+		<div id="bg">
+			<img id="loginweb" src="{bannerhomeimginferior}" alt="">
+			<img id="logincel" src="{bannerhomeimginferiorcel}" alt="">
+		</div>
+    <div class="wrapper">		
+			<div class="container-fluid">
+				<div class="row full-height-vh">
+					<div class="col-md-12 d-flex align-items-center justify-content-center " >
+						<div class="card px-4 py-2 box-shadow-2 cardtrasparent cardlog">
+							
+							<div class="card-body">
+								<div class="card-block">
+									<div class="form-group">
+										<section class="content-section "  id="tickets">
+											<span class="section-bg"></span>
+											<!-- end section-bg -->
+											<div class="container">
+											  <div class="row justify-content-center g-0">
+												<div class="col-12">
+												  <div >
+													<div class="section-title text-center">
+														<div class="card-header text-center p-0">
+															<img src="../admimg/{file}" alt="company-logo"  width="250">						
+														</div>
+													  <h6>{tit_sup_5}</h6>
+													  <h2>{titulo_5}</h2>
+													</div>
+													<!-- end section-title -->
+												  </div>
+												  <!-- end data-scroll -->
+												</div>
+												<!-- end col-12 -->
+												<div class="col-xl-3 col-lg-4 col-md-6 m-1" style="border: 1px solid var(--main); padding: 20px;border-radius: 20px;">
+												  <div >
+													<div class="price-box">
+													  <h5 style="text-align: center;">BEGINNER</h5>
+													  <div class="price">
+														<span class="currency">$</span>
+														<span class="value">40</span>
+													  </div>
+													  <!-- end price -->
+													  <ul>
+														<li class="active">
+														  <i class="fa fa-check-circle"></i> Full Conference
+														  <small>(workshop, coffee etc)</small>
+														</li>
+														<li>
+														  <i class="fa fa-times-circle"></i> Live Videos
+														  <small>(Can access online free)</small>
+														</li>
+														<li>
+														  <i class="fa fa-times-circle"></i> Meet Speaker
+														  <small>(Ask questions privately)</small>
+														</li>
+													  </ul>
+													  <form id="frmpag{tikcodfor}" name="frmpag{tikcodfor}" action="compproc.php?P={percodigo}" method="POST">
+														<input id="tikcodigo" name="tikcodigo" type="hidden" value="{tikcodfor}">
+														<script
+															src="https://www.mercadopago.com.ar/integrations/v1/web-tokenize-checkout.js"
+															data-public-key="{publicKeyMP}"
+															data-transaction-amount="40"
+															data-summary-product="40"
+															data-summary-product-label="{tikdesfor}"
+															data-button-label="Mercadopago">
+														</script>
+													</form>
+													<form action="checkoutstripe.php" method="post" class="mr-1 mt-1">
+														<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+															data-key="pk_live_51MoqGrEtWVTAA2f4TWv4ng2Vxop52oOnpuL5eToTVhPXWoKNnETM4QXN5xKUqjsJHIc7ue5YE0DZNiIkWrj3nWtb00f5EZyjku"
+															data-description="BEGINNER"
+															data-amount="4000"
+															data-currency="usd"
+															data-locale="es"></script>
+													</form>
+													
+													<div class="">
+														<a href="../examples1/webpay-plus/index.php?action=create&P={percodigo}&C=40" target="_blank" class="btn white  mr-1 mt-1" style="width: 250px;line-height: 2.7142857142857144; background: #53b6b8; border-radius: 0.2857142857142857em;;font-family: Helvetica Neue, Arial, sans-serif; font-size: 0.875em;padding: 0 1.7142857142857142em;">Transbank</a>
+													</div>
+													</div>
+													<!-- end price-box -->
+												  </div>
+												  <!-- end data-scroll -->
+												</div>
+												<!-- end col-3 -->
+												<div class="col-xl-3 col-lg-4 col-md-6 m-1" style="border: 1px solid var(--main); padding: 20px;border-radius: 20px;">
+												  <div>
+													<div class="price-box featured">
+													  <h5 style="text-align: center;">ADVANCED</h5>
+													  <div class="price">
+														<span class="currency">$</span>
+														<span class="value">90</span>
+													  </div>
+													  <!-- end price -->
+													  <ul>
+														<li class="active">
+														  <i class="fa fa-check-circle"></i> Full Conference
+														  <small>(workshop, coffee etc)</small>
+														</li>
+														<li class="active">
+														  <i class="fa fa-check-circle"></i> Live Videos
+														  <small>(Can access online free)</small>
+														</li>
+														<li class="active">
+														  <i class="fa fa-check-circle"></i> Meet Speaker
+														  <small>(Ask questions privately)</small>
+														</li>
+													  </ul>
+													  <form id="frmpag{tikcodfor}" name="frmpag{tikcodfor}" action="compproc.php?P={percodigo}" method="POST">
+														<input id="tikcodigo" name="tikcodigo" type="hidden" value="{tikcodfor}">
+														<script
+															src="https://www.mercadopago.com.ar/integrations/v1/web-tokenize-checkout.js"
+															data-public-key="{publicKeyMP}"
+															data-transaction-amount="90"
+															data-summary-product="90"
+															data-summary-product-label="{tikdesfor}"
+															data-button-label="Mercadopago">
+														</script>
+													</form>
+													<form action="checkoutstripe.php" method="post" class="mr-1 mt-1">
+														<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+															data-key="pk_live_51MoqGrEtWVTAA2f4TWv4ng2Vxop52oOnpuL5eToTVhPXWoKNnETM4QXN5xKUqjsJHIc7ue5YE0DZNiIkWrj3nWtb00f5EZyjku"
+															data-description="ADVANCED"
+															data-amount="9000"
+															data-currency="usd"
+															data-locale="es"></script>
+													</form>
+													<div class="">
+														<a href="../examples1/webpay-plus/index.php?action=create&P={percodigo}&C=90" target="_blank" class="btn white  mr-1 mt-1" style="width: 250px;line-height: 2.7142857142857144; background: #53b6b8; border-radius: 0.2857142857142857em;;font-family: Helvetica Neue, Arial, sans-serif; font-size: 0.875em;padding: 0 1.7142857142857142em;">Transbank</a>
+													</div>
+													</div>
+													<!-- end price-box -->
+												  </div>
+												  <!-- end data-scroll -->
+												</div>
+												<!-- end col-3 -->
+												<div class="col-xl-3 col-lg-4 col-md-6 m-1" style="border: 1px solid var(--main); padding: 20px;border-radius: 20px;">
+												  <div>
+													<div class="price-box">
+													  <h5 style="text-align: center;">PREMIUM</h5>
+													  <div class="price">
+														<span class="currency">$</span>
+														<span class="value">120</span>
+													  </div>
+													  <!-- end price -->
+													  <ul>
+														<li class="active">
+														  <i class="fa fa-check-circle"></i> Full Conference
+														  <small>(workshop, coffee etc)</small>
+														</li>
+														<li class="active">
+														  <i class="fa fa-check-circle"></i> Live Videos
+														  <small>(Can access online free)</small>
+														</li>
+														<li class="active">
+														  <i class="fa fa-check-circle"></i> Meet Speaker
+														  <small>(Ask questions privately)</small>
+														</li>
+													  </ul>
+													  <form id="frmpag{tikcodfor}" name="frmpag{tikcodfor}" action="compproc.php?P={percodigo}" method="POST">
+														<input id="tikcodigo" name="tikcodigo" type="hidden" value="{tikcodfor}">
+														<script
+															src="https://www.mercadopago.com.ar/integrations/v1/web-tokenize-checkout.js"
+															data-public-key="{publicKeyMP}"
+															data-transaction-amount="120"
+															data-summary-product="120"
+															data-summary-product-label="{tikdesfor}"
+															data-button-label="Mercadopago">
+														</script>
+													</form>
+													<form action="checkoutstripe.php" method="post" class="mr-1 mt-1">
+														<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+															data-key="pk_live_51MoqGrEtWVTAA2f4TWv4ng2Vxop52oOnpuL5eToTVhPXWoKNnETM4QXN5xKUqjsJHIc7ue5YE0DZNiIkWrj3nWtb00f5EZyjku"
+															data-description="PREMIUM"
+															data-amount="12000"
+															data-currency="usd"
+															data-locale="es"></script>
+													</form>
+													<div class="">
+														<a href="../examples1/webpay-plus/index.php?action=create&P={percodigo}&C=120" target="_blank" class="btn white  mr-1 mt-1" style="width: 250px;line-height: 2.7142857142857144; background: #53b6b8; border-radius: 0.2857142857142857em;;font-family: Helvetica Neue, Arial, sans-serif; font-size: 0.875em;padding: 0 1.7142857142857142em;">Transbank</a>
+													</div>
+													</div>
+													<!-- end price-box -->
+												  </div>
+												  <!-- end data-scroll -->
+												</div>
+												<!-- end col-3 -->
+											  </div>
+											  <!-- end row -->
+											</div>
+											<!-- end container -->
+										  </section>
+										
+										<br>
+										
+	
+									</div>
+								</div>
+								<div style="text-align: center;" class="mx-auto">
+									<button onclick="clickVolver();"  class="btn white  mr-1 mt-1" style="width: 350px;line-height: 2.7142857142857144; background: #53b6b8; border-radius: 0.2857142857142857em;;font-family: Helvetica Neue, Arial, sans-serif; font-size: 0.875em;padding: 0 1.7142857142857142em; text-align: center;">Saltear</button>
+								</div>
+								
+							</div>
+							
+						</div>
+						
+					</div>
+				</div>
+			</div>
+	</div>
+										
+	<!-- BEGIN VENDOR JS-->
+	<script src="assets-nuevodisenio/vendors/js/core/jquery-3.3.1.min.js"></script>
+	<script src="assets-nuevodisenio/vendors/js/core/popper.min.js"></script>
+	<script src="assets-nuevodisenio/vendors/js/core/bootstrap.min.js"></script>
+	<script src="assets-nuevodisenio/vendors/js/perfect-scrollbar.jquery.min.js"></script>
+	<script src="assets-nuevodisenio/vendors/js/prism.min.js"></script>
+	<script src="assets-nuevodisenio/vendors/js/jquery.matchHeight-min.js"></script>
+	<script src="assets-nuevodisenio/vendors/js/screenfull.min.js"></script>
+	<script src="assets-nuevodisenio/vendors/js/pace/pace.min.js"></script>
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<!-- END PAGE VENDOR JS-->
+	<!-- BEGIN CONVEX JS-->
+	<script src="assets-nuevodisenio/js/app-sidebar.js"></script>
+	<!-- END CONVEX JS-->
+	<!-- BEGIN PAGE LEVEL JS-->
+	<!-- END PAGE LEVEL JS-->
+	
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<script src="assets-nuevodisenio/vendors/js/sweetalert2.min.js"></script>
+	<script src="assets-nuevodisenio/vendors/js/toastr.min.js"></script>
+	<script src="assets-nuevodisenio/vendors/js/switchery.min.js"></script>
+	<script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
+
+	<script>
+		 $(document).ready(function () {
+			
+            var x = document.getElementById("loginweb");
+            var y = document.getElementById("logincel");
+           
+            if (window.innerWidth < 800){
+            
+            // console.log("entro aca")
+            x.style.display = "none";
+            y.style.display = "";
+           
+
+            }else{
+                
+            x.style.display = "";
+            y.style.display = "none";
+           
+        
+            }
+			});
+		function clickVolver(){
+			window.location="login";
+		}
+	</script>
+  </body>
+    
+
+</html>
+
+
+
+
+
+

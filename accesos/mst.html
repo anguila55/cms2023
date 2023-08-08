@@ -1,0 +1,106 @@
+<section id="horizontal-form-layouts">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="px-3">
+						<form enctype="multipart/form-data" class="form form-horizontal" novalidate>
+							<div class="form-body">
+								<div class="col-md-12">
+									<label for="acctitulo">Nombre</label>
+									<input type="hidden" id="accreg" name="accreg" value="{accreg}">
+									<input type="text" id="acctitulo" name="acctitulo" class="form-control" value="{acctitulo}">
+								</div>
+								<div class="col-md-12">
+									<label for="acchref">Link</label>
+									<input type="text" id="acchref" name="acchref" class="form-control" value="{acchref}">
+								</div>
+								<div class="col-md-12">
+									<label for="accicono">Imagen</label>
+									<input type="text" id="accicono" name="accicono" class="form-control" value="{accicono}">
+								</div>
+								<div class="form-actions right">
+									<button id="btnguardar" type="button" class="btn btn-success"
+										onclick="guardarMaestroMsg();">
+										<i class="icon-note"></i> {Idioma_Guardar}
+									</button>
+									<a id="btncancelar" type="button" class="btn btn-danger mr-1"
+										href="../accesos/bsq">
+										<i class="icon-arrow-left"></i> {atras}
+									</a>
+									&nbsp;&nbsp;
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<script>
+
+	//Tomamos el valor del id
+	function guardarMaestroMsg() {
+		var errcod = 0;
+		var errmsg = '';
+
+
+		if (errcod != 0) {
+			//swal("GUARDAR", errmsg, "error").done();
+			toastr.error(errmsg, '{Idioma_Guardar}');
+		}
+
+		if (errcod == 0) {
+			swal({
+				title: "{Idioma_GuardarSwal}",
+				text: "{Idioma_Confirmar}",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: '{Idioma_BotonConf}',
+				cancelButtonText: '{Idioma_BotonCan}',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+				guardarMaestro();
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') { }
+			}).done();
+		}
+	}
+
+
+	function guardarMaestro() {
+
+		var formData = new FormData($('#FrmMst')[0]);
+
+		formData.append("accreg", $('#accreg').val())
+		formData.append("acctitulo", $('#acctitulo').val());
+		formData.append("acchref", $('#acchref').val());
+		formData.append("accicono", $('#accicono').val());
+
+		$.ajax({
+			type: "POST",
+			url: 'grb.php',
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false
+		}).done(function (rsp) {
+			console.log('resp', rsp)
+			data = $.parseJSON(rsp);
+			if (data.errcod == 0) {
+				toastr.success(data.errmsg, '{Idioma_Guardar}');
+			} else {
+				toastr.error(data.errmsg, '{Idioma_Guardar}');
+			}
+
+		});
+	}
+</script>

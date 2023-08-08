@@ -1,0 +1,177 @@
+
+<style>
+	.box {
+		float: left;
+		height: 20px;
+		width: 20px;
+		margin-bottom: 15px;
+		margin-right: 15px;
+		border: 1px solid transparent;
+		clear: both;
+		}
+	
+</style>
+<div class="modal-content modal-radius pl-3 pr-3">
+	<button type="button" class="color-main-event boton-x" data-dismiss="modal">X</button>
+	<div class="col-12">
+		<h4 class="meeting-banner_text text-center fw-300">{iniciotituloreunion}<br><span class="color-main-event fw-700">{nombresolicitud} {apellidosolicitud}</span> {iniciofrom} <span class="color-main-event">{empresasolicitud}</span></h4>	
+	</div>
+	<div class="d-block mr-auto ml-auto mt-3">
+		<img src="../assets-nuevodisenio/img/icons/popupreunion.png" width="200px" alt="">
+	</div>
+	
+<div class="modal-body m-0 col-12 row">
+
+		<div class="col-md-3 col-lg-3 col-sm-12 {bloquearreunion} pl-0 pr-0 mb-2">
+			
+			<div class="col-12 pl-0 pr-0">
+				<label class="mt-2 mb-1 color-main-event fw-400" for="timesheetinput3">{Idioma_Dia_fecha}</label>
+				<div class="position-relative has-icon-left">
+					<input  onkeypress="return false;" onchange="loadHorarios(this);" type="date" data-date-inline-picker="true" id="agefch" class="form-control" value="{fechaincioreunion}"  min="{fechainicial}" max="{fechafinal}" name="agefch" placeholder="Seleccione la fecha...">
+						<!-- <i class="ft-message-square"></i> -->
+				</div>
+				
+			</div>
+			<div class="col-12 mt-3 pl-0 pr-0">
+				<p class="mt-3 {mostrarqr} {mostrartextotipo} texto-tipo-block">{textotipo}</p>
+				<div class="{mostrarqr} {mostrartipo}">
+					<label class="mt-1 mb-1 color-main-event fw-400" for="timesheetinput3">{reunionesselectipo}:</label>
+					<select id="tiporeunion" name="tiporeunion" class="form-control" onchange="loadHorarios(this);">
+						<option value="0">{reunionesvirtual}</option>
+						<option value="1" {selectedpresencial}>{reunionespresencial}</option>
+					</select>
+				</div>
+			</div>
+			
+		
+		</div>
+		
+		<div class="col-md-9 col-lg-9 col-sm-12 pl-0 pr-0">
+
+			<div class="row col-12 ml-1" >
+				<div class="col-lg-6 col-sm-12 pl-0 pr-0 texto-tipo-block"><div class='box bg-danger'></div> {reunionesrojo}</div>
+				<br>
+				<div class="col-lg-6 col-sm-12 pl-0 pr-0 texto-tipo-block"><div class='box bg-black'></div> {reunionesnegro}</div>
+				
+			</div>
+			
+			<div class="row col-12 ml-2 mb-2">
+				<label id="labelhorarios" style="display: none;" class="mt-2 color-main-event" for="timesheetinput3">{Idioma_Dia_horario} <span class="color-secondary-event fw-200 texto-tipo-block">({Idioma_Dia_horariozona}{timdescri})</span></label>
+				<div id="horarios" class="row col-12 horarios-container">
+					
+				</div>
+			</div>
+
+			
+
+		</div>
+
+		
+
+	
+<div class="col-md-12 d-flex justify-content-end">
+	<button id="btnsolicitar" type="button" class="boton-new-rounded mr-1 mb-2 {bloquearreunion}"
+		onclick="solicitarReunion({percoddst});"><i id="spinnercoordinar" class="fa fa-spinner fa-spin"> </i> {streaming_send}</button>
+</div>
+</div>
+</div>
+<script src="brw.js"></script>
+<script src="../assets-nuevodisenio/js/switch.min.js"></script>
+
+<script>
+document.querySelector("#spinnercoordinar").style.display = 'none';
+var nombreboton='';
+	function handleClick(cb) {
+
+		if (cb.id!=nombreboton && nombreboton!=''){
+			
+			
+			document.querySelector("#"+nombreboton).checked = false;
+			nombreboton=cb.id;
+
+		}
+		if (nombreboton ==''){
+			
+			nombreboton=cb.id;
+		}
+		
+		
+	}
+	function solicitarReunion(reg) {
+
+		let fecha = '';
+		var cantHoras = 0;
+		var dataCoordinar = [];
+		var tiporeunion = $('#tiporeunion').val();
+		$.each($('input[name="coordtime"]:checked').not(':disabled'), function () {
+			fecha = $(this).data('fecha');
+			var hora = $(this).data('hora');
+			var data = { "fecha": fecha, "hora": hora };
+
+			dataCoordinar.push(data);
+			cantHoras++;
+		});
+
+		if ( (cantHoras == 0) || (fecha === '31/12/1969') ){
+			toastr.error('Por favor selecciona un día y una hora', 'MEETING');
+		} else if (cantHoras > 3) {
+			toastr.error('Selecciona solo una posible hora de reunión', 'MEETING');
+		} else {
+			//$('#btnsolicitar').hide();
+			//$('#imgloading').show();
+			document.querySelector("#spinnercoordinar").style.display = '';
+			var data = {
+				"percoddst": reg,
+				"dataCoordinar": dataCoordinar,
+				"tiporeunion": tiporeunion
+			};
+
+			$.ajax({
+				type: "POST",
+				url: 'coordinargrb.php',
+				data: data
+			}).done(function (rsp) {
+				data = $.parseJSON(rsp);
+
+				if (data.errcod == 0) {
+					toastr.success(data.errmsg, 'MEETING');
+					$('#DataMaestroView').modal('hide');
+					showBrowser();
+				} else {
+					toastr.error(data.errmsg, 'MEETING');
+					//swal("GUARDAR", data.errmsg, "error").done();
+				}
+				//$('#btnsolicitar').show();
+				//$('#imgloading').hide();
+				document.querySelector("#spinnercoordinar").style.display = 'none';
+			});
+		}
+	}
+	function loadHorarios(obj) {//Se cargan las clases en relacion con el Tipo de Perfil
+		
+		var percod = {percoddst};
+		var agefch = document.querySelector("#agefch").value;
+		var tiporeunion = document.querySelector("#tiporeunion").value; 
+		
+		$.ajax({
+			type: "POST",
+			url: "coordinarhora.php",
+			data: { "agefch": agefch,
+					"percoddst": percod,
+					"tiporeunion":tiporeunion }
+		}).done(function (rsp) {
+
+			data = $.parseJSON(rsp);
+			Eliminar();
+			data.forEach(producto => {
+				
+				if (producto != null ){
+					Mostrar(producto);
+				}
+
+				});
+			document.querySelector('#labelhorarios').style= 'block';
+		});
+
+	}
+</script>

@@ -1,0 +1,302 @@
+<section id="horizontal-form-layouts">
+  <!--New formulario-->
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="px-3">
+          <form class="form">
+            <div class="form-body">
+              <div class="form-group">
+                <label for="timesheetinput1">{backconfregistronombre}</label>
+                <div class="">
+                  <input
+                    type="text"
+                    id="nombreevento"
+                    name="nombreevento"
+                    class="form-control"
+                    value="{nombreevento}"
+                  />
+                  <div class="form-control-position">
+                    <!--En caso que requiera icono-->
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="timesheetinput1">{backconfregistromail}</label>
+                <div class="">
+                  <input
+                    type="text"
+                    id="mailcontacto"
+                    name="mailcontacto"
+                    class="form-control"
+                    value="{mailcontacto}"
+                  />
+                  <div class="form-control-position">
+                    <!--En caso que requiera icono-->
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="timesheetinput3">{backconfregistroinicio}</label>
+                <div class="position-relative has-icon-left">
+                  <input
+                    type="date"
+                    id="evefch"
+                    class="form-control"
+                    name="evefch"
+                    value="{evefch}"
+                  />
+                  <div class="form-control-position">
+                    <i class="ft-message-square"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="timesheetinput3">{backconfregistrofin}</label>
+                <div class="position-relative has-icon-left">
+                  <input
+                    type="date"
+                    id="evefchfin"
+                    class="form-control"
+                    name="evefchfin"
+                    value="{evefchfin}"
+                  />
+                  <div class="form-control-position">
+                    <i class="ft-message-square"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="timesheetinput3">{backconfregistrocolor}</label>
+                <div class="">
+                  <input
+                    type="text"
+                    id="colorevento"
+                    name="colorevento"
+                    class="form-control"
+                    value="{colorevento}"
+                  />
+                  <div class="form-control-position">
+                    <!--En caso que requiera icono-->
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="timesheetinput3">{backconfregistroaccesolibre}</label>
+                <div class="position-relative has-icon-left">
+                  <select id="ingresoevento" name="ingresoevento" class="form-control">
+                    <option value="false" {ingresoeventolibre}>{backconfregistroaccesoliberado}</option>
+                    <option value="true" {ingresoeventosinliberar}>{backconfregistroaccesosinliberar}</option>
+                   </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="timesheetinput3">Tipo de Registro</label>
+                <div class="position-relative has-icon-left">
+                  <select id="tiporegistro" name="tiporegistro" class="form-control">
+                    <option value="true" {registrounico}>Registro único</option>
+                    <option value="false" {registromultiple}>Registro por clase de usuarios</option>
+                   </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="timesheetinput3">{backconfregistroocultar}</label>
+                <div class="position-relative has-icon-left">
+                  <select id="ocregistro" name="peridioma" class="form-control">
+                    <option value="si" {si}>{conectadosi}</option>
+                    <option value="no" {no}>{conectadono}</option>
+                   </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="timesheetinput1">{backconfregistroconfirmar}</label>
+                <p style="font-weight: 600; font-size:12px;">Escriba el mensaje que visualizarán los usuarios luego de completar el formulario, al finalizar el proceso de registro. Recuerde que todos los usuarios deben confirmar su casilla de correo antes de poder ingresar a la plataforma, para lo cual recibirán un correo automático de BTBOX y deberán cliquear sobre el link que figura en el mismo (este mail se puede personalizar desde la sección MENSAJERÍA del Panel de Configuración).</p>
+                <div class="">
+                  <textarea class="form-control" id="textconfirmar" name="textconfirmar" rows="3" maxlength="1000">{textconfirmar}</textarea>
+                  <div class="form-control-position">
+                    <!--En caso que requiera icono-->
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="timesheetinput1">{backconfregistroliberar}</label>
+                <p style="font-weight: 600; font-size:12px;">Escriba el mensaje que visualizarán los usuarios cuando intenten ingresar a la plataforma, sin haber sido autorizados por el organizador. Recuerde que, dependiendo de la configuración seleccionada para su evento, los usuarios pueden requerir de autorización para ingresar a la plataforma. Este permiso se brinda desde el administrador de usuarios, ubicado en el Panel de Configuración, y que al autorizar a un usuario se envía una notificación automática desde la plataforma (este mail se puede personalizar desde la sección MENSAJERÍA del Panel de Configuración).</p>
+                <div class="">
+                  <textarea class="form-control" id="textliberar" name="textliberar" rows="3" maxlength="1000">{textliberar}</textarea>
+                  <div class="form-control-position">
+                    <!--En caso que requiera icono-->
+                  </div>
+                </div>
+              </div>
+              
+             
+              
+
+             
+
+            
+            
+          
+            <div class="form-actions right">
+              <a
+                id="btnguardar"
+                type="button"
+                class="btn btn-success"
+                onclick="guardarMaestroMsg();"
+              >
+                <i class="icon-note"></i> {Idioma_Guardar}
+              </a>
+              <a
+                id="btncancelar"
+                type="button"
+                class="btn btn-danger mr-1 white"
+                href="../backend/bsq"
+              >
+                <i class="icon-arrow-left"></i> {atras}
+              </a>
+              &nbsp;&nbsp;
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+ 
+ 
+ 
+
+
+
+  function guardarMaestroMsg() {
+    var errcod = 0;
+    var errmsg = "";
+
+    var textconfirmar = $("#textconfirmar").val();
+    var textliberar = $("#textliberar").val();
+    var evefch = $("#evefch").val();
+    var evefchfin = $("#evefchfin").val();
+    var nombreevento = $("#nombreevento").val();
+    var mailcontacto = $("#mailcontacto").val();
+    var ocregistro = $("#ocregistro").val();
+    var ingresoevento = $("#ingresoevento").val();
+    var tiporegistro = $("#tiporegistro").val();
+    var colorevento = $("#colorevento").val();
+
+   
+    if (textliberar == "") {
+      errcod = 2;
+    }
+    if (textconfirmar == "") {
+      errcod = 2;
+    }
+    if (evefch == "") {
+      errcod = 2;
+    }
+    if (evefchfin == "") {
+      errcod = 2;
+    }
+    if (nombreevento == "") {
+      errcod = 2;
+    }
+    if (mailcontacto == "") {
+      errcod = 2;
+    }
+    if (ocregistro == "") {
+      errcod = 2;
+    }
+    if (ingresoevento == "") {
+      errcod = 2;
+    }
+    if (tiporegistro == "") {
+      errcod = 2;
+    }
+    if (colorevento == "") {
+      errcod = 2;
+    }
+ 
+
+    if (errcod != 0) {
+      //swal("GUARDAR", errmsg, "error").done();
+      toastr.error(
+        "{completeelcampo}...",
+        "{Idioma_GuardarSwal}"
+      );
+    }
+
+    if (errcod == 0) {
+      swal({
+        title: "{Idioma_GuardarSwal}",
+				text: "{Idioma_Confirmar}",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: '{Idioma_BotonConf}',
+				cancelButtonText: '{Idioma_BotonCan}',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+      })
+        .then(
+          function () {
+            guardarMaestro();
+          },
+          function (dismiss) {
+            // dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+            if (dismiss === "cancel") {
+            }
+          }
+        )
+        .done();
+    }
+  }
+
+  function guardarMaestro() {
+
+    var textconfirmar = $("#textconfirmar").val();
+    var textliberar = $("#textliberar").val();
+    var evefch = $("#evefch").val();
+    var evefchfin = $("#evefchfin").val();
+    var evefch = $("#evefch").val();
+    var nombreevento = $("#nombreevento").val();
+    var mailcontacto = $("#mailcontacto").val();
+    var ocregistro = $("#ocregistro").val();
+    var ingresoevento = $("#ingresoevento").val();
+    var tiporegistro = $("#tiporegistro").val();
+    var colorevento = $("#colorevento").val();
+ 
+
+    var data = {
+      textconfirmar: textconfirmar,
+      textliberar: textliberar,
+      evefchfin: evefchfin,
+      evefch: evefch,
+      nombreevento: nombreevento,
+      mailcontacto: mailcontacto,
+      ocregistro: ocregistro,
+      ingresoevento: ingresoevento,
+      tiporegistro: tiporegistro,
+      colorevento: colorevento
+    };
+
+    $.ajax({
+      type: "POST",
+      url: "grb.php",
+      data: data,
+    }).done(function (rsp) {
+      data = $.parseJSON(rsp);
+
+      if (data.errcod == 0) {
+        toastr.success(data.errmsg, '{Idioma_Guardar}');
+        //swal("GUARDAR", data.errmsg, "success").done();
+        showMaestro(0);
+      } else {
+        toastr.error(data.errmsg, '{Idioma_Guardar}');
+        //swal("GUARDAR", data.errmsg, "error").done();
+      }
+    });
+  }
+ 
+</script>

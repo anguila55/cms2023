@@ -1,0 +1,343 @@
+
+<div class="modal-content modal-radius pl-3 pr-3">
+	<button type="button" class="color-main-event boton-x" onclick="cerrar();">X</button>
+	<div class="col-12">
+		<p class="meeting-banner_textdisp text-center fw-300">{pervencomdes}</p>	
+	</div>
+	<div class="col-12 d-flex justify-content-center">
+		<div>
+		<a id="btnclasifven" type="button" class="btn boton-simple-rounded {backgroundcolor1} mr-1  white {linkoferta}" style="width: 200px;" onclick="switchofertademanda();">
+			<i class="fa fa-flickr"></i> {Idioma_ClasificarVentas}
+		</a>
+		<a id="btnclasifven" type="button" class="btn boton-simple-rounded {backgroundcolor2} mr-1  white {linkdemanda}" style="width: 200px;" onclick="switchofertademanda();">
+			<i class="fa fa-flickr"></i> {Idioma_ClasificarCompras}
+		</a>
+		</div>
+	</div>
+	<input id="pervencom" name="pervencom" type="hidden" value="{pervencom}">
+	<div class="col-12" style="{btnsectores}">
+		<p class="col-12 ml-2 mt-3 color-main-event"><i class="icon-layers mr-1"></i> {Idioma_Sectores}</p>
+		<div class="row" id='dvsectores'>
+			
+			<!-- BEGIN sectores -->
+			<div id="sector_{seccodigo}" class="col-md-4 col-sm-6 col-lg-4 mb-2 pt-1 pb-1">
+			
+				<div class="d-flex ">
+					<p class="fw-600 sectors-text">{secdescri}</p>
+					<input type="checkbox" id="secselect_{seccodigo}" name="secselect" class="switchery-small" data-color="white" data-jack-color="color-main-event" data-codigo="{seccodigo}" {secchecked} onchange="loadCategorias({seccodigo})"/>
+				</div>
+			</div>
+			<div class="row col-12" style="margin-left:30px;">
+				<!-- BEGIN subsectores -->
+				<div id="subsector_{secsubcod}" class="col-md-4 col-sm-6 col-lg-4 mb-2 pt-1 pb-1" >
+		
+					<div class="d-flex ">
+						<p class="fw-100 sectors-text" style="overflow-wrap: break-word;">{secsubdes}</p>
+						<input type="checkbox" id="secsubselect_{secsubcod}" name="secsubselect" class="switchery-small" data-color="white" data-foo="secsubselect_{seccod}" data-jack-color="color-main-event" data-codigo="{secsubcod}" {secsubchecked} onchange="loadSubSectores({seccod})"/>
+					</div>
+			</div>
+				<!-- END subsectores -->
+			</div>
+		<!-- END sectores -->
+			
+		</div>
+
+	</div>
+
+	<div class="col-md-12 d-flex mb-2 justify-content-end">
+		<!--<img id="imgloading" src="../app-assets/img/loader.gif" style="width: 35px;height: 35px;margin-right: 6px;margin-top: 10px; display:none;">-->
+		<button type="button" class="boton-new-rounded mr-1 mb-2" onclick="cerrarClasificar();"><i id="spinnercoordinar" class="fa fa-spinner fa-spin"> </i>{Idioma_Guardar}</button>
+		<button type="button" class="boton-new-rounded-o mr-1 mb-2" onclick="cerrar();">{Idioma_Cerrar}</button>
+	</div>
+	
+</div>
+	  
+<script src="../assets-nuevodisenio/js/switch.min.js"></script>
+<script src="limpiar.js"></script>
+
+<script>
+	document.querySelector("#spinnercoordinar").style.display = 'none';
+
+	function loadSubSectores(reg){
+	
+		//Sectores seleccionados
+		var select = 'secselect_'+reg;
+		var checkBox = document.getElementById(select);
+		
+		if (checkBox.checked == true){
+			console.log('entro aca');
+		}else{
+			console.log('entro aca1');
+			checkBox.click();
+		}
+	
+	}
+	
+	
+	
+	function loadSubCategorias(){
+		var pervencom = $('#pervencom').val();
+		var data = {"pervencom":pervencom,"categorias":[],"subcategorias":[]};
+		
+		//Categorias seleccionados
+		$.each($('input[name="catselect"]:checked'),function(){
+			var catcodigo = $(this).data('codigo');
+			var item = {"catcodigo":catcodigo};
+			data.categorias.push(item);
+		});
+		//SubCategorias seleccionados
+		$.each($('input[name="catsubselect"]:checked'),function(){
+			var catsubcod = $(this).data('codigo');
+			var item = {"catsubcod":catsubcod};
+			data.subcategorias.push(item);
+		});
+		
+		$('#dvsubcategorias').load('../perfiles/dvsubcategorias.php',data);
+		
+	}
+	function cerrar(){
+		
+	
+					
+		$('#DataMaestroClasif').modal('hide');
+
+		
+	}
+
+
+	function switchofertademanda(){
+
+		var pervencom = $('#pervencom').val();
+		var data = {"sectores":[],
+					"subsectores":[],
+					"categorias":[],
+					"subcategorias":[] };
+	
+		document.querySelector("#spinnercoordinar").style.display = '';
+		//Sectores seleccionados
+		$.each($('input[name="secselect"]:checked'),function(){
+			var seccodigo = $(this).data('codigo');
+			var item = {"seccodigo":seccodigo};
+			data.sectores.push(item);
+		});
+		//Subsectores seleccionados
+		$.each($('input[name="secsubselect"]:checked'),function(){
+			var secsubcod = $(this).data('codigo');
+			var item = {"secsubcod":secsubcod};
+			data.subsectores.push(item);
+		});
+		//Categorias seleccionados
+		$.each($('input[name="catselect"]:checked'),function(){
+			var catcodigo = $(this).data('codigo');
+			var item = {"catcodigo":catcodigo};
+			data.categorias.push(item);
+		});
+		//SubCategorias seleccionados
+		$.each($('input[name="catsubselect"]:checked'),function(){
+			var catsubcod = $(this).data('codigo');
+			var item = {"catsubcod":catsubcod};
+			data.subcategorias.push(item);
+		});
+	
+		if(pervencom=='V'){
+			dataClasificarVen = data;
+		}else{
+			dataClasificarCom = data;
+		}
+
+		var ClasificarVen = JSON.stringify(dataClasificarVen);
+		var ClasificarCom = JSON.stringify(dataClasificarCom);
+		var datainfo = {
+				"percodigo": {percodigo},
+				"dataClasificarVen": ClasificarVen,
+				"dataClasificarCom": ClasificarCom
+			};
+
+			$.ajax({
+				type: "POST",
+				url: '../perfiles/grbclasi.php',
+				data: datainfo
+			}).done(function (rsp) {
+				datainfo = $.parseJSON(rsp);
+
+				if (datainfo.errcod == 0) {
+					if(pervencom=='V'){
+						window.location = "../perfiles/miperfil?P=C";
+					}else{
+						window.location = "../perfiles/miperfil?P=V";
+					}
+					
+				} else {
+					
+				}
+				
+			});
+
+			document.querySelector("#spinnercoordinar").style.display = 'none';
+
+
+	}
+	
+	function cerrarClasificar(){
+		var pervencom = $('#pervencom').val();
+		var data = {"sectores":[],
+					"subsectores":[],
+					"categorias":[],
+					"subcategorias":[] };
+	
+		document.querySelector("#spinnercoordinar").style.display = '';
+		//Sectores seleccionados
+		$.each($('input[name="secselect"]:checked'),function(){
+			var seccodigo = $(this).data('codigo');
+			var item = {"seccodigo":seccodigo};
+			data.sectores.push(item);
+		});
+		//Subsectores seleccionados
+		$.each($('input[name="secsubselect"]:checked'),function(){
+			var secsubcod = $(this).data('codigo');
+			var item = {"secsubcod":secsubcod};
+			data.subsectores.push(item);
+		});
+		//Categorias seleccionados
+		$.each($('input[name="catselect"]:checked'),function(){
+			var catcodigo = $(this).data('codigo');
+			var item = {"catcodigo":catcodigo};
+			data.categorias.push(item);
+		});
+		//SubCategorias seleccionados
+		$.each($('input[name="catsubselect"]:checked'),function(){
+			var catsubcod = $(this).data('codigo');
+			var item = {"catsubcod":catsubcod};
+			data.subcategorias.push(item);
+		});
+	
+		if(pervencom=='V'){
+			dataClasificarVen = data;
+		}else{
+			dataClasificarCom = data;
+		}
+
+		var ClasificarVen = JSON.stringify(dataClasificarVen);
+		var ClasificarCom = JSON.stringify(dataClasificarCom);
+		var datainfo = {
+				"percodigo": {percodigo},
+				"dataClasificarVen": ClasificarVen,
+				"dataClasificarCom": ClasificarCom
+			};
+
+			$.ajax({
+				type: "POST",
+				url: '../perfiles/grbclasi.php',
+				data: datainfo
+			}).done(function (rsp) {
+				datainfo = $.parseJSON(rsp);
+
+				if (datainfo.errcod == 0) {
+					toastr.success(datainfo.errmsg, '{ampliada2}');
+					
+					$('#DataMaestroClasif').modal('hide');
+					showMaestro({percodigo},'');
+				} else {
+					
+					toastr.error(datainfo.errmsg, '{ampliada2}');
+					//swal("GUARDAR", data.errmsg, "error").done();
+				}
+				
+			});
+
+			document.querySelector("#spinnercoordinar").style.display = 'none';
+		
+	}
+	
+	function createSwitch(name){
+		var elems = $('input[id^="'+name+'_"]');
+        $.each( elems, function( key, value ) {
+            var $size="", $color="",$sec_color="",$jack_color="",$jack_sec_color="",$sizeClass="", $colorCode="",$colorCodeSec="",$jackColorCode="",$jackColorCodeSec="";
+            $size = $(this).data('size');
+            var $sizes ={
+                'lg' : "large",
+                'sm' : "small",
+                'xs' : "xsmall"
+            };
+            if($(this).data('size')!== undefined){
+                $sizeClass = "switchery-small";
+            }
+            else{
+                $sizeClass = "switchery-small";
+            }
+
+            $color = $(this).data('color');
+            $sec_color = $(this).data('color-secondary');
+            $jack_color = $(this).data('jack-color');
+            $jack_sec_color = $(this).data('jack-color-secondary');
+            var $colors ={
+                'primary' : "#666EE8",
+                'success' : "#28D094",
+                'danger' : "#FF4961",
+                'warning' : "#FF9149",
+                'info' : "#1E9FF2",
+                'white' : "#FFFFFF"
+            };
+            if($color !== undefined){
+                $colorCode = $colors[$color];
+            }
+            else{
+                $colorCode = "#28D094";
+            }
+
+            if($sec_color !== undefined){
+                $colorCodeSec = $colors[$sec_color];
+            }
+            else{
+                $colorCodeSec = "#FFFFFF";
+            }
+
+            if($jack_color !== undefined){
+                $jackColorCode = $colors[$jack_color];
+            }
+            else{
+                $jackColorCode = "#FFFFFF";
+            }
+
+            if($jack_sec_color !== undefined){
+                $jackColorCodeSec = $colors[$jack_sec_color];
+            }
+            else{
+                $jackColorCodeSec = "#FFFFFF";
+            }
+
+            var switchery = new Switchery($(this)[0], { className: $sizeClass, color: $colorCode, secondaryColor: $colorCodeSec, jackColor: $jackColorCode, jackSecondaryColor: $jackColorCodeSec });
+        });
+	}
+	
+	function viewPatern(obj, nivel, codigo){
+		var color = '#3c3c3b6e';
+		
+		switch(nivel){
+			case 1: break; //Sector
+			case 2: //SubSector 
+				$('div[id^="sector_"]').css('background',''); //Limpio todos
+				$('div[id^="subsector_"]').css('background',''); //Limpio todos
+				$('#sector_'+codigo).css('background',color); //Pinto el correcto padre
+				$('div[id^="categoria_"]').css('background',''); //Limpio todos
+				$(obj).css('background',color); //Pinto el seleccionado
+				break; 
+			case 3:
+				$('div[id^="sector_"]').css('background',''); //Limpio todos
+				$('div[id^="subsector_"]').css('background',''); //Limpio todos
+				$('div[id^="categoria_"]').css('background',''); //Limpio todos
+				$('#subsector_'+codigo).css('background',color); //Pinto el correcto padre
+				$('#subsector_'+codigo).mouseover();
+				$(obj).css('background',color); //Pinto el seleccionado
+				break;
+			case 4: 
+			
+			
+				break;
+		}
+		
+	}
+</script>
+	 
+	  
+	  

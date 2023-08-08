@@ -1,0 +1,42 @@
+
+
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title" id="">About</h4>
+    <img
+      src="{spkimg}"
+      class="rounded-circle width-50 mr-2 float-right"
+      alt="user image"
+    />
+  </div>
+  <div class="modal-body">
+    <p><b>{Idioma_Nombre}: </b>{spktitulo}</p>
+    <p><b>{institucio}: </b>{spkempres}</p>
+    <p><b>{expositores20} </b>{spkcargo}</p>
+    <p><b>{Idioma_Descripcion}: </b>{spkdescri}</p>
+    <p>
+      <b>{charlas}:</b>
+
+      <ol>
+      <!-- BEGIN charlas -->
+
+      <li>• {agetitulo}  <a class="{video}" onclick="viewAgenda({agereg},{verageopc});" > <span
+        class="badge bg-secondary p-2 white ml-2">{vivo}</span></a></li>
+        <li>  {agefch} ({agehorini} - {agehorfin}) </li>
+      
+
+      <!-- END charlas -->
+	  </ol>
+
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn grey btn-outline-secondary"
+      data-dismiss="modal"
+    >
+      Close
+    </button>
+  </div>
+</div>

@@ -1,0 +1,203 @@
+
+<section id="horizontal-form-layouts">
+	<div class="row">
+		<div class="col-sm-12">
+			<h2 class="content-header">Nuevo solicitud de registro</h2>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="px-3">
+						<form class="form form-horizontal">
+
+							<div class="form-body">
+								<input id="varreg" name="varreg" type=hidden value="{varreg}">
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pernombre">ES: </label>
+									<div class="col-md-9">
+										<input type="text" id="vardescri"  name="vardescri" class="form-control" placeholder="" value="{vardescri}">
+										
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pernombre">ING:</label>
+									<div class="col-md-9">
+										<input type="text" id="vardescriing"  name="vardescriing" class="form-control" placeholder="" value="{vardescriing}">
+										
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pernombre">POR:</label>
+									<div class="col-md-9">
+										<input type="text" id="vardescripor"  name="vardescripor" class="form-control" placeholder="" value="{vardescripor}">
+										
+									</div>
+								</div>
+							
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="parcodigo">Mostrar: <span class="required">*</span></label>
+									<div class="col-md-9">
+
+										<!-- //NOTE SELECT CODIGO DE PARAMETRO -->
+										<select id="varmost" name="varmost" class="form-control" >
+											<option value="true" {selected1}>SI</option>
+											<option value="false" {selected2}>NO</option>
+											
+										</select>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="parcodigo">Requerido: <span class="required">*</span></label>
+									<div class="col-md-9">
+
+										<!-- //NOTE SELECT CODIGO DE PARAMETRO -->
+										<select id="varreq" name="varreq" class="form-control" >
+											<option value="true" {selected3}>SI</option>
+											<option value="false" {selected4}>NO</option>
+											
+										</select>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="parcodigo">Tipo Pregunta: <span class="required">*</span></label>
+									<div class="col-md-9">
+
+										<!-- //NOTE SELECT CODIGO DE PARAMETRO -->
+										<select id="vartipo" name="vartipo" class="form-control" onchange="veropciones(this);">
+											<option value="0" {selected5}>Libre</option>
+											<option value="1" {selected6}>Con opciones</option>
+											
+										</select>
+										<input type="text" id="varopc"  name="varopc" class="form-control mt-2 {visibleopciones}" placeholder="Opciones (separalas con una coma)" value="{varopc}">
+									</div>
+								</div>
+								
+								
+															
+							</div>
+
+							<div class="form-actions">
+								<button id="btnguardar" type="button" class="btn btn-success" onclick="guardarMaestroMsgClase();">
+									<i class="icon-note"></i> {Idioma_Guardar}
+								</button>
+								<button id="btncancelar" type="button" class="btn btn-danger mr-1" onclick="showBrowser();">
+									<i class="icon-trash"></i> {Idioma_BotonCan}
+								</button>
+								&nbsp;&nbsp;
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</section>
+		
+<script>
+
+
+function veropciones(obj) {
+	//Se cargan las clases en relacion con el Tipo de Perfil
+	let opciones = document.querySelector('#varopc');
+	var tipopregunta = $(obj).val();
+
+	if  (tipopregunta === "0"){
+		opciones.classList.add('d-none');
+	}else{
+		opciones.classList.remove('d-none');
+	}
+
+}
+
+
+	function guardarMaestroMsgClase(){
+		var errcod = 0;
+		var errmsg = '';
+		var es = $('#vardescri').val();
+		var ing = $('#vardescriing').val();
+		var por = $('#vardescripor').val();
+		
+		if ((es === '') && (ing === '') && (por === '')){
+			errcod=2;
+			errmsg='{completeelcampo}';
+		}
+		
+	
+		if(errcod!=0){
+			//swal("GUARDAR", errmsg, "error").done();
+			toastr.error(errmsg, '{Idioma_GuardarSwal}');
+		}
+		
+		if(errcod==0){
+			swal({
+				title: "{Idioma_GuardarSwal}",
+				text: "{Idioma_Confirmar}",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: '{Idioma_BotonConf}',
+				cancelButtonText: '{Idioma_BotonCan}',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+				guardarMaestro();
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+	}
+	
+	function guardarMaestro(){
+		var vardescri 	= $('#vardescri').val();
+		var vardescriing 	= $('#vardescriing').val();
+		var vardescripor 	= $('#vardescripor').val();
+		var varmost 	= $('#varmost').val();
+		var varreq 		= $('#varreq').val();
+		var varopc 		= $('#varopc').val();
+		var vartipo 		= $('#vartipo').val();
+		var varreg 		= $('#varreg').val();
+		var usuario 		= $('#perclase').val();
+		
+		var data = {"vardescri":vardescri,
+					"vardescriing":vardescriing,
+					"vardescripor":vardescripor,
+					"varmost":varmost,
+					"varreq"   :varreq,
+					"varopc"   :varopc,
+					"vartipo"   :vartipo,
+					"varreg"   :varreg,
+					"usuario"   :usuario
+
+				};
+		
+		$.ajax({
+		  type: "POST",
+		  url: 'grbpregunta.php',
+		  data: data
+		}).done(function( rsp ) {
+			data = $.parseJSON(rsp);
+			console.log(rsp);
+			
+			if(data.errcod == 0){
+				toastr.success(data.errmsg, '{Idioma_GuardarSwal}');			
+				//swal("GUARDAR", data.errmsg, "success").done();
+				crearregistrousuario();
+			}else{
+				toastr.error(data.errmsg, '{Idioma_GuardarSwal}');	
+				//swal("GUARDAR", data.errmsg, "error").done();
+			}
+			
+		});
+	}
+</script>
+	 
+	  
+	  

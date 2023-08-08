@@ -1,0 +1,566 @@
+﻿<style>
+	.scroll {
+		   max-height: 460px;
+		   overflow-y: auto;
+		   overflow-x: hidden;
+		   }
+		   .scroll2 {
+		   max-height: 110px;
+		   overflow-y: auto;
+		   overflow-x: hidden;
+		   }
+		   /* width */
+		   .scroll::-webkit-scrollbar {
+		   width: 10px;
+		   height: 5px;
+		   }
+   
+		   /* Track */
+		   .scroll::-webkit-scrollbar-track {
+		   box-shadow: inset 0 0 20px 20px grey; 
+		   border-radius: 5px;
+		   }
+		   
+		   /* Handle */
+		   .scroll::-webkit-scrollbar-thumb {
+		   background: #FFC210; 
+		   border-radius: 5px;
+		   }
+   
+		   /* Handle on hover */
+		   .scroll::-webkit-scrollbar-thumb:hover {
+		   background: #FFC210; 
+		   }
+   .timeline-card {
+	margin: 12px 4px; 
+   }
+   
+   </style>
+   <div class="container-body">
+	   <div class="row ">
+		   <h6 style="padding-left: 29px;padding-bottom: 0px;margin-bottom: 0px;font-weight: 700;">Qué está pasando en el Btbox</h6>
+		  <a onclick="showMaestroMuro()"  style="margin-left: auto;margin-bottom: 0px; margin-right: 32px; {visiblepublicar}"><h6 style="background-color: #FFC210; color: white;
+		  border-radius: 5px;
+		  font-size: 0.8rem;padding: 5px;">Crea tu publicación</h6></a>
+		 </div> 
+	   <!--Vertical Timeline Starts-->
+	   <div id="timeline" class="timeline-wrapper scroll cc_cursor" style="padding: 0px!important;">
+
+		<ul class="timeline" style="padding-top: 0px;">
+
+			<!-- BEGIN browser -->
+                
+			<li class=" mt-0" style="padding: 0px; width: 100%;">
+				<div class="timeline-card card border-grey" style="border: 1px solid {colorbordepin}; {backmuropin}">
+				  <div class="card-header mb-0" style="padding: 0.75rem 1.25rem;;">
+					<div class="card-subtitle text-muted mt-0 mb-0 p-0" style="line-height: 0.4rem;">
+					  <span class="font-small-3  text-info text-uppercase" style="white-space: normal; font-size: 100%!important;">{percompan}</span>
+					</div>
+					<div class=" mb-0 d-flex justify-content-between">
+				   
+					  <h4 class="card-title mt-2 mb-0 p-0 align-self-center" style="font-size: 0.9rem;
+					  color: black;">
+						<a>{murtitulo}</a>
+					  </h4>
+		
+					  <div class="dropdown nav-item mr-0 {display-options}" style="line-height: 1rem;">
+						<a id="dropdownBasic3" href="#" data-toggle="dropdown"
+						  class="nav-link position-relative align-self-center">
+						  <i class="ft-more-vertical  mt-1 text-muted"></i>
+						</a>
+						<div aria-labelledby="dropdownBasic3" class="dropdown-menu">
+							<div class="arrow_box_right">
+								<a id="pin{murreg}" onclick=" pinMuro({murreg});" class="dropdown-item py-1" style="{colorpin}">
+										<i class="icon-pin mr-2"></i>
+										<span>Pin</span>
+									</a>
+	
+	
+								</div>
+								<div class="arrow_box_right">
+									<a onclick=" editMuro({murreg});" class="dropdown-item py-1">
+											<i class="icon-note mr-2"></i>
+											<span>Editar</span>
+										</a>
+		
+		
+									</div>
+						  <div class="arrow_box_right">
+							<a onclick=" eliminarMaestro({murreg})" class="dropdown-item py-1">
+							  <i class="icon-trash mr-2"></i>
+							  <span>Eliminar</span>
+							</a>
+		
+		
+						  </div>
+						</div>
+					  </div>
+					</div>
+					<div class="  badge " style="background-color: green; font-size: small; color: white;{displaytag}">{tagsponsor}</div>
+					
+					<p class="text-black mt-0" style="white-space: normal; font-size: 85%; font-weight: 500;">{murtag}</p>
+					
+					<p class="card-text mt-1" style="font-size: 85%; line-height: 1rem; color: black">{murdescri}</p>
+				  
+				  </div>
+				  <div class="card-body mt-0">
+		
+					<div class="col-12 p-2 text-center ">
+						<a class="btn mr-1 btn-round bublechildren" href="{murimglink}" target="_blank"><img src="{murimg}" width="100%" height="auto" alt=""></a>
+				
+		
+					</div>
+					<div class=" col-12">
+					
+					  <div class=" col-12">
+						
+						<a target="_blank" title="Enlace" href="{murenlace}"
+						style="{display-enlace};">
+						<p class="botonespremios">{murenlace}</p>
+						</a>
+		
+						<input type="hidden" id="metricaComentario{murreg}" value="{countCom}">
+						<input type="hidden" id="metricaMg{murreg}" value="{countMg}">
+						<a class="botonMg {ofertasinvitado} {botoninvitado}" data-mg="{data-mg}" onclick="mg({murreg},{percod},this);"
+						  class=" float-left btn boton-agendar "><i
+							class="text-danger font-small-2 fa {megusta}"></i>
+						  <span
+							class="badge badge-pill badge-danger metricaM metricaMg{murreg} text-white" id="pruebamegusta{murreg}" style="font-size: 65%;">{countMg}</span>
+		
+						</a>
+						<a class="botonMg {ofertasinvitado1} {botoninvitado1}" data-mg="{data-mg}"
+						  class=" float-left btn boton-agendar "><i
+							class="text-danger font-small-2 fa {megusta}"></i>
+						  <span
+							class="badge badge-pill badge-danger metricaM metricaMg{murreg} text-white" id="pruebamegusta{murreg}" style="font-size: 65%;">{countMg}</span>
+		
+						</a>
+
+						<a class="btn botonCom {ofertasinvitado} {botoninvitado}" data-toggle="collapse" data-target="#pepe{murreg}"
+						  aria-expanded="false" aria-controls="collapseOne">
+						  <i class="icon-speech text-warning  font-small-2"></i>
+						  <span
+							class="badge badge-pill badge-warning metricaC metricaComentario{murreg} text-white" style="font-size: 65%;">{countCom}</span>
+		
+						</a>
+						<a class="btn botonCom {ofertasinvitado1} {botoninvitado1}" 
+						  >
+						  <i class="icon-speech text-warning  font-small-2"></i>
+						  <span
+							class="badge badge-pill badge-warning metricaC metricaComentario{murreg} text-white" style="font-size: 65%;">{countCom}</span>
+		
+						</a>
+						<a class="redes mr-2" target="_blank"
+						   href="https://www.facebook.com/sharer/sharer.php?u={murenlace}" style="{display-enlace}"><i
+								class="fa fa-facebook font-small-2"
+								style=""></i></a>
+						<a class="redes mr-2"
+						   href="http://twitter.com/share?url={murenlace}"
+						   target="_blank" style="{display-enlace}"><i class="fa fa-twitter font-small-2"
+											  style=""></i></a>
+						<a class="redes mr-2"
+						   href="https://www.linkedin.com/shareArticle?mini=true&url={murenlace}"
+						   target="_blank" style="{display-enlace}"><i class="fa fa-linkedin font-small-2"
+											  style=""></i></a>
+						<a download href="{murarchivo}" class="btn" title="Descargar Archivo" style="{display-archivo}; margin-bottom: 1px;">
+						  <i class="icon-docs text-info  font-small-2"></i>
+						</a>
+
+					  
+		
+					  </div>
+		
+					</div>
+					<div class="col-12">
+					  <div class="card-block ">
+		
+		
+						<div id="pepe{murreg}" class="collapse" aria-labelledby="headingOne" data-parent=""
+						  role="tabpanel">
+						  <div class="card-body pb-3" id="comentarios{murreg}">
+		
+							<div class="card-block ml-0 pl-0">
+							  <form class="d-flex">
+		
+								<div class="col-11 ">
+		
+								  <input id="comentario{murreg}" type="text" class="form-control"
+									placeholder="Escriba su comentario..." onkeypress="KeyEnterBuscarComentario(event,{murreg},{percodigo})">
+								</div>
+		
+		
+								<div class="col-1">
+		
+								  <button onclick="comentarios({murreg},{percodigo})"
+									id="enviarComentario{murreg}" type="button"
+									class="btn btn-success"><i class="icon-speech"></i></button>
+								</div>
+		
+		
+		
+							  </form>
+							</div>
+		
+							<!-- BEGIN comentarios -->
+		
+		
+		
+		
+							<div class="media mt-2">
+							  <div class="media-left mr-2">
+								<a>
+		
+		
+								  <span class="avatar avatar-online">
+									<img src="{avatarcom}" class="rounded-circle" width="10%">
+								  </span>
+								</a>
+							  </div>
+							  <div class="media-body">
+								<a class="{display-coment} float-right ml-1"
+									onclick="eliminarComentario({comreg})"><i
+										class="icon-trash text-danger"></i></a>
+								<a class="{display-editcoment} float-right"
+									onclick="showEditModal({comreg})"><i
+										class="icon-note text-danger"></i></a>
+								<p class="text-bold-600 mb-0">
+								  <a>{nombrecom}</a>
+		
+								</p>
+		
+								<p class="m-0">{comdescri}</p>
+							  </div>
+		
+							</div>
+							<!-- END comentarios -->
+						  </div>
+						</div>
+		
+		
+		
+						<!-- ------------------------------ comments ------------------------------- -->
+						<input type="hidden" name="fotocomentario" value="{fotocomentario}"
+						  id="fotocomentario">
+						<input type="hidden" name="nombrecomentario" value="{nombrecomentario}"
+						  id="nombrecomentario">
+		
+		
+		
+					  </div>
+		
+		
+		
+					</div>
+				  </div>
+				</div>
+			  </li>
+		 
+  
+		<!-- END browser -->
+  
+		</ul>
+		<div style="text-align: center; {display-boton}">
+			<a onclick="showBrowserMuroMas({pagesalto})" class="btn btn-outline-warning btn-lg btn-round" style="color: black; background-color: white; width: 200px;">Ver Más</a>
+		</div>
+
+	</div>
+	<!--Vertical Timeline Ends-->
+</div>
+
+
+<script>
+	
+	$('.botoninvitado').on('click', function () {
+					swal({
+						title: 'Regístrese para acceder a esta sección',
+						type: 'info',
+						html:
+						'Para acceder a esta funcionalidad <a href="registro">regístrate!</a> Si ya tenés una cuenta, <a href="login">Ingresar</a>',
+						showCloseButton: true,
+						showCancelButton: true,
+						confirmButtonText:
+						'<i class="fa fa-sign-in"></i> Logueate',
+						cancelButtonText:
+						'<i class="fa fa-user-plus"></i> Registrate'
+					}).then(function () {
+						window.location = '../login';
+
+
+				}, function (dismiss) {
+					// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+					if (dismiss === 'cancel') {
+						window.location = '../registro';
+					}
+				}).done();
+			});
+
+
+	function comentarios(murreg, percodigo) {
+		var id = '#comentarios' + murreg;
+		var idComentario = '#comentario' + murreg;
+		var fotocomentario = $('#fotocomentario').val();
+		var nombrecomentario = $('#nombrecomentario').val();
+		var comentario = $(idComentario).val();
+		var idMetrica = '#metricaComentario' + murreg;
+		var claseMetrica = '.metricaComentario' + murreg;
+
+		var data = { "murreg": murreg, "percodigo": percodigo, 'comentario': comentario }
+		$.ajax({
+			type: "POST",
+			url: '../muro/comentario.php',
+			data: data
+		}).done(function (rsp) {
+			data = $.parseJSON(rsp);
+
+			if (data.errcod == 0) {
+
+				$(claseMetrica).text(parseInt($(idMetrica).val()) + 1)
+				$(id).append(`	<div class="media mt-2">
+										<div class="media-left mr-2">
+											<a>
+												<span class="avatar avatar-online">
+													<img src="`+ fotocomentario + `"
+														class="rounded-circle" alt="avatar" width="50">
+												</span>
+											</a>
+										</div>
+										<div class="media-body">
+											<p class="text-bold-600 mb-0">
+												<a>`+ nombrecomentario + `</a>
+											</p>
+											<p class="m-0">` + comentario + `</p>
+										</div>
+
+									</div>`);
+
+				$(idComentario).val('');
+				toastr.success(data.errmsg, 'Enviado');
+					//swal("GUARDAR", data.errmsg, "success").done();
+				//showBrowserMuro();
+				
+			}
+		});
+	}
+
+	function mg(mureg, percodigo, obj) {
+		var datamg = $(obj).data('mg');
+
+		var mensaje = '';
+		var titulo = '';
+		var tipo;
+		var idMetrica = '#metricaMg' + mureg;
+		var claseMetrica = '.metricaMg' + mureg;
+		var pruebametrica = '#pruebamegusta' + mureg;
+		var x = document.querySelector(pruebametrica).innerHTML;
+		console.log(x)
+		if (datamg == 1) {
+			$(obj).find('i').removeClass('fa-heart');
+			$(obj).find('i').addClass('fa-heart-o');
+			$(obj).data('mg', 0);
+			var megusta = parseInt(x) - 1;
+			console.log(megusta);
+			document.querySelector(pruebametrica).innerHTML=megusta;
+		} else {
+			$(obj).find('i').removeClass('fa-heart-o');
+			$(obj).find('i').addClass('fa-heart');
+			$(obj).data('mg', 1);
+			var megusta = parseInt(x) + 1;
+			console.log(megusta);
+			document.querySelector(pruebametrica).innerHTML=megusta;
+
+		}
+		/*var datamg = $(obj).data('mg');
+
+		var mensaje = '';
+		var titulo = '';
+		var tipo;
+		var idMetrica = '#metricaMg' + mureg;
+		var claseMetrica = '.metricaMg' + mureg;
+
+		if (datamg == 1) {
+			$(obj).find('i').removeClass('fa-heart');
+			$(obj).find('i').addClass('fa-heart-o');
+			$(obj).data('mg', 0);
+
+			$(claseMetrica).text(parseInt($(idMetrica).val()) - 1)
+		} else {
+			$(obj).find('i').removeClass('fa-heart-o');
+			$(obj).find('i').addClass('fa-heart');
+			$(obj).data('mg', 1);
+
+			$(claseMetrica).text(parseInt($(idMetrica).val()) + 1)
+
+		}*/
+
+		var data = { "murreg": mureg, "percodigo": percodigo, 'datamg': datamg }
+		$.ajax({
+			type: "POST",
+			url: '../muro/mg.php',
+			data: data
+		}).done(function (rsp) {
+			data = $.parseJSON(rsp);
+			//showBrowserMuro();
+
+
+
+
+		});
+	}
+
+	function KeyEnterBuscarComentario(e,murreg,percodigo){
+		if (e.keyCode == 13) {
+			e.preventDefault();
+			comentarios(murreg, percodigo);
+			return false;
+		}
+	}
+
+	$('#fltdescri').on('keypress', function (e) {
+		if (e.which == 13) {
+			$('#buscar').click();
+		}
+	});
+
+	function eliminarMaestro(reg) {
+		var murreg = reg
+
+		var data = { "murreg": murreg };
+
+		swal({
+			title: "{Idioma_Eliminar}",
+			text: "{foro_eliminar}",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#0CC27E',
+			cancelButtonColor: '#FF586B',
+			confirmButtonText: '{Idioma_BotonConf}',
+			cancelButtonText: '{Idioma_BotonCan}',
+			confirmButtonClass: 'btn btn-success btn-raised mr-5',
+			cancelButtonClass: 'btn btn-danger btn-raised',
+			buttonsStyling: false
+		}).then(function () {
+			$.ajax({
+				type: "POST",
+				url: '../muro/del.php',
+				data: data
+			}).done(function (rsp) {
+				console.log(rsp);
+				data = $.parseJSON(rsp);
+
+				if (data.errcod == 0) {
+					toastr.success(data.errmsg, '{Idioma_Eliminar}');
+					//swal("GUARDAR", data.errmsg, "success").done();
+					showBrowserMuro();
+				} else {
+					toastr.error(data.errmsg, '{Idioma_Eliminar}');
+					//swal("GUARDAR", data.errmsg, "error").done();
+				}
+
+			});
+
+
+		}, function (dismiss) {
+			// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+			if (dismiss === 'cancel') {
+			}
+		}).done();
+	}
+
+
+	function eliminarComentario(reg) {
+		var comreg = reg
+
+		var data = { "comreg": comreg };
+
+		swal({
+			title: "{Idioma_Eliminar}",
+			text: "¿Esta seguro que quiere eliminar comentario? ¿Tem certeza de que deseja excluir o comentário?",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#0CC27E',
+			cancelButtonColor: '#FF586B',
+			confirmButtonText: '{Idioma_BotonConf}',
+			cancelButtonText: '{Idioma_BotonCan}',
+			confirmButtonClass: 'btn btn-success btn-raised mr-5',
+			cancelButtonClass: 'btn btn-danger btn-raised',
+			buttonsStyling: false
+		}).then(function () {
+			$.ajax({
+				type: "POST",
+				url: '../muro/delcomentario.php',
+				data: data
+			}).done(function (rsp) {
+
+				data = $.parseJSON(rsp);
+				if (data.errcod == 0) {
+					toastr.success(data.errmsg, '{Idioma_Eliminar}');
+					//swal("GUARDAR", data.errmsg, "success").done();
+					showBrowserMuro();
+				} else {
+					toastr.error(data.errmsg, '{Idioma_Eliminar}');
+					//swal("GUARDAR", data.errmsg, "error").done();
+				}
+
+			});
+
+
+		}, function (dismiss) {
+			// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+			if (dismiss === 'cancel') {
+			}
+		}).done();
+	}
+	function pinMuro(reg) {
+		var formData = new FormData($('#FrmMst')[0]);
+		formData.append("murreg", reg);
+		var pin = '#pin' + reg;
+		var color = document.querySelector(pin).style.color;
+		var texto = 'Desea fijar este posteo?'
+		if (color == 'red'){
+
+			texto = 'Esta publicación ya no será fija.'
+
+		}
+		swal({
+			title: "Pin",
+			text: texto,
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#0CC27E',
+			cancelButtonColor: '#FF586B',
+			confirmButtonText: '{Idioma_BotonConf}',
+			cancelButtonText: '{Idioma_BotonCan}',
+			confirmButtonClass: 'btn btn-success btn-raised mr-5',
+			cancelButtonClass: 'btn btn-danger btn-raised',
+			buttonsStyling: false
+		}).then(function () {
+			$.ajax({
+				type: "POST",
+				url: '../muro/grbpinmuro.php',
+				data: formData,
+				cache: false,
+				contentType: false,
+				processData: false
+			}).done(function (rsp) {
+				console.log(rsp);
+				data = $.parseJSON(rsp);
+
+				if (data.errcod == 0) {
+					toastr.success(data.errmsg, '{Idioma_Guardar}');
+					//swal("GUARDAR", data.errmsg, "success").done();
+					showBrowserMuro();
+				} else {
+					toastr.error(data.errmsg, '{Idioma_Eliminar}');
+					//swal("GUARDAR", data.errmsg, "error").done();
+				}
+
+			});
+
+
+		}, function (dismiss) {
+			// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+			if (dismiss === 'cancel') {
+			}
+		}).done();
+	}
+</script>

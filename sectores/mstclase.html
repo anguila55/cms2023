@@ -1,0 +1,122 @@
+
+<section id="horizontal-form-layouts">
+	<div class="row">
+		<div class="col-sm-12">
+			<h2 class="content-header">Cargar/Editar Subsector</h2>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="px-3">
+						<form class="form form-horizontal">
+							<div class="form-body">
+								
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pernombre">{Idioma_Nombre}: </label>
+									<div class="col-md-9">
+										<input type="hidden" id="subsect" name="subsect" value="{subsect}">
+										<input type="hidden" id="sector" name="sector" value="{sector}">
+										<input type="text" id="subsectdes"  name="subsectdes" class="form-control" value="{subsectdes}">
+										
+									</div>
+									
+								</div>	
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pernombre">{Idioma_Nombre} (ING): </label>
+									<div class="col-md-9">
+										
+										<input type="text" id="subsectdesing"  name="subsectdesing" class="form-control" value="{subsectdesing}">
+										
+									</div>
+									
+								</div>										
+							</div>
+
+							<div class="form-actions">
+								<button id="btnguardar" type="button" class="btn btn-success" onclick="guardarMaestroMsgClase();">
+									<i class="icon-note"></i> {Idioma_Guardar}
+								</button>
+								<button id="btncancelar" type="button" class="btn btn-danger mr-1" onclick="showBrowserClases({sector});">
+									<i class="icon-trash"></i> {Idioma_BotonCan}
+								</button>
+								&nbsp;&nbsp;
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</section>
+		
+<script>
+
+	// $('#tipo').change(() =>{alert($('#tipo').val())})
+
+	function guardarMaestroMsgClase(){
+		var errcod = 0;
+		var errmsg = '';
+		var subsect = $('#subsect').val();
+		var subsectdes = $('#subsectdes').val();
+		var sector = $('#sector').val();
+		
+		if(errcod==0){
+			swal({
+				title: "{Idioma_GuardarSwal}",
+				text: "{Idioma_Confirmar}",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: '{Idioma_BotonConf}',
+				cancelButtonText: '{Idioma_BotonCan}',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+				guardarMaestro();
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+	}
+	
+	function guardarMaestro(){
+		var subsect = $('#subsect').val();
+		var subsectdes = $('#subsectdes').val();
+		var subsectdesing = $('#subsectdesing').val();
+		var sector = $('#sector').val();
+		
+		var data = {"subsect":subsect,
+					"subsectdes":subsectdes,
+					"subsectdesing":subsectdesing,
+					"sector":sector};
+		
+		$.ajax({
+		  type: "POST",
+		  url: 'grbclase.php',
+		  data: data
+		}).done(function( rsp ) {
+			data = $.parseJSON(rsp);
+			
+			if(data.errcod == 0){
+				toastr.success(data.errmsg, '{Idioma_GuardarSwal}');			
+				//swal("GUARDAR", data.errmsg, "success").done();
+				showBrowserClases(sector);
+			}else{
+				toastr.error(data.errmsg, '{Idioma_GuardarSwal}');	
+				//swal("GUARDAR", data.errmsg, "error").done();
+			}
+			
+		});
+	}
+</script>
+	 
+	  
+	  

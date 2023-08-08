@@ -1,0 +1,72 @@
+#cargo {
+    height: auto;
+}
+
+.text-decoration-underline{
+ text-decoration: underline;   
+}
+
+.text-company{
+    font-size: 20px;
+}
+.titulo-oferta{
+    font-size: 18px;
+}
+
+.imgproducto{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.horarios-container{
+    border: 1px solid lightgray;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+   display: flex;
+   justify-content: flex-start;
+}
+
+.texto-tipo-block{
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.company {
+    font-size: 0.9rem;
+    line-height: 0.9rem !important;
+    height: auto;
+}
+
+.redes {
+    font-size: 18px;
+    margin: 8px;
+}
+
+.directorio-compartidos-card {
+    height: 132px;
+}
+
+.filtrosdirectorio .boton-simple-rounded{
+font-size: 16px;
+}
+
+.filtrosdirectorio{
+    margin-left: auto;
+}
+
+@media only screen and (max-width: 600px) {
+.filtrosdirectorio{
+    display:grid !important;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+}
+
+.filtrosdirectorio .boton-simple-rounded{
+ width: 100%;
+ font-size: 14px;
+ margin-bottom: 4px;
+ padding: 7px 7px;   
+}
+}

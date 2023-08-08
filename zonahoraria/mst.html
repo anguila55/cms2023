@@ -1,0 +1,156 @@
+
+<section id="horizontal-form-layouts">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="px-3">
+						<form class="form form-horizontal">
+							<div class="form-body">
+								
+								<input id="zonahoritmmst" type="hidden" name="zonahoritmmst" value="{zonahoritmmst}">
+								
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="paicodigo">{zonahorariacodigopais}:</label>
+									<div class="col-md-9">
+										
+										<input type="text" id="paicodigo"  name="paicodigo" class="form-control" value="{paicodigo}">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pailet">{zonahorariacodigopais}:</label>
+									<div class="col-md-9">
+										<input type="text" id="pailet"  name="pailet" class="form-control" value="{pailet}">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control " for="paidescri">{zonahorariapais}:</label>
+									<div class="col-md-9">
+										<input type="text" id="paidescri"  name="paidescri" class="form-control " value="{paidescri}">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control " for="paidescriing">{zonahorariapaisingles}:</label>
+									<div class="col-md-9">
+										<input type="text" id="paidescriing"  name="paidescriing" class="form-control " value="{paidescriing}">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="paireg">{zonahorariapaisregion}:</label>
+									<div class="col-md-9">
+										<input type="text" id="paireg"  name="paireg" class="form-control " value="{paireg}">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="timereg">{zonahorariatimereg}:</label>
+									<div class="col-md-9">
+										<input type="number" id="timereg"  name="timereg" class="form-control " value="{timereg}">
+									</div>
+								</div>
+								
+							</div>
+
+							<div class="form-actions right">
+								<button id="btnguardar" type="button" class="btn btn-success" onclick="guardarMaestroMsg();">
+									<i class="icon-note"></i> {Idioma_Guardar}
+								</button>
+								<button id="btncancelar" type="button" class="btn btn-danger mr-1" onclick="showBrowser();">
+									<i class="icon-arrow-left"></i> {Idioma_BotonCan}
+								</button>
+								&nbsp;&nbsp;
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</section>
+		
+<script>
+
+	function guardarMaestroMsg(){
+		var errcod = 0;
+		var errmsg = '';
+		var paicodigo = $('#paicodigo').val();
+		var pailet = $('#pailet').val();
+		var paidescri = $('#paidescri').val();
+		var paidescriing = $('#paidescriing').val();
+		var paireg = $('#paireg').val();
+		var timereg = $('#timereg').val();
+
+	
+			
+			if(paicodigo == ''){
+			toastr.error(data.errmsg, '{Idioma_GuardarSwal}');	
+			errcod =1;
+			}
+
+	
+			
+		if(errcod==0){
+			swal({
+				title: "{Idioma_GuardarSwal}",
+				text: "{Idioma_Confirmar}",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: '{Idioma_BotonConf}',
+				cancelButtonText: '{Idioma_BotonCan}',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+				guardarMaestro();
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+	}
+	
+	function guardarMaestro(){
+		var paicodigo = $('#paicodigo').val();
+		var pailet = $('#pailet').val();
+		var paidescri = $('#paidescri').val();
+		var paidescriing = $('#paidescriing').val();
+		var paireg = $('#paireg').val();
+		var timereg = $('#timereg').val();
+		
+		var data = {"paicodigo":paicodigo,
+					"pailet":pailet,
+					"paidescri":paidescri,
+					"paidescriing":paidescriing,
+					"paireg":paireg,
+					"timereg":timereg
+				};
+		
+		$.ajax({
+		  type: "POST",
+		  url: 'grb.php',
+		  data: data
+		}).done(function( rsp ) {
+			data = $.parseJSON(rsp);
+			
+			if(data.errcod == 0){
+				toastr.success(data.errmsg, '{Idioma_GuardarSwal}');			
+				//swal("GUARDAR", data.errmsg, "success").done();
+				showBrowser();
+			}else{
+				toastr.error(data.errmsg, '{Idioma_GuardarSwal}');	
+				//swal("GUARDAR", data.errmsg, "error").done();
+			}
+			
+		});
+	}
+</script>
+	 
+	  
+	  

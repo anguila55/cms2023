@@ -1,0 +1,84 @@
+<style>
+	.notify-badge{
+    position: absolute;
+    right:0px;
+    top:20px;
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+    padding:5px 5px;
+    font-size:20px;
+}
+</style>
+
+<div>
+	<div class="content-overlay">
+	
+
+	</div>
+
+		<div class="chat-fixed__conversations mt-2">
+			  
+				<div id="users-list" class="list-group position-relative">
+					<div class="users-list-padding">
+							 <!-- BEGIN charlas -->
+
+							 <a id="brwchats" class="list-group-item border" onclick="sendMensaje({charlapercodigo});" >  <!-- (click)="SetActive($event,'chat3')" -->
+								<span class="media">
+								  <span class="avatar avatar-md avatar-away mr-2">
+									<span class="notify-badge" style="{perfilesenlinea}"></span>
+									<img class="media-object d-flex mr-3 bg-primary rounded-circle" src="{charlaavatar}"
+									  alt="">
+									
+								  </span>
+								  <div class="media-body">
+									<h6 class="list-group-item-heading fw-600 mb-1">{charlapernombre} {charlaperapelli}
+									  <i onclick="sendMensaje({charlapercodigo});" class="fa fa-edit float-right info"></i>
+									</h6>
+									<p class="list-group-item-text text-muted small fw-100 mb-1">
+									  {charlapercompan}
+									  <span class="float-right info">
+										<span id="budge{charlapercodigo}" class="badge badge-pill badge-info" style="{viewcharlasinleer}">{charlasinleer}</span>
+									  </span>
+									</p>
+								  </div>
+								</span>
+							  </a>
+			 				 <!-- END charlas -->
+					</div>
+				</div>
+		</div>
+</div>
+
+<script src="../chat/socket.io.js"></script>  
+<script>
+	var PerCodigo = {percodigo};
+	var PerNombre = '{pernombre}';
+	
+	//connect to the socket server.
+    var socket = io.connect('http://rondasbtbox.localhost:9283');
+	// var socket = io.connect('https://rondasbtbox.onlife.com.ar:9283');
+
+	$(document).ready(function () {
+		registrar();
+	});
+	
+
+	function sendMensaje(reg){
+	
+		window.location='../chat/bsq?P='+reg;
+	}
+	
+	function registrar(){
+		socket.emit('registrar', '{chatregister}');
+	}
+
+	function keyPressMensaje(e){
+		if (e.keyCode == 13) {
+			sendMensaje();
+			return false;
+		}
+	}
+
+</script>
+	  
+	  

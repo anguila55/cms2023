@@ -1,0 +1,60 @@
+﻿<div class="index-ondemand">
+	<!-- BEGIN videos -->
+	<div class="index-ondemand__card">
+		<div class="index-pitch__card-img-container">	
+			<iframe class="index-ondemand__card-img" id="iframevideo" name="iframevideo" width="100%" height="224px" src="{pitchvid}" frameborder="0"
+			allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+			allowfullscreen></iframe>
+			<div class="pitch__card-btns">
+				<a href="{pitchurlpdf}" target="_blank" class="pitch__card-btn" style=" {displaypdf}" ><i class="white fa fa-files-o"></i></a>
+				<a href="{pitchurl}" target="_blank" class="pitch__card-btn" style="{displayurl}"><i class="white fa fa-globe"></i></a>
+				<a onclick="showChatView({percodexp},0);" class="pitch__card-btn" style="{displayusuario}"><i class="white icon-bubbles"></i></a>
+				<a onclick="solicitarReunionMaestro({percodexp},{pertipo});" class="pitch__card-btn" style="{displayusuario}"><i class="white icon-calendar"></i></a>
+				<a class="pitch__card-btn" onclick="likeCarta({pitchreg},this);"><i class="white fa fa-thumbs-up" style="{colorlike} "></i></a>
+				
+		</div>
+		</div>
+		<div class="pitch__card-information">
+			<div class="pitch__card-hashtag">#{hashtag}</div>
+			<div class="index-ondemand__card-title mt-1 mb-1"><img class="rounded-left"  src="{pitchimg}" width="50"> {pitchemp}</div>
+			<div class="index-ondemand__card-title">{pitchdes}</div>
+				
+		</div>
+	</div>
+	<!-- END videos -->
+</div>
+
+<script src="../gaming/gaming.js"></script>
+
+<script>
+
+function likeCarta(reg,obj){
+		addPointsGaming(10,reg);
+		var formData = new FormData($('#FrmMst')[0]);
+		formData.append("pitchreg", reg);
+		
+		$.ajax({
+			type: "POST",
+			url: 'grblikecarta.php',
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false
+		}).done(function (rsp) {
+			data = $.parseJSON(rsp);
+			showBrowser();
+			
+		});
+	}
+	
+	function filtroVideo(reg) {
+			
+
+			var data = { "filtrovideo": reg };
+
+			
+			$('#DataBrowser').load('brw.php', data);
+
+		}
+
+</script>

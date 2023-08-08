@@ -1,0 +1,301 @@
+
+<section id="horizontal-form-layouts">
+	<div class="row">
+		<div class="col-sm-12">
+			<h2 class="content-header">Ofertas</h2>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="px-3">
+						<form class="form form-horizontal">
+							<div class="form-body">
+								<input type="hidden" id="expreg" name="expreg" value="{expreg}">
+								<input type="hidden" id="expcupreg" name="expcupreg" value="{expcupreg}">
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pernombre">Titulo </label>
+									<div class="col-md-9">
+										
+										<input type="text" id="expcuptit"  name="expcuptit" class="form-control" value="{expcuptit}">
+									</div>
+								</div>
+								<div class="form-group row">
+										<label class="col-md-3 label-control" for="pernombre">Descripcion: </label>
+										<div class="col-md-9">
+											
+											<input type="text" id="expcupdes"  name="expcupdes" class="form-control" value="{expcupdes}">
+										</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pernombre">Video: </label>
+									<div class="col-md-9">
+										
+										<input type="text" id="expcupvid"  name="expcupvid" class="form-control" value="{expcupvid}">
+									</div>
+								</div>
+							
+								
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="parorden">Destacado: </label>
+									<div class="col-md-9">
+										<select id="expcupval" name="expcupval" class="form-control" >
+											<option value="{expcupval}">{expcupval}</option>
+											<option value="No Destacado">No Destacado</option>
+											<option  value="Destacado">Destacado</option>
+											
+
+										</select>
+										
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pernombre">Zona geográfica </label>
+									<div class="col-md-9">
+										
+										<input type="text" id="expcupzon"  name="expcupzon" class="form-control" value="{expcupzon}">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="parorden">Habilitación municipal y/o PROVINCIAL: </label>
+									<div class="col-md-9">
+										<input {checkedcar1} type="checkbox" id="expcupcar1">
+									
+										
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="parorden">Registros nacionales o provinciales (rne-rnpa): </label>
+									<div class="col-md-9">
+										<input {checkedcar2} type="checkbox" id="expcupcar2">
+										
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="parorden">Código EAN-GS1 (código de barras): </label>
+									<div class="col-md-9">
+										<input {checkedcar3} type="checkbox" id="expcupcar3">
+										
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="parorden">Rótulo: </label>
+									<div class="col-md-9">
+										<input {checkedcar4} type="checkbox" id="expcupcar4">
+										
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="parorden">Información nutricional completa y adecuada: </label>
+									<div class="col-md-9">
+										<input {checkedcar5} type="checkbox" id="expcupcar5">
+										
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="parorden"> Fecha de vencimiento:</label>
+									<div class="col-md-9">
+										<input {checkedcar6} type="checkbox" id="expcupcar6">
+										
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="parorden">Inscripción en el registro mipyme y/o renaf: </label>
+									<div class="col-md-9">
+										<input {checkedcar7} type="checkbox" id="expcupcar7">
+										
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="parorden">Auditorias de calidad/inocuidad alimentaria: </label>
+									<div class="col-md-9">
+										<input {checkedcar8} type="checkbox" id="expcupcar8">
+										
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="parorden">Plataforma de intercambio electrónico de documentos (EDI): </label>
+									<div class="col-md-9">
+										<input {checkedcar9} type="checkbox" id="expcupcar9">
+										
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="parorden">Documentación Afip completa: </label>
+									<div class="col-md-9">
+										
+										<input {checkedcar10} type="checkbox" id="expcupcar10">
+										
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="parorden">Documentación societaria completa: </label>
+									<div class="col-md-9">
+										<input {checkedcar11} type="checkbox" id="expcupcar11">
+										
+									</div>
+								</div>
+
+																				
+							</div>
+
+							<div class="form-actions">
+								<button id="btnguardar" type="button" class="btn btn-success" onclick="guardarMaestroMsg();">
+									<i class="icon-note"></i> {Idioma_Guardar}
+								</button>
+								<button id="btncancelar" type="button" class="btn btn-danger mr-1" onclick="showBrowserCupon({expreg});">
+									<i class="icon-trash"></i> {Idioma_BotonCan}
+								</button>
+								&nbsp;&nbsp;
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</section>
+		
+<script>
+	
+	function guardarMaestroMsg(){
+		var errcod = 0;
+		var errmsg = '';
+		var expreg 	  = $('#expreg').val();
+		var expcupreg = $('#expcupreg').val();
+		var expcuptit = $('#expcuptit').val();
+		var expcupdes = $('#expcupdes').val();
+		var expcupzon = $('#expcupzon').val();
+		
+
+		
+		if (expcuptit == '') {
+			errcod = 2;
+			errmsg = 'Complete el titulo';
+			toastr.error(errmsg, '{Idioma_GuardarSwal}');
+		}
+		if (expcupdes == '') {
+			errcod = 2;
+			errmsg = 'Complete la descripción';
+			toastr.error(errmsg, '{Idioma_GuardarSwal}');
+		}
+		
+		if (expcupzon == '') {
+			errcod = 2;
+			errmsg = 'Seleccione zona geográfica del anuncio';
+			toastr.error(errmsg, '{Idioma_GuardarSwal}');
+		}
+		
+		
+
+		if (errcod != 0) {
+			//swal("GUARDAR", errmsg, "error").done();
+			//toastr.error(errmsg, '{Idioma_GuardarSwal}');
+		}
+
+		
+
+		
+		if(errcod==0){
+			swal({
+				title: "{Idioma_GuardarSwal}",
+				text: "{Idioma_Confirmar}",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: '{Idioma_BotonConf}',
+				cancelButtonText: '{Idioma_BotonCan}',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+				guardarMaestro();
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+	}
+	
+	function guardarMaestro(){
+		var expreg 	  = $('#expreg').val();
+		var expcupreg = $('#expcupreg').val();
+		var expcuptit = $('#expcuptit').val();
+		var expcupdes = $('#expcupdes').val();
+		var expcupval = $('#expcupval').val();
+		var expcupzon = $('#expcupzon').val();
+		var expcupvid = $('#expcupvid').val();
+	
+		var expcupcar1 = ($('#expcupcar1').is(':checked'))? '1' : '0';
+		var expcupcar2 = ($('#expcupcar2').is(':checked'))? '1': '0';
+		var expcupcar3 = ($('#expcupcar3').is(':checked'))? '1': '0';
+		var expcupcar4 = ($('#expcupcar4').is(':checked'))? '1': '0';
+		var expcupcar5 = ($('#expcupcar5').is(':checked'))? '1': '0';
+		var expcupcar6 = ($('#expcupcar6').is(':checked'))? '1': '0';
+		var expcupcar7 = ($('#expcupcar7').is(':checked'))? '1': '0';
+		var expcupcar8 = ($('#expcupcar8').is(':checked'))? '1': '0';
+		var expcupcar9 = ($('#expcupcar9').is(':checked'))? '1': '0';
+		var expcupcar10 = ($('#expcupcar10').is(':checked'))? '1': '0';
+		var expcupcar11 = ($('#expcupcar11').is(':checked'))? '1': '0';
+
+		
+		
+		var data = {"expreg":expreg,
+					"expcupreg":expcupreg,
+					"expcuptit":expcuptit,
+					"expcupdes":expcupdes,
+					"expcupval":expcupval,
+					"expcupzon":expcupzon,
+					"expcupvid":expcupvid,
+					"expcupcar1":expcupcar1,
+					"expcupcar2":expcupcar2,
+					"expcupcar3":expcupcar3,
+					"expcupcar4":expcupcar4,
+					"expcupcar5":expcupcar5,
+					"expcupcar6":expcupcar6,
+					"expcupcar7":expcupcar7,
+					"expcupcar8":expcupcar8,
+					"expcupcar9":expcupcar9,
+					"expcupcar10":expcupcar10,
+					"expcupcar11":expcupcar11
+					};
+		
+		$.ajax({
+		  type: "POST",
+		  url: 'grbcupon.php',
+		  data: data
+		}).done(function( rsp ) {
+			data = $.parseJSON(rsp);
+			
+			if(data.errcod == 0){
+				toastr.success(data.errmsg, '{Idioma_GuardarSwal}');			
+				//swal("GUARDAR", data.errmsg, "success").done();
+				showBrowserCupon(expreg);
+			}else{
+				toastr.error(data.errmsg, '{Idioma_GuardarSwal}');	
+				//swal("GUARDAR", data.errmsg, "error").done();
+			}
+			
+		});
+	}
+</script>
+	 
+	  
+	  

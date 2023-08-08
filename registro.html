@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="description"
+		content="BTBOX _your business toolbox. Todas las soluciones en una plataforma para potenciar tu próximo evento">
+	<meta name="keywords" content="btbox, evento, fisico, hibrido, event, admin, btoolbox, networking, reuniones">
+	<meta name="author" content="BTBOX">
+	<title>{SisNombreEvento}</title>
+	<link rel="shortcut icon" type="image/png" href="assets-nuevodisenio/img/favicon.jpg">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<link rel="stylesheet" type="text/css" href="assets-nuevodisenio/index.css">
+
+		
+	</head>
+	<body data-col="1-column" class=" 1-column  blank-page blank-page">
+		<div id="bg">
+			<img id="loginweb" src="{bannerhomeimginferior}" alt="">
+			<img id="logincel" src="{bannerhomeimginferiorcel}" alt="">
+		</div>
+		<div class="main-panel">
+			<div class="container-fluid">
+				<div class="row full-height-vh">
+					<div class="col-md-9 col-lg-6 col-sm-12 mx-auto align-items-center justify-content-center " >
+						<div class="card registro-container box-shadow-2 cardtrasparent">
+							<div class="card-header text-center p-0">
+								<img src="../admimg/{file}" alt="company-logo"  width="250">						
+							</div>
+							<div id="seleccionusuarioregistro" class="{sacarseleccionusuario}">
+								<div class="form-group row">
+									<div class="col-md-12">
+										
+										<select id="perclase2" name="perclase2" class="form-control" 
+												placeholder="{textoperclase}" onchange="cambiousuario();">
+												<option value="0">Seleccione tipo de perfil a registrarse</option>
+												<!-- BEGIN perclases2 -->
+												<option value="{perclacod} " {perclasel}>{perclades}</option>
+												<!-- END perclases2 -->
+										</select>
+									</div>
+								</div>
+							</div>
+							
+							<form class="form form-horizontal {faltaseleccionusuario}">
+								<div class="form-body">
+									<div class="row col-12">
+										<div class="col-8" style="text-align: left;">
+											<h4 class="form-section"><i class="icon-user"></i>{registro}</h4>
+										</div>
+										<div class="col-4" style="text-align: right;">
+											<li class="dropdown nav-item mt-1 show"><a id="dropdownBasic" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-toggle" aria-expanded="true"><i class="ft-flag blue-grey darken-4"></i> {Idioma_Idioma}<span class="selected-language d-none"></span></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<div class="arrow_box_right"><a onclick="changeLanguage(0)" class="dropdown-item py-1"><img src="../app-assets/img/flags/us.png" alt="English Flag" class="langimg"><span> English</span></a><a onclick="changeLanguage(1)"  class="dropdown-item py-1"><img src="../app-assets/img/flags/es.png" alt="Spanish Flag" class="langimg"><span> Spanish</span></a><!--<a href="javascript:;" class="dropdown-item py-1"><img src="../app-assets/img/flags/br.png" alt="Portuguese Flag" class="langimg"><span> Portuguese</span></a><a href="javascript:;" class="dropdown-item"><img src="../app-assets/img/flags/de.png" alt="French Flag" class="langimg"><span> French</span></a>--></div>
+
+												</div>
+											</div>
+										</li>
+									</div>
+								</div>
+								<div class="form-group row {mostrarpernombre}">
+									<div class="col-md-12">
+										<input type="hidden" id="peridioma" name="peridioma" value="{peridioma}">
+										<input type="text" id="pernombre" name="pernombre" placeholder="{textopernombre}"
+											class="form-control required">
+									</div>
+								</div>
+								<div class="form-group row {mostrarperapelli}">
+									<div class="col-md-12">
+										<input type="text" id="perapelli" placeholder="{textoperapelli}"
+											class="form-control required">
+									</div>
+								</div>
+								<div class="form-group row {mostrarpercpf}">
+									<div class="col-md-12">
+										<input type="text" id="percpf" placeholder="{textopercpf}" class="form-control required">
+									</div>
+								</div>
+								<div class="form-group row {mostrarpercompan}">
+									<div class="col-md-12">
+										<input type="text" id="percompan" placeholder="{textopercompan}"
+											class="form-control required">
+									</div>
+								</div>
+								<div class="form-group row {mostrarpercargo}">
+									<div class="col-md-12">
+										<input type="text" id="percargo" placeholder="{textopercargo}"
+											class="form-control">
+									</div>
+								</div>
+								
+								<div class="form-group row {mostrarperarecod}">
+									<div class="col-md-12">
+										<select id="perarecod" name="perarecod" class="form-control"
+											placeholder="{textoperarecod}">
+											<option value="" selected>{Idioma_Seleccione} {textoperarecod}...</option>
+											<!-- BEGIN area -->
+											<option value="{perareacod}">{peraredes}</option>
+											<!-- END area -->
+										</select>
+									</div>
+
+								</div>
+								<div class="form-group row {mostrarpertipo}">
+									<div class="col-md-12">
+										<select id="pertipo" name="pertipo" class="form-control"
+											placeholder="{textopertipo}" onchange="loadClases(this);">
+											<option value="">{Idioma_Seleccione} {textopertipo}</option>
+											<!-- BEGIN pertipos -->
+											<option value="{pertipcod}" {pertipsel}>{pertipdes}</option>
+											<!-- END pertipos -->
+										</select>
+
+									</div>
+								</div>
+								<div class="form-group row {mostrarperclase}">
+									<div class="col-md-12">
+										<select id="perclase" name="perclase" class="form-control"
+											placeholder="{textoperclase}">
+											<option value="" selected>{Idioma_Seleccione} {textoperclase}...</option>
+											<!-- BEGIN perclases -->
+											<option value="{perclacod}" {perclasel}>{perclades}</option>
+											<!-- END perclases -->
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group row {mostrartipo}">
+									<div class="col-md-12">
+										<select id="tipo" name="tipo" class="form-control" placeholder="{textotipo}">
+											<option value="" >{Idioma_Seleccione} {textotipo}</option>
+											<option value=0>{tipodeparticipacion1}</option>
+											<option value=1>{tipodeparticipacion2}</option>
+											<option value=2>{tipodeparticipacion3}</option>
+										</select>
+									</div>
+								</div>
+
+								<div id="preguntasdinamicascontainer">
+
+								</div>
+
+								<div class="form-group row descripcionEmpresa {mostrarperempdes}">
+									<div class="col-md-12">
+										<textarea class="form-control" id="perempdes"
+											placeholder="{textoperempdes}" name="perempdes" rows="3"
+											maxlength="5000"></textarea>
+									</div>
+
+								</div>
+								<div class="form-group row {mostrarpercoment}">
+									<div class=" col-md-12">
+										<textarea class="form-control" placeholder="{textopercoment}"
+											id="percoment" name="percoment" rows="3" maxlength="5000"
+											></textarea>
+
+									</div>
+								</div>
+								<div class="form-group row {mostrarpertelefo}">
+									<div class="col-md-12">
+										<input type="number" id="pertelefo" placeholder="{textopertelefo}"
+											class="form-control required">
+									</div>
+								</div>
+								<div class="form-group row {mostrarperurlweb}">
+									<div class="col-md-12">
+										<input type="text" id="perurlweb" placeholder="{textoperurlweb}"
+											class="form-control">
+									</div>
+								</div>
+								<div class="form-group row {mostrarperlinked}">
+									<div class="col-md-12">
+										<input type="text" id="perlinked" name="perlinked"
+											placeholder="{textoperlinked}" class="form-control"
+											>
+									</div>
+								</div>
+								<div class="form-group row {mostrarperfac}">
+									<div class="col-md-12">
+										<input type="text" id="perfac" name="perfac" class="form-control"
+											placeholder="{textoperfac}" >
+									</div>
+								</div>
+								<div class="form-group row {mostrarpertwi}">
+									<div class="col-md-12">
+										<input type="text" id="pertwi" name="pertwi"
+											placeholder="{textopertwi}" class="form-control"
+											>
+									</div>
+								</div>
+								<div class="form-group row {mostrarperins}">
+									<div class="col-md-12">
+										<input type="text" id="perins" name="perins"
+											placeholder="{textoperins}" class="form-control"
+											>
+									</div>
+								</div>
+								<div class="form-group row {mostrarperdirecc}">
+									<div class="col-md-12">
+										<input type="text" id="perdirecc" name="perdirecc"
+											placeholder="{textoperdirecc}" class="form-control">
+									</div>
+								</div>
+								<div class="form-group row {mostrarperciudad}">
+									<div class="col-md-12">
+										<input type="text" id="perciudad" placeholder="{textoperciudad}"
+											class="form-control required">
+									</div>
+								</div>
+
+								<div class="form-group row {mostrarperestado}">
+									<div class="col-md-12">
+										<input type="text" id="perestado" placeholder="{textoperestado}"
+											class="form-control required">
+									</div>
+								</div>
+								<div class="form-group row {mostrarpaicodigo}">
+									<div class="col-md-12">
+										<select id="timezone" name="timezone" class="form-control" placeholder="{textopaicodigo}">
+											<option value="" selected>{textopaicodigo}</option>
+											<!-- BEGIN zonahoraria -->
+											<option value="{timregcod}" {timsel}>{timdescri}</option>
+											<!-- END zonahoraria -->
+										</select>
+									</div>
+								</div>
+								<div class="form-group row {mostrarpercodpos}">
+									<div class="col-md-12">
+										<input type="text" id="percodpos" placeholder="{textopercodpos}"
+											class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group row {mostrarpaicodigo2}">
+									<div class="col-md-12">
+										<select id="paicodigo" name="paicodigo" class="form-control" placeholder="{textopaicodigo2}">
+											<option value="">{textopaicodigo2}...</option>
+											<!-- BEGIN paises -->
+											<option value="{paicodigo}" >{paidescri}</option>
+											<!-- END paises -->
+										</select>
+									</div>
+								</div>
+
+
+								<div class="{mostrarperusuacc}">
+									<div class="form-group row">
+										<div class="col-md-12">
+											<input type="email" id="perusuacc" placeholder="{textoperusuacc}"
+												class="form-control required">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-md-12">
+											<input onchange="checkEmail(this.value)" type="email" id="email-confirm"
+												placeholder="{confirmeemail} {textoperusuacc}" class="form-control required">
+											<label for="" class="error-info">{emailcoinciden}</label>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group row {mostrarperpasacc}">
+									<div class="col-md-12">
+										<input type="password" id="perpasacc" placeholder="{textoperpasacc}"
+											class="form-control required">
+										<div class="form-control-position" style=" top: 2px!important;
+											right: 5px!important;">
+											<i class="ft-eye font-medium-3" id="togglePassword"
+												style="cursor: pointer; margin-right: 2rem;"></i>
+										</div>
+									</div>
+								</div>
+								<div class="{mostrarperint}">
+									<div class="col-12 d-flex justify-content-center">
+										<p class="mr-2">{Idioma_Seleccione} {textoperint}</p>
+										<button  type="button" class="btn boton-simple-rounded bg-main-event white mr-1  {linkintereses}" style="width: 200px;" onclick="viewClasificar('V');">
+											<i class="fa fa-flickr"></i> {ampliada2}
+										</button>
+										<button type="button" class="btn boton-simple-rounded bg-main-event white mr-1  {linkoferta}"
+											style="width: 150px;" onclick="viewClasificar('V');">
+											<i class="fa fa-flickr"></i> {Idioma_ClasificarVentas}
+										</button>
+										<button id="btnclasifcom" type="button" class="btn boton-simple-rounded bg-main-event white mr-1  {linkdemanda}"
+											style="width: 150px;" onclick="viewClasificar('C');">
+											<i class="fa fa-flickr"></i> {Idioma_ClasificarCompras}
+										</button>
+									</div>
+
+								</div>
+
+								<div class="form-group row {mostrarchecklist}">
+									<div class="col-md-12">
+										<div class="">
+											<br>
+											<label for="">
+												<input type="checkbox" id="chkinfact">
+												{acepto1}
+												<br>
+											</label>
+											<br>
+											<label for="">
+												<input type="checkbox" id="chkinfpar">
+												{acepto2}
+												<br>
+											</label>
+											<br>
+											<label for="">
+												<input type="checkbox" id="chkinfter">
+												{terminos} <a href="{urlterminos}" target="_blank"><i
+														class="ft-download"></i></a>
+												<br>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 d-flex justify-content-center">
+									<button id="btnguardar" type="button" class="boton-new-rounded mr-1 mb-2"
+										onclick="guardarMaestroMsg();">
+										<i class="icon-note"></i> {registrate}
+									</button>
+									<button id="btncancelar" type="button" class="boton-new-rounded-o mr-1 mb-2"
+										onclick="cerrarMaestro();">
+										<i class="icon-arrow-left"></i> {atras}
+									</button>
+								</div>
+							</div>
+							
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade p-0 text-left" id="DataMaestroClasif" tabindex="-1" role="dialog" aria-hidden="true"
+		data-backdrop="static" data-keyboard="false">
+		<div class="modal-dialog modal-new" role="document" id="DataClasif" >
+		</div>
+	</div>
+
+	<script src="preguntasdinamicas.js"></script>
+	<!-- BEGIN VENDOR JS-->
+	<script src="assets-nuevodisenio/vendors/js/core/jquery-3.3.1.min.js"></script>
+	<script src="assets-nuevodisenio/vendors/js/core/popper.min.js"></script>
+	<script src="assets-nuevodisenio/vendors/js/core/bootstrap.min.js"></script>
+	<script src="assets-nuevodisenio/vendors/js/perfect-scrollbar.jquery.min.js"></script>
+	<script src="assets-nuevodisenio/vendors/js/prism.min.js"></script>
+	<script src="assets-nuevodisenio/vendors/js/jquery.matchHeight-min.js"></script>
+	<script src="assets-nuevodisenio/vendors/js/screenfull.min.js"></script>
+	<script src="assets-nuevodisenio/vendors/js/pace/pace.min.js"></script>
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<!-- END PAGE VENDOR JS-->
+	<!-- BEGIN CONVEX JS-->
+	<script src="assets-nuevodisenio/js/app-sidebar.js"></script>
+	<!-- END CONVEX JS-->
+	<!-- BEGIN PAGE LEVEL JS-->
+	<!-- END PAGE LEVEL JS-->
+
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<script src="assets-nuevodisenio/vendors/js/sweetalert2.min.js"></script>
+	<script src="assets-nuevodisenio/vendors/js/toastr.min.js"></script>
+	<script src="assets-nuevodisenio/vendors/js/switchery.min.js"></script>
+	<!-- END PAGE VENDOR JS-->
+
+
+	<script>
+		$(document).ready(function () {
+			
+			var x = document.getElementById("loginweb");
+		var y = document.getElementById("logincel");
+	   
+		if (window.innerWidth < 800){
+		
+		// console.log("entro aca")
+		x.style.display = "none";
+		y.style.display = "";
+	   
+
+		}else{
+			
+		x.style.display = "";
+		y.style.display = "none";
+	   
+	
+		}
+		});
+
+		let arraypreguntasdinamicas = {arraypreguntasdinamicas};
+
+		
+		if (arraypreguntasdinamicas!=null){
+			arraypreguntasdinamicas.forEach(pregunta => {
+			
+				if (pregunta != null ){
+					Mostrarpregunta(pregunta);
+				}
+				
+			});
+
+		}
+
+		dataClasificarVen = {
+			"sectores": [{
+				dataSectoresVen
+			}],
+			"subsectores": [{
+				dataSubsectoresVen
+			}],
+			"categorias": [{
+				dataCategoriasVen
+			}],
+			"subcategorias": [{
+				dataSubcategoriasVen
+			}]
+		};
+
+		dataClasificarCom = {
+			"sectores": [{
+				dataSectoresCom
+			}],
+			"subsectores": [{
+				dataSubsectoresCom
+			}],
+			"categorias": [{
+				dataCategoriasCom
+			}],
+			"subcategorias": [{
+				dataSubcategoriasCom
+			}]
+		};
+		$('.error-info').hide();
+
+
+		function changeLanguage(reg) {
+
+			var titulo = '';
+			var texto = '';
+			var id = '';
+			var botonconfirmar = '';
+			var botoncancelar = '';
+
+			var usuarioregistro = $('#perclase2').val();
+
+
+			
+
+			if (reg == 0) {
+				titulo = 'Change Language';
+				texto = 'You will lost the data already added';
+				botonconfirmar = 'Confirm';
+				botoncancelar = 'Cancel';
+				id = 'ING';
+			}
+			if (reg == 1) {
+				titulo = 'Cambio Idioma';
+				texto = 'Se perdera la información cargada';
+				id = 'ESP';
+				botonconfirmar = 'Confirmar';
+				botoncancelar = 'Cancelar';
+			}
+			swal({
+				title: titulo,
+				text: texto,
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: botonconfirmar,
+				cancelButtonText: botoncancelar,
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+				window.location = "../registro.php?USER="+usuarioregistro+"&ID=" + id;
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') { }
+			}).done();
+
+
+		}
+        //array que indica si los campos son requeridos desde el back
+		var validacion = {validacion}
+
+		//guardo todos los elementos input y textarea del formulario
+		const inputs = Array.from(document.querySelectorAll('input, textarea'));
+
+		//guardo todos los elementos select del formulario
+		const selects = Array.from(document.querySelectorAll('select'));
+
+		//guardo el input mail
+		const inputmail = document.querySelector('input[id="perusuacc"]');
+
+		//guardo el check del mail
+		const checkmail = document.querySelector('input[id="email-confirm"]');
+
+		//
+
+        //agrego el asterisco al campo del placeholder si es requerido (inputs)
+		inputs.map(input =>
+			validacion.find(item => item == input.id + 'true') ?
+				input.placeholder += '*' : ''
+		)
+       //agrego el asterisco al campo del placeholder checkmail si mail es requerido (inputs)
+
+		validacion.find(item => item == inputmail.id + 'true') ?  checkmail.placeholder+='*' : '';
+
+       //agrego el asterisco al campo del placeholder si es requerido (selects)
+
+		selects.map(select =>
+			validacion.find(item => item == select.id + 'true') ? select.firstElementChild.label += '*' : ''
+		)
+
+		//chqueo que los mails coincidan
+		const checkEmail = (inputCheckMail) => {
+			inputCheckMail && inputmail.value !== inputCheckMail ? $('.error-info').show() : $('.error-info').hide();
+ 	}
+
+		function guardarMaestroMsg() {
+			var errmsg = '';
+			var errcode = 0;
+			//var pertipo = 66;
+
+			//validacion campos inputs
+
+			inputs.map(input =>
+				((input.value ==='') || (input.value == "null")) && validacion.find(item => item == input.id + 'true') ?
+					toastr.error("{completeelcampo}" + input.placeholder, "ERROR!") && (errcode = 2) : ''
+			)
+
+			if(validacion[25] === 'perinttrue'){
+				if ((dataClasificarCom.sectores.length < 1) && (dataClasificarVen.sectores.length < 1)){
+				toastr.error("{completeelcampo} {textoperint}", "ERROR");
+				errcode=2;
+			}
+			}
+			
+
+			//validacion selects
+			selects.map(select =>
+				select.firstElementChild.selected === true && select.attributes.getNamedItem('placeholder') && validacion.find(item => item == select.id + 'true') ? toastr.error("{completeelcampo}" + select.attributes.getNamedItem('placeholder').value, "ERROR!") && (errcode = 2) : '')
+
+			//VALIDACION FORMATO MAIL
+			const valmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+			//chequeo si el formato del mail es correcto
+			inputmail.value  && !valmail.test(inputmail.value) ? (errcode = 2) && toastr.error("{verifiquemailregistro}", "ERROR") : '';
+
+
+             //CHEQUEO QUE LA CONFIRMACION DE MAIL NO ESTE VACIA SI EL MAIL ES REQUERIDO
+			!checkmail.value  && validacion.find(item => item == inputmail.id + 'true') ? (errcode = 2)
+			&& toastr.error("{completeelcampo}" + checkmail.placeholder, "ERROR!") : '';
+
+
+			if (!$("#chkinfter").prop("checked")) {
+				errcode = 2;
+				toastr.error("{acepteterminos}", "ERROR!");
+			}
+
+			if (errcode == 0) {
+				swal({
+					title: "{Idioma_GuardarSwal}",
+					text: "{Idioma_Confirmar}",
+					type: 'question',
+					showCancelButton: true,
+					confirmButtonColor: '#0CC27E',
+					cancelButtonColor: '#FF586B',
+					confirmButtonText: '{Idioma_BotonConf}',
+					cancelButtonText: '{Idioma_BotonCan}',
+					confirmButtonClass: 'btn btn-success btn-raised mr-5',
+					cancelButtonClass: 'btn btn-danger btn-raised',
+					buttonsStyling: false
+				}).then(function () {
+					guardarMaestro();
+				}, function (dismiss) {
+					// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+					if (dismiss === 'cancel') { }
+				}).done();
+			}
+		}
+
+		function cambiousuario(){
+			var usuarioregistro = $('#perclase2').val();
+			var id = $('#peridioma').val();
+
+			window.location = "../registro.php?USER="+usuarioregistro+"&ID=" + id;
+
+		}
+
+		function guardarMaestro() {
+			var formData = new FormData($('#FrmMst')[0]);
+			formData.append("peridioma", $('#peridioma').val());
+			formData.append("pernombre", $('#pernombre').val() );
+			formData.append("perapelli", $('#perapelli').val());
+			formData.append("percpf", $('#percpf').val());
+			formData.append("percompan", $('#percompan').val());
+			formData.append("percargo", $('#percargo').val());
+			formData.append("perarecod", $('#perarecod').val());
+			formData.append("pertipo", $('#pertipo').val());
+			formData.append("perclase", $('#perclase').val());
+			formData.append("tipo", $('#tipo').val());
+			formData.append("perempdes", $('#perempdes').val());
+			formData.append("percoment", $('#percoment').val());
+			formData.append("pertelefo", $('#pertelefo').val());
+			formData.append("perurlweb", $('#perurlweb').val());
+			formData.append("perlinked", $('#perlinked').val());
+			formData.append("perfac", $('#perfac').val());
+			formData.append("pertwi", $('#pertwi').val());
+			formData.append("perins", $('#perins').val());
+			formData.append("perdirecc", $('#perdirecc').val());
+			formData.append("perciudad", $('#perciudad').val());
+			formData.append("perestado", $('#perestado').val());
+			formData.append("timezone", $('#timezone').val());
+			formData.append("percodpos", $('#percodpos').val());
+			formData.append("paicodigo", $('#paicodigo').val());
+			formData.append("perusuacc", $('#perusuacc').val());
+			formData.append("perpasacc", $('#perpasacc').val());
+
+			formData.append("dataClasificarVen", JSON.stringify(dataClasificarVen));
+			formData.append("dataClasificarCom", JSON.stringify(dataClasificarCom));
+			var perinfact = ($('#chkinfact').is(':checked')) ? 'S' : 'N'; //Check de Informacion de Actividades
+			var perinfpar = ($('#chkinfpar').is(':checked')) ? 'S' : 'N'; //Check de Informacion de Participantes
+			formData.append("perinfact", perinfact);
+			formData.append("perinfpar", perinfpar);
+			//console.log(JSON.stringify(dataClasificarVen)),JSON.stringify(dataClasificarCom)
+
+			if (arraypreguntasdinamicas!=null){
+
+			var datospreguntas = [];	
+
+			arraypreguntasdinamicas.forEach(pregunta => {
+			
+				let respuesta = document.getElementById(pregunta.nombre).value;
+
+				 let elemento = {
+				 	pregunta : pregunta.textopregunta,
+			  		respuesta: respuesta
+				  }
+
+				  datospreguntas.push(elemento);
+				
+			});
+
+			formData.append("preguntasadicionales", JSON.stringify(datospreguntas));
+
+			}
+
+
+			$.ajax({
+				type: "POST",
+				url: "registersend.php?ID=" + "{peridioma}",
+				dataType: "html",
+				data: formData,
+				cache: false,
+				contentType: false,
+				processData: false
+			}).done(function (rsp) {
+				//console.log(rsp);
+				data = $.parseJSON(rsp);
+				data = $.parseJSON(rsp);
+				if (data.errcod == 0) {
+					//toastr.success(data.errmsg, 'ELIMINAR');
+					toastr.success(
+
+						"{enviomailregistro}",
+						"CONFIRM"
+					);
+					// alert('Se ha enviado un mail a su casilla de correo.');
+					setTimeout(function () {
+						window.location = "registermail";
+					}, 3000);
+				} else {
+					toastr.error(data.errmsg, "ERROR!");
+				}
+			});
+		}
+
+		function cerrarMaestro() {
+			window.location = "login";
+		}
+
+		function viewClasificar(vencom) {
+			var pervencom = vencom;
+			var dataClasif = null;
+
+			if (vencom == 'V') {
+				dataClasif = dataClasificarVen;
+			} else {
+				dataClasif = dataClasificarCom;
+			}
+			console.log(dataClasif);
+			var data = {
+				"pervencom": vencom,
+				"dataClasificar": dataClasif
+			};
+
+			$('#DataClasif').load('clasificarregistro.php?ID=' + '{peridioma}', data);
+			$('#DataMaestroClasif').modal('show');
+		}
+		const togglePassword = document.querySelector('#togglePassword');
+		const password = document.querySelector('#perpasacc');
+
+		togglePassword.addEventListener('click', function (e) {
+			// toggle the type attribute
+			const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+			password.setAttribute('type', type);
+			// toggle the eye slash icon
+			this.classList.toggle('ft-eye-off');
+			this.classList.toggle('ft-eye');
+		});
+
+		function loadClases(obj) {
+			 //Se cargan las clases en relacion con el Tipo de Perfil
+			var pertipo = $(obj).val();
+
+
+			$.ajax({
+				type: "POST",
+				url: "getclasesregistro.php",
+				data: {
+					"pertipo": pertipo
+				}
+			}).done(function (rsp) {
+				console.log(rsp)
+				data = $.parseJSON(rsp);
+
+				var clases = $('#perclase');
+				clases.empty();
+				$("<option/>", {
+					val: '',
+					text: '{Idioma_Seleccione} {clasesdeperfil}'
+				}).appendTo(clases);
+
+				$.each(data, function () {
+					//console.log(this.perclase);
+					//console.log(this.perclades);
+					$("<option/>", {
+						val: this.perclase,
+						text: this.perclades
+					}).appendTo(clases);
+				});
+			});
+		}
+	</script>
+</body>
+
+</html>

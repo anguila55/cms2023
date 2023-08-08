@@ -1,0 +1,181 @@
+﻿<!-- Contact Card ~ #01 -->
+<style>
+	.avatar-sponsor2-container {
+		width: 100%;
+		position: relative;
+
+
+	}
+
+	.avatar-sponsor2 {
+		z-index: 3;
+		height: 150px;
+		width: 150px;
+		border-radius: 100%;
+		margin-top: 5%;
+		margin-left: auto;
+		margin-right: auto;
+		left: 0;
+		right: 0;
+
+
+	}
+</style>
+<div class="row col-12 mb-1 justify-content-end" >
+	
+	<div>
+		<a href="../ofertas/bsq" class="bg-main-event btn-circle p-1 mr-1 white btn"> Desafíos </a>
+	</div>
+	
+</div>
+<div class="row" style="padding: 0px 16px;">
+	<input type="hidden" id="medida" name="medida"
+										value="{medida}">
+	<div class="col-sm-12 col-md-12 col-lg-12 mb-12 d-flex justify-content-left flex-wrap
+		mt-2">
+		<!-- BEGIN cupones -->
+
+		<div class="card-sponsor1 rounded p-2 col-sm-12 col-md-3 m-2">
+			<a onclick="modalOfertas({expreg},{expcupreg},{expcatego})"  class="">
+				
+				<div class="row p-2">
+				<div class="col-3 avatar-sponsor1">
+						<img src="{expavatar}" width="100%" alt="">
+				</div>	
+				<div class="col-9 mt-3 text-left">
+					<p class="mb-0 font-small font-weight-bold">{expnombre}</p>
+					<p class="color-gris font-small-2 font-weight-light">{expcupzon}</p>
+				</div>
+				<hr class="col-10 mb-0">
+				</div>
+			
+				<div class="row p-2">
+					<div class="col-12  font-medium-1 text-left mt-2 color-main-event " style="line-height: 1.2rem;">{expcuptit}</div>	
+			
+			
+					<div class="col-12 text-right" style="font-weight: lighter;    font-size: 0.7rem !important; line-height: 2.5rem; ">{expcupfch}</div>
+				
+					<a onclick="deletePoints({expcupreg})" type="button" class=" col-12 btn btn-success mb-1 bg-danger {verpostular}"><i
+						class="fa fa-trash"></i>
+					Despostularme</a>
+
+					<a onclick="showView({percodigopost})" type="button" class="col-12 btn btn-circle white mb-1 bg-main-event {verperfil}"><i
+						class="icon-magnifier-add"></i>
+					Ver Perfil</a>
+					<a onclick="showChatView({percodigopost})" type="button" class=" col-12 btn btn-circle white mb-1 bg-main-event {verperfil}"><i
+						class="icon-bubbles"></i>
+					Contactar</a>
+				
+
+				</div>
+
+				
+			</a>
+
+		</div>
+		<!-- END cupones -->
+	</div>
+	<div class="card col-md-3 mt-1 d-none" id="ventana">
+
+		<div id="activity-timeline" class="col-12 timeline-left">
+			<h6 class="mt-1 mb-3 text-bold-400">{Idioma_Filtros}</h6>
+
+
+			<div>
+				<ul class="list-unstyled base-timeline activity-timeline ml-0">
+
+					<li>
+						<div class="timeline-icon bg-warning d-none">
+							<i class="fa fa-plane"></i>
+						</div>
+						<div class="base-timeline-info">
+							<a href="#" class="text-uppercase text-primary">{Idioma_Buscar}</a>
+							<br>
+							<div class="form-group row">
+								<div class="col-md-12">
+									<input type="hidden" id="fltrecomendado" name="fltrecomendado"
+										value="{fltrecomendado}">
+									
+									<input type="hidden" id="fltfavoritos" name="fltfavoritos"
+										value="{fltfavoritos}">
+									<input style="width: 100%;" type="text" class="fltbuscar"
+										name="fltbuscar" class="form-control" value=""
+										placeholder="Buscar por palabra clave"
+										onkeypress="KeyEnterBuscar(event)">
+
+									<input style="width: 100%;" type="text" class="empresa mt-3"
+										name="fltbuscar" class="form-control" value=""
+										placeholder="Buscar por empresa" onkeypress="KeyEnterBuscar(event)">
+								</div>
+							</div>
+						</div>
+					</li>
+
+					</ul>
+
+					<div>
+						<div class="card-block">
+							<form>
+								<div class="form-group">
+									<div class="text-center mt-4">
+										<button type="button"
+											class="btn btn-warning px-4 py-2 text-uppercase white font-small-4 box-shadow-2 border-0"
+											onclick="showBrowser1();">{Idioma_Buscar}</button>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="text-center mt-4">
+										<button type="button"
+											class="btn btn-warning px-4 py-2 text-uppercase white font-small-4 box-shadow-2 border-0"
+											onclick="showBrowserAll();">{Idioma_Buscartodos}</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+	</div>
+</div>
+<script>
+	
+function showBrowser1() {
+			var fltbuscar = $('.fltbuscar').val();
+			var empresa = $('.empresa').val();
+			var medida = $('#medida').val();
+			
+			var data = { "fltbuscar": fltbuscar,
+				"medida": medida,
+				"empresa": empresa};
+
+			$('#DataBrowser').load('brw.php', data);
+			$('#DataMaestro').css('display', 'none');
+			$('#DataBrowser').css('display', '');
+
+		}
+		function showBrowserAll() {
+			var fltbuscar = '';
+			var medida = $('#medida').val();
+			
+			var data = {
+				"fltbuscar": fltbuscar,
+				"medida": medida
+			};
+
+			$('#DataBrowser').load('brw.php', data);
+			$('#DataMaestro').css('display', 'none');
+			$('#DataBrowser').css('display', '');
+		}
+		function KeyEnterBuscar(e) {
+			if (!e) var e = window.event
+			if (e.keyCode) code = e.keyCode;
+			else if (e.which) code = e.which;
+			if (code == 13) {
+				showBrowser1();
+			}
+		}
+
+</script>
+
+

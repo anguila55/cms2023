@@ -1,0 +1,198 @@
+<section id="horizontal-form-layouts">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2 class="content-header">Networking Room</h2>
+    </div>
+  </div>
+
+  <!--New formulario-->
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="px-3">
+          <form class="form">
+            <div class="form-body">
+              <div class="form-group">
+                <label>Expositores </label>
+
+                <select id="expreg" name="expreg" class="form-control">
+                  <option value="">Seleccione expositor</option>
+                  <!-- BEGIN expositores -->
+                  <option value="{expregcod}" {expregsel}>{expnombre}</option>
+                  <!-- END expositores -->
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="timesheetinput3"
+                  >Link Externo (dejar vacío si se quiere dirigir al
+                  micrositio)</label
+                >
+                <div>
+                  <input
+                    type="text"
+                    id="link"
+                    class="form-control"
+                    name="link"
+                    value="{link}"
+                  />
+                  <input
+                    type="hidden"
+                    id="mapreg"
+                    name="mapreg"
+                    value="{mapreg}"
+                  />
+                  <div class="form-control-position">
+                    <i class="ft-message-square"></i>
+                  </div>
+                </div>
+              </div>
+
+            <!--   <div class="form-group">
+                <label for="timesheetinput1">Coordenada X</label>
+                <div class="position-relative has-icon-left">
+                  <input
+                    type="text"
+                    id="coordx"
+                    name="coordx"
+                    class="form-control"
+                    value="{coordx}"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="timesheetinput1">Coordenada Y</label>
+                <div class="position-relative has-icon-left">
+                  <input
+                    type="text"
+                    id="coordy"
+                    name="coordy"
+                    class="form-control"
+                    value="{coordy}"
+                  />
+                </div>
+              </div> -->
+
+               <div class="form-group">
+                <label for="timesheetinput1">Coordenadas</label>
+                <div class="position-relative has-icon-left">
+                  <input
+                    type="text"
+                    id="coord"
+                    name="coord"
+                    class="form-control"
+                    value="{coord}"
+                  />
+                </div>
+              </div> 
+            </div>
+
+            <div class="form-actions right">
+              <button
+                id="btnguardar"
+                type="button"
+                class="btn btn-success"
+                onclick="guardarMaestroMsg();"
+              >
+                <i class="icon-note"></i> Guardar
+              </button>
+              <button
+                id="btncancelar"
+                type="button"
+                class="btn btn-danger mr-1"
+                onclick="showBrowser();"
+              >
+                <i class="icon-arrow-left"></i> Cancelar
+              </button>
+              &nbsp;&nbsp;
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="../assets-nuevodisenio/js/switch.min.js"></script>
+<script>
+  function guardarMaestroMsg() {
+    var expreg = $("#expreg").val();
+
+    var errcod = 0;
+    var errmsg = "";
+
+    if (expreg == "") {
+      errcod = 1;
+      errmsg = "Debe seleccionar un expositor";
+      toastr.error(errmsg, "ERROR");
+    }
+
+    if (errcod == 0) {
+      swal({
+        title: "SAVE",
+        text: "¿Confirma guardar los cambios / Are sure?",
+        type: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#0CC27E",
+        cancelButtonColor: "#FF586B",
+        confirmButtonText: "Confirmar",
+        cancelButtonText: "Cancelar",
+        confirmButtonClass: "btn btn-success btn-raised mr-5",
+        cancelButtonClass: "btn btn-danger btn-raised",
+        buttonsStyling: false,
+      })
+        .then(
+          function () {
+            guardarMaestro();
+          },
+          function (dismiss) {
+            // dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+            if (dismiss === "cancel") {
+            }
+          }
+        )
+        .done();
+    }
+  }
+
+  function guardarMaestro() {
+    var mapreg = $("#mapreg").val();
+    var link = $("#link").val();
+ /*    var coordx = $("#coordx").val();
+    var coordy = $("#coordy").val(); */
+
+
+     var coord = $("#coord").val();
+   var expreg = $("#expreg").val();
+
+
+       var estcodigo = $("#estcodigo").val();
+
+   /*  var coord = coordx + "," + coordy + "," + '100'; */
+
+    var data = {
+      mapreg: mapreg,
+      link: link,
+      coord: coord,
+      expreg: expreg,
+      estcodigo: estcodigo,
+    };
+
+    $.ajax({
+      type: "POST",
+      url: "grb.php",
+      data: data,
+    }).done(function (rsp) {
+      data = $.parseJSON(rsp);
+
+      if (data.errcod == 0) {
+        toastr.success(data.errmsg, "SAVE");
+        //swal("GUARDAR", data.errmsg, "success").done();
+        showBrowser();
+      } else {
+        toastr.error(data.errmsg, "SAVE");
+        //swal("GUARDAR", data.errmsg, "error").done();
+      }
+    });
+  }
+</script>

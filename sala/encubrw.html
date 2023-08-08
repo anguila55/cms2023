@@ -1,0 +1,145 @@
+<div class="col-md-12">
+	<!-- BEGIN encuestas -->
+	<div class="card" style="padding-left:20px;padding-right:20px;">
+		<div class="card-body">
+			<h6 class="card-title" style="padding-bottom:10px;">
+				{encdescri} &nbsp; <a class="success p-0" title="Encuesta Completa" style="{enccheck}"><i class="fa fa-check font-medium-3 mr-2"></i></a>
+			</h6>
+			<div class="form-body">
+				<!-- BEGIN preguntas -->
+				<hr>
+				<div id="rowcontent{encpreitm}">
+					<h6 class="textopregunta">{encpregun}</h6>
+					<input type="hidden" id="encreg" name="encreg" value="{encreg}">
+					<input type="hidden" id="encpreitm" name="encpreitm" value="{encpreitm}">
+					
+					<div id="dvblock" class="form-group" style="{pregtip1}" data-type="1">
+						<textarea class="form-control" rows="2" id="encvalres"  name="encvalres" class="form-control" value="#">  </textarea>
+					</div>
+
+					<div id="dvblock"  class="form-group " style="{pregtip2}" data-type="2">
+						<select class="custom-select form-control textopregunta" id="encvalres" name="encvalres">
+							<option value="0">{seleccionaopcion}</option>
+							<!-- BEGIN preval -->
+							<option value="{encpreval}">{encpreval}</option>
+							<!-- END preval -->
+						</select>
+					</div>
+					
+					<div id="dvblock"  class="card-body" style="{pregtip3}" data-type="3">
+						<div id="PregStart{encpreitm}">
+						</div>
+					</div>
+					
+					<div id="dvblock"  class="form-group " style="{pregtip4}" data-type="4">
+						<!-- BEGIN premultiple -->
+						<input type="checkbox" id="encvalres" name="encvalres" value="{encpreval}" style="width:15px; height:15px; cursor:pointer;">
+						<label class="col-md-3 label-control">{encpredes}</label>
+						<br>
+						<!-- END premultiple -->
+					</div>
+				</div>
+				<!-- END preguntas -->
+			</div>
+		</div>
+	</div>
+	<!-- END encuestas -->
+	
+	<div class="card">
+		<div class="form-actions" style="padding-top:10px; padding-left:10px;">
+			<button id="btnnueva" type="button" class="btn btn-success" onclick="guardarMaestro();">
+				<i class="icon-note"></i> {Idioma_Guardar}
+			</button>
+		</div>
+	</div>
+</div>
+	
+
+<script>
+	$.fn.raty.defaults.path = '../app-assets/img/raty/';
+
+	<!-- BEGIN jsclasificar -->
+	 $('div[id="PregStart{encpreitmcla}"]').raty({
+		 number: {encpreval},
+		 click:function llamar(score,evt){
+			 console.log(score);
+			 }
+		 }
+	 );	
+	 <!-- END jsclasificar -->
+
+	function showNuevaPreg(agereg){
+		var data = {"agereg":agereg};
+		$('#viewOpcion').load('pregmst.php',data);
+	}
+	
+	
+	function guardarMaestro(){
+		var error = false;
+		var errmsg = '';
+		var agereg = $('#agereg').val();
+		
+		var datasend = {"agereg":agereg,
+						"preguntas":[]};
+	
+	
+		$.each($('input[id="encpreitm"]'),function(){
+			var row = $(this).closest('div');
+			var div = row.find('div[id="dvblock"][style*="display:visible"]');
+			var encreg = row.find('#encreg').val();
+			
+			if(div.css('display') == 'block'){
+				var tipo = div.data('type');
+				var valres = '';
+				
+				switch(tipo){
+					case 1: valres = (div.find('#encvalres').val()!='' && div.find('#encvalres').val()!='0')? div.find('#encvalres').val():''; break;
+					case 2: valres = (div.find('#encvalres option:selected').val()!='' && div.find('#encvalres option:selected').val()!='0')? div.find('#encvalres option:selected').val():''; break;
+					case 3: valres = (typeof div.find('#PregStart'+this.value).raty('score') !== "undefined")? div.find('#PregStart'+this.value).raty('score'):''; break;
+					case 4:
+						valres = '';
+						$.each(div.find('input[id="encvalres"]:checked'),function(){
+							valres += this.value + ',';
+						});			
+						valres = valres.substr(0,valres.length-1);
+						break;
+				}
+				
+				if(valres!=''){
+					var itm = { "encreg": encreg,
+								"encpreitm": this.value,
+								"encvalres": valres,
+								"tipo":tipo};
+					datasend.preguntas.push(itm);
+				}
+			}			
+			
+		});
+				
+		//console.log(datasend);
+		if(datasend.preguntas.length>0){
+			$('#btnguardar').hide();
+			$.ajax({
+				type: "POST",
+				url: "encugrb.php",
+				data: datasend
+			}).done(function( rsp ) {
+				data = $.parseJSON(rsp);
+				$('#btnguardar').show();
+				
+				if(data.errcod == 0){
+					toastr.success(data.errmsg, 'GUARDAR');
+					viewOpcion(2);
+				}else{
+					toastr.error(data.errmsg, 'GUARDAR');	
+				}
+				
+			});
+		}else{
+			toastr.error('Sin respuestas en encuestas', 'GUARDAR');	
+		}
+	}
+</script>
+	 
+	  
+	  

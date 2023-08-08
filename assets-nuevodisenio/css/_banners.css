@@ -1,0 +1,133 @@
+.swal2-show{
+    border-radius: 20px;
+}
+
+.meeting-banner_text{
+    font-size: 30px;
+    line-height: 35px;
+    margin-top: 30px;
+}
+
+.sectors-text{
+    font-size: 13px;
+    width: 80%;
+    line-height: 16px;
+    margin-bottom: 15px;
+}
+
+.sectors-span{
+    font-size: 10px;
+    font-style: oblique;
+}
+
+.sectors-checkbox{
+ width: 20%;
+
+}
+
+.meeting-banner_textdisp{
+    font-size: 20px;
+    line-height: 25px;
+    margin-top: 20px;
+}
+
+@media (min-width: 992px) {
+    .modal-new {
+      max-width: 670px;
+    }
+  }
+
+  .invisible{
+   z-index: -300;
+   height: 10px;
+   overflow-y: hidden; 
+  }
+
+  .text-area-chatmodal{
+    border-radius: 20px;
+    width: 90%;
+    margin: 0px 5%;
+  }
+
+
+
+.text-message-pop{
+    font-size: 16px;
+}
+
+.padding-text-message-l{
+    padding-left: 20px;
+}
+
+.padding-text-message-r{
+    padding-right: 20px;
+}
+
+.main-section-banner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0px 24px;
+    width: 100%;
+    margin-bottom: 24px;    
+    position: relative;
+}
+
+.main-section-banner__circle {
+    position: absolute;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    z-index: 0;
+    top: 18px;
+    left: 30px;
+}
+
+.main-section-banner__icon {
+    z-index: 1;
+    padding-right: 30px;
+}
+
+.main-section-banner__icon img {
+    height: 100px;
+    width: 100px;
+}
+
+.main-section-banner__text {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 8px 0px;
+    font-family: "Open Sans", "sans-serif";
+}
+
+@media (min-width: 576px) {
+    .main-section-banner__text {
+        font-size: 28px;
+    }
+
+    .main-section-banner__icon img {
+        height: 125px;
+        width: 125px;
+    }
+
+    .main-section-banner__circle {
+        width: 64px;
+        height: 64px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .meeting-banner_text{
+        width: 100%;
+    }
+
+}
+
+.modal-radius{
+    border-radius: 30px;
+}

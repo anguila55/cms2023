@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		var nombrecodigo = {percodnotif};
+		dataLayer.push({'event' : 'login', 'userId' : nombrecodigo});
+		</script>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-MW2RMSR');</script>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="description"
+    content="BTBOX _your business toolbox. Todas las soluciones en una plataforma para potenciar tu próximo evento">
+    <meta name="keywords"
+    content="btbox, evento, fisico, hibrido, event, admin, btoolbox, networking, reuniones">
+    <meta name="author" content="BTBOX">
+	<title>{SisNombreEvento}</title>
+	<link rel="shortcut icon" type="image/png" href="../assets-nuevodisenio/img/favicon.jpg">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/index.css">
+	<link href="../assets-nuevodisenio/css/select2.css" rel="stylesheet" />
+
+	<!-- script para levantar el navbar -->
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<style>
+	.filter-container {
+		font-size: 35px;
+	}
+	.notification-sidebar.open {
+		width: auto !important;
+	}
+
+</style>
+
+<body data-col="2-columns" class=" 2-columns ">
+
+	<div class="wrapper nav-collapsed menu-collapsed">
+		<input id="percodnotif" name="percodnotif" type=hidden value="{percodnotif}">
+
+		<!-- Navigation bar -->
+		<div id="nav-placeholder">
+
+		</div>
+
+		<script>
+			$(function () {
+				var data = {
+					"menu": "activedirectorio"
+				};
+
+				$("#nav-placeholder").load("../navbar/navbar.php", data);
+
+			});
+		</script>
+		<!-- end of Navigation bar -->
+
+		<!-- Menu  -->
+
+
+		<!--MENU FIN-->
+
+
+
+		<div>
+			<div class="main-content">
+				<div class="main-section-banner bg-main-event">
+					<div class="main-section-banner__circle bg-banners"></div>
+					<div class="main-section-banner__icon">
+						<img src="../assets-nuevodisenio/img/icons/participants.png" alt="">
+					</div>
+					<div class="main-section-banner__text text-uppercase">{nombredirectorio}</div>	
+				</div>
+						<div class="content-wrapper container-general">
+							<div
+                            class="container-fluid"
+                            style="background-color: white"
+                            id="printtopdfDirectorio">
+								<div class="pdf-top-banner" id="pdfHeaderDirectorio">
+									<div class="pdf-top-banner__date">
+										<div class="row col-12">
+											<div class="col-12">{SisNombreEvento} </div>
+										<div class="col-12">{diainicial}-{diafinal}</div>
+										</div>
+										
+									</div>
+									<div class="pdf-top-banner__participant">
+										<img
+											class="rounded-circle pdf-top-banner__avatar"
+											style="height: 100px; width: 100px"
+											src="{peravatar}"
+											alt=""
+										/>
+										<div
+											class="pdf-top-banner__participant-information"
+										>
+											<div
+												class="pdf-top-banner__participant-data"
+											>
+												{perapelli} {pernombre}
+											</div>
+											<div class="pdf-top-banner__company">
+												{percompan} 
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row col-12 p-0 m-0">
+									<input type="hidden" id="percodigo" name="percodigo" value="{percodigousuario}">
+										<div  class="mt-3 mb-3 filter-container text-center d-flex bg-white filtrosdirectorio"
+										>
+				
+										<a
+										id="btnclasifven"  class="bg-main-event white btn boton-simple-rounded mr-1 color-main-event fw-200"
+                                                onclick="viewClasificar('V');"
+                                                role="button"
+                                                ><i
+                                                    class="fa fa-flickr"
+                                                    style="padding-right: 4px"
+                                                ></i>
+                                                {ampliada2}</a>
+										
+				
+										<a href="../directorio/bsq?R=1" class="fw-200 nav-link mr-1 boton-simple-rounded {display_recomendados}">
+											<i style="color: goldenrod;"
+												class="fa fa-fw  fa fa-thumbs-up
+												"></i> {Idioma_Recomendados}
+										</a>
+				
+										<a href="../directorio/bsq" class="fw-200 nav-link mr-1 boton-simple-rounded {display_todos2}">
+											<i style="color: goldenrod;"
+												class="fa fa-fw  fa fa-users
+												"></i> {Idioma_Buscartodos}
+										</a>
+				
+									
+				
+				
+										
+										<a id="start" onclick="showFavs()" class="nav-link mr-1 boton-simple-rounded fw-200">
+											<i style="color: goldenrod;"
+												class="fa fa-fw  fa fa-star-o"></i> {favoritos}
+										</a>
+				
+										<a id="start2" onclick="showDesFavs()" class="fw-200 mr-1 boton-simple-rounded nav-link">
+											<i style="color: goldenrod;"
+												class="fa fa-fw  fa fa-star"></i> {favoritos}
+										</a>
+										<a id="compartidos" onclick="showComp()" class="fw-200 mr-1 boton-simple-rounded nav-link {mostrarcompartir}">
+											<i style="color: goldenrod;"
+												class="fa fa-fw  fal fa-share"></i> {compartidos}
+										</a>
+										<a id="compartidos2" onclick="showDesComp()" class="fw-200 mr-1 boton-simple-rounded nav-link">
+											<i style="color: goldenrod;"
+												class="fa fa-fw  fa fa-users"></i> {Idioma_Buscartodos}
+										</a>
+										<a
+											
+											class="fw-200 nav-link boton-simple-rounded mr-1"
+											id="exportarbotonxls"
+											onclick="exportarCompartidos();"
+										>
+										<i style="color: goldenrod;"
+										class="fw-800 fa fa-fw fa fa-files-o"></i> 
+										{Idioma_Exportar} XLS
+										</a>
+										<a
+											id="exportarboton"
+											class="fw-200 nav-link boton-simple-rounded mr-1"
+											id="pdfExportDirectorio"
+											onclick="javascript:pdfFromHTMLDirectorio();"
+										>
+										<i style="color: goldenrod;"
+										class="fw-800 fa fa-fw fa fa-files-o"></i> 
+										{Idioma_Exportar} PDF
+										</a>
+									
+										
+				
+										</div>
+								</div>
+							
+		
+								<div class="row col-12 col-sm-12 col-md-12 mr-0 ml-0">
+
+									<div class="col-sm-12 col-md-4 col-lg-3 pl-0 pr-0">
+										<div class="border rounded p-2">
+
+										
+										<h6 class="m-3 text-bold-400 d-none">{Idioma_Filtros}</h6>
+										<div class="px-2">
+											<ul class="list-unstyled ml-0">
+												<li>
+													<div class="col-md-12" style="text-align: right;">
+														<a onclick="showEliminarFiltros();" class="text-uppercase texto-eliminar-filtro" >{Idioma_BuscartodosFiltro}</a>
+													</div>	
+												</li>
+												<li>
+													<div class="base-timeline-info">
+														
+														<div class="form-group row">
+															<div class="col-md-12">
+																<input type="hidden" id="fltrecomendado" name="fltrecomendado"
+																	value="{fltrecomendado}">
+																<input type="hidden" id="expreg" name="expreg" value="{expreg}">
+																<input type="hidden" id="fltfavoritos" name="fltfavoritos"
+																	value="{fltfavoritos}">
+																
+																
+																<input style="width: 100%;" id="inputbuscar" type="text" class="fltbuscar input_buscar " name="fltbuscar" value=""
+																placeholder="{Idioma_Buscar}" onkeypress="KeyEnterBuscarDirectorio(event)">
+																	
+															</div>
+														</div>
+														
+													</div>
+												</li>
+												<li style="{btnsectores}">
+													
+													<div class="base-timeline-info mb-1">
+														<p  class="mb-0 text-uppercase texto-selects" >{Idioma_Clasificar}</p>
+														
+														<select id="cmbsector"  name="cmbsector" class="form-control" style="width:100%" multiple="multiple">
+															
+														<!-- BEGIN sectores -->
+														<option value="{seccodigo}">{secdescri}</option>
+														<!-- END sectores -->
+															
+														  </select>
+														
+													</div>
+												</li>
+												<li class="{btnsubsectores}">
+													<div class="base-timeline-info mb-1">
+														<p class="mb-0 text-uppercase texto-selects" >{Idioma_Subsectores}</p>
+														
+														<select id="cmbsubsector"  name="cmbsubsector" class="form-control" style="width:100%" multiple="multiple">
+															
+												  
+															<!-- BEGIN subsectores -->
+															<option value="{secsubcod}">{secsubdes}</option>
+															<!-- END subsectores -->
+															
+												  
+														  </select>
+
+													</div>
+														
+												</li>
+												<li class="{btnsubsectores}">
+													<div class="base-timeline-info mb-1">
+														<p class="mb-0 text-uppercase texto-selects" >{zonahorariapais}</p>
+														
+														<select id="cmbpais"  name="cmbpais" class="form-control" style="width:100%" multiple="multiple">
+															
+												  
+															<!-- BEGIN paises -->
+															<option value="{paicodigo}" >{paidescri}</option>
+															<!-- END paises -->
+															
+												  
+														  </select>
+
+													</div>
+														
+												</li>
+												<li style="{btncategorias}">
+													
+													<div class="base-timeline-info">
+														<a href="#" class="text-uppercase text-primary">{Idioma_Categorias}</a>
+														<br>
+														<select multiple id="cmbcategoria">
+															<!-- BEGIN categoria -->
+															<option value="{catcodigo}">{catdescri}</option>
+															<!-- END categoria -->
+														</select>
+					
+					
+													</div>
+												</li>
+												<li style="{btnsubcategorias}">
+													
+													<div class="base-timeline-info">
+														<a href="#" class="text-uppercase text-primary">{Idioma_SubC}</a>
+														<br>
+														<select multiple id="cmbsubcategoria">
+															<!-- BEGIN subcategoria -->
+															<option value="{catsubcod}">{catsubdes}</option>
+															<!-- END subcategoria -->
+														</select>
+					
+					
+													</div>
+												</li>
+												<li >
+													
+													<div class="base-timeline-info mb-1 {mostrarfiltrotipo}">
+														<p class="mb-0 text-uppercase texto-selects" >{tipodeparticipacion}</p>
+														
+														<select id="fltparticipacion"  name="fltparticipacion" class="form-control select-oferta" style="width:100%">
+															
+															<option value="0">{tipodeparticipacion1}</option>
+															<option value="1" >{tipodeparticipacion2}</option>
+															<option value="2" >{tipodeparticipacion3}</option>
+															
+												  
+														  </select>
+
+													</div>
+														
+												</li>
+												<li class="{filtrocartera}">
+													
+													<div class="base-timeline-info mb-1">
+														<p class="mb-0 text-uppercase texto-selects" >{Idioma_ClasificarVentas} / {Idioma_ClasificarCompras}</p>
+														
+														<select id="fltpervencomfiltro"  name="fltpervencomfiltro" class="form-control select-oferta" style="width:100%">
+															
+															<option value="0">{Idioma_PLbtodos}</option>
+															<option value="1">{Idioma_ClasificarVentas}</option>
+															<option value="2">{Idioma_ClasificarCompras}</option>
+															
+												  
+														  </select>
+														
+													</div>
+												</li>
+												<li class="d-none">
+												
+													<div class="base-timeline-info">
+														<a href="#" class="text-uppercase text-primary">{Idioma_fav}</a>
+														<select id="cmbfavoritos" name="cmbfavoritos" class="form-control">
+															<option value="0">{Idioma_PLbtodos}</option>
+															<option value="1">{Idioma_PLbverSolofav}</option>
+														</select>
+					
+					
+													</div>
+												</li>
+												<li class="d-none">
+													<div class="timeline-icon bg-primary">
+														<i class="fa fa-plane"></i>
+													</div>
+													<div class="base-timeline-info">
+														<a href="#" class="text-uppercase text-primary">{Idioma_CBtipo}</a>
+														<br>
+														<select id="fltpertipo" name="fltpertipo" class="form-control">
+															<option value="">{Idioma_PLbtodos}</option>
+															<!-- BEGIN pertipos -->
+															<option value="{pertipo}">{pertipdes}</option>
+															<!-- END pertipos -->
+														</select>
+													</div>
+												</li>
+											</ul>
+											<form>
+												<div class="form-group">
+													<div class="text-center mt-4">
+														<button type="button"
+															class="btn bg-main-event px-4 py-2 text-uppercase white font-small-4 box-shadow-2 border-0"
+															onclick="showBrowser();">{Idioma_Buscar}</button>
+													</div>
+													
+												</div>
+											</form>
+										</div>
+
+										</div>
+									</div>
+
+									<div class="col-lg-9 col-md-8 col-sm-12">
+											<div class="row taskboard mx-0" id="DataBrowser"></div>
+									</div>
+
+
+								</div>
+		
+											
+							
+		
+								
+							</div>
+						</div>
+
+					</div>
+				</div>
+		 <!-- FIN- <div class="wrapper"> -->
+
+	<!-- Modal -->
+	<div class="modal fade p-0 text-left" id="DataMaestroViewPerfil" tabindex="-1" role="dialog" aria-hidden="true"
+		>
+		<div class="modal-dialog modal-new" role="document" id="DataViewPerfil">
+		</div>
+	</div>
+
+	<div class="modal fade p-0 text-left" id="DataMaestroView" tabindex="-1" role="dialog" aria-hidden="true"
+		>
+		<div class="modal-dialog modal-new" role="document" id="DataView" >
+		</div>
+	</div>
+	<div class="modal fade p-0 text-left" id="DataMaestroClasif" tabindex="-1" role="dialog" aria-hidden="true"
+		data-backdrop="static" data-keyboard="false">
+		<div class="modal-dialog modal-new" role="document" id="DataClasif">
+		</div>
+	</div>
+
+
+
+	<!-- BEGIN VENDOR JS-->
+	<script src="../assets-nuevodisenio/vendors/js/core/jquery-3.3.1.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/core/popper.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/core/bootstrap.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/perfect-scrollbar.jquery.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/prism.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/jquery.matchHeight-min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/screenfull.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/pace/pace.min.js"></script>
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<!-- END PAGE VENDOR JS-->
+	<!-- BEGIN CONVEX JS-->
+	<script src="../assets-nuevodisenio/js/app-sidebar.js"></script>
+	<!-- END CONVEX JS-->
+	<!-- BEGIN PAGE LEVEL JS-->
+	<!-- END PAGE LEVEL JS-->
+
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<script src="../assets-nuevodisenio/vendors/js/sweetalert2.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/toastr.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/switchery.min.js"></script>
+	<!--<script src="../assets-nuevodisenio/js/jquery.multiselect.js"></script>-->
+	<script src="../assets-nuevodisenio/js/select2.js"></script>
+	<script src="../html2pdf.bundle.min.js"></script>
+	<!-- END PAGE VENDOR JS-->
+
+	<script>
+		function pdfFromHTMLDirectorio() {
+			let header = document.getElementById("pdfHeaderDirectorio");
+			let box = document.getElementById("printtopdfDirectorio");
+
+			let width = box.offsetWidth;
+			let height = box.offsetHeight;
+			header.style.display = "grid";
+
+			var opt = {
+				margin:       0,
+				filename:     "Datos Compartidos "+'{SisNombreEvento} {diainicial}-{diafinal}'+".pdf",
+				image:        { type: 'jpeg', quality: 0.98 },
+				html2canvas:  { scale: 2 },
+				jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape' },
+				};
+
+		html2pdf().set(opt).from(box).save().then(function sacoheader (){header.style.display = "none";});
+		}
+	</script>
+
+	<script>
+		// const start = $("#start");
+		// const start2 = ;
+
+		// start.click(() =>{
+		// 	console.log('me hiciste click');
+		// 	start.removeClass('fa-star-o');
+		// 	start.addClass('fa-star');
+
+		// })
+
+		dataClasificarVen	= {	"sectores":[{dataSectoresVen}],
+							"subsectores":[{dataSubsectoresVen}],
+							"categorias":[{dataCategoriasVen}],
+							"subcategorias":[{dataSubcategoriasVen}] };
+							
+	dataClasificarCom	= {	"sectores":[{dataSectoresCom}],
+							"subsectores":[{dataSubsectoresCom}],
+							"categorias":[{dataCategoriasCom}],
+							"subcategorias":[{dataSubcategoriasCom}] };
+
+
+		//Acceso directo a clasificar
+		if ('{fltviewproductos}' == 'C') {
+			viewClasificar('C');
+		}else if ('{fltviewproductos}' == 'V') {
+
+			viewClasificar('V');
+		}
+		$('.banner-fixed').hide();
+
+		$(window).scroll(() => {
+
+			if (scrollY > 200) {
+
+				$('.banner-fixed').show();
+
+			} else {
+				$('.banner-fixed').hide();
+			}
+
+		});
+
+		$(document).ready(function () {
+			
+			//$('#cmbsector').select2();
+			$('#cmbsector').select2({
+				placeholder: "{seleccionaopcion}"
+			});
+			$('#cmbsubsector').select2({
+			    placeholder: "{seleccionaopcion}"
+			});
+			$('#cmbpais').select2({
+			    placeholder: "{seleccionaopcion}"
+			});
+			$('#fltpervencomfiltro').select2({
+			    placeholder: "{seleccionaopcion}"
+			});
+			$('#fltparticipacion').select2({
+			    placeholder: "{seleccionaopcion}"
+			});
+			$('#fltparticipacion').val('{valorevento}').trigger('change');
+			
+			showBrowser();
+
+			const start2 = $("#start2");
+			start2.hide();
+			const start = $("#start");
+			start.click(() => {
+				start.hide();
+				start2.show();
+			})
+			const compartidos2 = $("#compartidos2");
+			const exportarboton = $("#exportarboton");
+			const exportarbotonxls = $("#exportarbotonxls");
+			
+			compartidos2.hide();
+			exportarboton.hide();
+			exportarbotonxls.hide();
+			const compartidos = $("#compartidos");
+			compartidos.click(() => {
+				compartidos.hide();
+				compartidos2.show();
+				exportarboton.show();
+				exportarbotonxls.show();
+				
+				
+			})
+			{mostrarcompartidos};
+
+
+			/*$('#cmbcategoria').multiselect({
+				columns: 1,
+				placeholder: 'Select categories',
+				search: true,
+				selectAll: true
+			});
+
+			$('#cmbsubcategoria').multiselect({
+				columns: 1,
+				placeholder: 'Select subcategories',
+				search: true,
+				selectAll: true
+			});*/
+
+
+		});
+
+		/*function showMaestro(reg){
+			var data = {"percodigo":reg};
+		
+			$('#DataMaestro').load('mst.php',data);
+			$('#DataMaestro').css('display','');
+			$('#DataBrowser').css('display','none');
+		}*/
+		function exportarCompartidos() {
+				window.location='../directorio/exportarcompartidos.php';
+		}
+
+		function viewClasificar(vencom){
+			var percodigo 	= $('#percodigo').val();
+			var pervencom 	= vencom;
+			var dataClasif = null;
+			
+			if(vencom=='V'){
+				dataClasif = dataClasificarVen;
+			}else{
+				dataClasif = dataClasificarCom;
+			}
+			console.log(dataClasif);
+			var data = {"percodigo":percodigo,
+						"pervencom":vencom,
+						"dataClasificar":dataClasif};
+			
+			$('#DataClasif').load('../directorio/clasificar.php',data);
+			$('#DataMaestroClasif').modal('show');
+		}
+		function showdescargardatos() {
+				var data = '';
+				$('#comp2').hide();
+				$.ajax({
+					type: "POST",
+					url: 'compartidosgrb.php',
+					data: data
+				}).done(function (rsp) {
+					data = $.parseJSON(rsp);
+
+					
+					toastr.success(data.errmsg, 'Email');
+					$('#comp2').show();
+				});
+			
+		}
+		function showEliminarFiltros() {
+
+
+			$('#cmbsector').val(null).trigger('change');
+			$('#cmbsubsector').val(null).trigger('change');
+			$('#cmbpais').val(null).trigger('change');
+			$('#fltparticipacion').val(null).trigger('change');
+			$('#fltpervencomfiltro').val(null).trigger('change');
+			
+			const inputs = document.querySelector('#inputbuscar');
+			inputs.value='';
+
+			var data = '';
+			$('#DataBrowser').load('brw.php', data);
+
+		}
+		function showDesComp() {
+			$("#compartidos2").hide();
+			$("#exportarboton").hide();
+			$("#exportarbotonxls").hide();
+			$("#compartidos").show();
+
+			var expreg = $('#expreg').val();
+			var cmbfavoritos = $('#cmbfavoritos').val();
+
+
+			var data = '';
+			// console.log(data);
+			$('#DataBrowser').load('brw.php', data);
+
+		}
+		function showComp() {
+
+			var data = '';
+			$('#DataBrowser').load('compartidos.php', data);
+
+		}
+		function showCompQR() {
+			$("#compartidos").hide();
+			$("#exportarboton").show();
+			$("#exportarbotonxls").show();
+			$("#compartidos2").show();
+			var data = '';
+			$('#DataBrowser').load('compartidos.php', data);
+
+			}
+
+
+		function showView(reg) {
+			var data = { "percodigo": reg };
+
+			//$('#DataView').addClass('modal-xs');
+			//$('#DataView').removeClass('modal-lg');
+			$('#DataViewPerfil').load('vsl.php', data);
+			$('#DataMaestroViewPerfil').modal('show');
+		}
+
+		function solicitarReunionMaestro(reg, tipo) {
+			if (tipo != 5) {
+				var data = { "percodigo": reg };
+				$('#DataView').load('coordinar.php', data);
+				$('#DataMaestroView').modal('show');
+			} else {
+				var data = { "percoddst": reg };
+
+				$.ajax({
+					type: "POST",
+					url: 'coordinargrb.php',
+					data: data
+				}).done(function (rsp) {
+
+					data = $.parseJSON(rsp);
+
+					if (data.errcod == 0) {
+						showBrowser();
+					}
+					toastr.success(data.errmsg, 'SAVE');
+				});
+			}
+		}
+
+
+		function showFavs() {
+
+			$('.databrwnew').remove();
+			$('#cmbfavoritos').val(1);
+			var fltrecomendado = $('#fltrecomendado').val();
+			var expreg = $('#expreg').val();
+			var cmbfavoritos = $('#cmbfavoritos').val();
+
+
+			var data = {
+
+				"expreg": expreg,
+				"fltrecomendado": fltrecomendado,
+				"fltfavoritos": cmbfavoritos
+
+			};
+			// console.log(data);
+			$('#DataBrowser').load('brw.php', data);
+
+		}
+		function showDesFavs() {
+			$("#start2").hide();
+			$("#start").show();
+			$('.databrwnew').remove();
+			$('#cmbfavoritos').val('');
+			var fltrecomendado = $('#fltrecomendado').val();
+			var expreg = $('#expreg').val();
+			var cmbfavoritos = $('#cmbfavoritos').val();
+
+
+			var data = {
+
+				"expreg": expreg,
+				"fltrecomendado": fltrecomendado,
+				"fltfavoritos": cmbfavoritos
+
+			};
+			// console.log(data);
+			$('#DataBrowser').load('brw.php', data);
+
+		}
+
+
+		function showBrowser() {
+
+			$('.databrwnew').remove();
+			indHPage = 0.5;
+			pageNumero = 0;
+
+			var fltbuscar = $('.fltbuscar').val();
+			var empresa = $('.empresa').val();
+			var fltrecomendado = $('#fltrecomendado').val();
+			var expreg = $('#expreg').val();
+			var fltfavoritos = $('#fltfavoritos').val();
+
+			if (fltfavoritos == 1) {
+				$('#cmbfavoritos').val(1);
+			}
+
+			var cmbsector = $('#cmbsector').val();
+			var cmbpais = $('#cmbpais').val();
+			var cmbsubsector = $('#cmbsubsector').val();
+			var cmbcategoria = $('#cmbcategoria').val();
+			var cmbsubcategoria = $('#cmbsubcategoria').val();
+			var cmbfavoritos = $('#cmbfavoritos').val();
+			var fltpertipo = $('#fltpertipo').val();
+			var fltpervencomfiltro = $('#fltpervencomfiltro').val();
+			var fltparticipacion = $('#fltparticipacion').val();
+	
+
+			var sectores = '';
+			$.each(cmbsector, function (i, val) {
+				sectores += val + ',';
+			});
+			sectores += '0';
+
+			var paises = '';
+			$.each(cmbpais, function (i, val) {
+				paises += val + ',';
+			});
+			paises += '0';
+			
+			var subsectores = '';
+			$.each(cmbsubsector, function (i, val) {
+				subsectores += val + ',';
+			});
+			subsectores += '0';
+
+			var categorias = '';
+			$.each(cmbcategoria, function (i, val) {
+				categorias += val + ',';
+			});
+			categorias += '0';
+
+			var subcategorias = '';
+			$.each(cmbsubcategoria, function (i, val) {
+				subcategorias += val + ',';
+			});
+			subcategorias += '0';
+
+			var data = {
+				"fltbuscar": fltbuscar,
+				"empresa": empresa,
+				"sectores": sectores,
+				"paises": paises,
+				"subsectores": subsectores,
+				"categorias": categorias,
+				"subcategorias": subcategorias,
+				"fltrecomendado": fltrecomendado,
+				"expreg": expreg,
+				"fltfavoritos": cmbfavoritos,
+				"fltpertipo": fltpertipo,
+				"fltpervencomfiltro": fltpervencomfiltro,
+				"fltparticipacion": fltparticipacion
+			};
+			// console.log(data);
+			$('#DataBrowser').load('brw.php', data);
+
+			$('#notification-sidebar').removeClass('open');
+		}
+
+		function viewFile(ext, url) {
+			$('#viewfile').modal('show');
+			if (ext == 'PNG' || ext == 'JPG') {
+				$('#ifviewfileVideo').css('display', 'none');
+				$('#ifviewfileImage').css('display', '');
+				$('#ifviewfileImage').contents().find("body").css('margin-right', '0px');
+				$('#ifviewfileImage').contents().find("body").css('margin-top', '0px');
+				$('#ifviewfileImage').contents().find("body").css('margin-left', '0px');
+				$('#ifviewfileImage').contents().find("body").css('margin-bottom', '0px');
+				$('#ifviewfileImage').contents().find("body").html('<img style="width:100%; height:100%;" src="' + url + '">');
+			} else if (ext == 'MP4') {
+				$('#ifviewfileVideo').css('display', '');
+				$('#ifviewfileImage').css('display', 'none');
+				$('#ifviewfileVideo').attr('src', url);
+			}
+		}
+
+		function loadSubSectores() {
+			var data = { "sectores": [], "subsectores": [] };
+
+			//Sectores seleccionados
+			$.each($('input[name="secselect"]:checked'), function () {
+				var seccodigo = $(this).data('codigo');
+				var item = { "seccodigo": seccodigo };
+				data.sectores.push(item);
+			});
+			//Subsectores seleccionados
+			$.each($('input[name="secsubselect"]:checked'), function () {
+				var secsubcod = $(this).data('codigo');
+				var item = { "secsubcod": secsubcod };
+				data.subsectores.push(item);
+			});
+
+			$('#dvsubsectores').load('../perfiles/dvsubsectores.php', data);
+
+		}
+
+		function loadCategorias() {
+			var data = { "subsectores": [], "categorias": [] };
+
+			//Subsectores seleccionados
+			$.each($('input[name="secsubselect"]:checked'), function () {
+				var subseccod = $(this).data('codigo');
+				var item = { "secsubcod": subseccod };
+				data.subsectores.push(item);
+			});
+			//Categorias seleccionados
+			$.each($('input[name="catselect"]:checked'), function () {
+				var catcodigo = $(this).data('codigo');
+				var item = { "catcodigo": catcodigo };
+				data.categorias.push(item);
+			});
+
+			$('#dvcategorias').load('../perfiles/dvcategorias.php', data);
+
+		}
+
+		function loadSubCategorias() {
+			var data = { "categorias": [], "subcategorias": [] };
+
+			//Categorias seleccionados
+			$.each($('input[name="catselect"]:checked'), function () {
+				var catcodigo = $(this).data('codigo');
+				var item = { "catcodigo": catcodigo };
+				data.categorias.push(item);
+			});
+			//SubCategorias seleccionados
+			$.each($('input[name="catsubselect"]:checked'), function () {
+				var catsubcod = $(this).data('codigo');
+				var item = { "catsubcod": catsubcod };
+				data.subcategorias.push(item);
+			});
+
+			$('#dvsubcategorias').load('../perfiles/dvsubcategorias.php', data);
+
+		}
+
+		function KeyEnterBuscarDirectorio(e) {
+			if (!e) var e = window.event
+			if (e.keyCode) code = e.keyCode;
+			else if (e.which) code = e.which;
+			if (code == 13) {
+				showBrowser();
+			}
+		}
+
+		function showChatView(reg,exp) {
+                    var data = { "percoddst": reg, "modayuda":exp };
+                    $('#DataViewPerfil').load('../chat/chatinicio.php', data);
+                    $('#DataMaestroViewPerfil').modal('show');
+                }
+
+		var pageNumero = 0;
+		var runBuscarMas = false;
+		function browserVermas() {
+			var fltrecomendado = $('#fltrecomendado').val();
+			if (fltrecomendado!=1){
+				$('div[id="dvvermas"]').hide();
+
+				pageNumero++;
+				var fltbuscar = $('.fltbuscar').val();
+				var empresa = $('.empresa').val();
+
+				var fltfavoritos = $('#fltfavoritos').val();
+
+				if (fltfavoritos == 1) {
+					$('#cmbfavoritos').val(1);
+				}
+
+				var cmbsector = $('#cmbsector').val();
+				var cmbsubsector = $('#cmbsubsector').val();
+				var cmbcategoria = $('#cmbcategoria').val();
+				var cmbsubcategoria = $('#cmbsubcategoria').val();
+				var cmbfavoritos = $('#cmbfavoritos').val();
+				var fltpertipo = $('#fltpertipo').val();
+				var fltpervencomfiltro = $('#fltpervencomfiltro').val();
+
+				var sectores = '';
+				$.each(cmbsector, function (i, val) {
+					sectores += val + ',';
+				});
+				sectores += '0';
+
+				var subsectores = '';
+				$.each(cmbsubsector, function (i, val) {
+					subsectores += val + ',';
+				});
+				subsectores += '0';
+
+				var categorias = '';
+				$.each(cmbcategoria, function (i, val) {
+					categorias += val + ',';
+				});
+				categorias += '0';
+
+				var subcategorias = '';
+				$.each(cmbsubcategoria, function (i, val) {
+					subcategorias += val + ',';
+				});
+				subcategorias += '0';
+
+				var data = {
+					"fltbuscar": fltbuscar,
+					"empresa": empresa,
+					"sectores": sectores,
+					"subsectores": subsectores,
+					"categorias": categorias,
+					"subcategorias": subcategorias,
+					"fltrecomendado": fltrecomendado,
+					"fltfavoritos": cmbfavoritos,
+					"fltpertipo": fltpertipo,
+					"fltpervencomfiltro": fltpervencomfiltro,
+					"pageNumero": pageNumero
+				};
+
+				var newDiv = $('<div class="row taskboard databrwnew" id="DataBrowser' + pageNumero + '"></div>');
+				newDiv.load('brw.php', data)
+				newDiv.appendTo($('#DataBrowser'));
+			}
+			
+
+		}
+
+
+		/*var indHPage = 0.5;
+		$(window).scroll(function () {
+			if (runBuscarMas == false) {
+				if ($(this).scrollTop() > $(this).height() * (pageNumero + indHPage)) {
+					//console.log($(this).scrollTop() + '/' + $(this).height()*(pageNumero+indHPage));
+					runBuscarMas = true;
+					browserVermas();
+					// console.log('buscar:' + pageNumero);
+					indHPage += 0.5;
+				}
+			}
+		});*/
+		const handleInfiniteScroll = () => {
+			throttle(() => {
+				const endOfPage =
+				window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
+				if (runBuscarMas === true) {
+					removeInfiniteScroll();
+				}
+				if (endOfPage) {
+					runBuscarMas = true;
+					browserVermas();
+				}
+				
+			}, 1000);
+		};
+		const removeInfiniteScroll = () => {
+			loader.remove();
+			window.removeEventListener("scroll", handleInfiniteScroll);
+		};
+		var throttleTimer;
+		const throttle = (callback, time) => {
+		if (throttleTimer) return;
+		throttleTimer = true;
+		setTimeout(() => {
+			callback();
+			throttleTimer = false;
+		}, time);
+		};
+		
+		window.addEventListener("scroll", handleInfiniteScroll);
+		
+		
+	</script>
+
+
+
+
+</body>
+
+</html>

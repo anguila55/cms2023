@@ -1,0 +1,219 @@
+<div class="modal-content" style="margin-top: 200px;">
+	<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="cerrarModal()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	
+	</div>
+	<input type="hidden" value="{comreg}" id="comreg">
+	<div class="modal-body {modalagenda}">
+
+			<div class="col-md-12 text-center">
+				<h5 class="text-uppercase text-warning">{agetitulo}</h5>
+				<h6 class="bg-main-event white">{agehorini} - {agehorfin}</h6>
+				<p>{agedescri}</p>
+			</div>
+			
+			<div class="col-md-12 mt-2">
+				
+				<a href="../sala/bsq.php?A={qrcodereg}" target="_blank" class="col-md-12 btn mt-4 mb-0 text-uppercase bg-color-gris white">{Idioma_QrSala}</a>
+				<a href="../actividades/bsq" target="_blank" class="col-md-12 btn mt-2 mb-0 text-uppercase bg-color-gris white">{Idioma_QrPrograma}</a>
+				<a href="../encuestas/bsq" target="_blank" class="col-md-12 btn mt-2 mb-0 text-uppercase bg-color-gris white">{Idioma_QrEncuesta}</a>
+				
+			</div>
+			
+
+	  </div>
+		<div class="modal-body {modalperfil}">
+
+				
+
+				<div class="col-md-12 text-center">
+					<img src="../app-assets/img/avatar.png" width="30%" alt="" >
+					<p class="font-weight-bolder mb-0">{pernombre} {perapelli}</p>
+					<p >{percompan}</p>
+				</div>
+				
+
+				
+				
+				<div class="col-md-12 mt-2">
+					
+					<a onclick="compartir({percodigo});"  class="col-md-12 btn mt-2 mb-0 text-uppercase bg-color-gris white">{Idioma_QrDatos}</a>
+					<a onclick="solicitarReunionMaestroAsistente({percodigo});" target="_blank" class="col-md-12 btn mt-2 mb-0 text-uppercase bg-color-gris white">{Idioma_QrReunion}</a>
+					<a onclick="showChatViewAsistente({percodigo});" class="col-md-12 btn mt-2 mb-0 text-uppercase bg-color-gris white">{Idioma_QrChatear}</a>
+					
+					
+				</div>
+				
+
+		</div>
+		<div class="modal-body {modalsponsor}">
+
+			<div class="col-md-12 text-center">
+				<img src="{expavatar}" width="20%" alt="" >
+				<h5 class="bg-main-event white mt-1">{expnombre}</h5>
+				<p >{exprubros}</p>
+			</div>
+			<div class="col-md-12 mt-2">
+
+				
+				<a onclick="descargarBrochure('{expbrolnk}')" target="_blank" class="col-md-12 btn mt-2 mb-0 text-uppercase bg-color-gris white">{Idioma_QrBrochure}</a>
+				<a href="../ofertas/bsq" target="_blank" class="col-md-12 btn mt-2 mb-0 text-uppercase bg-color-gris white">{Idioma_QrOfertas}</a>
+				<a onclick="solicitarReunionMaestro({percodcontacto},{expreg});" target="_blank" class="col-md-12 btn mt-2 mb-0 text-uppercase bg-color-gris white">{Idioma_QrReunion2}</a>
+				<a onclick="showChatView({percodcontacto},0);" class="col-md-12 btn mt-2 mb-0 text-uppercase bg-color-gris white">{Idioma_QrChatear2}</a>
+				
+			</div>
+			
+
+		</div>
+		<div class="modal-body {modalperfilcontrol}">
+
+				
+
+			<div class="col-md-12 text-center">
+				<img src="../app-assets/img/avatar.png" width="30%" alt="" >
+				<p class="font-weight-bolder mb-0">{pernombre} {perapelli}</p>
+				<p >{percompan}</p>
+				<p class="{colorperhabilitar}">{perhabilitar}</p>
+			</div>
+			
+
+			
+			
+			<div class="col-md-12 mt-2">
+				
+				<a onclick="ingresar({percodigo});"  class="col-md-12 btn mt-2 mb-0 text-uppercase bg-color-gris white">{Idioma_QrIngresar}</a>
+				<a onclick="cancelar();" class="col-md-12 btn mt-2 mb-0 text-uppercase bg-color-gris white">{Idioma_QrCancelar}</a>
+				
+				
+			</div>
+			
+
+	</div>
+	 
+	  
+</div>
+<script src="../gaming/gaming.js"></script>
+<script>
+	$(document).ready(function () {
+				var seccion = {varseccion};
+				
+				if (seccion ==1){
+					addPointsGaming(5,{qrcodereg});
+				}else if (seccion == 2){
+
+					addPointsGaming(6,{qrcodereg});
+				}else if (seccion == 3) {
+
+				}else {
+
+					addPointsGaming(7,{qrcodereg});
+				}
+				
+
+			});
+	function compartir(reg){
+		var mensaje = '{intercambia_contacto}';
+		var percoddst = reg;
+	
+		var data = {"percoddst":percoddst,
+					"mensaje":mensaje};
+		
+		//console.log(data);
+		//Guardo mensaje
+		$.ajax({
+		  type: "POST",
+		  url: '../chat/intercambiados.php',
+		  data: data
+		}).done(function( rsp ) {
+			
+			
+
+			toastr.success('Data Exchanged / Datos Intercambiados', 'OK');
+
+			$('#DataMaestroView').modal('hide');
+			
+
+		});
+	}
+	function ingresar(reg){
+		var percoddst = reg;
+	
+		var data = {"percoddst":percoddst};
+		
+		//console.log(data);
+		//Guardo mensaje
+		$.ajax({
+		  type: "POST",
+		  url: '../qrleer/grbcontrol.php',
+		  data: data
+		}).done(function( rsp ) {
+			
+			
+
+			toastr.success('Guardado en sistema', 'OK');
+
+			$('#DataMaestroView').modal('hide');
+			
+
+		});
+	}
+	function cancelar(){
+		
+
+			$('#DataMaestroView').modal('hide');
+
+	}
+	function cerrarModal(){
+		
+
+			$('#DataMaestroView').modal('hide');
+			window.location.reload();
+
+	}
+function descargarBrochure(url){
+         			
+
+              window.open(url);
+          
+
+     }
+function solicitarReunionMaestro(reg, exp) {
+
+			
+var data = { "percodigo": reg,
+			 "expreg":exp				
+};
+$('#DataView').load('../sponsor/coordinar.php', data);
+$('#DataMaestroView').modal('show');
+
+}
+function solicitarReunionMaestroAsistente(reg) {
+
+			
+var data = { "percodigo": reg				
+};
+$('#DataView').load('../sponsor/coordinar.php', data);
+$('#DataMaestroView').modal('show');
+
+}
+
+function showChatView(reg,exp) {
+                    var data = { "percoddst": reg, "modayuda":exp };
+                    $('#DataViewPerfil').load('../chat/chatinicio.php', data);
+                    $('#DataMaestroViewPerfil').modal('show');
+                }
+
+function showChatViewAsistente(reg) {
+var data = { "percoddst": reg };
+$('#DataViewPerfil').load('../chat/chatinicio.php', data);
+$('#DataMaestroView').modal('hide');
+$('#DataMaestroViewPerfil').modal('show');
+}
+
+
+
+
+</script>
+

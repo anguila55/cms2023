@@ -1,0 +1,202 @@
+<div class="modal-content">
+		<div class="modal-header">
+			<h4 class="modal-title" id="">{msgtitulo}</h4>
+			
+		</div>
+		<div class="modal-body">
+			<form action="">
+				<div class="form-group row tipoPerfil" style="{tipoPerfil}">
+					<label class="col-md-3 label-control" for="paicodigo">{tiposdeperfil}: </label>
+					<div class="col-md-9">
+						<select id="pertipo" name="pertipo" class="form-control" {cmbpertipo}
+							onchange="loadClases(this);">
+							<option value="">{seleccionaopcion}</option>
+							<option value="0">Todos</option>
+							<!-- BEGIN pertipos -->
+							<option value="{pertipcod}" {pertipsel}>{pertipdes}</option>
+							<!-- END pertipos -->
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group row clasePerfil" style="{clasePerfil}">
+					<label class="col-md-3 label-control" for="paicodigo">{clasesdeperfil}: </label>
+					<div class="col-md-9">
+						<select id="perclase" name="perclase" class="form-control" {cmbperclase}>
+							<option value="" selected>{seleccionaopcion}</option>
+							<!-- BEGIN perclases -->
+							<option value="{perclacod}" {perclasel}>{perclades}</option>
+							<!-- END perclases -->
+						</select>
+					</div>
+				</div>
+				<div class="form-group row clasePerfil" style="{clasePerfil}">
+					<label class="col-md-3 label-control" for="paicodigo">{backendusuarios}: </label>
+					<div class="col-md-9">
+						<select id="pertipousuario" name="pertipousuario" class="form-control">
+							<option value="1" selected>{Idioma_PLbactivos}</option>
+							<option value="2" >{Idioma_PLbtodos}</option>
+							<option value="3">{Idioma_PLbeliminados}</option>
+							<option value="8">{Idioma_PLbnoliberados}</option>
+							<option value="9">{Idioma_PLbcorreonoconf}</option>
+						</select>
+					</div>
+				</div>
+					
+			</form>
+						
+		</div>
+		<div class="modal-footer">
+				
+			<button type="button" id="btnenviar" class="btn btn-success  " data-dismiss="modal"  onclick="{functionguardar}({msgreg});"> <i class="icon-note"></i>{tipoenvio}</button>
+			
+			<button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Cerrar</button>
+		</div>
+	</div>
+	<script>
+
+
+		//var $loading = $('#loadingDiv').hide();
+		/*$(document)
+		.ajaxStart(function () {
+			toastr.success('Enviando Mails', 'CORREO');
+		})
+		.ajaxStop(function () {
+			toastr.success('Enviados', 'CORREO');
+		});*/
+		function guardarMaestroCorreo(reg){
+		var msgreg = reg
+		var pertipo = $('#pertipo').val();
+		var perclase = $('#perclase').val();
+		var pertipousuario = $('#pertipousuario').val();
+		
+
+		
+		//json
+		var data = {
+			"msgreg":msgreg,
+			"pertipo":pertipo,
+			"perclase":perclase,
+			"pertipousuario":pertipousuario
+			};
+		console.log(data)
+		swal({
+			title: "Enviar Correo",
+			text: "¿Confirma enviar?",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#0CC27E',
+			cancelButtonColor: '#FF586B',
+			confirmButtonText: 'Confirmar',
+			cancelButtonText: 'Cancelar',
+			confirmButtonClass: 'btn btn-success btn-raised mr-5',
+			cancelButtonClass: 'btn btn-danger btn-raised',
+			buttonsStyling: false
+		}).then(function () {
+			$.ajax({
+			  type: "POST",
+			  url: 'enviargrb.php',
+			  data: data
+			}).done(function( rsp ) {
+				data = $.parseJSON(rsp);
+				
+				if(data.errcod == 0){			
+					toastr.success(data.errmsg, 'CORREO');
+					//swal("GUARDAR", data.errmsg, "success").done();
+					showBrowser();
+				}else{
+					toastr.error(data.errmsg, 'CORREO');
+					//swal("GUARDAR", data.errmsg, "error").done();
+				}
+				
+			});
+			
+			
+		}, function (dismiss) {
+			// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+			if (dismiss === 'cancel') {
+			}
+		}).done();
+	}
+	
+	function guardarMaestroNotif(reg){
+		var msgreg = reg
+		var pertipo = $('#pertipo').val();
+		var perclase = $('#perclase').val();
+		
+		//json
+		var data = {
+			"msgreg":msgreg,
+			"pertipo":pertipo,
+			"perclase":perclase
+			};
+		//console.log(data);
+		swal({
+			title: "Enviar Notificacion",
+			text: "¿Confirma enviar?",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#0CC27E',
+			cancelButtonColor: '#FF586B',
+			confirmButtonText: 'Confirmar',
+			cancelButtonText: 'Cancelar',
+			confirmButtonClass: 'btn btn-success btn-raised mr-5',
+			cancelButtonClass: 'btn btn-danger btn-raised',
+			buttonsStyling: false
+		}).then(function () {
+			$.ajax({
+			  type: "POST",
+			  url: 'enviarnot.php',
+			  data: data
+			}).done(function( rsp ) {
+				data = $.parseJSON(rsp);
+				
+				if(data.errcod == 0){			
+					toastr.success(data.errmsg, 'NOTIFICACION');
+					//swal("GUARDAR", data.errmsg, "success").done();
+					showBrowser();
+				}else{
+					toastr.error(data.errmsg, 'NOTIFICACION');
+					//swal("GUARDAR", data.errmsg, "error").done();
+				}
+				
+			});
+			
+			
+		}, function (dismiss) {
+			// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+			if (dismiss === 'cancel') {
+			}
+		}).done();
+	}
+
+function loadClases(obj) {//Se cargan las clases en relacion con el Tipo de Perfil
+		var pertipo = $(obj).val();
+
+		$.ajax({
+			type: "POST",
+			url: "getclases.php",
+			data: { "pertipo": pertipo }
+		}).done(function (rsp) {
+			data = $.parseJSON(rsp);
+
+			var clases = $('#perclase');
+			clases.empty();
+			$("<option/>", {
+				val: '',
+				text: '{seleccionaopcion}'
+			}).appendTo(clases);
+
+			$.each(data, function () {
+				//console.log(this.perclase);
+				//console.log(this.perclades);
+				$("<option/>", {
+					val: this.perclase,
+					text: this.perclades
+				}).appendTo(clases);
+			});
+		});
+
+	}
+	</script>
+	

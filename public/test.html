@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-12 chat-container mt-5">
+                <div class="col-12  msg-container ">
+
+
+
+                </div>
+
+                <div class="col-12">
+                    <p class="typing mt-3"></p>
+                </div>
+                <div class="col-12 action"></div>
+                <div class="col-12 d-flex msg-panel justify-content-center mt-4">
+
+                    <div class="col-10 ">
+                        <input placeholder="Ingrese usuario" class="user-input input-group-text" type="text">
+                        <input placeholder="Ingrese mensaje" class="msg-input input-group-text" type="text">
+                    </div>
+
+
+                </div>
+
+                <div class="col-12 mt-3 text-center send-container">
+                    <button class=" btn  send">Enviar</button>
+                </div>
+
+
+
+                <div class="toast-container false">
+                    <div class="join-toast">
+                        <p>New user join</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+    <!-- <script src="../node_modules/socket.io/lib/client.js"></script> -->
+    <!-- <script src="http://yournodeserver/socket.io/socket.io.js"></script> -->
+    <!-- <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    
+    <script src="chat.js"></script>
+</body>
+
+</html>

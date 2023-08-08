@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{SisNombreEvento}</title>
+		<link rel="shortcut icon" type="image/png" href="assets-nuevodisenio/img/logo.jpg">
+		<meta name="author" content="colorlib.com">
+
+		<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> -->
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/index.css">
+
+
+
+
+		<style>
+
+            .containerimg{
+                /* border:red solid 2px; */
+                text-align: center !important;
+                justify-content: center !important;
+            }
+            .containerimg img{
+                width: 200px !important;
+                height: 200px !important;
+                border-radius: 50%;
+            }
+
+            #bodyimg{
+           /* border:red 5px solid; */
+           background-image: url('assets-registro/images/fondo.jpg');
+           background-size: cover;
+           
+		   background-repeat: no-repeat;
+       }
+	   .error-info{
+		   color: red;
+	
+
+	   }
+	   .actions li[aria-disabled="false"] ~ li a {
+			content: none;
+		}
+		.actions li:first-child a {
+		content: none;
+		}
+		.actions li:first-child a:before {
+			content: none;
+		}
+		.actions li:last-child a:before {
+			content: none;
+		}
+		.actions li:first-child a:after {
+			content: none;
+		}
+		.actions li:last-child a:after {
+			content: none;
+		}
+
+        </style>
+	</head>
+	<body>
+		<div class="wrapper" id="bodyimg">
+
+			<form method="POST" id="wizard" enctype="multipart/form-data">
+				<!-- SECTION 1 -->
+				<h2></h2>
+				<section>
+					
+					<div class="inner">
+						
+						
+						<div class="image-holder">
+							<img src="assets-nuevodisenio/img/logointernova.jpg" style="margin-top: 240px;margin-left: 10px;" alt="">
+						</div>
+						<div class="form-content">
+							<a class="customizer-close" style="text-align: right;" href="login">
+								<i class="ft-x font-medium-3" style="display: block; color: green; font-size: large; font-weight: bold; font-family: cursive;">X</i>
+							</a>
+							<div class="form-header">
+								<h3>REGISTRY</h3>
+								
+							</div>
+							<p>Required fields *</p>
+
+							<div class="form-row">
+										
+								<input type="hidden" id="peridioma" name="peridioma" value="ING">
+								<div class="form-holder">
+									<input type="text" id="pernombre" name="pernombre"
+										placeholder="Name*" class="form-control required">
+								</div>
+								<div class="form-holder">
+									<input type="text" id="perapelli" placeholder="Last Name*"
+										class="form-control">
+								</div>
+
+							</div>
+							<div class="form-row">
+								<div class="form-holder">
+									<input type="text" id="percompan"
+										placeholder="Institution / Company*" class="form-control">
+								</div>
+								<div class="form-holder">
+									<input type="number" id="pertelefo" placeholder="Cell Phone"
+										class="form-control">
+								</div>
+
+							</div>
+
+							<div class="form-row">
+								<div class="form-holder">
+									<input type="text" id="perurlweb"
+										placeholder="Web*" class="form-control">
+								</div>
+								<div class="select">
+
+                        			<label for="percargo"> </label>
+											<select id="percargo" name="percargo" placeholder="User Type*" class="form-control">
+												<option value="Euroregion" >Euroregion company</option>
+												<option value="Invitada" >Invited company</option>
+											</select>
+								</div>
+								
+							
+							</div>
+
+						</div>
+					</div>
+				</section>
+
+				<!-- SECTION 2 -->
+				<h2></h2>
+				<section>
+					<div class="inner">
+						<div class="image-holder">
+							<img src="assets-nuevodisenio/img/logointernova.jpg" style="margin-top: 240px;margin-left: 10px;" alt="">
+						</div>
+						<div class="form-content">
+							<a class="customizer-close" style="text-align: right;" href="login">
+								<i class="ft-x font-medium-3" style="display: block; color: green; font-size: large; font-weight: bold; font-family: cursive;">X</i>
+							</a>
+							<div class="form-header">
+								<h3>REGISTRY</h3>
+							</div>
+							<p>Required fields *</p>
+
+							<div class="form-row">
+								<div class="form-holder">
+									<input type="text" id="perdirecc" name="perdirecc"
+										placeholder="Home" class="form-control required">
+								</div>
+								<div class="form-holder">
+									<input type="text" id="perciudad" placeholder="City"
+										class="form-control">
+								</div>
+
+							</div>
+							<div class="form-row">
+								<div class="form-holder">
+									<input type="text" id="perestado"
+										placeholder="Province/State" class="form-control">
+								</div>
+								
+								
+								
+								<div class="col-md-6">
+									<div class="form-group">
+									  <label for="paicodigo"></label>
+									  <select class="custom-select form-control" id="paicodigo" name="paicodigo">
+										<option value="0">Select Country...</option>
+										<!-- BEGIN paises -->
+										<option value="{paicodigo}" {paiselected}>{paidescri}</option>
+										<!-- END paises -->
+									  </select>
+									</div>
+								  </div>
+								
+								
+							</div>
+							<div class="form-row">
+								
+								<div class="form-holder">
+									<input type="text" id="percodpos" placeholder="Postal Code"
+										class="form-control">
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+				</section>
+				<!-- SECTION 2 -->
+				<!-- SECTION 2 
+                <h2></h2>
+                <section>
+                    <div class="inner">
+						<div class="image-holder">
+							<img src="assets-registro/images/lef5.png" alt="">
+						</div>
+						<div class="form-content">
+							<div class="form-header">
+								<h3>REGISTRO</h3>
+							</div>
+							<p>Campos Obligatorios *</p>
+							<div class="form-row">
+                                <div class="select">
+                                    -->
+				<!-- <div class="form-holder">
+										<div class="select-control">Categorias</div>
+										<i class="zmdi zmdi-caret-down"></i>
+									</div> -->
+				<!--
+									<label for="pertipo"> </label>
+											<select id="pertipo" name="pertipo" class="form-control">
+												<option value="0">Categorias</option>
+												<option value="1" >Sponsor </option>
+												<option value="1" >Prensa </option>
+												<option value="2" >Participante</option>
+												<option value="3" >Organización</option>
+												<option value="4" >Disertante</option>
+												<option value="5" >Socio Maizar</option>
+											</select>
+								</div>
+                                <div class="form-holder">
+									<input type="number" id="pertelefo" placeholder="Celular (opcional)" class="form-control">
+								</div>
+							</div>
+							<div class="form-row">
+								
+								<div class="form-holder">
+									<input type="text" id="pertwi" placeholder="Twitter" class="form-control">
+                                </div>
+                                <div class="form-holder">
+									<input type="text" id="perfac" placeholder="Instagram" class="form-control">
+								</div>
+                            </div>
+                          
+							-->
+				<!-- <div class="form-row">
+								<div class="select">
+									<div class="form-holder">
+										<div class="select-control">Categorias</div>
+										<i class="zmdi zmdi-caret-down"></i>
+									</div>
+									<ul class="dropdown">
+										<li rel="United States">United States</li>
+										<li rel="United Kingdom">United Kingdom</li>
+										<li rel="Viet Nam">Viet Nam</li>
+									</ul>
+								</div>
+								<div class="form-holder"></div>
+							</div> -->
+				<!--
+						</div>
+					</div>
+                </section>-->
+				<!-- Section 3 -->
+				<!--
+            <h2></h2>
+            <section>
+                <div class="inner">
+                    <div class="image-holder">
+                        <img src="assets-registro/images/lef5.png" alt="">
+                    </div>
+                    <div class="form-content">
+                        <div class="form-header">
+                            <h3>REGISTRO MAIZAR 4.0</h3>
+                        </div>
+                        <p>Campos Obligatorios *</p>
+                        <div class="form-row">
+                            <div class="select form-holder w-100">
+                                    
+								<label for="pertipo"> </label>
+										<select  name="pertipo" class="form-control" multiple id="cmbinteres">
+											<option value="Nuevo escenario global"> Nuevo escenario global </option>
+											<option value="Mercados agroindustriales y cadena de
+											suministro" > Mercados agroindustriales y cadena de
+												suministro </option>
+											<option value="Barreras al comercio" >Barreras al comercio</option>
+											<option value="Huella de carbono" >Huella de carbono</option>
+											<option value="Percepción pública" >Percepción pública</option>
+											<option value="Transporte y logística" >Transporte y logística</option>
+											<option value="Biotecnología y propiedad intelectual" >Biotecnología y propiedad intelectual</option>
+											<option value="Sanidad agropecuaria" >Sanidad agropecuaria</option>
+											<option value="Avances científicos y percepción pública" >Avances científicos y percepción pública</option>
+											<option value="Buenas prácticas agrícolas" >Buenas prácticas agrícolas</option>
+											<option value="Avance de campaña" >Avance de campaña</option>
+											<option value="Sostenibilidad" >Sostenibilidad</option>
+											<option value="Innovación y nuevas tecnologías" >Innovación y nuevas tecnologías</option>
+											<option value="Agricultura de precisión" >Agricultura de precisión</option>
+											<option value="Agtechs" >Agtechs</option>
+											<option value="Factores de competitividad y políticas públicas" >Factores de competitividad y políticas públicas</option>
+											<option value="Financiamiento" >Financiamiento</option>
+											<option value="Gestión del riesgo agropecuario" >Gestión del riesgo agropecuario</option>
+											<option value="Estrategias de comercialización" >Estrategias de comercialización</option>
+											<option value="Sorgo y maíces especiales" >Sorgo y maíces especiales</option>
+											<option value="Agregado de valor: carne, leche y moliendas" >Agregado de valor: carne, leche y moliendas</option>
+											<option value="Ensilado de maíz" >Ensilado de maíz</option>
+											<option value="Bioeconomía y bioenergías" >Bioeconomía y bioenergías</option>
+											<option value="Maquinaria agrícola" >Maquinaria agrícola</option>
+										</select>
+							</div>
+                        </div>
+                 
+                    </div>
+				</div>
+				
+				
+            </section>-->
+				<!-- Section 3 -->
+				<h2></h2>
+				<section>
+					<div class="inner">
+						<div class="image-holder">
+							<img src="assets-nuevodisenio/img/logointernova.jpg" style="margin-top: 240px;margin-left: 10px;" alt="">
+						</div>
+						<div class="form-content">
+							<a class="customizer-close" style="text-align: right;" href="login">
+								<i class="ft-x font-medium-3" style="display: block; color: green; font-size: large; font-weight: bold; font-family: cursive;">X</i>
+							</a>
+							<div class="form-header">
+								<h3>REGISTRY</h3>
+							</div>
+							<p>Required fields *</p>
+							<div class="form-row">
+								<div class="form-holder">
+									<input type="email" id="perusuacc" placeholder="Email (User)*"
+										class="form-control">
+								</div>
+								<div class="form-holder">
+									<input onchange="checkEmail()" type="email" id="email-confirm"
+										placeholder="Confirm Email*"
+										class="form-control">
+									<label for="" class="error-info">Emails do not match</label>
+								</div>
+								<div class="form-holder">
+									<input type="password" id="perpasacc" placeholder="Password*"
+										class="form-control">
+								</div>
+
+							</div>
+							<div class="form-row">
+								<div class="form-holder">
+									<input type="text" id="percpf"
+										placeholder="CIF / VAT N°*" class="form-control">
+								</div>
+							<div class="form-holder">
+									<textarea id="percoment" rows="2" placeholder="Products interested in buying or selling*"
+										class="form-control" style="height: 80px;"></textarea>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+				</section>
+				<!-- Section 3 -->
+				<!-- SECTION 5 -->
+				<h2></h2>
+				<section>
+					<div class="inner">
+						<div class="image-holder">
+							<img src="assets-nuevodisenio/img/logointernova.jpg" style="margin-top: 240px;margin-left: 10px;" alt="">
+						</div>
+						<div class="form-content">
+							<a class="customizer-close" style="text-align: right;" href="login">
+								<i class="ft-x font-medium-3" style="display: block; color: green; font-size: large; font-weight: bold; font-family: cursive;">X</i>
+							</a>
+							<div class="form-header">
+								<h3>REGISTRY</h3>
+							</div>
+
+
+							<div class="form-row">
+								<div class="form-holder w-100">
+									<div class="">
+
+										<br>
+										<label for="">
+											<input type="checkbox" id="chkinfact">
+											I Agree To Receive Information From ATLANTIC FOOD EXPORT.
+											<br>
+										</label>
+										<br>
+										<label for="">
+
+											<input type="checkbox" id="chkinfpar">
+											I Agree To Receive Information From Companies Participating In the ATLANTIC FOOD EXPORT.
+											<br>
+
+										</label>
+										<br>
+										<label for="">
+											<input type="checkbox" id="chkinfter">
+											Terms And Conditions Of Use. (Mandatory) Download The Terms And Conditions Of Use <a href="https://drive.google.com/file/d/1XJhysdW6OYs9DvhWtfgyRk7jnResq0Gb/view?usp=sharing" target="_blank">here.</a>
+											<br>
+										</label>
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</section>
+			</form>
+		</div>
+
+
+
+		<!-- JQUERY -->
+		<script src="assets-registro/js/jquery-3.3.1.min.js"></script>
+
+		<!-- JQUERY STEP -->
+		<script src="assets-registro/js/jquery.steps.js"></script>
+		<script src="assets-registro/js/main.js"></script>
+		<script src="assets-nuevodisenio/vendors/js/sweetalert2.min.js"></script>
+		<script src="assets-nuevodisenio/vendors/js/toastr.min.js"></script>
+		<script src="assets-nuevodisenio/vendors/js/switchery.min.js"></script>
+		<script src="assets-nuevodisenio/js/jquery.multiselect.js"></script>
+		<script>
+			$('.error-info').hide();
+			
+			// console.log(peridioma);
+			function checkEmail() {
+				var email =  $('#perusuacc').val();
+				var confirmEmail =  $('#email-confirm').val();
+				
+				if(email != confirmEmail){
+					$('.error-info').show();
+				}else{
+					$('.error-info').hide();
+				}
+			 }
+		</script>
+	</body>
+</html>

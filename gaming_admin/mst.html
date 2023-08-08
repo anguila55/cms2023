@@ -1,0 +1,152 @@
+
+<section id="horizontal-form-layouts">
+	<div class="row">
+		<div class="col-sm-12">
+			<h2 class="content-header">Maestro Gaming</h2>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="px-3">
+						<form class="form form-horizontal">
+							<div class="form-body">
+								
+								
+								
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="paicodigo">Tipo </label>
+									<div class="col-md-9">
+										
+										<input disabled type="text" id="tipo"  name="tipo" class="form-control" value="{tipo}">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pailet">Nombre</label>
+									<div class="col-md-9">
+										<input disabled type="text" id="nombre"  name="nombre" class="form-control" value="{nombre}">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control " for="paidescri">Modelo</label>
+									<div class="col-md-9">
+										<select id="modelo" name="modelo" class="form-control" >
+									
+											<option value="unico" selected >Seleccione...</option>
+											
+											<option value="recurrente" {modelo1} >Recurrente</option>
+											<option value="unico" {modelo2} >Unico</option>
+											
+										
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control " for="paidescriing">Puntos</label>
+									<div class="col-md-9">
+										<input type="text" id="pts"  name="pts" class="form-control " value="{pts}">
+									</div>
+								</div>
+
+								
+								
+							</div>
+
+							<div class="form-actions">
+								<button id="btnguardar" type="button" class="btn btn-success" onclick="guardarMaestroMsg();">
+									<i class="icon-note"></i> {Idioma_Guardar}
+								</button>
+								<button id="btncancelar" type="button" class="btn btn-danger mr-1" onclick="showBrowser();">
+									<i class="icon-trash"></i> {Idioma_BotonCan}
+								</button>
+								&nbsp;&nbsp;
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</section>
+		
+<script>
+
+	function guardarMaestroMsg(){
+		var errcod = 0;
+		var errmsg = 'Falta cargar los puntos';
+		var tipo = $('#tipo').val();
+		var nombre = $('#nombre').val();
+		var pts = $('#pts').val();
+		var modelo = $('#modelo').val();
+
+	
+			
+			if(pts == ''){
+			toastr.error(data.errmsg, '{Idioma_GuardarSwal}');	
+			errcod =1;
+			}
+
+	
+			
+		if(errcod==0){
+			swal({
+				title: "{Idioma_GuardarSwal}",
+				text: "{Idioma_Confirmar}",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: '{Idioma_BotonConf}',
+				cancelButtonText: '{Idioma_BotonCan}',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+				guardarMaestro();
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+	}
+	
+	function guardarMaestro(){
+		var tipo = $('#tipo').val();
+		var nombre = $('#nombre').val();
+		var pts = $('#pts').val();
+		var modelo = $('#modelo').val();
+		
+		var data = {"tipo":tipo,
+					"nombre":nombre,
+					"pts":pts,
+					"modelo":modelo
+				};
+		
+		$.ajax({
+		  type: "POST",
+		  url: 'grb.php',
+		  data: data
+		}).done(function( rsp ) {
+			data = $.parseJSON(rsp);
+			
+			if(data.errcod == 0){
+				toastr.success(data.errmsg, '{Idioma_GuardarSwal}');			
+				//swal("GUARDAR", data.errmsg, "success").done();
+				showBrowser();
+			}else{
+				toastr.error(data.errmsg, '{Idioma_GuardarSwal}');	
+				//swal("GUARDAR", data.errmsg, "error").done();
+			}
+			
+		});
+	}
+</script>
+	 
+	  
+	  

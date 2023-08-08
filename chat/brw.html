@@ -1,0 +1,182 @@
+﻿
+<div>
+	<div class="content-overlay"></div>
+	
+	<div class="chat-sidebar float-left d-none d-sm-none d-md-block d-lg-block">
+		<div class="chat-sidebar-content">
+			  <div class="chat-fixed-search p-2">
+			
+					<div class="col-md-12">
+						<div class="col-md-8" style="float: left; ">
+						  <p class="grey" id="nombrechat">{chats_activos}</p>
+						</div>
+							<div class="col-md-4" style="float: left;">
+						  <a class="btn bg-main-event" href="../directorio/bsq"><i class="white fa fa-plus"></i></a>
+						  </div>
+					 </div>
+
+			  </div>  
+				<div id="users-list" class="list-group position-relative">
+					<div class="users-list-padding">
+							 <!-- BEGIN charlas -->
+
+							 <a id="brwchats" class="list-group-item border" onclick="loadChatData({charlapercodigo});">  <!-- (click)="SetActive($event,'chat3')" -->
+								<span class="media">
+								  <span class="avatar avatar-md avatar-away mr-2">
+									<img class="media-object d-flex mr-3 bg-primary rounded-circle" src="{charlaavatar}"
+									  alt="">
+									<i></i>
+								  </span>
+								  <div class="media-body">
+									<h6 class="fw-600 list-group-item-heading">{charlapernombre} {charlaperapelli}
+									  <span class="fw-600 float-right info">{fechacorreo}</span>
+									</h6>
+									<p class="fw-700 list-group-item-text text-muted">
+									  <i class="ft-check font-small-2"></i>{charlapercompan}
+									  <span class="float-right info">
+										<span id="budge{charlapercodigo}" class="badge badge-pill badge-info" style="{viewcharlasinleer}">{charlasinleer}</span>
+									  </span>
+									</p>
+								  </div>
+								</span>
+							  </a>
+			 				 <!-- END charlas -->
+					</div>
+				</div>
+		</div>
+	</div>
+
+	
+  
+  	<div style="width:500px; margin-top:10%; margin-left: 40%; border: 2px var(--main) solid; padding:20px; {mostrarcartel} " id="prueba" class="text-center rounded">
+		<p style="    font-size: 1rem; color: black;">{bienvenidachat}</p>
+		<a href="../directorio/bsq" type="button" class="btn bg-main-event mt-4 white">{ir_a_asistentes}</a>
+	</div>
+	<div id="chatdata" class="chat-application {nohaycharlas}">
+	</div>
+</div>
+            
+<!-- mensajes -->
+
+
+
+
+<!-- # modals -->
+
+
+
+<script src="../assets-nuevodisenio/js/chat.js"></script>
+<script>
+	var PerCodigo = {percodigo};
+	var PerNombre = '{pernombre}';
+	
+	var socket = io.connect('http://rondasbtbox.localhost:9283');
+	//var socket = io.connect('https://rondasbtbox.onlife.com.ar:9283');
+
+	
+	socket.off('messages');
+	socket.on('messages', function(data) {
+		//console.log(data);
+		var vaux = data.split(':##:');
+		var oricod 	= vaux[0];
+		var orinom 	= vaux[1];
+		var dstcod 	= vaux[2];
+		var nomcod 	= vaux[3];
+		var mensaje	= vaux[4];
+		var tipo	= vaux[5];
+		var brwchat = $('#brwchat');
+		var percoddst = $('#percoddst').val(); //Perfil en vista
+		
+		if(percoddst===undefined){
+			percoddst=0;
+		}
+		
+		const exactDateTimestamp = new Date().toLocaleString();
+		if((percoddst == oricod && tipo=='D') || (oricod==PerCodigo && tipo=='O')){
+			//Mensaje recibido al perfil
+			if(dstcod==PerCodigo){
+				var chatmsg = $('#chatmsg.chat.chat-left').eq(0);
+				//console.log(chatmsg);
+				var chat = chatmsg.clone();
+				$('<div id="test1"></div>').appendTo(brwchat);
+				chat.appendTo(brwchat);
+				$('<div id="test2"></div>').appendTo(brwchat);
+				chat.find('#chatmensaje').html(mensaje);
+				chat.find('#chathora').html(exactDateTimestamp);
+				
+			}else if(oricod==PerCodigo){ 
+				//Mensaje enviado por el perfil
+				var chatmsg = $('#chatmsg.chat:not(.chat-left)').eq(0);
+				var chat = chatmsg.clone();
+				chat.appendTo(brwchat);
+				chat.find('#chatmensaje').html(mensaje);
+				chat.find('#chathora').html(exactDateTimestamp);
+				chat.css('display','');
+			}
+		}
+
+		//No estoy viendo ningun perfil, pero recibo un mensaje
+		if(percoddst!=oricod && tipo=='D'){
+			//Agrego un budge
+			//console.log('d budge'+oricod);
+			$('#budge'+oricod).css('display','');
+			$('#budge'+oricod).html( parseInt($('#budge'+oricod).html())+1 );
+			
+		}
+		
+		$('.chat-app-window').animate({ scrollTop: 100000 }, 1000);
+	});
+	
+	$(document).ready(function () {
+		registrar();		
+		{scriptloadchat}
+	});
+
+	function registrar(){
+		socket.emit('registrar', '{chatregister}');
+	}
+
+
+	function loadChatData(cod){
+		$('#prueba').hide();
+		var data = {"percoddst":cod};
+		//console.log(data);
+		$('#chatdata').load('chat.php',data);
+		
+		//$('.chat-application').height( $(window).height() - $('.navbar').height() - 50 );
+		//$(window).resize(function(){
+		 //   $('.chat-application').height( $(window).height() - $('.navbar').height() - 50 );
+		//});
+		
+		if($('.chat-sidebar').length > 0){
+			$('.chat-sidebar').perfectScrollbar();
+		}
+		
+		setLeidos(cod);
+	}
+
+	
+	function setLeidos(percod){
+		var data = {"percoddst":percod};
+		$('#budge'+percod).css('display','none');
+		$('#budge'+percod).html(0);
+		
+		$.ajax({
+		  type: "POST",
+		  url: 'setleidos.php',
+		  data: data
+		}).done(function( rsp ) {
+			//console.log(rsp);	
+					
+		});
+	}
+	
+	//Cargo por primera vez el primer chat
+	if(!bsqLoadInit){
+		$('a[id="brwchats"]').eq(0).click();
+		bsqLoadInit=true;
+	}
+</script>
+    
+  </body>
+</html>

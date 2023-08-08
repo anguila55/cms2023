@@ -1,0 +1,454 @@
+﻿<div class="table-responsive">
+	<table id="recent-orders" class="table table-hover table-xl mb-0">
+		
+		
+		<tbody>
+			<input id="fltnombre" name="fltnombre" type="hidden" value="{fltnombre}">
+			<input id="orden" name="orden" type="hidden" value="{orden}">
+			<input id="fltestado" name="fltestado" type="hidden" value="{fltestado}">
+			<input id="fltpertipo" name="fltpertipo" type="hidden" value="{fltpertipo}">
+			<input id="fltperclase" name="fltperclase" type="hidden" value="{fltperclase}">
+			<input id="fltordentipo" name="fltordentipo" type="hidden" value="{fltordentipo}">
+			
+		
+			<!-- BEGIN browser -->
+			<tr class="tabla">
+				<td class="text-truncate tabla-usuarios" style="width: 10%;">
+					<span class="avatar avatar-xs">
+						<img class="box-shadow-2" src="{peravatar}" alt="avatar">
+					</span>
+				</td>
+				<td class="text-truncate" style="width: 20%;"><span>{pernombre}</span></td>
+				<td class=" text-truncate" style="width: 20%;"><span >{perapelli}</span></td>
+				<td class="" style="width: 20%;"><span>{percompan}</span></td>
+				<td class="text-truncate" style="width: 10%;"><span>{reucant}</span></td>
+			
+				<td class="row" style="width: 200px;">
+					<a  class="success p-0" data-original-title="" title="Modificar" onclick="showMaestro({percodigo});">
+						<i class="fa fa-pencil font-medium-3 mr-2"></i>
+					</a>
+				
+					<a class="danger p-0" data-original-title="" title="Eliminar perfil" onclick="eliminarMaestro({percodigo});" style="{btneliminar}">
+						<i class="fa fa-trash-o font-medium-3 mr-2"></i>
+					</a>
+					<!--<a class="info p-0" data-original-title="" title="QR"onclick="qrMaestro({percodigo});">
+						<i class="fa fa-qrcode font-medium-3 mr-2"></i>
+					</a>-->
+					<a class="success p-0 {qrcodevisible}" download="{pernombre}" href="{qrcode}" title="Descargar QR">
+						<i class="fa fa-qrcode font-medium-3 mr-2"></i>
+					</a>
+					
+					<a class="danger p-0" data-original-title="" title="Activar perfil" onclick="activarMaestro({percodigo});" style="{btnactivar}">
+						<i class="fa fa-refresh font-medium-3 mr-2"></i>
+					</a>
+					<!-- //ANCHOR PRUEBA -->
+					<a class="red p-0" data-original-title="" title="Permiso de Acceso a Disponibilidad"  data-permiso="{perusadis}">
+						<i class="fa ft-calendar font-medium-3 mr-2" style="color:{permdispcolor}"></i>
+					</a>
+					
+					<a  class="red p-0" data-original-title="" title="Permiso para Solicitar Reuniones"  data-permiso="{perusareu}">
+						<i id="reuniones"  class="fa fa-handshake-o font-medium-3 mr-2" style="color:{permreuncolor}"></i>
+					</a>
+					
+					<a class="red p-0" data-original-title="" title="Permiso para enviar Mensajes"   data-permiso="{perusamsg}">
+						<i class="fa ft-message-circle font-medium-3 mr-2" style="color:{permmsgcolor}" ></i>
+					</a>
+					
+					<a class="warning p-0" data-original-title="" title="Ingresar como Perfil" onclick="ingresoPerfil({percodigo});">
+						<i class="fa ft-users font-medium-3 mr-2" ></i>
+					</a>
+					<a  class="info p-0" data-original-title="" title="Exportar Agenda" onclick="exportarAgenda({percodigo});">
+						<i class="fa fa-copy font-medium-3 mr-2"></i>
+					</a>
+					<a class="primary p-0" data-original-title="" title="Acceso" onclick="actPermisosMasivo({percodigo},'L');">
+						<i class="fa {viewlibbtn} font-medium-3 mr-2"></i>
+					</a>
+					
+					<a class="red p-0" data-original-title="" title="Mail no confirmado" onclick="actPermisosMasivo({percodigo},'MA');" style="display:{viewmailbtn};">
+						<i class="fa fa-envelope-o font-medium-3 mr-2"></i>
+					</a>
+					<a class="red p-0" data-original-title="" title="Imprimir Gafete" href="../gafete.php?ID={percodigo}">
+						<i class="fa fa-file font-medium-3 mr-2"></i>
+					</a>
+					<a class="black p-0" data-original-title="" title="Imprimir Ticket" onclick="ingresar({percodigo});">
+						<i class="fa fa-ticket font-medium-3 mr-2"></i>
+					</a>
+					<a class="success p-0" data-original-title="" title="Modificar">
+
+						<input type="checkbox" name="Seleccionar" id="seleccion" value="{percodigo}">
+					
+					</a>
+				</td>
+			</tr>
+
+			
+			<!-- END browser -->
+			
+		</tbody>
+	</table>
+	
+	<!-- <input  type="submit" value="{percodigo}" onclick="guardarMaestro();"> -->
+</div>
+
+
+<script>
+
+	runBuscarMas=false;
+	var colorPermisoSI = '{colorPermisoSI}';
+	var colorPermisoNO = '{colorPermisoNO}';
+
+	//CARGO ICONO POR DEFECTO
+	$(".icono-seleccion").html('<i class="fa ft-calendar font-large-1" style="color:#0BE000"></i>');
+
+
+//SEGUN LA SELCCION DENTRO DEL SELECT VA A MOSTRAR ICONO-----------------------------------------------------------
+	function iconos(){
+
+		var seleccionOpciones = document.getElementById("opciones").value;
+
+		if (seleccionOpciones == 'disponibilidad') {$(".icono-seleccion").html('<i class="fa ft-calendar font-large-1  " style="color:#0BE000"></i>');}
+		if (seleccionOpciones == 'mensajes') {$(".icono-seleccion").html('<i class="fa ft-message-circle font-large-1  " style="color:#0BE000"></i>')}
+		if (seleccionOpciones == 'reuniones'){$(".icono-seleccion").html('<i class="fa fa-handshake-o font-large-1 " style="color:#0BE000"></i>')}
+		if (seleccionOpciones == 'liberar') {$(".icono-seleccion").html('<i class="fa fa-lock font-large-1  " style="color:#0BE000"></i>')}
+		if (seleccionOpciones == 'mails'){$(".icono-seleccion").html('<i class="fa fa-envelope font-large-1 " style="color:#0BE000"></i>')}
+		if (seleccionOpciones == 'gafete'){$(".icono-seleccion").html('<i class="fa fa-envelope font-large-1 " style="color:#0BE000"></i>')}
+		if (seleccionOpciones == 'quitardisponibilidad'){$(".icono-seleccion").html('<i class="fa ft-calendar font-large-1  " style="color:#FF581B"></i>')}
+		if (seleccionOpciones == 'quitarreuniones') {$(".icono-seleccion").html('<i class="fa fa-handshake-o font-large-1  " style="color:#FF581B"></i>')}
+		if (seleccionOpciones == 'quitarmensajes') {$(".icono-seleccion").html('<i class="fa ft-message-circle font-large-1  " style="color:#FF581B"></i>')}
+	
+	}
+//-----------------------------------------------------------------------------------------------------------------
+
+function ingresar(reg){
+		var percoddst = reg;
+	
+		var data = {"percoddst":percoddst};
+		
+		//console.log(data);
+		//Guardo mensaje
+		swal({
+			title: "ETIQUETA",
+			text: "Antes de imprimir la etiqueta, ¿desea registrar al usuario en el evento?",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#0CC27E',
+			cancelButtonColor: '#FF586B',
+			confirmButtonText: 'SI',
+			cancelButtonText: 'NO',
+			confirmButtonClass: 'btn btn-success btn-raised mr-5',
+			cancelButtonClass: 'btn btn-danger btn-raised',
+			buttonsStyling: false
+		}).then(function () {
+		
+			$.ajax({
+			type: "POST",
+			url: '../qrleer/grbcontrol.php',
+			data: data
+			}).done(function( rsp ) {
+				
+				
+				window.open('../ticket.php?ID='+reg,'_blank');
+				
+
+			});
+			
+			
+		}, function (dismiss) {
+			// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+			window.open('../ticket.php?ID='+reg,'_blank');
+			if (dismiss === 'cancel') {
+
+			}
+		}).done();
+
+
+
+		
+	}
+
+	function eliminarMaestro(reg){
+		var percodigo = reg;
+		
+		var data = {"percodigo":percodigo};
+		
+		swal({
+			title: "{Idioma_Eliminar}",
+			text: "{Idioma_ConfEliminar}",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#0CC27E',
+			cancelButtonColor: '#FF586B',
+			confirmButtonText: '{Idioma_BotonConf}',
+			cancelButtonText: '{Idioma_BotonCan}',
+			confirmButtonClass: 'btn btn-success btn-raised mr-5',
+			cancelButtonClass: 'btn btn-danger btn-raised',
+			buttonsStyling: false
+		}).then(function () {
+			$.ajax({
+			  type: "POST",
+			  url: 'del.php',
+			  data: data
+			}).done(function( rsp ) {
+				data = $.parseJSON(rsp);
+				
+				if(data.errcod == 0){			
+					toastr.success(data.errmsg, '{Idioma_Eliminar}');
+					//swal("GUARDAR", data.errmsg, "success").done();
+					showBrowser();
+				}else{
+					toastr.error(data.errmsg, '{Idioma_Eliminar}');
+					//swal("GUARDAR", data.errmsg, "error").done();
+				}
+				
+			});
+			
+			
+		}, function (dismiss) {
+			// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+			if (dismiss === 'cancel') {
+			}
+		}).done();
+	}
+	function exportarAgenda(reg){
+		var percodigo = reg;
+		
+		window.location.href="exportarPdfReuniones.php?ID="+percodigo;
+	}
+	function activarMaestro(reg){
+		var percodigo = reg
+		
+		var data = {"percodigo":percodigo};
+		
+		swal({
+			title: "{Idioma_Activar}",
+			text: "{Idioma_ActivarPerf}",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#0CC27E',
+			cancelButtonColor: '#FF586B',
+			confirmButtonText: '{Idioma_BotonConf}',
+			cancelButtonText: '{Idioma_BotonCan}',
+			confirmButtonClass: 'btn btn-success btn-raised mr-5',
+			cancelButtonClass: 'btn btn-danger btn-raised',
+			buttonsStyling: false
+		}).then(function () {
+			$.ajax({
+			  type: "POST",
+			  url: 'act.php',
+			  data: data
+			}).done(function( rsp ) {
+				data = $.parseJSON(rsp);
+				
+				if(data.errcod == 0){			
+					toastr.success(data.errmsg, '{Idioma_Activar}');
+					//swal("GUARDAR", data.errmsg, "success").done();
+					showBrowser();
+				}else{
+					toastr.error(data.errmsg, '{Idioma_Activar}');
+					//swal("GUARDAR", data.errmsg, "error").done();
+				}
+				
+			});
+			
+			
+		}, function (dismiss) {
+			// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+			if (dismiss === 'cancel') {
+			}
+		}).done();
+	}
+	function exportarPDFMasivas(){
+			
+		var fltnombre = $('#fltnombre').val();
+		var fltestado = $('#fltestado').val();
+		var fltpertipo = $('#fltpertipo').val();
+		var fltperclase = $('#fltperclase').val();
+			//Busco los check seleccionados
+			var data = {
+			seleccion: 1,
+			percodigo: [],
+			"fltnombre": fltnombre,
+			"fltestado": fltestado,
+			"fltpertipo": fltpertipo,
+			"fltperclase": fltperclase
+			};
+
+			//Busco los check seleccionados
+			$('input[id="seleccion"]:checked').each(function() {
+			var id = $(this).val();
+			data.percodigo.push({ id: id });
+			});
+			//console.log(data.percodigo)
+			$.ajax({
+			type: "POST",
+			url: "exportarPdfReunionesmasivas.php",
+			data: data
+		}).done(function (rsp) {
+			//console.log(rsp)
+			//data = $.parseJSON(rsp);
+			window.open('AgendasPerfiles.pdf', '_blank');
+			toastr.success('Agendas pdf', "Pdf Creado", {timeOut: 5000});
+		});
+			
+
+
+		}
+	
+	function actPermisosMasivo(coduser, permiso) {
+		//CHEQUEO DATO ENTRANTE DEL SELECT
+		var seleccionOpciones = document.getElementById("opciones").value;
+		var opcion = "";
+		var fltnombre = $('#fltnombre').val();
+		
+			var orden = $('#fltorden').val();
+			var fltestado = $('#fltestado').val();
+			var fltpertipo = $('#fltpertipo').val();
+			var fltperclase = $('#fltperclase').val();
+			var fltordentipo = $('#fltordentipo').val();
+
+		//Los permisos masivos los trabajamos con el select
+		if (seleccionOpciones == "disponibilidad") {
+			opcion = "D";
+		}
+		if (seleccionOpciones == "mensajes") {
+			opcion = "M";
+		}
+		if (seleccionOpciones == "liberar") {
+			opcion = "L";
+		}
+		if (seleccionOpciones == "mails") {
+			opcion = "MA";
+		}
+		if (seleccionOpciones == "gafete") {
+			opcion = "GA";
+		}
+		if (seleccionOpciones == "reuniones") {
+			opcion = "R";
+		}
+		if (seleccionOpciones == "quitardisponibilidad") {
+			opcion = "QD";
+		}
+		if (seleccionOpciones == "quitarreuniones") {
+			opcion = "QR";
+		}
+		if (seleccionOpciones == "quitarmensajes") {
+			opcion = "QM";
+		}
+		//SI EL SET PERMISO ES INDIVIDUAL POR BOTON
+		if (permiso != "X" && permiso != "Y") {
+			var data = {
+			seleccion: 0,
+			percodigo: [],
+			//La opcion entra por parametro
+			opcion: permiso
+			};
+
+			//Pusheamos el codigo de usuario que entra por parametro
+			data.percodigo.push({ id: coduser });
+
+		//Aca ingrega con el boton del select
+		} else if (permiso == "X") {
+			var data = {
+			seleccion: 1,
+			percodigo: [],
+			opcion: opcion
+			};
+
+			//Busco los check seleccionados
+			$('input[id="seleccion"]:checked').each(function() {
+			var id = $(this).val();
+			data.percodigo.push({ id: id });
+			});
+  		} else if (permiso == "Y") {
+
+			var data = {
+			seleccion: 1,
+			percodigo: [],
+			opcion: opcion,
+			"fltnombre": fltnombre,
+				"fltorden": fltorden,
+				"fltordentipo": fltordentipo,
+				"fltestado": fltestado,
+				"fltpertipo": fltpertipo,
+				"fltperclase": fltperclase
+			};
+			var id = 999999;
+			data.percodigo.push({ id: id });
+  		}
+
+  //ENVIO POR POST AL PHP
+  if (data.percodigo[0]) {
+
+    toastr.warning("Aplicando Permisos", "{Idioma_Permisos}");
+
+    $.ajax({
+      type: "POST",
+      url: "perm.php",
+      data: data
+    }).done(function(rsp) {
+		//alert(rsp);
+      data = $.parseJSON(rsp);
+
+      toastr.remove();
+      if (data.errcod == 0) {
+		toastr.success(data.errmsg, "{Idioma_Permisos}");
+		setTimeout(() => {
+        location.reload();
+
+      }, 700);
+      } else {
+		toastr.error(data.errmsg, "{Idioma_Permisos}");
+		
+      }
+
+     
+    });
+  } else {
+    swal({
+      title: "Error!",
+      text: "Seleccione perfiles para aplicar permisos"
+    });
+  }
+}
+
+	function seleccionador(){
+		if ($('input[id="seleccion"]').prop('checked')) {$('input[id="seleccion"]').prop('checked', false);
+		}else{$('input[id="seleccion"]').prop('checked', true);}
+
+		}
+
+	function ingresoPerfil(reg){
+		var percodigo = reg
+		
+		var data = {"percodigo":percodigo};
+		
+		swal({
+			title: "{Idioma_IngfPerFil}",
+			text: "{Idioma_ConfIngPerf}",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#0CC27E',
+			cancelButtonColor: '#FF586B',
+			confirmButtonText: '{Idioma_BotonConf}',
+			cancelButtonText: '{Idioma_BotonCan}',
+			confirmButtonClass: 'btn btn-success btn-raised mr-5',
+			cancelButtonClass: 'btn btn-danger btn-raised',
+			buttonsStyling: false
+		}).then(function () {
+			$.ajax({
+			  type: "POST",
+			  url: 'logperfil.php',
+			  data: data
+			}).done(function( rsp ) {
+				data = $.parseJSON(rsp);
+				toastr.success(data.errmsg, '{Idioma_IngfPerFil}');
+				setTimeout('window.location="../index";',500);
+			});
+		}, function (dismiss) {
+			// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+			if (dismiss === 'cancel') {
+			}
+		}).done();
+	}
+</script>
+                    

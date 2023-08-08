@@ -1,0 +1,319 @@
+<section id="horizontal-form-layouts">
+  
+  <div class="row">
+    <div class="col-md-12">
+          <div class="px-3">
+            <form
+              enctype="multipart/form-data"
+              class="form form-horizontal"
+              novalidate
+            >
+              <div class="form-body">
+                <div class="form-group row {displaynombreseccion}">
+                  <label class="col-md-2 label-control" for="titulosuperior"
+                    >Nombre Sección: <span class="required">*</span></label
+                  >
+                  <div class="col-md-10">
+                    <input id="id_seccion" name="id_seccion" type=hidden value="{id_seccion}">
+                    <input
+                      type="text"
+                      id="nombreseccion"
+                      name="nombreseccion"
+                      class="form-control"
+                      value="{nom_sec}"
+                    />
+                  </div>
+                </div>
+                <div class="form-group row {displaytitulosuperior}">
+                  <label class="col-md-2 label-control" for="titulosuperior"
+                    >Titulo Superior: <span class="required">*</span></label
+                  >
+                  <div class="col-md-10">
+                    <input
+                      type="text"
+                      id="titulosuperior"
+                      name="titulosuperior"
+                      class="form-control"
+                      value="{tit_sup}"
+                    />
+                  </div>
+                </div>
+                <div class="form-group row {displaytitulo}">
+                  <label class="col-md-2 label-control" for="titulo"
+                    >Titulo: <span class="required">*</span></label
+                  >
+                  <div class="col-md-10">
+                    <input
+                      type="text"
+                      id="titulo"
+                      name="titulo"
+                      class="form-control"
+                      value="{titulo}"
+                    />
+                  </div>
+                </div>
+                <div class="form-group row {displaydescri}">
+                  <label class="col-md-2 label-control" for="descri"
+                    >{Idioma_Descripcion}: <span class="required">*</span>
+                  </label>
+                  <div class="col-md-10">
+                    <textarea type="text" id="descri" rows="4" name="descri" class="form-control" maxlength="2000">
+                    {descri}</textarea>
+                  </div>
+                </div>
+                <div class="form-group row {displayopcional1}">
+                  <label class="col-md-2 label-control" for="titulo"
+                    >{tituloopcional1}: <span class="required">*</span></label
+                  >
+                  <div class="col-md-10">
+                    <input
+                      type="text"
+                      id="opcional1"
+                      name="opcional1"
+                      class="form-control"
+                      value="{opcional1}"
+                    />
+                  </div>
+                </div>
+                <div class="form-group row {displayopcional2}">
+                  <label class="col-md-2 label-control" for="titulo"
+                    >{tituloopcional2}: <span class="required">*</span></label
+                  >
+                  <div class="col-md-10">
+                    <input
+                      type="text"
+                      id="opcional2"
+                      name="opcional2"
+                      class="form-control"
+                      value="{opcional2}"
+                    />
+                  </div>
+                </div>
+                <div class="form-group row {displayopcional3}">
+                  <label class="col-md-2 label-control" for="titulo"
+                    >{tituloopcional3}: <span class="required">*</span></label
+                  >
+                  <div class="col-md-10">
+                    <input
+                      type="text"
+                      id="opcional3"
+                      name="opcional3"
+                      class="form-control"
+                      value="{opcional3}"
+                    />
+                  </div>
+                </div>
+                <div class="form-group row {displayopcional4}">
+                  <label class="col-md-2 label-control" for="titulo"
+                    >{tituloopcional4}: <span class="required">*</span></label
+                  >
+                  <div class="col-md-10">
+                    <input
+                      type="text"
+                      id="opcional4"
+                      name="opcional4"
+                      class="form-control"
+                      value="{opcional4}"
+                    />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-2 label-control" for="spktitulo"
+                    >Visibilidad: <span class="required">*</span></label
+                  >
+                  <div class="col-md-10">
+                    <select id="visibilidad" name="visibilidad" class="form-control" >
+                      <option value="0">Select...</option>
+                      <option value="1" {visiblesel}>Visible</option>
+                      <option value="3" {ocultosel}>Oculto</option>
+                    </select>
+                  </div>
+                </div>
+              
+
+                <div class="form-group row {displayimagen}" style="height: 250px;">
+                  <label class="col-md-2 label-control" for="landingimg"
+                    >{Idioma_Imagen} <b>({tamanoimagen})</b>: <span class="required">*(cliquea sobre la imagen para editar)</span></label
+                  >
+                  <div class="col-md-10" style="height: 500px;">
+                    <input
+                      type="file"
+                      id="imagen"
+                      name="imagen"
+                      accept=".png, .jpg, .jpeg"
+                      class="form-control"
+                      value="{imagen}"
+                      onchange="readURLaviso(this);"
+                      style="display: none"
+                    />
+                    <br />
+                    <a>
+                      <img
+                        id="imgaviso"
+                        alt=""
+                        class="media-object d-flex mr-3"
+                        src="{imagen}"
+                        onclick="findaviso();"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </form>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-actions">
+        <button
+          id="btnguardar"
+          type="button"
+          class="btn btn-success"
+          onclick="guardarMaestroMsg();"
+        >
+          <i class="icon-note"></i> {Idioma_Guardar}
+        </button>
+        <button
+          id="btncancelar"
+          type="button"
+          class="btn btn-danger mr-1"
+          onclick="showAtras();"
+        >
+          <i class="icon-arrow-left"></i> {atras}
+        </button>
+        &nbsp;&nbsp;
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+
+  //------------------------------------------------
+  function guardarMaestroMsg() {
+    var errcod = 0;
+    var errmsg = "";
+    var titulosuperior = $("#titulosuperior").val();
+    var id_seccion = $("#id_seccion").val();
+    var titulo = $("#titulo").val();
+    var imagen = $("#imagen").val();
+    var descri = $("#descri").val();
+    var visibilidad = $("#visibilidad").val();
+
+    //  console.log(spkpos);
+
+    /*if (titulo == "") {
+      errcod = 2;
+      errmsg = "Falta el titulo";
+    }
+    if (titulosuperior == "") {
+      errcod = 2;
+      errmsg = "Falta el titulo superior";
+    }
+    if (descri == "") {
+      errcod = 2;
+      errmsg = "Falta una descripción";
+    }*/
+
+
+    if (errcod != 0) {
+      //swal("GUARDAR", errmsg, "error").done();
+      toastr.error(errmsg, "GUARDAR");
+    }
+
+	
+
+    if (errcod == 0) {
+      swal({
+        title: "GUARDAR",
+        text: "¿Confirma guardar los cambios?",
+        type: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#0CC27E",
+        cancelButtonColor: "#FF586B",
+        confirmButtonText: "Confirmar",
+        cancelButtonText: "Cancelar",
+        confirmButtonClass: "btn btn-success btn-raised mr-5",
+        cancelButtonClass: "btn btn-danger btn-raised",
+        buttonsStyling: false,
+      })
+        .then(
+          function () {
+            guardarMaestro();
+          },
+          function (dismiss) {
+            // dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+            if (dismiss === "cancel") {
+            }
+          }
+        )
+        .done();
+    }
+  }
+  //Tomamos el valor del id
+  var data = $("#id_seccion").val();
+
+  //imagen por defecto si el id es 0
+  if (data == '') {
+    $("#imgaviso").prop("src", "{imgnull}");
+  }
+  if (data != '') {
+    $("#imgaviso").prop("src", "../../landing/landingimg/{id_seccion}/{imagen}");
+  }
+  function findaviso() {
+    //$('#imgaviso').prop('src','{imgnull}');
+    $("#imagen").click();
+  }
+
+  function readURLaviso(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      var fname = null;
+      reader.onload = function (e) {
+        $("#imgaviso").attr("src", e.target.result);
+        var image = new Image();
+        image.src = e.target.result;
+        image.onload = function () {};
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  function showAtras(){
+    window.location = '../index';
+  }
+  function guardarMaestro() {
+    var formData = new FormData($("#FrmMst")[0]);
+    formData.append("id_seccion", $("#id_seccion").val());
+    formData.append("nombreseccion", $("#nombreseccion").val());
+    formData.append("titulosuperior", $("#titulosuperior").val());
+    formData.append("titulo", $("#titulo").val());
+    formData.append("descri", $("#descri").val());
+    formData.append("visibilidad", $("#visibilidad").val());
+    formData.append("opcional1", $("#opcional1").val());
+    formData.append("opcional2", $("#opcional2").val());
+    formData.append("opcional3", $("#opcional3").val());
+    formData.append("opcional4", $("#opcional4").val());
+    if (typeof $("#imagen")[0].files[0] !== "undefined") {
+      //console.log('entro');
+      formData.append("imagen", $("#imagen")[0].files[0]);
+    }
+
+    $.ajax({
+      type: "POST",
+      url: "grb.php",
+      data: formData,
+      cache: false,
+      contentType: false,
+      processData: false,
+    }).done(function (rsp) {
+      data = $.parseJSON(rsp);
+      if (data.errcod == 0) {
+        toastr.success(data.errmsg, "GUARDAR");
+        showBrowser();
+      } else {
+        toastr.error(data.errmsg, "GUARDAR");
+      }
+    });
+  }
+</script>

@@ -1,0 +1,226 @@
+<style>
+	.enviar {
+
+		width: 100px;
+		transition: 0.3s;
+	}
+
+	.enviar:hover {
+
+		transform: scale(1.1)
+	}
+
+	.cancel {
+		background-color: white;
+		color: #362a72;
+		border: 2px solid #362a72;
+		transition: 0.3s;
+	}
+
+	.cancel:hover {
+		background-color: #362a72;
+		color: white;
+
+	}
+</style>
+<div class="modal-content">
+	<div class="modal-header d-block ">
+		<img src="../imagenes-evento/banner.jpg" width="100%" class="img-fluid p-0 m-0" alt="">
+
+		<h4 class=" pt-2 pl-1 pb-2 text-white font-medium-2  bg-main-event" id="">{subirpost}</b>
+		</h4>
+	</div>
+	<div class="modal-body text-right">
+		<div class="form-group row">
+			<div class="col-md-12">
+				<input id="percodigo" type="hidden" value="{percodigo}">
+				<input id="murreg" type="hidden" value="{murreg}">
+			</div>
+
+			<div class="col-md-12 mt-3">
+				<input type="text" id="murtitulo" name="murtitulo" class="form-control" placeholder="Titulo">
+
+			</div>
+
+
+			<div class="col-md-12 mt-3">
+				<input type="text" id="murtag" name="murtag" class="form-control" placeholder="Tag">
+
+			</div>
+
+
+			<div class="col-md-12 mt-3">
+				<textarea class="form-control" name="murdescri" id="murdescri" cols="30" rows="10"
+					placeholder="Descripcion"></textarea>
+			</div>
+			<div class="col-md-12 mt-3">
+				<input type="text" id="murenlace" name="murenlace" class="form-control" placeholder="Enlace (opcional)">
+
+			</div>
+
+
+
+			<div class="col-md-12 mt-3">
+				<a class="btn btn-warning upload  text-white mr-1 btn-fab col-12">
+					<i class="fa fa-file "> </i>
+					{subirimagen}
+				</a>
+				<input hidden placeholder="Imagen" type="file" id="murimg" name="murimg"
+					class="form-control text-center" accept="image/*">
+
+			</div>
+
+
+			<div class="col-md-12 mt-3">
+				<a class="btn btn-warning upload-file  text-white mr-1 btn-fab col-12">
+					<i class="fa fa-file "> </i>
+					{subirarchivo}
+				</a>
+				<input hidden placeholder="Archivo" type="file" id="murarchivo" name="murarchivo"
+					class="form-control text-center">
+
+			</div>
+
+
+		</div>
+
+
+		<button type="button" class="btn bg-main-event enviar text-white" onclick="guardarMaestroMsg();">{subir}</button>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn cancel" data-dismiss="modal">{Idioma_Cerrar}</button>
+	</div>
+</div>
+
+
+<script>
+
+
+
+	$('.upload').click(() => {
+
+
+		$('#murimg').click();
+
+	})
+
+	$('#murimg').change(() => {
+		$('.upload').text($('#murimg')[0].files[0].name)
+
+
+	});
+
+
+	$('.upload-file').click(() => {
+
+
+		$('#murarchivo').click();
+
+	})
+
+	$('#murarchivo').change(() => {
+		$('.upload-file').text($('#murarchivo')[0].files[0].name)
+
+
+	});
+
+	function guardarMaestroMsg() {
+		var errcod = 0;
+		var errmsg = '';
+		var murtitulo = $('#murtitulo').val();
+		var murtag = $('#murtag').val();
+		var murenlace = $('#murenlace').val();
+		var murimg = $('#murimg').val();
+
+		if (murtitulo == '') {
+			errcod = 2;
+			errmsg = 'Falta el titulo';
+		}
+		if (murtag == '') {
+			errcod = 2;
+			errmsg = 'Falta tag';
+		}
+
+
+		if (errcod != 0) {
+			//swal("GUARDAR", errmsg, "error").done();
+			toastr.error(errmsg, 'GUARDAR');
+		}
+
+		if (errcod == 0) {
+			swal({
+				title: "GUARDAR",
+				text: "¿Confirma guardar los cambios?",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: 'Confirmar',
+				cancelButtonText: 'Cancelar',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+				guardarMaestro();
+				$('.cancel').click();
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+	}
+
+
+
+
+
+	function guardarMaestro() {
+
+
+		var formData = new FormData($('#FrmMst')[0]);
+		formData.append("murtitulo", $('#murtitulo').val());
+		formData.append("murtag", $('#murtag').val());
+		formData.append("murenlace", $('#murenlace').val());
+		formData.append("percodigo", $('#percodigo').val());
+		formData.append("murreg", $('#murreg').val());
+		formData.append("murdescri", $('#murdescri').val());
+
+		if (typeof ($('#murimg')[0].files[0]) !== "undefined") {
+			//console.log('entro');
+			formData.append('murimg', $('#murimg')[0].files[0]);
+		}
+
+		
+		if (typeof ($('#murarchivo')[0].files[0]) !== "undefined") {
+			//console.log('entro');
+			formData.append('murarchivo', $('#murarchivo')[0].files[0]);
+		}
+
+		//console.log(formData);
+		$.ajax({
+			type: "POST",
+			url: 'grb.php',
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false
+		}).done(function (rsp) {
+			data = $.parseJSON(rsp);
+
+			if (data.errcod == 0) {
+				toastr.success(data.errmsg, 'GUARDAR');
+				showBrowser();
+
+			} else {
+				toastr.error(data.errmsg, 'GUARDAR');
+			}
+
+		});
+	}
+
+
+
+
+
+</script>

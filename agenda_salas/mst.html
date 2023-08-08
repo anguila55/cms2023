@@ -1,0 +1,177 @@
+<!-- Quill -->
+<link rel="stylesheet" href="../quill/libs/quill/quill.snow.css">
+<script src="../quill/libs/quill/quill.min.js"></script>
+
+<!-- My stuff -->
+<link rel="stylesheet" type="text/css" href="../quill/styles.css">
+<script src="../quill/app.js"></script>
+<style>
+	#form-container {
+		width: 500px;
+	}
+
+	.row {
+		margin-top: 15px;
+	}
+
+	.row.form-group {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	.btn {
+		margin-left: 15px;
+	}
+
+	.change-link {
+		background-color: #000;
+		border-bottom-left-radius: 6px;
+		border-bottom-right-radius: 6px;
+		bottom: 0;
+		color: #fff;
+		opacity: 0.8;
+		padding: 4px;
+		position: absolute;
+		text-align: center;
+		width: 150px;
+	}
+
+	.change-link:hover {
+		color: #fff;
+		text-decoration: none;
+	}
+
+	img {
+		width: 150px;
+	}
+
+	#editor {
+		height: 130px;
+	}
+</style>
+<section id="horizontal-form-layouts">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="px-3">
+						<form enctype="multipart/form-data" class="form form-horizontal" novalidate>
+							<div class="form-body">
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title-wrap bar-warning">
+											<h6 class="card-title">{backprensatitulo}:</h6>
+										</div>
+									</div>
+									<div class="card-body p-2">
+
+										<div class="col-md-12">
+											<label for="paicodigo"> </label>
+											<input type="hidden" id="catreg" name="catreg" value="{catreg}">
+											<input type="text" id="catdescri" name="catdescri" class="form-control"
+												value="{catdescri}">
+										</div>
+									</div>
+								</div>
+									<div class="form-actions right">
+										<button id="btnguardar" type="button" class="btn btn-success"
+											onclick="guardarMaestroMsg();">
+											<i class="icon-note"></i> {Idioma_Guardar}
+										</button>
+										<a id="btncancelar" type="button" class="btn btn-danger mr-1"
+											href="../agenda_salas/bsq">
+											<i class="icon-arrow-left"></i> {atras}
+										</a>
+										&nbsp;&nbsp;
+									</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
+
+<!-- Initialize Quill editor -->
+<script>
+
+</script>
+<script>
+
+
+	//Tomamos el valor del id
+	var data = $('#catreg').val();
+
+
+	function guardarMaestroMsg() {
+		var errcod = 0;
+		var errmsg = '';
+		var catdescri = $('#catdescri').val();
+
+
+		if (catdescri == '') {
+			errcod = 2;
+			errmsg = '{completeelcampo} {backprensatitulo}';
+		}
+
+
+		if (errcod != 0) {
+			//swal("GUARDAR", errmsg, "error").done();
+			toastr.error(errmsg, '{Idioma_Guardar}');
+		}
+
+		if (errcod == 0) {
+			swal({
+				title: "{Idioma_GuardarSwal}",
+				text: "{Idioma_Confirmar}",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: '{Idioma_BotonConf}',
+				cancelButtonText: '{Idioma_BotonCan}',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+				guardarMaestro();
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+	}
+
+
+	function guardarMaestro() {
+		var formData = new FormData($('#FrmMst')[0]);
+		formData.append("catreg", $('#catreg').val());
+		formData.append("catdescri", $('#catdescri').val());
+
+		$.ajax({
+			type: "POST",
+			url: 'grb.php',
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false
+		}).done(function (rsp) {
+			showBrowser();
+			data = $.parseJSON(rsp);
+
+			if (data.errcod == 0) {
+				toastr.success(data.errmsg, '{Idioma_Guardar}');
+			} else {
+				toastr.error(data.errmsg, '{Idioma_Guardar}');
+			}
+
+		});
+	}
+</script>

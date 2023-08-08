@@ -1,0 +1,206 @@
+
+<section id="horizontal-form-layouts card">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card p-3">
+				<div class="card-body">
+					<div class="px-3">
+						<form class="form form-horizontal">
+							<div class="form-body">
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pernombre">Nombre:
+									</label>
+									<div class="col-md-9">
+										<input type="hidden" id="catreg" name="seccodigo"
+											value="{catreg}">
+										<input type="text" id="catdescri" name="secdescri"
+											class="form-control" value="{catdescri}">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pernombre">Orden Minimo:
+									</label>
+									<div class="col-md-9">
+
+										<input type="text" id="catvalor" name="secdescri"
+											class="form-control" value="{catvalor}">
+
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pernombre">Orden Maximo:
+									</label>
+									<div class="col-md-9">
+
+										<input type="text" id="catvalormax" name="secdescri"
+											class="form-control" value="{catvalormax}">
+
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pernombre">Cantidad
+										Imagenes:
+									</label>
+									<div class="col-md-9">
+
+										<input type="text" id="catimg" name="secdescri"
+											class="form-control" value="{catimg}">
+
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pernombre">Cantidad
+										Videos:
+									</label>
+									<div class="col-md-9">
+
+										<input type="text" id="catvid" name="secdescri"
+											class="form-control" value="{catvid}">
+
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pernombre">Cantidad
+										Textos:
+									</label>
+									<div class="col-md-9">
+
+										<input type="text" id="cattxt" name="secdescri"
+											class="form-control" value="{cattxt}">
+
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pernombre">Cantidad
+										Productos:
+									</label>
+									<div class="col-md-9">
+
+										<input type="text" id="catprod" name="secdescri"
+											class="form-control" value="{catprod}">
+
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pernombre">Cantidad
+										Perfiles:
+									</label>
+									<div class="col-md-9">
+
+										<input type="text" id="catper" name="secdescri"
+											class="form-control" value="{catper}">
+
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pernombre">Tipo
+										de Formato Expositor:
+									</label>
+									<div class="col-md-9">
+
+										<select id="catvis" class="form-control">
+											<option value="0">Seleccione</option>
+											<option {selected-grande} value="1">Stand</option>
+											<option {selected-mediana} value="2">Micrositio</option>
+
+										</select>
+
+									</div>
+								</div>
+
+
+							</div>
+
+							<div class="form-actions">
+								<button id="btnguardar" type="button" class="btn btn-success"
+									onclick="guardarMaestroMsg();">
+									<i class="icon-note"></i> {Idioma_Guardar}
+								</button>
+								<button id="btncancelar" type="button" class="btn btn-danger mr-1"
+									onclick="showBrowser();">
+									<i class="icon-trash"></i> {Idioma_BotonCan}
+								</button>
+								&nbsp;&nbsp;
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<script>
+	function guardarMaestroMsg(){
+		var errcod = 0;
+		var errmsg = '';
+	
+			
+		if(errcod==0){
+			swal({
+				title: "{Idioma_GuardarSwal}",
+				text: "{Idioma_Confirmar}",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: '{Idioma_BotonConf}',
+				cancelButtonText: '{Idioma_BotonCan}',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+				guardarMaestro();
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+	}
+	
+	function guardarMaestro(){
+		var catreg 		= $('#catreg').val();
+		var catdescri 	= $('#catdescri').val();
+		var catval 	= $('#catvalor').val();
+		var catvalmax 	= $('#catvalormax').val();
+		var catimg 	= $('#catimg').val();
+		var catvid 	= $('#catvid').val();
+		var cattxt 	= $('#cattxt').val();
+		var catvis 	= $('#catvis').val();
+		var catprod 	= $('#catprod').val();
+		var catper 	= $('#catper').val();
+		
+		var data = {"catreg":catreg,
+					"catdescri":catdescri,
+					"catvalor":catval,
+					"catvalormax":catvalmax,
+					"catimg":catimg,
+					"catvid":catvid,
+					"cattxt":cattxt,
+					"catprod":catprod,
+					"catper":catper,
+					"catvis":catvis,};
+		
+		$.ajax({
+		  type: "POST",
+		  url: 'grb.php',
+		  data: data
+		}).done(function( rsp ) {
+			data = $.parseJSON(rsp);
+			
+			if(data.errcod == 0){
+				toastr.success(data.errmsg, '{Idioma_GuardarSwal}');			
+				//swal("GUARDAR", data.errmsg, "success").done();
+				showBrowser();
+			}else{
+				toastr.error(data.errmsg, '{Idioma_GuardarSwal}');	
+				//swal("GUARDAR", data.errmsg, "error").done();
+			}
+			
+		});
+	}
+</script>

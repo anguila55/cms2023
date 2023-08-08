@@ -1,0 +1,281 @@
+<!-- Quill -->
+<link rel="stylesheet" href="../quill/libs/quill/quill.snow.css">
+<script src="../quill/libs/quill/quill.min.js"></script>
+
+<!-- My stuff -->
+<link rel="stylesheet" type="text/css" href="../quill/styles.css">
+<script src="../quill/appmensajeria.js"></script>
+
+<style>
+
+#editor {
+  height: 230px;
+}
+
+</style>
+<section id="horizontal-form-layouts">
+	<div class="row">
+		<div class="col-sm-12">
+			<h2 class="content-header">{maestroagenda}</h2>
+		</div>
+	</div>
+	
+
+	<!--New formulario-->
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-body">
+				<div class="px-3">
+					<form class="form">
+						<div class="form-body">
+
+							<div class="form-group">
+								<label for="timesheetinput1">{titulo}</label>
+								<div class="position-relative has-icon-left">
+									<input type="hidden" id="msgreg" name="msgreg" value="{msgreg}">
+									<input {disabledtitulo} type="text" id="msgtitulo"  name="msgtitulo" class="form-control" value="{msgtitulo}">
+									<div class="form-control-position">
+										<!--En caso que requiera icono-->
+									</div>
+								</div>
+							</div>
+							<div class="form-group {displaydescripcion}">
+								<label for="timesheetinput1">{Idioma_Descripcion}</label>
+								<div class="position-relative has-icon-left">
+									
+									<p><b>{descripcionmail}</b></p>
+									<div class="form-control-position">
+										<!--En caso que requiera icono-->
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="timesheetinput1">Asunto</label>
+								<div class="position-relative has-icon-left">
+									<input type="text" id="msgsub"  name="msgsub" class="form-control" value="{msgsub}">
+									<div class="form-control-position">
+										<!--En caso que requiera icono-->
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="timesheetinput2">Cuerpo de Mail</label>
+								<div class="position-relative has-icon-left">
+									<div id="editor">
+												
+										{msgdescri}
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label for="timesheetinput1">Nombre Botón</label>
+								<div class="position-relative has-icon-left">
+									<input type="text" id="msgbot"  name="msgbot" class="form-control" value="{msgbot}">
+									<div class="form-control-position">
+										<!--En caso que requiera icono-->
+									</div>
+								</div>
+							</div>
+							<div class="form-group {displaylnk}">
+								<label for="timesheetinput1">Link Botón</label>
+								<div class="position-relative has-icon-left">
+									<input type="text" id="msglnk"  name="msglnk" class="form-control" value="{msglnk}">
+									<div class="form-control-position">
+										<!--En caso que requiera icono-->
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 mt-3" style="{imgdiv}">
+								<a class="btn btn-warning upload  text-white mr-1 btn-fab col-12">
+									<i class="fa fa-file "> </i>
+									Subir Imagen (Menor a 2MB)
+								</a>
+								<input hidden placeholder="Imagen" type="file" id="msgimg" name="msgimg"
+									class="form-control text-center" accept="image/png, image/gif, image/jpeg">
+				
+							</div>
+
+
+
+
+							</div>
+						
+
+					
+						</div>
+
+						<div class="form-actions right">
+							
+								<button id="btnguardar" type="button" class="btn btn-success" onclick="guardarMaestroMsg();">
+									<i class="icon-note"></i> Guardar
+								</button>
+								<button id="btncancelar" type="button" class="btn btn-danger mr-1" onclick="location.reload();">
+									<i class="icon-trash"></i> Cancelar
+								</button>
+								&nbsp;&nbsp;
+							</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</section>
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>	
+<script>
+	
+	var valid_files = ['jpg', 'png', 'jpeg','gif'];
+	function validate_file($obj, $file) {
+            var extension = $obj.val().split('.').pop().toLowerCase();
+            if ($.inArray(extension, $file) == -1) {
+                //ALERT
+                $obj.replaceWith($obj.val('').clone(true));
+				toastr.error('Este formato no esta permitido solo (jpg,png y jpeg)...', 'GUARDAR');
+				return false;
+            }
+        }
+
+	$('.upload').click(() => {
+		$('#msgimg').click();
+	})
+
+
+	$('#msgimg').bind('change', function() {
+
+		if (validate_file($(this), valid_files))
+			{
+				if(this.files[0].size/1024/1024 < 2.097152){
+					
+						$('.upload').text($('#msgimg')[0].files[0].name)
+
+					
+					
+				}else{
+					
+					document.querySelector('#msgimg').value='';
+					toastr.error('La imagen es demasiado pesada, pruebe optimizandola...', 'GUARDAR');
+				}
+		}
+
+		
+	});
+
+
+
+	function guardarMaestroMsg(){
+
+		
+		var errcod = 0;
+		var errmsg = '';
+		function validURL(url) {
+
+		if (url.includes('http')) {
+
+			return true;
+		}
+
+		return false;
+
+		}
+
+
+
+		if (!validURL($('#msglnk').val())) {
+
+
+		if ($('#msglnk').val() != '') {
+			errcod = 1;
+			toastr.error('Revisar Campos', 'Ingresar url web valida');
+		}
+
+
+		}
+		//var avireg = $('#avireg').val();
+		//var avititulo = $('#avititulo').val();
+		//var aviurl = $('#aviurl'). val();
+		//var aviimagen = $('#aviimagen').val();
+			
+		if(errcod==0){
+			swal({
+				title: "GUARDAR",
+				text: "¿Confirma guardar los cambios?",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: 'Confirmar',
+				cancelButtonText: 'Cancelar',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+
+				
+
+					guardarMaestro();
+				
+				
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+	}
+
+	function guardarMaestro(){
+		var formData = new FormData($('#FrmMst')[0]);
+		var msgsend = 0;
+		var myEditor = document.querySelector('#editor');
+		var msgdescri = myEditor.children[0].innerHTML;
+		formData.append("msgsend", msgsend);
+		formData.append("msgtitulo", $('#msgtitulo').val());
+		formData.append("msgreg", $('#msgreg').val());
+		formData.append("msgdescri", msgdescri);
+		formData.append("msgsub", $('#msgsub').val());
+		formData.append("msgbot", $('#msgbot').val());
+		formData.append("msglnk", $('#msglnk').val());
+
+		if (typeof ($('#msgimg')[0].files[0]) !== "undefined") {
+			//console.log('entro');
+			formData.append('msgimg', $('#msgimg')[0].files[0]);
+		}else{
+			formData.append("msgimgvacio", '');
+		}
+		
+
+			console.log(formData);
+		$.ajax({
+			type: "POST",
+			url: 'grb.php',
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false
+		}).done(function( rsp ) {
+			console.log(rsp);
+			data = $.parseJSON(rsp);
+			
+			if(data.errcod == 0){
+				toastr.success(data.errmsg, 'GUARDAR');			
+				//swal("GUARDAR", data.errmsg, "success").done();
+				location.reload();
+				//showBrowser();
+			}else{
+				toastr.error(data.errmsg, 'GUARDAR');	
+				//swal("GUARDAR", data.errmsg, "error").done();
+			}
+			
+		});
+	}
+	
+	
+
+</script>
+	 
+	  
+	  

@@ -1,0 +1,169 @@
+<div class="modal-content">
+	<div class="px-3">
+		<form class="form form-horizontal">
+			<div class="form-body">
+				<div class="form-group {bloquearreunion}">
+					<label class="mt-2 pt-3" for="timesheetinput3">{Idioma_Dia_fecha}:</label>
+					<div class="position-relative has-icon-left col-4">
+						<input onkeypress="return false;" onchange="loadHorariossoli(this);" type="date" id="agefch" class="form-control" min="{fechainicial}" max="{fechafinal}" name="agefch" value="{fechavalue}">
+						<div class="form-control-position">
+							<i class="ft-message-square"></i>
+						</div>
+					</div>
+				</div>
+				
+					<div class="col-12">
+						<label id="labelhorariossoli" style="display: block;" class="mt-2 mb-2" for="timesheetinput3">{Idioma_Dia_horarioreu}:</label>
+					</div>
+					<div id="horariossoli" class="form-group row pl-2 pr-2">
+					
+
+					
+					
+					</div>
+
+				
+
+			
+
+
+			</div>
+		</form>
+				<input id="tiporeunion" name="tiporeunion" type=hidden value="{tiporeunion}">
+				<input id="solicitante" name="solicitante" type=hidden value="{solicitante}">
+				<input id="percodsol" name="percodsol" type=hidden value="{percodsol}">
+				<input id="reureg" name="reureg" type=hidden value="{reureg}">
+
+		<div class="modal-footer">
+			<img id="imgloading" src="../app-assets/img/loader.gif" style="width:35px; height:auto; display:none;">
+			<button id="btnaceptar" type="button" class="btn grey btn-outline-secondary {bloquearreunion}"
+				onclick="aceptarReunion({percodsol});">{Idioma_Coordinar}</button>
+			<button id="btncancelar" type="button" class="btn grey btn-outline-secondary"
+				data-dismiss="modal">{Idioma_Cancelar}</button>
+		</div>
+	</div>
+</div>
+<script src="brwsoli.js"></script>
+<script src="../assets-nuevodisenio/js/switch.min.js"></script>
+
+<script>
+
+	
+	var nombreboton1='';
+	function handleClick1(cb) {
+
+		if (cb.id!=nombreboton1 && nombreboton1!=''){
+			
+			
+			document.querySelector("#"+nombreboton1).checked = false;
+			nombreboton1=cb.id;
+
+		}
+		if (nombreboton1 ==''){
+			
+			$.each($('input[name="coordtime"]:checked').not(':disabled'), function () {
+				if (this.id !=cb.id){
+
+					nombreboton1=this.id;
+					document.querySelector("#"+nombreboton1).checked = false;
+					nombreboton1=cb.id;
+				}
+		});
+			
+		}
+		
+		
+	}	
+	function aceptarReunion(reg) {
+	
+		var errcod = 0;
+		var errmsg = '';
+		var reureg = {reureg};
+		var percodigo = {solicitante};
+		var dataCoordinar = [];
+		$.each($('input[name="coordtime"]:checked').not(':disabled'), function () {
+			var fecha = $(this).data('fecha');
+			var hora = $(this).data('hora');
+			var data = { "fecha": fecha, "hora": hora };
+
+			dataCoordinar.push(data);
+		});
+
+		if (dataCoordinar.length != 1) {
+			errcod = 2;
+			errmsg = 'Please select a date and time';
+		}
+
+
+		if (errcod != 0) {
+			toastr.error(errmsg, 'MEETING');
+		} else {
+			$('#btnaceptar').hide();
+			$('#imgloading').show();
+
+			var data = {
+				"percodsol": reg,
+				"percodigo":percodigo,
+				"reureg":reureg,
+				"dataCoordinar": dataCoordinar
+			};
+
+			$.ajax({
+				type: "POST",
+				url: 'coordinargrbsoli.php',
+				data: data
+			}).done(function (rsp) {
+				data = $.parseJSON(rsp);
+				$('#btnaceptar').show();
+				$('#imgloading').hide();
+				if (data.errcod == 0) {
+					toastr.success(data.errmsg, 'MEETING');
+					$('#DataMaestroViewHorario').modal('hide');
+				} else {
+					toastr.error(data.errmsg, 'MEETING');
+				}
+				showBrowser(1);
+			});
+
+		}
+	}
+	loadHorariossoli(0);
+	function loadHorariossoli(obj) {//Se cargan las clases en relacion con el Tipo de Perfil
+		var agefch = '';
+		if (obj==0){
+			agefch = '{reufecha}';
+		}else{
+			agefch = $(obj).val();
+		}
+
+		var tiporeunion = document.querySelector("#tiporeunion").value; 
+		
+		var percod = {percodsol};
+		var reureg = {reureg};
+		var percodigo = {solicitante};
+		
+		$.ajax({
+			type: "POST",
+			url: "coordinarhorasoli.php",
+			data: { "agefch": agefch,
+					"percodigo": percodigo,
+					"percoddst": percod,
+					"reureg":reureg,
+					"tiporeunion":tiporeunion }
+		}).done(function (rsp) {
+			
+			data = $.parseJSON(rsp);
+			console.log(data);
+			Eliminarsoli();
+			data.forEach(producto => {
+				
+				if (producto != null ){
+					Mostrarsoli(producto);
+				}
+
+				});
+			document.querySelector('#labelhorariossoli').style= 'block';
+		});
+
+	}
+</script>

@@ -1,0 +1,32 @@
+/* GOOGLE FONTS */
+
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&Montserrat:300,400,500,600,700,800,900&Roboto:100i,300,400,500,700&Allura');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+/* BOOTSTRAP */
+
+@import 'bootstrap/css/app.css';
+@import 'bootstrap/css/bootstrap.min.css';
+
+
+/* FONTS */
+
+@import 'fonts/feather/style.min.css';
+@import 'fonts/font-awesome.min.css';
+@import 'fonts/simple-line-icons/style.min.css';
+
+/* LIBRERIAS */
+
+@import 'vendors/css/perfect-scrollbar.min.css';
+@import 'vendors/css/prism.min.css';
+@import 'vendors/css/switchery.min.css';
+@import 'vendors/css/fullcalendar.min.css';
+@import 'vendors/css/sweetalert2.min.css';
+@import 'vendors/css/toastr.css';
+@import 'vendors/css/jquery.multiselect.css';
+
+
+/* HOJAS DE ESTILO */
+
+@import 'css/estilos.css';
+

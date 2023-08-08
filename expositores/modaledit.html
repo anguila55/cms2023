@@ -1,0 +1,93 @@
+<div class="modal-content">
+	<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	</div>
+	<div class="modal-body">
+			<input type="hidden" value="{expreg}" id="expreg">
+			<input type="hidden" value="{prodreg}" id="prodreg">
+			<div class="col-md-12 mt-2">
+				<label for="prodnombre">Nombre: </label>
+				<input type="text" id="prodnombre" name="prodnombre" class="form-control"
+					value="{prodnombre}">
+			</div>
+			<div class="col-md-12 mt-2 d-none">
+				<label for="proddes">Descripcion: </label>
+				<input type="text" id="proddes" name="proddes" class="form-control"
+					value="{proddes}">
+			</div>
+
+			<div class="col-md-12 mt-2 mb-3">
+				<label for="prodimg">Imagen: </label>
+				<input type="file" id="prodimg" name="prodimg" class="form-control"
+					value="{prodimg}">
+				<img src="{prodimg}" class="img-fluid mt-3" alt="" width="25%">
+			</div>
+			<div class="col-md-12 mt-2 mb-3">
+				<label for="prodfolleto">Folleto: </label>
+				<input type="file" id="prodfolleto" name="prodfolleto" class="form-control"
+					value="{prodfolleto}">
+				<img src="{prodfolleto}" class="img-fluid mt-3" alt="" width="25%">
+			</div>
+
+	  </div>
+	  <div class="modal-footer">
+		<div class="form-actions col-12 text-center">
+			<button id="btnguardar" type="button" class="btn btn-success" onclick="guardarEdit();">
+				<i class="icon-note"></i> Guardar
+			</button>
+		</div>
+	  </div>
+	  
+</div>
+<script>
+
+function guardarEdit() {
+		var formData = new FormData($('#FrmMst')[0]);
+		formData.append("expreg", $('#expreg').val());
+		formData.append("prodreg", $('#prodreg').val());
+		formData.append("prodnombre", $('#prodnombre').val());
+		formData.append("proddes", $('#proddes').val());
+
+
+		//avatar
+		if (typeof ($('#prodimg')[0].files[0]) !== "undefined") {
+			formData.append('prodimg', $('#prodimg')[0].files[0]);
+		}
+		//avatar
+		if (typeof ($('#prodfolleto')[0].files[0]) !== "undefined") {
+			formData.append('prodfolleto', $('#prodfolleto')[0].files[0]);
+		}
+
+		$.ajax({
+			type: "POST",
+			url: "../expositores/grbproducto.php",
+			dataType: "html",
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false
+		}).done(function (rsp) {
+			data = $.parseJSON(rsp);
+
+			if (data.errcod == 0) {
+				toastr.success(data.errmsg, 'GUARDAR');
+
+				$('#DataMaestroView').modal('hide');
+				
+					showMaestro({expreg});
+				
+				
+			} else {
+				toastr.error(data.errmsg, 'GUARDAR');
+
+			}
+
+		});
+	}
+
+
+
+</script>
+

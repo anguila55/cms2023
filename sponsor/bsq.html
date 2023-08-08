@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="description"
+    content="BTBOX _your business toolbox. Todas las soluciones en una plataforma para potenciar tu próximo evento">
+    <meta name="keywords"
+    content="btbox, evento, fisico, hibrido, event, admin, btoolbox, networking, reuniones">
+    <meta name="author" content="BTBOX">
+	<title>{SisNombreEvento}</title>
+	<link rel="shortcut icon" type="image/png" href="../assets-nuevodisenio/img/favicon.jpg">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/index.css">
+	<!-- script para levantar el navbar -->
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body data-col="2-columns" class=" 2-columns" style="background-color: #f7f7f7;">
+
+	<div class="wrapper nav-collapsed menu-collapsed">
+		<input id="percodnotif" name="percodnotif" type=hidden value="{percodnotif}">
+
+		<!-- Navigation bar -->
+		<div id="nav-placeholder">
+
+		</div>
+
+		<script>
+			$(function () {
+				var data = {
+					"menu": ""
+				};
+
+				$("#nav-placeholder").load("../navbar/navbar.php", data);
+
+			});
+		</script>
+		<!-- end of Navigation bar -->
+
+		<!-- Menu  -->
+
+	
+<!--MENU FIN-->
+
+
+		<div>
+			<div class="main-content">
+				<div class="content-wrapper">
+					<div class="container-fluid">
+
+						<!--Inicio TABLA -->
+						<div id="shopping-cart">
+							
+							<div class="card-body m-0">
+								<div class="card-block" id="DataBrowser"></div>
+
+							</div>
+
+						</div>
+						<!--Fin TABLA -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- ----------------------------- ID SPONSOR ------------------------------ -->
+	<input type="hidden" name="expreg" id="expreg" value="{expreg}">
+
+	<!-- ---------------------------------- X ---------------------------------- -->
+
+	<!-- Modales de accion -->
+	<div class="modal fade p-0 text-left" id="DataMaestroDisp" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document" id="DataDisp">
+		</div>
+	</div>
+
+	<div class="modal fade p-0 text-left" id="DataMaestroViewPerfil" tabindex="-1" role="dialog" aria-hidden="true"
+		data-backdrop="static" data-keyboard="false">
+		<div class="modal-dialog modal-new" role="document" id="DataViewPerfil">
+		</div>
+	</div>
+
+	<div class="modal fade p-0 text-left" id="DataMaestroView" tabindex="-1" role="dialog" aria-hidden="true"
+		>
+		<div class="modal-dialog modal-new" role="document" id="DataView">
+		</div>
+	</div>
+
+	<script src="../gaming/gaming.js"></script>
+	<!-- BEGIN VENDOR JS-->
+	<script src="../assets-nuevodisenio/vendors/js/core/jquery-3.3.1.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/core/popper.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/core/bootstrap.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/perfect-scrollbar.jquery.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/prism.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/jquery.matchHeight-min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/screenfull.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/pace/pace.min.js"></script>
+	<script src="../assets-nuevodisenio/js/autoNumeric.js"></script>
+
+	<script src="../assets-nuevodisenio/js/autoNumeric.min.js"></script>
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<!-- END PAGE VENDOR JS-->
+	<!-- BEGIN CONVEX JS-->
+	<script src="../assets-nuevodisenio/js/app-sidebar.js"></script>
+	<!-- END CONVEX JS-->
+	<!-- BEGIN PAGE LEVEL JS-->
+	<!-- END PAGE LEVEL JS-->
+
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<script src="../assets-nuevodisenio/vendors/js/sweetalert2.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/toastr.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/switchery.min.js"></script>
+	<!-- END PAGE VENDOR JS-->
+	<script>
+
+
+		$(document).ready(function () {
+			showBrowser();
+			addPointsGaming(2,{expreg});
+			
+
+		});
+
+
+		function showBrowser() {
+			
+			var expreg = $('#expreg').val();
+	
+			var data = { "expreg": expreg};
+
+			
+			$('#DataBrowser').load('brw.php', data);
+			$('#DataMaestro').css('display', 'none');
+			$('#DataBrowser').css('display', '');
+
+		}
+
+		function addPoints(exp,url,tipo){
+          var data = {
+            
+                      "expreg":exp,
+                      "tipo":tipo
+                    };
+          $.ajax({
+            type: "POST",
+            url: 'grbpun.php',
+            data: data
+          }).done(function(rsp) {
+            data = $.parseJSON(rsp);			
+            if(data.errcod == 0){
+              window.open(url);
+            }else if(data.errcod == 5){
+              showBrowserProfile(exp);
+            }else{
+
+            }
+            
+          });
+        }
+		function solicitarReunionMaestro(reg, exp) {
+
+			
+				var data = { "percodigo": reg,
+							 "expreg":exp				
+				};
+				$('#DataView').load('coordinar.php', data);
+				$('#DataMaestroView').modal('show');
+			
+		}
+
+		function showChatView(reg,exp) {
+                    var data = { "percoddst": reg, "modayuda":exp };
+                    $('#DataViewPerfil').load('../chat/chatinicio.php', data);
+                    $('#DataMaestroViewPerfil').modal('show');
+                }
+
+		function showFolleto(prod,url){
+        addPointsGaming(9,prod);
+		var data = {"prodreg": prod};
+		$.ajax({
+		  type: "POST",
+		  url: 'grbfolleto.php',
+		  data: data
+		}).done(function(rsp) {
+			data = $.parseJSON(rsp);			
+			if(data.errcod == 0){
+				window.open(url);
+			}else{
+			}
+			
+		});
+	}
+		function showBrowserProfile(reg) {
+  
+  $(window).scrollTop(0);
+
+  if (reg){
+
+	var data = { "expreg": reg };
+
+$('#DataBrowser').load('brw.php', data);
+$('#DataMaestro').css('display', 'none');
+$('#DataBrowser').css('display', '');
+
+  }
+ 
+
+}
+
+
+
+
+	</script>
+
+</body>
+
+</html>

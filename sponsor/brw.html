@@ -1,0 +1,426 @@
+﻿<!-- User Profile Starts-->
+<!--Basic User Details Starts-->
+<!-- BEGIN browser -->
+<style>
+    .carousel-control-prev-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fd8105' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+    }
+
+    .carousel-control-next-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fd8105' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+    }
+    
+.botonesstand{
+  margin: 5px 30px;
+  border-radius: 10px;
+  line-height: 1rem;
+ 
+}
+
+.botonesstand p{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.8rem;
+  color: white;
+}
+
+</style>
+
+<div class="stand-previous-next__container">
+    <div class="stand-previous-next__btn-container {displayanterior}">
+      <a onclick="showBrowserProfile({standnro});" class="stand-previous-next__btn">
+        <img src="../assets-nuevodisenio/img/icons/Arrow Left.svg" alt="">
+      </a>
+      <div class="stand-previous-next__btn-text text-uppercase">
+        {standprevios}
+      </div>
+    </div>
+    <div class="stand-banner__container">
+      <img id="bannerweb" class="stand-banner__banner" src="{expbanimg1}" alt="">
+      <img id="bannermobile" class="stand-banner__banner" src="{expbanimg3}" alt="">
+     
+    </div>
+    <div class="stand-previous-next__btn-container {displaysiguiente}">
+      <a onclick="showBrowserProfile({standnro1});" class="stand-previous-next__btn">
+        <img src="../assets-nuevodisenio/img/icons/Arrow Right.svg" alt="">
+      </a>
+      <div class="stand-previous-next__btn-text text-uppercase">
+        {standsiguiente}
+      </div>
+    </div>
+  </div>
+
+<div class="row mx-0 py-3 my-3" style="background-color: white; border-radius: 15px; ">
+    <div class="col-md-1 col-4 my-2 text-left">
+        <img width="100px" src="{expavatar}" alt="" style="border-radius: 0.5rem;">
+    </div>
+    <div class="col-md-5 col-8 my-2">
+        <div class="text-left text-dark">
+            <h3 class="ml-3 card-title text-dark fw-700">{expnombre}</h3>
+        </div>
+    </div>
+    <div class="col-md-6 col-12 my-auto text-left">
+        <div class=" profile-cover-buttons">
+            <div class="media-body halfway-fab align-self-end">
+                <div class="text-right">
+
+                    <a type="button" class="btn boton-new-rounded-o ml-2 " 
+                    href="../directorio/bsq?E={expreg}"> <i class="icon-magnifier-add"></i>{representantes}</a>
+                    <a type="button" class="btn boton-new-rounded-o ml-2 {visibilidadchat}" onclick="solicitarReunionMaestro({percodcontacto},{expreg});"
+				    > <i class="icon-calendar"></i>{reunion}</a>
+
+                    <a type="button" class="btn boton-new-rounded-o ml-2 {visibilidadchat}" 
+                    onclick="showChatView({percodcontacto},0);"> <i class="icon-bubbles"></i>{chat}</a>
+
+                    <a type="button" class="btn boton-new-rounded-o ml-2 {visibilidadbrochure}" onclick="addPoints({expreg},'{expbrolnk}',7)"
+                    > <i class="fa fa-download mr-1"></i>{Idioma_QrBrochure}</a>
+
+                </div>                       
+            </div>
+        </div>
+    </div>
+</div>
+<div id="user-profile">
+    <div style="{Paramconiframe}" class="row">
+        <div class="col-12" style="{styleypf}" >
+            <!-- <div class="card profile-with-cover" style="height: 340px;">
+				<div class="card-img-top  bg-cover " style="background: url('{expbanimg1}') 50%;  height: 340px !important;">
+				</div>
+            </div> -->
+            <div style="{displayiframe}" class="contenedor" >
+                {iframeexpositor}
+            </div>
+            <div style="{displayimage}" class="d-flex justify-content-center">
+                    <img width="100%" height="100%" src="{expbanimg1}" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" value="{expcatego}" name="" id="expcatego">
+<!--Basic User Details Ends-->
+<div>
+    <div class="row ">
+        <!-- Info derecha -->
+        <div class="col-sm-12 col-md-6">
+            <div class="card mt-0 mb-0" style="height: 370px;">
+                <div class="card-header">
+                    <div class="card-title-wrap bar-warning">
+                        <div class="card-title-new">{somos}</div>
+                    </div>
+                </div>
+                <div class="card-body m-0">
+                    <div class="card-block-sponsor">
+                        <div class="mb-3 ">
+                            <span class="display-block" style="overflow-y: auto; height: 250px;">{exprubros}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about">
+                <div class="card">
+                    <div class="card-header mb-3 pb-0">
+                        <div class="card-title-wrap bar-warning">
+                            <div class="card-title-new">{contacto}</div>
+                        </div>
+                    </div>
+                    <div class="card-body m-0">
+                        <div class="card-block-contact  pb-2 " style="margin-bottom: 5px;">
+                            <p><i class="fa fa-map-pin color-main-event mr-1"></i> <span class="text-dark">{expdireccion}</span></p>
+                            <p> <i class="fa fa-mobile-phone color-main-event mr-1" style="font-size:20px;"></i> <span class="text-dark">{exptelefo}</span></p>
+                            <p> <i class="fa fa-envelope color-main-event mr-1"></i> <a href="mailto:{expmail}"> <span class="text-dark">{expmail}</span></a></p>
+                            <p>  <i class=" fa fa-user-o color-main-event mr-1"></i> <span class="text-dark"> {Idioma_Contacto}: {pernombrecontacto} {perapellicontacto} </span><span class="{visibilidadcargo}">, {percargo}</span></p>
+
+                           
+                           
+                           <!-- <p><span class="text-bold-500 warning"><a class="warning">
+                                        Sitio Web:</a></span>
+                                <span><a href="{expweb}">{expweb}</a></span>
+                            </p>
+                            -->
+                        </div>
+                        <ul class="action mb-1 mt-0 text-center">
+                            <a class="redes ml-2" target="_blank" href="{explinked}"><i class="fa fa-linkedin"
+                                    style="font-size:16px; {colorlinked}"></i></a>
+                            <a class="redes ml-2" target="_blank" href="{expfac}"><i class="fa fa-facebook"
+                                    style="font-size:16px; {colorfac}"></i></a>
+                            <a class="redes ml-2" target="_blank" href="{exptwi}"><i class="fa fa-twitter"
+                                    style="font-size:16px; {colortwi}"></i></a>
+                            <a class="redes ml-2" target="_blank" href="{expinsta}"><i class="fa fa-instagram"
+                                    style="font-size:16px; {colorinsta}"></i></a>
+                            <a class="redes ml-2" target="_blank" href="{expweb}"><i class="fa fa-globe"
+                                    style="font-size:16px; {colorweb}"></i></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Info Izquierda -->
+        <div class="col-sm-12 col-md-6 {muestroseccionproductos}">
+            <div class="card mt-0">
+                <div class="card-header">
+                    <div class="card-title-wrap bar-warning">
+                        <div class="card-title-new">{ofrecemos}</div>
+                    </div>
+                </div>
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+
+                        <!-- BEGIN productos -->
+                        <div class="{prod-active} carousel-item text-center">
+                            <input value="{prodnombre}" type="hidden">
+                            <h5 class="card-title-noti mt-0 card-title font-small-3 ">
+                                {prodnombre}</h5>
+                            <div class="col-12 text-center mx-auto ">
+
+                                <img class=" " src="{prodimg}">
+                            </div>
+                            <div class="card-body m-0">
+                                <div class="card-block">
+
+                                    <h5 class="card-title-noti card-title font-small-1 ">
+                                        {expproddes1}</h5>
+
+
+                                    <a style="{displayproductos}" href="#" onclick="showFolleto({prodreg},'{prodfolleto}' )"
+                                        class="mt-2 btn btn-circle bg-main-event white w-100 ">{des_informacion1}</a>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END productos -->
+                    </div>
+                    <a class="carousel-control-prev text-dark" href="#carouselExampleControls" role="button"
+                        data-slide="prev">
+                        <span class="carousel-control-prev-icon" style="border-radius: 10px;"
+                            aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                        data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- BEGIN textos -->
+        <div class="card texto1 d-{display-texto1}">
+            <div class="card-header">
+                <div class="card-title-wrap bar-info">
+                    <div class="card-title-new">{txtnombre}</div>
+                </div>
+            </div>
+            <div class="card-body m-0">
+                <div class="card-block">
+                    <div class="mb-3">
+                        <span class="display-block overflow-hidden">{txtdescri}</span>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- END textos -->
+        <div class="row">
+                <div class="stand-premium__left-container col-lg-6 col-12 mb-2 {muestroseccionvideos}">
+                    <a class="stand-premium__iframe-arrow" onclick="showYoutube1()" style="{visflechai}">
+                    <img src="../assets-nuevodisenio/img/icons/Arrow Left.svg" alt="">
+                    </a>
+                <div class="stand-premium__iframe-container">
+                    <iframe class="stand-premium__iframe-responsive" id="iframevideo" name="iframevideo" src="https://www.youtube.com/embed/{vidurlid0}" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                </div>
+                    <a class="stand-premium__iframe-arrow" onclick="showYoutube()" style="{visflechad}">
+                    <img src="../assets-nuevodisenio/img/icons/Arrow Right.svg" alt="">
+                    </a>
+                </div>
+
+
+                <div class="stand-premium__right-container col-lg-6 col-12 mb-2 {muestroseccionimagenes}">
+                    <div class=" mt-0">
+                        <div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+
+                                <!-- BEGIN imagenes -->
+                                <div class="{activeimg} carousel-item text-center">
+                                    
+                                
+                                    <div class="col-12 text-center mx-auto ">
+                                        <img class=" " src="{expimg}" width="100%">
+                                    </div>
+                                </div>
+                                <!-- END imagenes -->
+                            </div>
+                            <a class="carousel-control-prev text-dark" href="#carouselExampleControls1" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" style="border-radius: 10px;"
+                                    aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls1" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+       
+     
+</div>
+
+<!-- END browser -->
+<script>
+	$(document).ready(function () {
+				{scriptbrwprofile}
+
+        var bannerweb = document.getElementById("bannerweb");
+        var bannermobile = document.getElementById("bannermobile");
+           
+         if (window.innerWidth < 800){
+          
+         bannerweb.style.display = "none";
+         bannermobile.style.display = "";
+        
+         }else{
+			
+		bannerweb.style.display = "";
+         bannermobile.style.display = "none";
+        
+         }
+
+
+
+
+			});
+
+	function showStandscount(exp){
+		var data = {"expreg":exp};
+		$.ajax({
+			type: "POST",
+			url: 'grbstand.php',
+			data: data
+		}).done(function(rsp) {
+			data = $.parseJSON(rsp);			
+				
+		});
+	}
+
+    function showYoutube(){
+  
+  var elem = document.getElementById('iframevideo');
+
+    console.log(elem.src);
+
+  if (elem.src == 'https://www.youtube.com/embed/{vidurlid2}' && '{vidurlid2}'!=''){
+
+
+
+    elem.src = 'https://www.youtube.com/embed/{vidurlid0_0}';
+    document.getElementById("cont_videos").innerHTML = "1/3";
+
+
+  }else if (elem.src == 'https://www.youtube.com/embed/{vidurlid1}' && '{vidurlid1}'!=''){
+
+
+
+    if ('{vidurlid2}'!='')
+    {
+      elem.src = 'https://www.youtube.com/embed/{vidurlid2}';
+      document.getElementById("cont_videos").innerHTML = "3/3";
+    }else{
+      elem.src = 'https://www.youtube.com/embed/{vidurlid0_0}';
+      document.getElementById("cont_videos").innerHTML = "1/2";
+    }
+   
+    
+
+  }else if (elem.src == 'https://www.youtube.com/embed/{vidurlid0_0}' && '{vidurlid1}'!=''){
+
+   
+   
+    elem.src = 'https://www.youtube.com/embed/{vidurlid1}';
+    if ('{vidurlid2}'!='')
+    {
+      document.getElementById("cont_videos").innerHTML = "2/3";
+    }else{
+      document.getElementById("cont_videos").innerHTML = "2/2";
+    }
+
+    
+
+  }
+  
+}
+function showYoutube1(){
+
+    
+  var elem = document.getElementById('iframevideo');
+
+    console.log(elem.src);  
+
+  if (elem.src == 'https://www.youtube.com/embed/{vidurlid2}' && '{vidurlid2}'!=''){
+
+      elem.src = 'https://www.youtube.com/embed/{vidurlid1}';
+      document.getElementById("cont_videos").innerHTML = "2/3";
+
+
+      }else if (elem.src == 'https://www.youtube.com/embed/{vidurlid1}' && '{vidurlid1}'!=''){
+
+      elem.src = 'https://www.youtube.com/embed/{vidurlid0_0}';
+      if ('{vidurlid2}'!='')
+      {
+        document.getElementById("cont_videos").innerHTML = "1/3";
+      }else{
+        document.getElementById("cont_videos").innerHTML = "1/2";
+      }
+
+
+
+      }else if (elem.src == 'https://www.youtube.com/embed/{vidurlid0_0}' && '{vidurlid1}'!=''){
+
+      
+      if ('{vidurlid2}'!='')
+      {
+        elem.src = 'https://www.youtube.com/embed/{vidurlid2}';
+        document.getElementById("cont_videos").innerHTML = "3/3";
+      }else{
+        elem.src = 'https://www.youtube.com/embed/{vidurlid1}';
+        document.getElementById("cont_videos").innerHTML = "2/2";
+      }
+
+
+
+      }
+ // console.log (elem.src);
+}
+	
+    function viewQR(reg){
+				
+				swal({
+                    title: 'QR',
+					text: "<img class='border border-main-event' src='" + reg + "' style='width:200px;'> <br> <p class='mt-2'>{escaneaactividad}</p>",
+					type: '',
+					showCancelButton: false,
+					confirmButtonColor: '#0CC27E',
+					cancelButtonColor: '#FF586B',
+                    confirmButtonText: '{Idioma_Cerrar}',
+					cancelButtonText: 'Cancelar',
+					confirmButtonClass: 'btn btn-raised bg-main-event',
+					cancelButtonClass: 'btn btn-raised bg-main-event',
+					buttonsStyling: true
+				}).then(function () {
+					//window.location='../sala/bsq.php?A='+reg;
+				}, function (dismiss) {
+					// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+					if (dismiss === 'cancel') {
+					}
+				}).done();
+			
+		}
+</script>

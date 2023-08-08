@@ -1,0 +1,96 @@
+<style>
+   /* width */
+   .scroll::-webkit-scrollbar {
+		   width: 10px;
+		   height: 7px;
+		   margin-left: 10px;
+		   }
+   
+		   /* Track */
+		   .scroll::-webkit-scrollbar-track {
+		   box-shadow: inset 0 0 20px 20px grey; 
+		   border-radius: 5px;
+		   margin-left: 2rem;
+		   margin-bottom: 1rem;
+		   }
+		   
+		   /* Handle */
+		   .scroll::-webkit-scrollbar-thumb {
+		   background: var(--main); 
+		   border-radius: 5px;
+		   }
+   
+		   /* Handle on hover */
+		   .scroll::-webkit-scrollbar-thumb:hover {
+		   background: var(--main); 
+		   }
+</style>
+
+<div class="modal-content modal-radius pl-3 pr-3">
+	<button type="button" class="color-main-event boton-x" data-dismiss="modal">X</button>
+	<div class="d-block mr-auto ml-auto mt-3 mb-0">
+		<img src="{peravatar}" class="rounded-circle mr-2" width="100px" alt="user image">
+	</div>
+	<div class="col-12">
+
+			<h4 class="meeting-banner_text mt-1 text-center color-main-event fw-700">{pernombre} {perapelli}</h4>
+			<p class="text-center mb-0 mt-0 fw-200">{percargo}</p>
+			<p class="text-center text-company mb-0 mt-0 fw-800">{percompan}</p>
+		
+	</div>
+	<div class="modal-body">
+		 <p class="col-12"><b>{Idioma_Descripcion}: 		</b>{perempdes}</p>
+
+		 <label class="col-12 color-main-event titulo-oferta fw-600">{Idioma_ClasificarVentas}<br><span class="color-secondary-event fw-400 texto-tipo-block">{Idioma_ClasificarVentasDescri}</span></label>
+		
+			<!-- BEGIN sectores -->
+			<div class="row col-12">
+				<p class="badge badge-danger white {colorsector} p-2 mb-1"><b>{secdescri}</b></p>
+				<div class="row col-12" style="margin-left:30px;">
+					<!-- BEGIN subsectores -->
+					<p class="badge badge-danger white {colorsubsector} mr-2 p-2 mb-1"  >{secsubdes}</p>
+					<!-- END subsectores -->
+				</div>
+			</div>
+			<!-- END sectores -->
+			<label class="col-12 mt-2 color-main-event titulo-oferta fw-600">{Idioma_ClasificarCompras}<br><span class="color-secondary-event fw-400 texto-tipo-block">{Idioma_ClasificarComprasDescri}</span></label>
+		
+			<!-- BEGIN sectores1 -->
+			<div class="row col-12">
+				<p class="badge badge-danger white {colorsector1} p-2 mb-1"><b>{secdescri1}</b></p>
+				<div class="row col-12" style="margin-left:30px;">
+					<!-- BEGIN subsectores1 -->
+					<p class="badge badge-danger white {colorsubsector1} mr-2 p-2 mb-1"  >{secsubdes1}</p>
+					<!-- END subsectores1 -->
+				</div>
+			</div>
+			<!-- END sectores1 -->
+
+			<!-- INICIO PRODUCTOS -->
+
+			<div>
+
+				<label class="col-12 mt-2 color-main-event titulo-oferta fw-600">{Idioma_Productos}</label>
+
+				<div class="row col-12 text-center scroll" style=" overflow-y:hidden; white-space: nowrap;">
+					
+				   <!-- BEGIN productos --> 
+				  <div class="col-lg-4 col-md-4 col-6" style="display: inline-block;overflow:hidden;">
+					<a data-toggle="popover" data-content="{perpronom}" data-trigger="hover" data-original-title="" class="d-block mb-1 h-100 imgproducto img-thumbnail">
+					  <img class="img-fluid"  src="{perprofil}" alt="">
+					</a>
+				  </div>
+				   <!-- END productos --> 
+				  
+				</div>
+			  
+		</div>
+
+		<!-- COMENTADO PRODUCTOS -->
+		
+	
+		
+	</div>
+</div>
+	  
+<script src="../assets-nuevodisenio/js/popover.js"></script>	  

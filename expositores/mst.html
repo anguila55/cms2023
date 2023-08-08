@@ -1,0 +1,920 @@
+<section>
+	<!-- <link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/css/jquery.multiselect.css"> -->
+
+
+
+	<input type="hidden" value="{sponsor_id}" id="sponsor_id">
+
+	<div class=" row">
+		<div class="col-md-12">
+			<div class="">
+				<div class="">
+					<div class="px-3">
+
+
+
+						<div class="form-body">
+
+
+							<form id="contacto">
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title-wrap bar-warning">
+											<h6 class="card-title">{expositores2}</h6>
+										</div>
+									</div>
+
+									<div class="card-body p-3">
+										<div class="col-md-12 ">
+											<label for="pernombre">{Idioma_Nombre} (120 {caracteres}): </label>
+											<input type="hidden" id="expreg" name="appreg" value="{sponsor_id}">
+											<input type="text" id="expnombre" name="expnombre" class="form-control"
+												value="{expnombre}" maxlength="120" >
+										</div>
+
+
+										<div class="col-md-12 mt-3">
+											<label for="pernombre">{Idioma_Categorias}: </label>
+
+
+											<!-- -------------- Valores maximos en imagnees,textos,videos -------------- -->
+
+											<input type="hidden" value="{catimg}" id="catimg">
+											<input type="hidden" value="{catvid}" id="catvid">
+											<input type="hidden" value="{cattxt}" id="cattxt">
+											<input type="hidden" value="{catprod}" id="catprod">
+											<select id="expcatego" name="expcatego" class="form-control">
+												<option value="">Seleccione</option>
+												<!-- BEGIN categorias -->
+												<option {selected} value="{catreg}">{catdescri}</option>
+												<!-- END categorias -->
+
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title-wrap bar-warning">
+											<h6 class="card-title">Posicion:</h6>
+										</div>
+									</div>
+		
+									<div class="col-md-12 mb-2">
+		
+										<input type="text" id="orden" name="orden" class="form-control" value="{orden}">
+									</div>
+		
+								</div>
+
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title-wrap bar-warning">
+											<h6 class="card-title">{contacto}</h6>
+										</div>
+
+
+									</div>
+
+									<div class="card-body p-2">
+										<div class="col-md-12 mt-2">
+											<label for="expdireccion mt-2 ">{Idioma_Direccion} (160 {caracteres}): </label>
+											<input type="text" id="expdireccion" name="expdireccion" class="form-control"
+												value="{expdireccion}" maxlength="160" >
+										</div>
+
+										<div class="col-md-12">
+											<label for="exptelefo mt-2">{Idioma_Telefono}: </label>
+											<input type="text" id="exptelefo" name="exptelefo" class="form-control"
+												value="{exptelefo}" maxlength="40">
+										</div>
+										<div class="col-md-12">
+											<label for="pernombre mt-2">{idioma_email} (120 {caracteres}): </label>
+											<input type="text" id="expmail" name="expmail" class="form-control"
+												value="{expmail}" maxlength="120">
+										</div>
+
+										<div class="col-md-12 mt-2 mb-3">
+											<label for="expyoutub">{Idioma_Cargo} (160 {caracteres}): </label>
+											<input type="text" id="expyoutub" name="expyoutub" class="form-control"
+												value="{expyoutub}" maxlength="160">
+										</div>
+										<div class="col-md-12 mt-2">
+											<label class="" for="pernombre">Web (120 {caracteres}): </label>
+											<input type="text" id="expweb" name="expweb" class="form-control"
+												value="{expweb}" maxlength="120">
+										</div>
+										<div class="col-md-12 mt-2">
+											<label for="pernombre">Linkedin (160 {caracteres}): </label>
+											<input type="text" id="explinked" name="explinked" class="form-control"
+												value="{explinked}" maxlength="160">
+										</div>
+										<div class="col-md-12 mt-2">
+											<label class="" for="expfac">Facebook (160 {caracteres}): </label>
+											<input type="text" id="expfac" name="expfac" class="form-control"
+												value="{expfac}" maxlength="160">
+										</div>
+										<div class="col-md-12 mt-2">
+											<label for="exptwi">Twitter (160 {caracteres}): </label>
+											<input type="text" id="exptwi" name="exptwi" class="form-control"
+												value="{exptwi}" maxlength="160">
+										</div>
+
+										<div class="col-md-12 mt-2">
+											<label for="exptwi">Instagram (160 {caracteres}): </label>
+											<input type="text" id="expinsta" name="expinsta" class="form-control"
+												value="{expinsta}" maxlength="160">
+										</div>
+
+										<div class="col-md-12 mt-2 mb-3">
+											<label for="expyoutub">Logo de Empresa ({dimensiones}: 1024 x 1024 px / PNG-JPG) - No modificar: </label>
+											<input type="file" id="expavatar" name="expavatar" class="form-control"
+												value="{expavatar}">
+											<img src="{expavatar}" class="img-fluid mt-3" alt="">
+										</div>
+									</div>
+								</div>
+
+
+
+
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title-wrap bar-warning">
+											<h6 class="card-title">{expositores14}:</h6>
+										</div>
+									</div>
+
+									<div class="card-body p-2">
+
+										<div class="col-md-12 mb-3">
+											<label for="pernombre">{expositores14}: </label>
+
+											<label id="countCharacters" for="pernombre">0/500</label>
+
+											<textarea class="form-control" rows="8" id="exprubros" name="exprubros"
+												class="form-control">{exprubros}</textarea>
+										</div>
+
+									</div>
+
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title-wrap bar-warning">
+											<h6 class="card-title">Brochure</h6>
+										</div>
+									</div>
+
+									<div class="card-body p-2">
+										<div class="col-md-12 mb-3">
+											<label for="expbrodes">Link (800 {caracteres}): </label>
+											<input type="text" id="expbrolnk" name="expbrolnk" class="form-control"
+												value="{expbrolnk}" maxlength="800">
+										</div>
+
+									</div>
+
+								</div>
+								<div class="card d-none" >
+									<div class="card-header">
+										<div class="card-title-wrap bar-warning">
+											<h6 class="card-title">{infodesafios}</h6>
+										</div>
+									</div>
+
+									<div class="card-body p-2">
+
+										<div class="col-md-12 mb-3">
+											<label for="areadesafio">{areadesafios} (180 {caracteres}): </label>
+											<input type="text" id="areadesafio" name="areadesafio" class="form-control"
+												value="{areadesafio}" maxlength="180">
+										</div>
+										<div class="col-md-12 mb-3">
+											<label for="desafiodesafio">{desafiodesafios} (180 {caracteres}): </label>
+											<input type="text" id="desafiodesafio" maxlength="700" name="desafiodesafio" class="form-control"
+												value="{desafiodesafio}" maxlength="180">
+										</div>
+										<div class="col-md-12 mb-3">
+											<label for="buscamosdesafio">{buscamosdesafios} (180 {caracteres}): </label>
+											<input type="text" id="buscamosdesafio" maxlength="800" name="buscamosdesafio" class="form-control"
+												value="{buscamosdesafio}" maxlength="180">
+										</div>
+
+									</div>
+
+								</div>
+								<div class="card" style="{displayinforeu}">
+									<div class="card-header">
+										<div class="card-title-wrap bar-warning">
+											<h6 class="card-title">Sala de reuniones permanentes</h6>
+										</div>
+									</div>
+
+									<div class="card-body p-2">
+
+										<div class="col-md-12 mb-3">
+											<label for="expreutit">Título (180 {caracteres}): </label>
+											<input type="text" id="expreutit" name="expreutit" class="form-control"
+												value="{expreutit}" maxlength="180">
+										</div>
+										<div class="col-md-12 mb-3">
+											<label for="expreulnk">Link (180 {caracteres}): </label>
+											<input type="text" id="expreulnk" name="expreulnk" class="form-control"
+												value="{expreulnk}" maxlength="180">
+										</div>
+
+									</div>
+
+								</div>
+
+
+							</form>
+
+
+							<!-- ------------------------------- BANNERS ------------------------------- -->
+
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title-wrap bar-warning">
+										<h6 class="card-title">Banners</h6>
+									</div>
+								</div>
+
+								<div class="card-body p-2">
+
+									<div class="col-md-12 ">
+
+										<label for="exptelefo">Banner Listado ({dimensiones}: 700 x 300 px / PNG-JPG): </label>
+										<input  type="file" name="expbanimg2" id="expbanimg2">
+										
+										<a onclick="$('#expbanimg2').trigger('click');"
+												class="btn btn-warning mr-1 mt-2 btn-fab">
+												<i class="icon-note"></i>Editar
+											</a>
+										
+
+											<a onclick="delCampo({sponsor_id},'EXP_MAEST','EXPBANIMG2',2)"
+												class="btn btn-danger mr-1 mt-2 btn-fab {eliminar-banner2}">
+												<i class="icon-close"></i>{expositores16}
+											</a>
+										
+										<img d="imagenbanner2" src="../expimg/{expbanimg2}" class="img-fluid" width="100%" alt="">
+										
+									</div>
+
+									<div class="col-md-12">
+
+										<label for="exptelefo">Banner Perfil ({dimensiones}: 1200 x 150 px / PNG-JPG): </label>
+										<input type="file" name="expbanimg1" id="expbanimg1">
+										<a onclick="$('#expbanimg1').trigger('click');"
+												class="btn btn-warning mr-1 mt-2 btn-fab">
+												<i class="icon-note"></i>Editar
+											</a>
+										
+											<a onclick="delCampo({sponsor_id},'EXP_MAEST','EXPBANIMG1',2)"
+												class="btn btn-danger mr-1 mt-2 btn-fab {eliminar-banner1}">
+												<i class="icon-close"></i>{expositores16}
+											</a>
+										
+										<img id="imagenbanner1" src="../expimg/{expbanimg1}" class="img-fluid" width="100%" alt="">
+										
+
+									</div>
+
+
+									
+
+
+									<div class="col-md-12 ">
+
+										<label for="exptelefo">Banner Responsive ({dimensiones}: 350 x 500 px / PNG-JPG): </label>
+										<input  type="file" name="expbanimg3" id="expbanimg3">
+										
+										<a onclick="$('#expbanimg3').trigger('click');"
+												class="btn btn-warning mr-1 mt-2 btn-fab">
+												<i class="icon-note"></i>Editar
+											</a>
+										
+
+											<a onclick="delCampo({sponsor_id},'EXP_MAEST','EXPBANIMG3',2)"
+												class="btn btn-danger mr-1 mt-2 btn-fab {eliminar-banner3} ">
+												<i class="icon-close"></i>{expositores16}
+											</a>
+										
+										<img d="imagenbanner3" src="../expimg/{expbanimg3}" class="img-fluid" width="100%" alt="">
+									
+
+									</div>
+
+
+								</div>
+
+							</div>
+							<!-- ------------------------------ PRODUCTOS ------------------------------ -->
+
+
+							<form id="productos">
+								<div class="card">
+									<div class="card-header d-flex">
+										<div class="card-title-wrap bar-warning col-8">
+											<h6 class="card-title">Productos</h6>
+										</div>
+
+									</div>
+
+
+									<div class="card-body p-2" id="lista-productos-backend">
+										<!-- BEGIN productos -->
+
+
+										<h4 class="card-title text-center mt-3 mb-4">{prodnombre}</h4>
+										<p class="card-title text-center mt-3 mb-4" style="font-size: medium;">{proddes}</p>
+
+										<div class="col-md-12 text-center">
+
+
+											<img width="30%" src="{prodimg}" alt="">
+
+										</div>
+
+										<div class="col-12 text-center mt-3">
+											<a onclick="showEditModal({prodreg},{editsponsor})"
+												class="btn btn-warning mr-1 btn-fab">
+												<i class="icon-note"></i>Editar
+											</a>
+											<a onclick="delCampo({prodreg},'EXP_PROD','PRODREG',1)"
+												class="btn btn-danger mr-1 btn-fab">
+												<i class="icon-close"></i>{expositores16}
+											</a>
+										</div>
+										<div class="col-md-12">
+
+											<!-- <label for="prodfolleto">Folleto: {prodfolleto}
+											</label> -->
+										</div>
+										<!-- END productos -->
+
+									</div>
+									<div class="card-body p-2" id="nuevos-productos">
+									</div>
+									<div class="card-body p-2" id="lista-productos">
+									</div>
+
+
+									<div class="col-12 mx-auto d-flex justify-content-center">
+										<button class="btn btn-warning w-30 mr-3 "
+											id="agregar-producto">{expositores22}</button>
+										<buttom class="btn btn-success w-30 mr-3" id="confirmar-producto"> {Idioma_BotonConf}
+										</buttom>
+										<buttom class="btn btn-danger w-30" id="cancelar-producto"> {Idioma_BotonCan}</buttom>
+
+									</div>
+								</div>
+							</form>
+
+
+
+							<!-- -------------------------- CUADROS DE TEXTO --------------------------- -->
+
+							<div class="card">
+								<div class="card-header mb-0 " id="texto1">
+									<div class="card-title-wrap bar-warning">
+										<h6 class="card-title">Cuadros de textos </h6>
+									</div>
+
+
+								</div>
+								<div class="card-body p-2" id="lista-textos-backend">
+									<!-- BEGIN textos -->
+									<div class="col-md-12 ">
+										<div class="card-body mt-0">
+											<div class="card-block">
+												<div class="card-title-wrap bar-info">
+													<div class="card-title"><strong>{txtnombre}</strong></div>
+												</div>
+												<div class="mb-3">
+													<span class="display-block overflow-hidden">{txtdescri}</span>
+												</div>
+							
+											</div>
+							
+										</div>
+									</div>
+									
+									<div class="col-12 text-center">
+
+										<a onclick="delCampo({txtreg},'EXP_TXT','TXTREG',1)"
+											class="btn btn-danger mr-1 btn-fab">
+											<i class="icon-close"></i>{expositores16}
+										</a>
+									</div>
+									<!-- END textos -->
+
+								</div>
+								<div class="card-body p-2 " id="textos-nuevos">
+								</div>
+								<div class="card-body p-2 " id="lista-textos">
+								</div>
+
+
+
+								<div class="col-12 mx-auto d-flex justify-content-center">
+									<button class="btn btn-warning w-30 mr-3 " id="agregar-texto">{expositores22}</button>
+									<buttom class="btn btn-success w-30 mr-3" id="confirmar-texto"> {Idioma_BotonConf}</buttom>
+									<buttom class="btn btn-danger w-30" id="cancelar-texto"> {Idioma_BotonCan}</buttom>
+
+								</div>
+							</div>
+
+
+							<div class="card" id="video1">
+								<div class="card-header">
+									<div class="card-title-wrap bar-warning">
+										<h6 class="card-title">Videos </h6>
+
+									</div>
+
+
+								</div>
+								<div class="card-body p-2" id="lista-imagenes-backend">
+									<!-- BEGIN videos -->
+									<div class="col-md-12 mb-3 text-center">
+
+										<h6 class="card-title mb-2">{vidnombre}</h6>
+										<iframe width="560" height="315" src="https://www.youtube.com/embed/{vidurlid}"
+											frameborder="0"
+											allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+											allowfullscreen></iframe>
+
+									</div>
+
+									<div class="col-12  mt-3 text-center">
+										<a onclick="showEditModalVideo({vidreg},{editsponsor})"
+												class="btn btn-warning mr-1 btn-fab">
+												<i class="icon-note"></i>Editar
+											</a>
+										<a onclick="delCampo({vidreg},'EXP_VID','VIDREG',1)"
+											class="btn btn-danger mr-1 btn-fab">
+											<i class="icon-close"></i>{expositores16}
+										</a>
+									</div>
+
+									<!-- END videos -->
+
+								</div>
+								<div class="card-body p-2" id="videos-nuevos">
+
+								</div>
+
+								<div class="car-body p-2" id="lista-videos"></div>
+
+								<div class="col-12 mx-auto d-flex justify-content-center">
+									<button class="btn btn-warning w-30 mr-3 " id="agregar-video">{expositores22}</button>
+									<buttom class="btn btn-success w-30 mr-3" id="confirmar-video"> {Idioma_BotonConf}</buttom>
+									<buttom class="btn btn-danger w-30" id="cancelar-video"> {Idioma_BotonCan}</buttom>
+
+								</div>
+							</div>
+
+
+
+							<!-- ------------------------------ IMAGENES ------------------------------- -->
+
+							<div class="card" id="imagen1">
+								<div class="card-header">
+									<div class="card-title-wrap bar-warning">
+										<h6 class="card-title">Imagenes</h6>
+									</div>
+
+								</div>
+								<div class="card-body p-2" id="lista-imagenes-backend">
+									<!-- BEGIN imagenes -->
+									<div class="col-md-12 mb-3 text-center">
+
+										<img width="30%" src="{expimgsrc}" alt="">
+
+									</div>
+
+									<div class="col-12  mt-3 mb-3 text-center">
+										<a onclick="showEditModalImagen({imgreg},{editsponsor})"
+												class="btn btn-warning mr-1 btn-fab">
+												<i class="icon-note"></i>Editar
+											</a>
+										<a onclick="delCampo({imgreg},'EXP_IMG','IMGREG',1)"
+											class="btn btn-danger mr-1 btn-fab">
+											<i class="icon-close"></i>{expositores16}
+										</a>
+									</div>
+									<!-- END imagenes -->
+
+								</div>
+
+								<div class="card-body p-2" id="imagenes-nuevas">
+								</div>
+
+								<div class="car-body p-2" id="lista-imagenes">
+
+								</div>
+
+								<div class="col-12 mx-auto d-flex justify-content-center">
+									<button class="btn btn-warning w-30 mr-3 " id="agregar-imagen">{expositores22}</button>
+									<buttom class="btn btn-success w-30 mr-3" id="confirmar-imagen"> {Idioma_BotonConf}</buttom>
+									<buttom class="btn btn-danger w-30" id="cancelar-imagen"> {Idioma_BotonCan}</buttom>
+
+
+
+								</div>
+
+
+							</div>
+
+
+
+						</div>
+
+						
+						
+						<div class="card">
+							<div class="card-header">
+								<div class="card-title-wrap bar-warning">
+									<h6 class="card-title">Perfil Contacto:</h6>
+								</div>
+							</div>
+
+							<div class="card-body p-2">
+
+								<div class="col-md-12">
+									<label for="paicodigo"> </label>
+								
+									<select id="perfilcontacto" name="perfilcontacto" class="form-control">
+										<option value="" selected >Seleccione Perfil Contacto...</option>
+
+									</select>
+								</div>
+							</div>
+
+						</div>
+						<div class="card">
+							<div class="card-header">
+								<div class="card-title-wrap bar-warning">
+									<h6 class="card-title">Perfil Relacionado:</h6>
+								</div>
+							</div>
+
+							<div class="card-body p-2">
+
+								<div class="col-md-12">
+									<label for="paicodigo"> </label>
+								
+									<select  name="pertipo" class="form-control" multiple id="perfiles">
+										
+
+									</select>
+								</div>
+							</div>
+
+						</div>
+						
+
+					</div>
+				</div>
+
+			</div>
+
+			<div class="form-actions col-12 text-center">
+				<button id="btnguardar" type="button" class="btn btn-success" onclick="guardarMaestroMsg();">
+					<i class="icon-note"></i> {Idioma_Guardar}
+				</button>
+				<button id="btncancelar" type="button" class="btn btn-danger mr-1" onclick="showBrowser();">
+					<i class="icon-trash"></i> {Idioma_BotonCan}
+				</button>
+				&nbsp;&nbsp;
+			</div>
+			</form>
+		</div>
+	</div>
+	</div>
+	</div>
+
+
+</section>
+
+<script src="js/productos.js"></script>
+<script src="js/textos.js"></script>
+<script src="js/videos.js"></script>
+<script src="js/imagenes.js"></script>
+<script src="../assets-nuevodisenio/js/jquery.multiselect.js"></script>
+
+
+
+
+<script>
+$(document).ready(function () {
+	$('#perfiles').multiselect({
+						columns: 1,
+						placeholder: 'Perfiles',
+						search: true,
+						selectAll: true
+					});			
+				});
+
+	var arrayperfileslista = {arrayperfileslista};
+		
+		arrayperfileslista.forEach(perfileslista => {
+
+			
+			
+			if (perfileslista != null ){
+				var optionPerfiles = $('<option value="'+perfileslista.percodigo+'"'+perfileslista.perrelacionado+'>'+perfileslista.percompan+' - '+perfileslista.pernombre+' '+perfileslista.perapelli+'</option>');
+				optionPerfiles.appendTo($('#perfiles'));
+			}
+			
+		});
+
+		arrayperfileslista.forEach(perfileslistacontacto => {
+
+			
+			
+		if (perfileslistacontacto != null ){
+			var optionPerfilesContacto = $('<option value="'+perfileslistacontacto.percodigo+'"'+perfileslistacontacto.percontacto+'>'+perfileslistacontacto.percompan+' - '+perfileslistacontacto.pernombre+' '+perfileslistacontacto.perapelli+'</option>');
+			optionPerfilesContacto.appendTo($('#perfilcontacto'));
+		}
+
+		});
+	
+
+
+	function delCampo(reg, tabla, campo, tipo) {
+		var data = { "reg": reg, "tabla": tabla, "campo": campo, "tipo": tipo }
+		$.ajax({
+			type: "POST",
+			url: 'delCampo.php',
+			data: data
+		}).done(function (rsp) {
+
+			data = $.parseJSON(rsp);
+
+			if (data.errcod == 0) {
+				toastr.success('Eliminado');
+				showMaestro($('#expreg').val())
+				
+			}
+
+
+		});
+
+
+
+
+	}
+
+	$('#countCharacters').html($('#exprubros').val().length + "/1000");
+
+	$('#exprubros').keydown(() => {
+
+		let largo = $('#exprubros').val().length;
+		$('#countCharacters').html(largo + "/1000");
+	})
+
+	setInterval(() => {
+
+		let largo = $('#exprubros').val().length;
+		$('#countCharacters').html(largo + "/1000");
+	}, 10)
+
+	$('#countCharacters2').html($('#txtdescri').val().length + "/1000");
+
+	$('#txtdescri').keydown(() => {
+
+		let largo = $('#txtdescri').val().length;
+		$('#countCharacters2').html(largo + "/1000");
+	})
+
+	setInterval(() => {
+
+		let largo = $('#txtdescri').val().length;
+		$('#countCharacters2').html(largo + "/1000");
+	}, 10)
+
+	function guardarMaestroMsg() {
+		var errcod = 0;
+		var errmsg = '';
+		var expreg = $('#expreg').val();
+		
+
+
+		function validURL(url) {
+
+			if (url.includes('http')) {
+
+				return true;
+			}
+
+			return false;
+
+		}
+
+
+
+		if (!validURL($('#expweb').val())) {
+
+
+			if ($('#expweb').val() != '') {
+				errcod = 1;
+				toastr.error('Revisar Campos', 'Ingresar url web valida');
+			}
+
+
+		}
+
+		if (!validURL($('#expfac').val())) {
+
+			if ($('#expfac').val() != '') {
+				errcod = 1;
+				toastr.error('Revisar Campos', 'Ingresar url valida de Facebook');
+			}
+
+		}
+		if (!validURL($('#exptwi').val())) {
+
+			if ($('#exptwi').val() != '') {
+				errcod = 1;
+				toastr.error('Revisar Campos', 'Ingresar url valida de Twitter');
+			}
+
+		}
+		if (!validURL($('#explinked').val())) {
+
+			if ($('#explinked').val() != '') {
+				errcod = 1;
+				toastr.error('Revisar Campos', 'Ingresar url valida de Linkedin');
+			}
+
+		}
+		if (errcod == 0) {
+			swal({
+				title: "GUARDAR",
+				text: "¿Confirma guardar los cambios?",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: 'Confirmar',
+				cancelButtonText: 'Cancelar',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+
+
+
+				if ($('#exprubros').val().length > 1000) {
+					toastr.error('Revisar Campos', 'Sobre la empresa demasiado largo');
+				} else {
+					guardarMaestro();
+				}
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+	}
+
+	function guardarMaestro() {
+		var formData = new FormData($('#FrmMst')[0]);
+		formData.append("expreg", $('#expreg').val());
+		formData.append("expnombre", $('#expnombre').val());
+		formData.append("expweb", $('#expweb').val());
+		formData.append("expmail", $('#expmail').val());
+		formData.append("orden", $('#orden').val());
+
+		formData.append("exprubros", $('#exprubros').val());
+
+		formData.append("estcodigo", $('#estcodigo').val());
+		formData.append("expcatego", $('#expcatego').val());
+		formData.append("percodigo", $('#perfiles').val());
+		formData.append("percodigocontacto", $('#perfilcontacto').val());
+
+
+		//NUEVOS CAMPOS
+		formData.append("explinked", $('#explinked').val());
+		formData.append("expfac", $('#expfac').val());
+		formData.append("exptwi", $('#exptwi').val());
+		formData.append("expinsta", $('#expinsta').val());
+		formData.append("expdireccion", $('#expdireccion').val());
+		formData.append("exptelefo", $('#exptelefo').val());
+		formData.append("expyoutub", $('#expyoutub').val());
+		formData.append("expreutit", $('#expreutit').val());
+		formData.append("expreulnk", $('#expreulnk').val());
+
+		//Parametro Categoria
+		formData.append("catimg", $('#catimg').val());
+		formData.append("catvid", $('#expvid').val());
+		formData.append("cattxt", $('#cattxt').val());
+		
+
+
+		//banners
+		if (typeof ($('#expbanimg1')[0].files[0]) !== "undefined") {
+			formData.append('expbanimg1', $('#expbanimg1')[0].files[0]);
+		}
+		if (typeof ($('#expbanimg2')[0].files[0]) !== "undefined") {
+			formData.append('expbanimg2', $('#expbanimg2')[0].files[0]);
+		}
+		if (typeof ($('#expbanimg3')[0].files[0]) !== "undefined") {
+			formData.append('expbanimg3', $('#expbanimg3')[0].files[0]);
+		}
+
+		//desafios
+		formData.append("areadesafio", $('#areadesafio').val());
+		formData.append("desafiodesafio", $('#desafiodesafio').val());
+		formData.append("buscamosdesafio", $('#buscamosdesafio').val());
+
+		formData.append("expbrolnk", $('#expbrolnk').val());
+		//avatar
+
+		if (typeof ($('#expavatar')[0].files[0]) !== "undefined") {
+			formData.append('expavatar', $('#expavatar')[0].files[0]);
+		}
+
+
+
+
+
+
+
+		$.ajax({
+			type: "POST",
+			url: "grb.php",
+			dataType: "html",
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false
+		}).done(function (rsp) {
+			data = $.parseJSON(rsp);
+
+
+
+			if (data.errcod == 0) {
+				toastr.success(data.errmsg, 'GUARDAR');
+				showBrowser();
+			} else {
+				toastr.error(data.errmsg, 'GUARDAR');
+
+			}
+
+		});
+	}
+
+	function showBrowser() {
+			var fltdescri = $('#fltdescri').val();
+			var data = { "fltdescri": fltdescri };
+
+			$('#DataBrowser').load('brw.php', data);
+			$('#DataMaestro').css('display', 'none');
+			$('#DataBrowser').css('display', '');
+
+		}
+
+
+	function findAvatar() {
+		$('#imgavatar').attr('src', '{imgAvatarNull}');
+		$('#fileavatar').click();
+	}
+
+
+	function validURL(str) {
+
+		var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+			'((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'); // domain name
+
+
+
+		return pattern.test(str);
+
+	}
+
+	function readURLAvatar(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			var fname = null;
+
+			reader.onload = function (e) {
+				$('#imgavatar').attr('src', e.target.result);
+
+				var image = new Image();
+				image.src = e.target.result;
+				image.onload = function () {
+
+				};
+			}
+
+			reader.readAsDataURL(input.files[0]);
+
+		}
+	}
+</script>

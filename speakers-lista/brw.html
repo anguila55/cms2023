@@ -1,0 +1,76 @@
+﻿<!-- Contact Card ~ #01 -->
+<div class="row mx-0 text">
+
+		<!-- BEGIN browser -->
+		<div class="col-lg-2 col-md-3 col-sm-4 col-12 mb-3 d-flex justify-content-center">
+			<div class="card-contact">
+
+
+				<div class="mt-2 mb-2">
+
+					<img class="avatar-contact" src="{spkimg}" alt="">
+				</div>
+
+				<div>
+
+					<div class="fw-500 font-small-2 card-title text-bold-500">{spktitulo}</div>
+
+					<div class="company p-2 fw-600">{spkcargo}
+
+						
+					</div>
+					<br>
+					<div class="company p-2 fw-600">{spkempres}
+
+						
+					</div>
+
+					<div class="btn-group btn-group-justified mt-3">
+						<a class="btn btn-warning bg-main-event white"  onclick="showView({spkreg});">
+						
+							<i class="icon-magnifier-add"></i>
+						</a>
+					</div>
+
+					<div >
+						<ul class="action mt-1 ">
+							<a class="redes" {spklinked} target="_blank"><i class="fa fa-linkedin"></i></a>
+							<a class="redes" {spkfac} target="_blank"><i class="fa fa-facebook"></i></a>
+							<a class="redes" {spktwi} target="_blank"><i class="fa fa-twitter"></i></a>
+							<a class="redes" {spkins} target="_blank"><i class="fa fa-instagram"></i></a>
+							
+						</ul>
+					</div>
+				</div>
+
+
+
+
+			</div>
+
+		</div>
+		<!-- END browser -->
+
+</div>
+
+<script>
+
+	//Inavilitamos 
+var activos = false;
+let inactive = $(".inactivo");
+inactive.click((e)=>{
+	if(!activos){
+        e.preventDefault();
+    }
+})
+
+function showView(reg) {
+	//console.log('algo');
+			var data = { "spkreg": reg };
+
+			//$('#DataView').addClass('modal-xs');
+			//$('#DataView').removeClass('modal-lg');
+			$('#DataViewPerfil').load('vsl.php', data);
+			$('#DataMaestroViewPerfil').modal('show');
+		}
+</script>

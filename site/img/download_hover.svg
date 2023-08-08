@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="40" height="40" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect width="16" height="16" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="download_hover" clip-path="url(#clip-path)">
+    <g id="Elipse_9" data-name="Elipse 9" fill="#85bc3c" stroke="#85bc3c" stroke-width="1">
+      <circle cx="20" cy="20" r="20" stroke="none"/>
+      <circle cx="20" cy="20" r="19.5" fill="none"/>
+    </g>
+    <g id="Símbolo_128_3" data-name="Símbolo 128 – 3" transform="translate(12 12)" clip-path="url(#clip-path-2)">
+      <path id="Trazado_10" data-name="Trazado 10" d="M8,0,6.545,1.455l5.506,5.506H0V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(16) rotate(90)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

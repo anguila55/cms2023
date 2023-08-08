@@ -1,0 +1,90 @@
+<div class="modal-content" style="margin-top: 200px;">
+	<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	</div>
+	<div class="modal-body">
+		<input id="percodigo" type="hidden" value="{percodigo}">
+		<input id="murreg" type="hidden" value="{murreg}">
+			<div class="col-md-12 mt-2">
+				<label for="murtitulo">Titulo: </label>
+				<input type="text" id="murtitulo" name="murtitulo" class="form-control"
+					value="{murtitulo}">
+			</div>
+			<div class="col-md-12 mt-2">
+				<label for="murtag">Tag: </label>
+				<input type="text" id="murtag" name="murtag" class="form-control"
+					value="{murtag}">
+			</div>
+			<div class="col-md-12 mt-2">
+				<label for="murdescri">Descripción: </label>
+				<input type="text" id="murdescri" name="murdescri" class="form-control"
+					value="{murdescri}">
+			</div>
+			<div class="col-md-12 mt-2">
+				<label for="murenlace">Sitio Web: </label>
+				<input type="text" id="murenlace" name="murenlace" class="form-control"
+					value="{murenlace}">
+			</div>
+
+			<div class="col-md-12 mt-2 mb-3">
+				<label for="murimg">Imagen (Menor a 2MB): </label>
+				<input type="file" id="murimg" name="murimg" class="form-control"
+					value="{murimg}" accept="image/*">
+				<img src="{murimg}" class="img-fluid mt-3" alt="" width="25%">
+			</div>
+	  </div>
+	  <div class="modal-footer">
+		<div class="form-actions col-12 text-center">
+			<button id="btnguardar" type="button" class="btn btn-success" onclick="guardarEdit();">
+				<i class="icon-note"></i> Guardar
+			</button>
+		</div>
+	  </div>
+	  
+</div>
+<script>
+
+function guardarEdit() {
+	
+	var formData = new FormData($('#FrmMst')[0]);
+		formData.append("murtitulo", $('#murtitulo').val());
+		formData.append("murtag", $('#murtag').val());
+		formData.append("murenlace", $('#murenlace').val());
+		formData.append("percodigo", $('#percodigo').val());
+		formData.append("murreg", $('#murreg').val());
+		formData.append("murdescri", $('#murdescri').val());
+
+		if (typeof ($('#murimg')[0].files[0]) !== "undefined") {
+			//console.log('entro');
+			formData.append('murimg', $('#murimg')[0].files[0]);
+		}
+
+
+		$.ajax({
+			type: "POST",
+			url: '../muro/grb.php',
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false
+		}).done(function (rsp) {
+			data = $.parseJSON(rsp);
+			console.log(rsp)
+
+			if (data.errcod == 0) {
+				toastr.success(data.errmsg, '{Idioma_GuardarSwal}');
+					//swal("GUARDAR", data.errmsg, "success").done();
+				$('.close').click();
+				showBrowserMuro();
+
+			} else {
+				toastr.error(data.errmsg, '{Idioma_GuardarSwal}');
+			}
+
+		});
+	}
+
+</script>
+

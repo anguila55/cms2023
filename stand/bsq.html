@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		var nombrecodigo = {percodnotif};
+		dataLayer.push({'event' : 'login', 'userId' : nombrecodigo});
+		</script>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-MW2RMSR');</script>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="description"
+    content="BTBOX _your business toolbox. Todas las soluciones en una plataforma para potenciar tu próximo evento">
+    <meta name="keywords"
+    content="btbox, evento, fisico, hibrido, event, admin, btoolbox, networking, reuniones">
+    <meta name="author" content="BTBOX">
+	<title>{SisNombreEvento}</title>
+	<link rel="shortcut icon" type="image/png" href="../assets-nuevodisenio/img/favicon.jpg">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/index.css">
+	<link href="../assets-nuevodisenio/css/select2.css" rel="stylesheet" />
+
+	<!-- script para levantar el navbar -->
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<style>
+	.filter-container {
+		font-size: 35px;
+	}
+	.notification-sidebar.open {
+		width: auto !important;
+	}
+	
+</style>
+<body data-col="2-columns" class=" 2-columns ">
+
+	<div class="wrapper nav-collapsed menu-collapsed">
+		<input id="percodnotif" name="percodnotif" type=hidden value="{percodnotif}">
+
+		<!-- Navigation bar -->
+		<div id="nav-placeholder">
+
+		</div>
+
+		<script>
+			$(function () {
+				var data = {
+					"menu": "activestand"
+				};
+
+				$("#nav-placeholder").load("../navbar/navbar.php", data);
+
+			});
+		</script>
+		<!-- end of Navigation bar -->
+
+		<!-- Menu  -->
+
+
+		<!--MENU FIN-->
+
+
+		<div>
+			<div class="main-content">
+				<div class="content-wrapper">
+				
+							<div class="main-section-banner bg-main-event">
+								<div class="main-section-banner__circle bg-banners"></div>
+								<div class="main-section-banner__icon">
+									<img src="../assets-nuevodisenio/img/icons/sponsors.png" alt="">
+								</div>
+								<div class="main-section-banner__text text-uppercase">{nombrestand}</div>	
+							</div>
+							
+							<div class="content-wrapper container-general">
+												
+							<div  class="col-12 col-sm-12 mt-3 mb-3 filter-container text-center d-flex bg-white justify-content-end"
+														style=" border-radius: 15px; font-size: 1rem;">
+														
+														<a href="../stand/bsq?R=1" class="fw-200 nav-link mr-1 boton-simple-rounded {display_recomendados}">
+															<i style="color: goldenrod;"
+																class="fa fa-fw  fa fa-thumbs-up
+																"></i> {Idioma_Recomendados}
+														</a>
+														<a href="../stand/bsq" class="fw-200 nav-link mr-1 boton-simple-rounded {display_todos2}">
+															<i style="color: goldenrod;"
+																class="fa fa-fw  fa fa-thumbs-up
+																"></i> {Idioma_Buscartodos}
+														</a>
+														
+							</div>
+								
+							<div class="row col-12 col-sm-12 col-md-12 mr-0 ml-0">
+
+								<div class="col-sm-12 col-md-4 col-lg-3 pl-0 pr-0">
+									<div class="border rounded p-2">
+
+									
+									<h6 class="m-3 text-bold-400 d-none">{Idioma_Filtros}</h6>
+									<div class="px-2">
+										<ul class="list-unstyled ml-0">
+											<li>
+												<div class="col-md-12" style="text-align: right;">
+													<a onclick="showEliminarFiltros();" class="text-uppercase texto-eliminar-filtro" >{Idioma_BuscartodosFiltro}</a>
+												</div>	
+											</li>
+											<li>
+									
+												<div class="base-timeline-info">
+													
+													<div class="form-group row">
+														<div class="col-md-12">
+															<input type="hidden" id="fltrecomendado" name="fltrecomendado"
+																value="{fltrecomendado}">
+															<input type="hidden" id="fltfavoritos" name="fltfavoritos"
+																value="{fltfavoritos}">
+															<input style="width: 100%; " type="text" id="inputbuscar" class="fltbuscar input_buscar"
+																name="fltbuscar"  value=""
+																placeholder="{Idioma_Buscar}" onkeypress="KeyEnterBuscarStand(event)">
+			
+															<input style="width: 100%; display: none;" type="text" class="empresa mt-3"
+																name="fltbuscar" class="form-control" value=""
+																placeholder="{porempresa}" onkeypress="KeyEnterBuscar(event)">
+														</div>
+													</div>
+												</div>
+											</li>
+			
+											<li style="{btnsectores}">
+												
+												<div class="base-timeline-info mb-1">
+													<p class="mb-0 text-uppercase texto-selects">{Idioma_Sectores}</p>
+													
+													<select id="cmbsector"  name="cmbsector" class="form-control" style="width:100%" multiple="multiple">
+													
+										  
+														<!-- BEGIN sectores -->
+														<option value="{seccodigo}">{secdescri}</option>
+														<!-- END sectores -->
+														
+											  
+													  </select>
+			
+			
+												</div>
+											</li>
+			
+											<li style="{btnsubsectores}">
+												
+												<div class="base-timeline-info mb-1">
+													<p class="mb-0 text-uppercase texto-selects">{Idioma_Subsectores}</p>
+													
+													<select id="cmbsubsector"  name="cmbsubsector" class="form-control" style="width:100%" multiple="multiple">
+			
+														<!-- BEGIN subsectores -->
+														<option value="{secsubcod}">{secsubdes}</option>
+														<!-- END subsectores -->
+			
+													  </select>
+			
+			
+												</div>
+											</li>
+			
+											<li style="{btncategorias}">
+												
+												<div class="base-timeline-info">
+													<a href="#" class="text-uppercase text-primary">{Idioma_Categorias}</a>
+													<br>
+													<select multiple id="cmbcategoria">
+														<!-- BEGIN categoria -->
+														<option value="{catcodigo}">{catdescri}</option>
+														<!-- END categoria -->
+													</select>
+			
+			
+												</div>
+											</li>
+			
+											<li style="{btnsubcategorias}">
+												
+												<div class="base-timeline-info">
+													<a href="#" class="text-uppercase text-primary">{Idioma_SubC}</a>
+													<br>
+													<select multiple id="cmbsubcategoria">
+														<!-- BEGIN subcategoria -->
+														<option value="{catsubcod}">{catsubdes}</option>
+														<!-- END subcategoria -->
+													</select>
+			
+			
+												</div>
+											</li>
+			
+											<li class="d-none">
+												<div class="timeline-icon bg-primary">
+													<i class="fa fa-plane"></i>
+												</div>
+												<div class="base-timeline-info">
+													<a href="#" class="text-uppercase text-primary">{Idioma_fav}</a>
+													<select id="cmbfavoritos" name="cmbfavoritos" class="form-control">
+														<option value="0">{Idioma_PLbtodos}</option>
+														<option value="1">{Idioma_PLbverSolofav}</option>
+													</select>
+			
+			
+												</div>
+											</li>
+			
+											<li class="d-none">
+												<div class="timeline-icon bg-primary">
+													<i class="fa fa-plane"></i>
+												</div>
+												<div class="base-timeline-info">
+													<a href="#" class="text-uppercase text-primary">{Idioma_CBtipo}</a>
+													<br>
+													<select id="fltpertipo" name="fltpertipo" class="form-control">
+														<option value="">{Idioma_PLbtodos}</option>
+														<!-- BEGIN pertipos -->
+														<option value="{pertipo}">{pertipdes}</option>
+														<!-- END pertipos -->
+													</select>
+											</li>
+										</ul>
+										<form>
+											<div class="form-group">
+												<div class="text-center mt-4">
+													<button type="button"
+														class="btn bg-main-event px-4 py-2 text-uppercase white font-small-4 box-shadow-2 border-0"
+														onclick="showBrowser();">{Idioma_Buscar}</button>
+												</div>
+												
+											</div>
+										</form>
+									</div>
+
+									</div>
+								</div>
+
+								<div class="col-lg-9 col-md-8 col-sm-12">
+										<div class="row taskboard mx-0" id="DataBrowser"></div>
+								</div>
+
+
+							</div>
+									
+						</div>		<!-- <div class="card-body_stand" id="myDIV" style="display: true;">
+										<div class="card-block" id="DataBrowser"></div>
+										<div class="card-block" id="DataMaestro"></div>
+									</div> -->
+								</div>
+							</div>
+						</div>
+						<!--Fin TABLA -->
+			</div>
+			 <!-- FIN- <div class="wrapper"> -->
+
+	<!-- Modal -->
+	<div class="modal fade p-0 text-left" id="DataMaestroDisp" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document" id="DataDisp">
+		</div>
+	</div>
+
+	<div class="modal" id="modalcartel">
+		<div class="modal-header d-block">
+			<button id="botoncancelar" type="button" class="btn cancel" data-dismiss="modal">{Idioma_Cerrar}</button>
+		</div>
+		<div class="modal-body">
+			<img src="../imagenes-evento/popuppromociones.jpg" alt="promociones Aapresid" width="900" height="600">
+
+		</div>
+		<div class="modal-footer">
+
+		</div>
+	</div>
+
+	<!-- Inicio CONFIGURACION -->
+	
+
+	<div class="modal fade p-0 text-left" id="DataMaestroView" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document" id="DataView">
+		</div>
+	</div>
+	
+	<div class="modal fade p-0 text-left" id="DataMaestroDisp" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document" id="DataDisp" style="max-width:80%;">
+		</div>
+	</div>
+	<div class="modal fade p-0 text-left" id="DataMaestroViewPerfil" tabindex="-1" role="dialog" aria-hidden="true"
+			data-backdrop="static" data-keyboard="false">
+			<div class="modal-dialog modal-lg" role="document" id="DataViewPerfil">
+			</div>
+		</div>
+	<!-- Fin CONFIGURACION -->
+
+	<!-- BEGIN VENDOR JS-->
+	<script src="../assets-nuevodisenio/vendors/js/core/jquery-3.3.1.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/core/popper.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/core/bootstrap.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/perfect-scrollbar.jquery.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/prism.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/jquery.matchHeight-min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/screenfull.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/pace/pace.min.js"></script>
+	<script src="../assets-nuevodisenio/js/autoNumeric.js"></script>
+
+	<script src="../assets-nuevodisenio/js/autoNumeric.min.js"></script>
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<!-- END PAGE VENDOR JS-->
+	<!-- BEGIN CONVEX JS-->
+	<script src="../assets-nuevodisenio/js/app-sidebar.js"></script>
+	<!-- END CONVEX JS-->
+	<!-- BEGIN PAGE LEVEL JS-->
+	<!-- END PAGE LEVEL JS-->
+
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<script src="../assets-nuevodisenio/vendors/js/sweetalert2.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/toastr.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/switchery.min.js"></script>
+	<!--<script src="../assets-nuevodisenio/js/jquery.multiselect.js"></script>-->
+	<script src="../assets-nuevodisenio/js/select2.js"></script>
+	<!-- END PAGE VENDOR JS-->
+	<script>
+		var dataDisponibilidad = [];
+
+		$(document).ready(function () {
+			showBrowserAll();
+			const start2 = $("#start2");
+			start2.hide();
+			const start = $("#start");
+			start.click(() => {
+				start.hide();
+				start2.show();
+			})
+
+
+			$('#cmbsector').select2({
+				placeholder: "{seleccionaopcion}"
+			});
+			$('#cmbsubsector').select2({
+			    placeholder: "{seleccionaopcion}"
+			});
+
+			/*$('#cmbcategoria').multiselect({
+				columns: 1,
+				placeholder: 'Seleccione categorias',
+				search: true,
+				selectAll: true
+			});
+
+			$('#cmbsubcategoria').multiselect({
+				columns: 1,
+				placeholder: 'Seleccione subcategorias',
+				search: true,
+				selectAll: true
+			});*/
+
+
+		});
+
+		/*function showMaestro(reg){
+			var data = {"percodigo":reg};
+		
+			$('#DataMaestro').load('mst.php',data);
+			$('#DataMaestro').css('display','');
+			$('#DataBrowser').css('display','none');
+		}*/
+
+		function showView(reg) {
+			var data = { "percodigo": reg };
+
+			//$('#DataView').addClass('modal-xs');
+			//$('#DataView').removeClass('modal-lg');
+			$('#DataViewPerfil').load('vsl.php', data);
+			$('#DataMaestroViewPerfil').modal('show');
+		}
+		function showEliminarFiltros() {
+
+			$('#cmbsector').val(null).trigger('change');
+			$('#cmbsubsector').val(null).trigger('change');
+
+
+		const inputs = document.querySelector('#inputbuscar');
+		inputs.value='';
+
+		var data = '';
+		$('#DataBrowser').load('brw.php', data);
+		
+
+		}
+		function solicitarReunionMaestro(reg, tipo) {
+			if (tipo != 5) {
+				var data = { "percodigo": reg };
+				$('#DataView').load('coordinar.php', data);
+				$('#DataMaestroView').modal('show');
+			} else {
+				var data = { "percoddst": reg };
+
+				$.ajax({
+					type: "POST",
+					url: 'coordinargrb.php',
+					data: data
+				}).done(function (rsp) {
+					data = $.parseJSON(rsp);
+
+					if (data.errcod == 0) {
+						showBrowser();
+					}
+					toastr.success(data.errmsg, 'GUARDAR');
+				});
+			}
+		}
+
+
+		function showFavs() {
+
+			$('#cmbfavoritos').val(1);
+
+			var cmbfavoritos = $('#cmbfavoritos').val();
+
+			var data = {
+
+				"fltfavoritos": cmbfavoritos
+
+			};
+			//console.log(data);
+			$('#DataBrowser').load('brw.php', data);
+
+		}
+		function showDesFavs() {
+			$("#start2").hide();
+			$("#start").show();
+			$('#cmbfavoritos').val('');
+
+			var cmbfavoritos = $('#cmbfavoritos').val();
+
+			var data = {
+
+				"fltfavoritos": cmbfavoritos
+
+			};
+			//console.log(data);
+			$('#DataBrowser').load('brw.php', data);
+
+		}
+
+
+		function showfunction() {
+
+
+
+
+		}
+		function showBrowser() {
+			var fltbuscar = $('.fltbuscar').val();
+			var empresa = $('.empresa').val();
+			var fltrecomendado = $('#fltrecomendado').val();
+			var fltfavoritos = $('#fltfavoritos').val();
+
+			if (fltfavoritos == 1) {
+				$('#cmbfavoritos').val(1);
+			}
+
+			var cmbsector = $('#cmbsector').val();
+			var cmbsubsector = $('#cmbsubsector').val();
+			var cmbcategoria = $('#cmbcategoria').val();
+			var cmbsubcategoria = $('#cmbsubcategoria').val();
+			var cmbfavoritos = $('#cmbfavoritos').val();
+			var fltpertipo = $('#fltpertipo').val();
+
+			var sectores = '';
+			$.each(cmbsector, function (i, val) {
+				sectores += val + ',';
+			});
+			sectores += '0';
+
+			var subsectores = '';
+			$.each(cmbsubsector, function (i, val) {
+				subsectores += val + ',';
+			});
+			subsectores += '0';
+
+			var categorias = '';
+			$.each(cmbcategoria, function (i, val) {
+				categorias += val + ',';
+			});
+			categorias += '0';
+
+			var subcategorias = '';
+			$.each(cmbsubcategoria, function (i, val) {
+				subcategorias += val + ',';
+			});
+			subcategorias += '0';
+
+			var data = {
+				"fltbuscar": fltbuscar,
+				"empresa": empresa,
+				"sectores": sectores,
+				"subsectores": subsectores,
+				"categorias": categorias,
+				"subcategorias": subcategorias,
+				"fltrecomendado": fltrecomendado,
+				"fltfavoritos": cmbfavoritos,
+				"fltpertipo": fltpertipo
+			};
+
+
+			//console.log(data);
+			$('#DataBrowser').load('brw.php', data);
+
+			$('#notification-sidebar').removeClass('open');
+		}
+		function showBrowserAll() {
+			var fltbuscar = '';
+			var fltrecomendado = $('#fltrecomendado').val();
+			var data = {
+				"fltbuscar": fltbuscar,
+				"fltrecomendado": fltrecomendado
+			};
+
+			$('#DataBrowser').load('brw.php', data);
+
+			$('#notification-sidebar').removeClass('open');
+		}
+
+
+
+		function loadSubSectores() {
+			var data = { "sectores": [], "subsectores": [] };
+
+			//Sectores seleccionados
+			$.each($('input[name="secselect"]:checked'), function () {
+				var seccodigo = $(this).data('codigo');
+				var item = { "seccodigo": seccodigo };
+				data.sectores.push(item);
+			});
+			//Subsectores seleccionados
+			$.each($('input[name="secsubselect"]:checked'), function () {
+				var secsubcod = $(this).data('codigo');
+				var item = { "secsubcod": secsubcod };
+				data.subsectores.push(item);
+			});
+
+			$('#dvsubsectores').load('../perfiles/dvsubsectores.php', data);
+
+		}
+
+		function loadCategorias() {
+			var data = { "subsectores": [], "categorias": [] };
+
+			//Subsectores seleccionados
+			$.each($('input[name="secsubselect"]:checked'), function () {
+				var subseccod = $(this).data('codigo');
+				var item = { "secsubcod": subseccod };
+				data.subsectores.push(item);
+			});
+			//Categorias seleccionados
+			$.each($('input[name="catselect"]:checked'), function () {
+				var catcodigo = $(this).data('codigo');
+				var item = { "catcodigo": catcodigo };
+				data.categorias.push(item);
+			});
+
+			$('#dvcategorias').load('../perfiles/dvcategorias.php', data);
+
+		}
+
+		function loadSubCategorias() {
+			var data = { "categorias": [], "subcategorias": [] };
+
+			//Categorias seleccionados
+			$.each($('input[name="catselect"]:checked'), function () {
+				var catcodigo = $(this).data('codigo');
+				var item = { "catcodigo": catcodigo };
+				data.categorias.push(item);
+			});
+			//SubCategorias seleccionados
+			$.each($('input[name="catsubselect"]:checked'), function () {
+				var catsubcod = $(this).data('codigo');
+				var item = { "catsubcod": catsubcod };
+				data.subcategorias.push(item);
+			});
+
+			$('#dvsubcategorias').load('../perfiles/dvsubcategorias.php', data);
+
+		}
+
+		function KeyEnterBuscarStand(e) {
+			if (!e) var e = window.event
+			if (e.keyCode) code = e.keyCode;
+			else if (e.which) code = e.which;
+			if (code == 13) {
+				showBrowser();
+			}
+		}
+
+
+		
+	</script>
+
+</body>
+
+</html>

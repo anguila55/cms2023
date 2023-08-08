@@ -1,0 +1,140 @@
+<div class="modal-content">
+		<div class="modal-header">
+			<h4 class="modal-title" id="">Configuración</h4>
+			
+		</div>
+		<div class="modal-body">
+			
+			<div class="form-group">
+				<label for="timesheetinput1">Reply-To:</label>
+				<div class="position-relative has-icon-left">
+					<input type="hidden" id="msgreg" name="msgreg" value="{msgreg}">
+					<input type="text" id="msgrep"  name="msgrep" class="form-control" value="{msgrep}">
+					<div class="form-control-position">
+						<!--En caso que requiera icono-->
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="timesheetinput1">CC:</label>
+				<div class="position-relative has-icon-left">
+					<input type="text" id="msgcc"  name="msgcc" class="form-control" value="{msgcc}">
+					<div class="form-control-position">
+						<!--En caso que requiera icono-->
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="timesheetinput1">Remitente:</label>
+				<div class="position-relative has-icon-left">
+					<input type="text" id="msgcco"  name="msgcco" class="form-control" value="{msgcco}">
+					<div class="form-control-position">
+						<!--En caso que requiera icono-->
+					</div>
+				</div>
+			</div>
+
+								
+		</div>
+		<div class="modal-footer">
+			<button id="btnguardar" type="button" class="btn btn-success" onclick="guardarConf();">Guardar
+			</button>				
+			<button type="button" class="btn grey btn-outline-secondary cerrarmodal" data-dismiss="modal">Cerrar</button>
+		</div>
+	</div>
+	<script>
+		function validateEmail(email) {
+			const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			return re.test(email);
+		}
+		function guardarConf(){
+
+		
+		var errcod = 0;
+		var errmsg = '';
+		//var avireg = $('#avireg').val();
+		//var avititulo = $('#avititulo').val();
+		//var aviurl = $('#aviurl'). val();
+		//var aviimagen = $('#aviimagen').val();
+		if (!validateEmail($('#msgrep').val())) {
+				if ($('#msgrep').val() != '') {
+				errcod = 1;
+				toastr.error('Revisar Campos', 'Ingresar correo valido');
+				}
+			}
+			if ($('#msgcco').val() == '') {
+				
+				errcod = 1;
+				toastr.error('Revisar Campos', 'Ingresar nombre del sender');
+				
+			}
+			
+		if(errcod==0){
+			swal({
+				title: "GUARDAR",
+				text: "¿Confirma guardar los cambios?",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: 'Confirmar',
+				cancelButtonText: 'Cancelar',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+
+				
+
+					guardarMaestroConf();
+				
+				
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+		}
+
+		
+
+		function guardarMaestroConf(){
+		var formData = new FormData($('#FrmMst')[0]);
+		var msgsend = 0;
+		var msgrep = $('#msgrep').val();
+		var msgcc = $('#msgcc').val();
+		formData.append("msgrep", msgrep);
+		formData.append("msgcc", msgcc);
+		formData.append("msgtitulo", 'Conf reply');
+		formData.append("msgreg", $('#msgreg').val());
+		formData.append("msgcco", $('#msgcco').val());
+		
+
+			
+			
+		$.ajax({
+			type: "POST",
+			url: 'grb.php',
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false
+		}).done(function( rsp ) {
+			data = $.parseJSON(rsp);
+			
+			if(data.errcod == 0){
+				toastr.success(data.errmsg, 'GUARDAR');			
+				//swal("GUARDAR", data.errmsg, "success").done();
+				$('.cerrarmodal').click();
+				
+			}else{
+				toastr.error(data.errmsg, 'GUARDAR');	
+				//swal("GUARDAR", data.errmsg, "error").done();
+			}
+			
+		});
+		}
+	</script>
+
+	

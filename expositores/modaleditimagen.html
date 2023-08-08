@@ -1,0 +1,75 @@
+<div class="modal-content">
+	<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	</div>
+	<div class="modal-body">
+			<input type="hidden" value="{expreg}" id="expreg">
+			<input type="hidden" value="{imgreg}" id="imgreg">
+			
+
+			<div class="col-md-12 mt-2 mb-3">
+				<label for="expimg">Imagen: </label>
+				<input type="file" id="expimg" name="expimg" class="form-control"
+					value="{expimgsrc}">
+				<img src="{expimgsrc}" class="img-fluid mt-3" alt="" width="25%">
+			</div>
+			
+
+	  </div>
+	  <div class="modal-footer">
+		<div class="form-actions col-12 text-center">
+			<button id="btnguardar" type="button" class="btn btn-success" onclick="guardarEditImagen();">
+				<i class="icon-note"></i> Guardar
+			</button>
+		</div>
+	  </div>
+	  
+</div>
+<script>
+
+function guardarEditImagen() {
+		var formData = new FormData($('#FrmMst')[0]);
+		formData.append("expreg", $('#expreg').val());
+		formData.append("imgreg", $('#imgreg').val());
+		
+
+
+		//avatar
+		if (typeof ($('#expimg')[0].files[0]) !== "undefined") {
+			formData.append('expimg', $('#expimg')[0].files[0]);
+		}
+		
+
+		$.ajax({
+			type: "POST",
+			url: "grbimagen.php",
+			dataType: "html",
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false
+		}).done(function (rsp) {
+			data = $.parseJSON(rsp);
+
+			if (data.errcod == 0) {
+				toastr.success(data.errmsg, 'GUARDAR');
+
+				$('#DataMaestroView').modal('hide');
+				
+					showMaestro({expreg});
+				
+				
+			} else {
+				toastr.error(data.errmsg, 'GUARDAR');
+
+			}
+
+		});
+	}
+
+
+
+</script>
+

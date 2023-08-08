@@ -1,0 +1,150 @@
+<div class="modal-content modal-radius pl-3 pr-3">
+			<button type="button" class="color-main-event boton-x" data-dismiss="modal">X</button>
+			<div class="col-12">
+				<h4 class="meeting-banner_text text-center color-main-event fw-700">{Idioma_Disponibilidad}</h4>	
+			</div>
+			<div class="d-block mr-auto ml-auto mt-3">
+				<img src="../assets-nuevodisenio/img/icons/popupreunion.png" width="200px" alt="">
+			</div>
+
+	<div class="modal-body m-0 col-12 row">
+
+		<div class="col-md-3 col-lg-3 col-sm-12 pl-0 pr-0 mb-2">
+
+			<div class="col-12 pl-0 pr-0">
+				<label class="mt-2 mb-1 color-main-event fw-400" for="timesheetinput3">{Idioma_Dia_fecha}</label>
+				<div class="position-relative has-icon-left">
+					<input  onkeypress="return false;" onchange="loadHorarios(this);" type="date" data-date-inline-picker="true" id="agefch" class="form-control" value="{fechaincioreunion}"  min="{fechainicial}" max="{fechafinal}" name="agefch" placeholder="Seleccione la fecha...">
+				</div>
+				
+			</div>
+
+		</div>
+
+		<div class="col-md-9 col-lg-9 col-sm-12 pl-0 pr-0">
+			<div class="row col-12 ml-2 mb-2">
+				<div id="desridispo" class="row pl-2 pr-2 mt-1 mb-1">
+					<p class="col-12 fw-200 mb-0">{descripciondisponibilidad} <span class="text-decoration-underline fw-700">{descripciondisponibilidad1}</span> {descripciondisponibilidad2}</p>
+				</div>
+				<div id="horarios" class="row col-12 horarios-container pl-2 pr-2">
+							
+				</div>
+			</div>
+				
+
+
+		</div>
+		
+		
+	</div>
+		<div class="col-md-12 d-flex justify-content-end mb-2">
+			<!--<img id="imgloading" src="../app-assets/img/loader.gif" style="width: 35px;height: 35px;margin-right: 6px;margin-top: 10px; display:none;">-->
+			<button id="btnsolicitar" type="button" class="boton-new-rounded mr-1 mb-2 "
+			onclick="guardarDisponibilidad({percodigo});"><i id="spinnerdisponibilidad" class="fa fa-spinner fa-spin"> </i> {Idioma_Guardar}</button>
+			<button id="btncancelar" type="button" class="boton-new-rounded-o mb-2"
+				data-dismiss="modal">{Idioma_Cancelar}</button>
+		</div>
+
+		
+	
+</div>
+<script src="brw.js"></script>
+<script src="../assets-nuevodisenio/js/switch.min.js"></script>
+<script>
+	document.querySelector("#spinnerdisponibilidad").style.display = 'none';
+		var desridispo = document.querySelector("#desridispo");
+		desridispo.style.display= "none";
+	function guardarDisponibilidad(reg) {
+
+		
+		//Busco la disponibilidad
+		auxdataDisponibilidad = [];
+		$.each($('input[name="distime"]'), function () {
+			var fecha = $(this).data('fecha');
+			var hora = $(this).data('hora');
+			var data ='';
+			if ($(this).prop('checked')==false){ 
+				
+				data = { "fecha": fecha, "hora": hora, "dispbool":1 };
+		   //do something
+			   }else{
+					data = { "fecha": fecha, "hora": hora, "dispbool":0 };
+			   }
+			   auxdataDisponibilidad.push(data);
+			
+		});
+		
+		var dataDisponibilidad = JSON.stringify(auxdataDisponibilidad);
+		//$('#btnsolicitar').hide();
+			//$('#imgloading').show();
+			document.querySelector("#spinnerdisponibilidad").style.display = '';
+			var data = {
+				"percodigo": reg,
+				"dataDisponibilidad": dataDisponibilidad
+			};
+			console.log(data);
+			$.ajax({
+				type: "POST",
+				url: 'grbdispo.php',
+				data: data
+			}).done(function (rsp) {
+				data = $.parseJSON(rsp);
+			
+
+				if (data.errcod == 0) {
+					toastr.success(data.errmsg, '{Idioma_Disponibilidad}');
+					$('#DataMaestroDisp').modal('hide');
+					showMaestro(reg);
+				} else {
+					toastr.error(data.errmsg, '{Idioma_Disponibilidad}');
+					//swal("GUARDAR", data.errmsg, "error").done();
+				}
+				//$('#btnsolicitar').show();
+				//$('#imgloading').hide();
+				document.querySelector("#spinnerdisponibilidad").style.display = 'none';
+			});
+
+		}
+	//dataDisponibilidad = {dataDispo};
+	function loadHorarios(obj) {
+		var agefch = $(obj).val();
+		desridispo.style.display= "";
+		var fechalabel = formatDate (agefch);
+		var fechalabelstring = formatDateString (agefch);
+		$.ajax({
+			type: "POST",
+			url: "disponibilidadhora.php",
+			data: { "agefch": agefch,
+					"dataDisponibilidad": dataDisponibilidad
+				}
+		}).done(function (rsp) {
+
+			data = $.parseJSON(rsp);
+			Eliminar(fechalabel,fechalabelstring);
+			console.log(data);
+			data.forEach(producto => {
+				
+				if (producto != null ){
+					Mostrar(producto);
+				}
+
+				});
+			
+		});
+
+	}
+	function formatDate (input) {
+		var datePart = input.match(/\d+/g),
+		year = datePart[0].substring(2), // get only two digits
+		month = datePart[1], day = datePart[2];
+
+		return day+'/'+month+'/'+year;
+		}
+	function formatDateString (input) {
+		var datePart = input.match(/\d+/g),
+		year = datePart[0].substring(2), // get only two digits
+		month = datePart[1], day = datePart[2];
+
+		return day+month+year;
+		}
+</script>

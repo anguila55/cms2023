@@ -1,0 +1,94 @@
+#portada-programa {
+    background-image: none;
+    background-color: white;
+    width: 100%;
+}
+
+.banderaseleccionada{
+    border: 1px solid var(--main);
+    padding: 3px;
+}
+
+.banderanoseleccionada{
+    border: 1px solid black;
+    padding: 3px;
+}
+
+
+#nombrespeaker {
+    font-size: 0.9rem;
+    line-height: 110%!important;
+    color: black;
+}
+
+.margen_grande {
+    margin-top: 5rem;
+}
+
+.standverdeclaro {
+    background-color: #21b684;
+}
+
+.standceleste {
+    background-color:#00b7ba ;
+}
+
+.standamarillo {
+    background-color:#FFC210; ;
+}
+
+.botonrecto {
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+#fondoblancopreguntas {
+    background-color: rgb(255, 255, 255);
+    height: 440px;
+    border-top: 1px rgb(56, 56, 56) solid;
+}
+
+.margen_chico {
+    margin-top:0.5rem;
+    border-style: groove;
+    border-radius: 5px;
+}
+
+#rotativoimagenes img {
+    width: 100%;
+}
+
+#info {
+    height: 410px;
+    overflow-y: auto;
+}
+
+.videostreaming {
+    padding: 8px 0px;
+    border-radius: 16px;
+}
+
+.video__iframe {
+    height: 190px;
+}
+
+@media (min-width: 576px) {
+    .video__iframe {
+        height: 300px;
+    }
+}
+
+@media (min-width: 768px) {
+    .video__iframe {
+        height: 410px;
+    }
+}
+
+@media (min-width: 992px) {
+    .videostreaming {
+        padding: 8px 32px;
+    }
+    .video__iframe {
+        height: 450px;
+    }
+}

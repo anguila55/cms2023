@@ -1,0 +1,99 @@
+
+<div class="modal-content bg-color-gris" >
+	<div class="modal-header">
+		<!-- <h4 class="modal-title" id="">{percompan}</h4> -->
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 " style="text-align: center;">
+                <img src="../assets-nuevodisenio/img/logoinnovation_2.png" class="mr-2" style="width: 45%;margin-bottom: 5px;" alt="user image">
+                <h5 class="card-title" style="color: white; font-weight: 600;margin-bottom: 5px;">Como hago para subir?</h5>
+                <img src="../assets-nuevodisenio/img/redesdesafio.png" class="mr-2" style="width: 40%;margin-bottom: 5px;" alt="user image">
+                <p class="card-text" style="font-size: 0.8rem; line-height: 1rem;color: white;text-align: left!important;"><span style="color: orange; font-size: 1rem;">1.</span> Grabe un video contando un poco sobre su empresa y la posible solución. Procure de aclarar porque su solución responde al desafío planteado. </p>
+                <p class="card-text" style="font-size: 0.8rem; line-height: 1rem;color: white;text-align: left!important;"><span style="color: orange; font-size: 1rem;">2.</span> Suba su video en alguna de las plataformas mencionadas en las que tenga cuenta. </p>
+                <p class="card-text" style="font-size: 0.8rem; line-height: 1rem;color: white;text-align: left!important;"><span style="color: orange; font-size: 1rem;">3.</span> Complete el formulario con los datos solicitados. </p>
+                <p class="card-text" style="font-size: 0.8rem; line-height: 1rem;color: white;text-align: left!important;"><span style="color: orange; font-size: 1rem;">4.</span> Incluya el link del video para que se pueda ver. Recuerde utilizar el link de embebido <a href="https://www.loom.com/share/cb7be1c2c23e4f82b102e547972a38cb" target="_blank"><b style="font-style: italic; font-weight: 700!important; color: orange;">Como hago para obtenerlo?</b></a></p>
+                <p class="card-text" style="font-size: 0.8rem; line-height: 1rem;color: white;text-align: left!important;"><span style="color: orange; font-size: 1rem;">5.</span> Cliquee en guardar.</p>
+                
+              
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 ">
+                <div class="card text-white" style="background-color: #173c61; padding: 5px; height: 100%;" >
+                  
+                  <h4 class="card-title" style="font-size: x-large; color: white; font-weight: 600;">Aceite <span style="color: orange;">esse desafio!</span><h4>
+                  <h1 class="card-title" style="font-size: medium;color: white; font-weight: 400;">Inscreva sua solução e faça negócios!<h1>
+                <form id="propuestadesafio" >
+                        <input type="hidden" id="expreg" name="expreg" value="{expreg}">
+                        <input type="hidden" id="percodigo" name="percodigo" value="{percodigo}">
+                        <input type="text" id="desnombre" name="desnombre" value="{desnombre} {desapelli}" readonly style="width: 100%; font-size: medium; line-height: 1rem;">
+                        <textarea id="resumo" rows="2" maxlength="500" placeholder="Resumo (500 caracteres)"
+										class="form-control required" style="height: 80px;line-height: 1rem;padding-left: 0px;"></textarea>
+                        
+                        <input type="text" id="descorreo" name="descorreo" value="{descorreo}" readonly style="width: 100%;font-size: medium; line-height: 1rem;">
+                        <input type="text" id="descompan" name="descompan" value="{descompan}" readonly style="width: 100%;font-size: medium; line-height: 1rem;">
+                        <input type="text" id="linkvideo" name="linkvideo" placeholder="Link do Video....." style="width: 100%;font-size: medium; line-height: 1rem;">
+                </form>
+                <div class="row "  >
+           
+                    <div style="margin-left: auto; margin-right: auto;"><a onclick="guardarDesafio({expreg});"><img src="../assets-nuevodisenio/img/inscribasedesafio.png" alt="Img in here" style="width: 100%;"></a>
+                    </div>
+      
+                </div>
+                <div class="row " style="margin-left: auto; margin-right: auto;" >
+           
+                    <div class=" mr-2 ml-2 ">
+                      <a href="https://api.whatsapp.com/send?phone=5511969584039" target="_blank"><img src="../assets-nuevodisenio/img/whatsappinnovation1.png" alt="Img in here" style="width: 100%; margin-bottom: 5px;"></a>
+                      <p class="card-text" style="font-size: 0.7rem; line-height: 1rem;color: white;text-align: center!important;"> Mande un e-mail a <a href="mailto:contacto@btoolbox.com" style="color: white;">contacto@btoolbox.com</a></p>
+                    </div>
+      
+                </div>
+                  
+                </div>
+              </div>
+        </div>
+		
+	
+		
+	</div>
+</div>
+<script>
+function guardarDesafio(reg) {
+		var formData = new FormData($('#FrmMst')[0]);
+		formData.append("expreg", $('#expreg').val());
+		formData.append("percodigo", $('#percodigo').val());
+		formData.append("resumo", $('#resumo').val());
+		formData.append("linkvideo", $('#linkvideo').val());
+		
+
+		$.ajax({
+			type: "POST",
+			url: "grb.php",
+			dataType: "html",
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false
+		}).done(function (rsp) {
+			data = $.parseJSON(rsp);
+            
+			
+				//toastr.success(data.errmsg, 'GUARDAR');
+
+				$('#DataMaestroViewPerfil').modal('hide');
+				console.log("entro aca");
+                showBrowser(reg);
+				
+				
+			
+
+		});
+	}
+
+
+
+
+
+</script>	  

@@ -1,0 +1,21 @@
+						
+<!-- BEGIN subsectores -->
+<div id="subsector_{secsubcod}" class="col-md-4 col-sm-6 col-lg-4 mb-2 pt-1 pb-1">
+			
+	<div class="d-flex ">
+		<p class="fw-100 sectors-text">{secsubdes} <br><span class="sectors-span"> {secdescri}</span></p>
+		<input type="checkbox" id="secsubselect_{secsubcod}" name="secsubselect" class="switchery-small" data-color="white" data-jack-color="color-main-event" data-codigo="{secsubcod}" {secsubchecked}
+			onchange="loadCategorias();"/>
+	</div>
+</div>
+<!-- END subsectores -->
+
+<script>
+	//createSwitch('secsubselect');
+	loadCategorias();
+</script>
+
+	
+	 
+	  
+	  

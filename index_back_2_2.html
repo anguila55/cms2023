@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		var nombrecodigo = {percodnotif};
+		dataLayer.push({'event' : 'login', 'userId' : nombrecodigo});
+		</script>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-MW2RMSR');</script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>{SisNombreEvento}</title>
+	<link rel="shortcut icon" type="image/png" href="assets-nuevodisenio/img/favicon.jpg">
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/index.css">
+
+	<script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
+
+	<!-- script para levantar el navbar -->
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<!-- ---------------------------------- X ---------------------------------- -->
+
+	<style>
+		.card-sponsor1 {
+		position: relative;
+		/* ⬅ Size - Small (width: 200px), Medium (width: 225px), Large (width: 250px) */
+		
+		background-color: #FFFFFF;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		text-align: center;
+		-webkit-transition: .1s ease-in-out;
+		transition: .1s ease-in-out;
+	}
+	.card-sponsor1:hover {background-color: #f0f5ab!important;}
+		.addeventatc .addeventatc_icon{
+
+			background: none!important ;
+			
+		}
+		.scroll1 {
+		max-height: 250px;
+		overflow-y: auto;
+		overflow-x: hidden;
+		}
+		/* width */
+		.scroll1::-webkit-scrollbar {
+		width: 5px;
+		}
+
+		/* Track */
+		.scroll1::-webkit-scrollbar-track {
+		box-shadow: inset 0 0 20px 20px grey; 
+		border-radius: 10px;
+		}
+		
+		/* Handle */
+		.scroll1::-webkit-scrollbar-thumb {
+		background: #ffc107; 
+		border-radius: 10px;
+		}
+
+		/* Handle on hover */
+		.scroll1::-webkit-scrollbar-thumb:hover {
+		background: #ffc107; 
+		}
+		.btn-outline-reuniones{
+
+			border-color: #ffc107!important;
+
+		}
+		.btn-outline-reuniones:hover{
+
+			
+			background-color: #ffc107!important;
+		}
+
+.accordionreuniones__content.collapse.show {
+	height: 300px;
+}
+		
+tbody {
+    display: block;
+}
+thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;/* even columns width , fix width of table too*/
+}
+thead {
+    width: calc( 100% - 1em )/* scrollbar is average 1em/16px width, remove it from thead width */
+}
+table {
+    width: 400px;
+}
+	</style>
+</head>
+
+<body>
+  <!-- <input id="percodnotif" name="percodnotif" type=hidden value="{percodnotif}"> -->
+		<!-- Navigation bar -->
+		<div id="nav-placeholder">
+
+		</div>
+
+		<script>
+			$(function () {
+				var data = {
+					"menu": "activeindex"
+				};
+
+				$("#nav-placeholder").load("../navbar/navbar.php", data);
+
+			});
+		</script>
+		<!-- end of Navigation bar -->
+
+    <div id="home" class="pt-0">
+        <div class="main-panel match-width mt-0">
+			<div class="main-content ">
+				<div class="carousel-container mb-3" style="margin-top: -36px;">
+
+
+					<div id="carousel-pause" class="carousel slide"
+						 data-ride="carousel" style="background-color: #fffcf7 ;">
+						 <ol class="carousel-indicators">
+							 <!-- BEGIN browserpause -->
+							<li data-target="#carousel-pause" data-slide-to="{bannerid}" class="{activepause}"></li>
+							<!-- END browserpause -->
+						</ol>
+						<div  class="carousel-inner"
+							 style="height: 350px; margin-right: auto; margin-left: auto; background-color: transparent;">
+
+						   <!-- BEGIN browserbanners -->
+						   <div  class="carousel-item {activebanner}" data-interval="3000">
+
+								<figure class="backing">
+									<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+										 xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 300"
+										 preserveAspectRatio="xMinYMin meet">
+										<image width="1000" height="300" xlink:href="{bannerhomeimg}">
+										</image>
+										<a xlink:href="{urlbanner}" target="{urltarget}">
+											<rect x="0" y="0" width="1000" height="300" fill="#fff" opacity="0"/>
+										</a>
+									</svg>
+								</figure>
+
+							</div>
+							<!-- END browserbanners -->
+							
+						</div>
+						<a class="carousel-control-prev" href="#carousel-pause" role="button" data-slide="prev">
+							
+						</a>
+						<a class="carousel-control-next" href="#carousel-pause" role="button" data-slide="next">
+							
+						</a>
+					</div>
+
+				</div>
+				<div class="content-wrapper container-general">
+					
+	
+
+
+						<!--	 ----------------------------------------------------------------------- -->
+						<!--                       SECTION BOTONES PRINCIPALES                       -->
+                        <!-- ----------------------------------------------------------------------- -->
+                        <div id="botonesprincipales" class="mx-3 pb-5 d-flex justify-content-around flex-wrap">
+							<a class="boton-index-link" href="reuniones/bsq">
+								<div class="boton-index">
+									<div class="boton-index__top">
+										<img class="imagenes-accesos" src="assets-nuevodisenio/img/icono_agenda.png" width="70px" alt="">
+									</div>
+									<div class="boton-index__bottom">
+										<div class="boton-index__title">{Idioma_Reuniones}</div>
+										<div class="boton-index__fakebg"></div>
+										<div class="boton-index__arrow bg-main-event">
+											<i class="white fa fa-long-arrow-right"></i>
+										</div>
+									</div>
+								</div>
+							</a>
+							<a class="boton-index-link" href="directorio/bsq">
+								<div class="boton-index">
+									<div class="boton-index__top">
+										<img class="imagenes-accesos" src="assets-nuevodisenio/img/icono_participantes.png" width="70px" alt="">
+									</div>
+									<div class="boton-index__bottom">
+										<div class="boton-index__title">{asistentes2}</div>
+										<div class="boton-index__fakebg"></div>
+										<div class="boton-index__arrow bg-main-event">
+											<i class="white fa fa-long-arrow-right"></i>
+										</div>
+									</div>
+								</div>
+							</a>
+							<a class="boton-index-link" href="stand/bsq">
+								<div class="boton-index">
+									<div class="boton-index__top">
+										<img class="imagenes-accesos" src="assets-nuevodisenio/img/icono_sponsors.png" width="70px" alt="">
+									</div>
+									<div class="boton-index__bottom">
+										<div class="boton-index__title">{sponsors2}</div>
+										<div class="boton-index__fakebg"></div>
+										<div class="boton-index__arrow bg-main-event">
+											<i class="white fa fa-long-arrow-right"></i>
+										</div>
+									</div>
+								</div>
+							</a>
+							<a class="boton-index-link" href="chat/bsq">
+								<div class="boton-index">
+									<div class="boton-index__top">
+										<img class="imagenes-accesos" src="assets-nuevodisenio/img/icono_chats.png" width="70px" alt="">
+									</div>
+									<div class="boton-index__bottom">
+										<div class="boton-index__title">{chat}</div>
+										<div class="boton-index__fakebg"></div>
+										<div class="boton-index__arrow bg-main-event">
+											<i class="white fa fa-long-arrow-right"></i>
+										</div>
+									</div>
+								</div>
+							</a>					
+						</div>
+                        <!-- ------------------- END SECTION BOTONES PRINCIPALES ------------------- -->
+                        <!-- ----------------------------------------------------------------------- -->
+
+						  <!-- COMPARTIR EN REDES -->
+
+						  <div class="col-12 row text-right">
+							  <div class="col-7"></div>
+							  <div class="col-5 row ml-0 mr-0">
+
+								<p class="compartirredes">{compartiloredes}</p>
+								<a class="redes mr-1" target="_blank"
+								href="https://wa.me/?text='{EventoUrl}'"><i
+									class="fa fa-whatsapp"
+									style="font-size:16px"></i></a>
+								<a class="redes mr-1" target="_blank"
+								href="https://www.facebook.com/sharer/sharer.php?u={EventoUrl}"><i
+									class="fa fa-facebook"
+									style="font-size:16px"></i></a>
+								<a class="redes mr-1"
+									href="http://twitter.com/share?url={EventoUrl}"
+									target="_blank"><i class="fa fa-twitter"
+														style="font-size:16px"></i></a>
+								<a class="redes mr-1"
+									href="https://www.linkedin.com/shareArticle?mini=true&url={EventoUrl}"
+									target="_blank"><i class="fa fa-linkedin"
+														style="font-size:16px"></i></a>
+								</div>
+						  </div>
+
+						  <!-- COMPARTIR EN REDES -->
+
+
+
+						<!--                     SECTION REUNIONES // REUNIONES                     -->
+						<!-- ----------------------------------------------------------------------- -->
+						<div class="col-12 d-none d-lg-block" {display-reuniones-evento}>
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title-wrap bar-warning">
+										<div class="row col-12">
+											<div class="col-8">
+												<h4 class="card-title">Proximas Reuniones</h4>
+											</div>
+											<div class="col-4" style="text-align: right;">
+												<a  href="../reuniones/bsq?T=2" class="btn btn-outline-reuniones btn-round" style="color: black; background-color: white;"><p class="mb-1" style="text-align: right;"><u>Reuniones Pendientes:</u> <span
+													class="badge badge-pill badge-danger bg-main-event">{reunionespendientes}</span></p>
+												</a>		
+											</div>	
+										</div>
+									</div>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table id="recent-orders" class="table table-hover table-xl mb-0">
+											<thead>
+												<tr>
+													<th class="border-top-0" style="width: 200px;" >{dia}</th>
+													<th class="border-top-0" style="width: 200px;">{hora}</th>
+													<th class="border-top-0">Contraparte</th>
+													<th class="border-top-0" style="width: 200px;">Estado</th>
+													<th class="border-top-0">Acciones</th>
+												</tr>
+											</thead>
+											<tbody class="scroll1 {displayreuniones}">
+												<!-- BEGIN browser -->
+												<tr class="reuniones">					
+													<!-- Fecha -->
+													<td class="text-truncate" style="width: 200px;" ><i class=" font-medium-1"></i>
+														{reufechaconf}
+													</td>
+													<!-- End Fecha -->
+
+													<!-- Horaio -->
+													<td class=" text-truncate" style="width: 200px;" ><i
+															class=" font-medium-1 "></i>{reuhoraconf}
+													</td>
+													<!-- End Horario -->
+
+													<!-- Descripcion -->
+													<td class=" text-truncate"><i
+														class=" font-medium-1 "></i>{perapelli} {pernombre}
+													</td>
+													<!-- End Descripción -->
+
+													<!-- Ver en vivo -->
+													<td class=" text-truncate" style="width: 200px;"><i
+														class=" font-medium-1 "></i>{reuestconf}
+													</td>
+													<!-- End ver en vivo -->
+													<!-- Ver en vivo -->
+													<td >
+														<a id="idreunion1{reureg}" class="btn btn-warning mb-0 white" style="width: 150px; background-color: #e0a800;{btnhorasrest}"><i class="icon-camcorder"></i> Ingresar en {reuhorarest}</a>
+														<a id="idreuconf1{reureg}" class="btn btn-warning mb-0 white" onclick="showCall({reureg});" style="width: 150px;"><i class="icon-camcorder"></i> Ingresar a reunion</a>
+														
+														<div class="btn bg-main-event white addeventatc addeventatc__index text-uppercase" data-dropdown-x="left" style="position: inherit; width: 150px; z-index:inherit; background-color: palevioletred; box-shadow:none !important; font-family: Conv_GothamRounded-Medium!important;{btnagendarcal}"><i
+															class="ft-calendar"></i>{agregarcalendario}
+															<span class="start">{fechacalendar} {horacalendar}:{minutoscalendar}</span>
+															<span class="end">{fechacalendar} {minutosfincalendar}</span>
+															<span class="title">{titulocalendar}</span>
+															<span class="location">{locationcalendar}</span>
+															<span class="description">{SisNombreEvento}</span>
+														</div>
+													</td>
+													<!-- End ver en vivo -->
+
+												</tr>
+
+												<!-- END browser -->
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 d-block d-lg-none" {display-reuniones-evento}>
+							<div class="card">
+								<div class="card-header__accordions">
+									<div class="card-title-wrap bar-warning">
+										<div class="d-flex justify-content-between flex-wrap">
+											<h4 class="card-title">Proximas Reuniones</h4>
+											<div class="" style="text-align: right;">
+												<a  href="../reuniones/bsq?T=2" class="btn btn-outline-reuniones btn-round" style="color: black; background-color: white;"><p class="mb-1" style="text-align: right;"><u>Reuniones Pendientes:</u> <span
+													class="badge badge-pill badge-danger bg-main-event">{reunionespendientes}</span></p>
+												</a>			
+											</div>	
+										</div>
+									</div>
+								</div>
+								<div class="accordion col-12" id="accordionReuniones" style="margin: 16px 0px;">
+								<!-- BEGIN browser1 -->
+									<div class="card" style="margin: 0px;">
+										<button class="btn btn-link btn-block text-left accordion__card-title" type="button" data-toggle="collapse" data-target="#collapseReuniones{reureg}" aria-controls="collapseReuniones{reureg}">
+											<div>{perapelli} {pernombre}</div> 
+											<div>{reufechaconf} {reuhoraconf}</div>
+											<div class="accordion__card-title--plus color-main-event">+</div>
+										</button>
+										<div id="collapseReuniones{reureg}" class="accordionreuniones__content collapse" aria-labelledby="heading{reureg}" data-parent="#accordionReuniones">
+											<table class="table">
+												<tbody class="{displayreuniones}">
+													<tr>
+														<!-- Fecha -->												
+														<th>{dia}: {reufechaconf}</th>
+														<!-- End Fecha -->
+													</tr>
+													<tr>
+														<!-- Horaio -->
+														<th>{hora}: {reuhoraconf}</th>
+														<!-- End Horario -->
+													</tr>
+													<tr>
+														<!-- Descripcion -->
+														<th>Contraparte: {perapelli} {pernombre}</th>
+														<!-- End Descripción -->
+													</tr>
+													<tr>
+														<!-- Ver en vivo -->
+														<th>Estado: {reuestconf}</th>
+														<!-- End ver en vivo -->
+													</tr>
+													<tr>
+														<!-- Ver en vivo -->
+														<th>Acciones
+															<a id="idreunion{reureg}" class="btn btn-warning mb-0 white" style="width: 150px; background-color: #e0a800;{btnhorasrest}"><i class="icon-camcorder"></i> Ingresar en {reuhorarest}</a>
+															<a id="idreuconf{reureg}" class="btn btn-warning mb-0 white" onclick="showCall({reureg});" style="width: 150px;"><i class="icon-camcorder"></i> Ingresar a reunion</a>
+															
+																<div class=" btn bg-main-event white addeventatc addeventatc__index text-uppercase" data-dropdown-y="auto" style="width: 150px; z-index:inherit; background-color: palevioletred; box-shadow:none !important; font-family: Conv_GothamRounded-Medium!important;{btnagendarcal}"><i
+																	class="ft-calendar"></i>{agregarcalendario}
+																	
+																	<span class="start">{fechacalendar} {horacalendar}:{minutoscalendar}</span>
+																	<span class="end">{fechacalendar} {minutosfincalendar}</span>
+																	<span class="title">{titulocalendar}</span>
+																	<span class="location">{locationcalendar}</span>
+																	<span class="description">{SisNombreEvento}</span>
+																</div>
+														</th>
+														<!-- End ver en vivo -->
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<!-- END browser1 -->
+								</div>
+							</div> 
+						</div>  	
+                        <!-- ----------------------------------------------------------------------- -->
+						<!--                     SECTION CALENDARIO // ACTIVIDAD                     -->
+						<!-- ----------------------------------------------------------------------- -->
+						<div class="col-12 d-none d-lg-block" {display-calendario-evento}>
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title-wrap bar-warning">
+										<h4 class="card-title">{proximas-actividades}</h4>
+									</div>
+									
+									
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table id="recent-orders" class="table table-hover table-xl mb-0">
+											<thead>
+												<tr>
+													<th class="border-top-0">{dia}</th>
+													<th class="border-top-0">{hora}</th>
+													<th class="border-top-0">{titulo}</th>
+													<th class="border-top-0">{conferencia}</th>
+												</tr>
+											</thead>
+											<tbody class="scroll1 {displayactividades}">
+												<!-- BEGIN actividades -->
+												<tr class="">
+													<!-- Fecha -->
+													<td class="text-truncate"><i class=" font-medium-1"></i>
+														{agefch}
+													</td>
+													<!-- End Fecha -->
+
+													<!-- Horaio -->
+													<td class=" text-truncate"><i
+															class=" font-medium-1 "></i>{agehorini}-{agehorfin}
+													</td>
+													<!-- End Horario -->
+
+													<!-- Descripcion -->
+													<td class="text-truncate text-bold-500"> <a href="actividades/bsq"
+															class="titulo-charla">{titulocharla}</a></td>
+													<!-- End Descripción -->
+
+													<!-- Ver en vivo -->
+													
+													<td class="text-truncate"> <a id="idcharla{agereg}"><span
+																class="badge bg-secondary p-2 white ">LIVE</span></a>
+																<a id="idcharlavivo{agereg}" 
+															href="../sala/bsq.php?A={agereg}"><span
+																class="badge badge-danger p-2 "><i class="fa fa-circle white mr-2"></i>LIVE</span>
+													</a></td>
+													<!-- End ver en vivo -->
+												</tr>
+												<!-- END actividades -->
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 d-block d-lg-none" {display-calendario-evento}>
+							<div class="card">
+								<div class="card-header__accordions">
+									<div class="card-title-wrap bar-warning">
+										<h4 class="card-title">{proximas-actividades}</h4>
+									</div>
+									
+								</div>
+								<div class="accordion col-12" id="accordionActividades" style="margin: 16px 0px;">
+									<!-- BEGIN actividades1 -->
+									<div class="card" style="margin: 0px;">
+												<button class="btn btn-link btn-block text-left accordion__card-title" type="button" data-toggle="collapse" data-target="#collapseActividades{agereg}" aria-controls="collapseActividades{agereg}">
+													<div class="text-truncate">	{titulocharla}</div>
+													<div>{agefch} {agehorini}-{agehorfin}</div>
+													<div class="accordion__card-title--plus color-main-event">+</div>
+												</button>
+										<div id="collapseActividades{agereg}" class="collapse" aria-labelledby="heading{agereg}" data-parent="#accordionActividades">
+											<table class="table">
+												<tbody class="{displayactividades}">
+													<tr>
+														<!-- Fecha -->
+														<th>{dia}: {agefch}</th>
+														<!-- End Fecha -->
+													</tr>
+														<!-- Horario -->
+													<tr>
+														<th>{hora}: {agehorini}-{agehorfin}</th>
+													</tr>
+														<!-- End Horario -->
+														<!-- Descripcion -->
+													<tr>
+														<th>{titulo} <a href="actividades/bsq"
+															class="titulo-charla">{titulocharla}</a></th>
+													</tr>
+														<!-- End Descripción -->
+														<!-- Ver en vivo -->
+													<tr>
+														<th>{conferencia}: <a id="idcharla1{agereg}"><span
+															class="badge bg-secondary p-2 white">LIVE</span></a>
+															<a id="idcharlavivo1{agereg}" 
+														href="../sala/bsq.php?A={agereg}"><span
+														class="badge badge-danger p-2 "><i class="fa fa-circle white mr-2"></i>LIVE</span>
+												</a></th>
+													</tr>
+													<!-- End ver en vivo -->
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<!-- END actividades1 -->	
+								</div>
+							</div>
+						</div>
+						<!--  ---------- SECTION ON DEMAND ---------------- -->				
+						<div class="col-lg-12 col-xl-12 col-md-12 row match-height   mx-auto  pb-5 {displayondemand}">
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title-wrap bar-warning">
+										<h4 class="card-title">{ondemand}</h4>
+									</div>
+								</div>						
+									<div style="display: flex; padding: 0px 16px; flex-direction: row; justify-content: start; flex-wrap: wrap;">
+									<!-- BEGIN videos -->
+									<div class="col-12 col-md-6 col-lg-4 mb-1">
+										<div class="card" >
+													<div class="row" style="margin: 0px;">
+														<div class="align-self-center col-3 col-sm-4">
+															<img alt="imagen" style="margin-right: 10px !important;" class="rounded img-fluid img-fluid card1Stand3-img" src="{vidimg}"><br>
+															<!--<span class="font-small-2"><i class="fa fa-circle success"></i>Online</span>-->
+														</div>
+														<div class="media-body border-left ev-border-naranja p-2 text-height-0 col-6" style="height:165px;margin-bottom: 10px;">
+															<p class="font-small-2 mt-1 mb-1 font-weight-bold" style="height:140px;line-height:1rem; color: black;">{vidtitulo}</p>
+															<p class="font-small-2 ev-naranja font-weight-bold" style="height:45px;line-height:1rem; ">{hashtag}</p>
+														</div>
+														<div class="media-body border-left text-height-0 pt-2 col-3 col-sm-2">
+															<div style="height: 180px;">
+															<a class="btn  btn-circle bg-main-event mb-1" style="width: 40px;{displayvideo}" onclick="addPoints({vidreg},'',9)"><i class="white fa fa-tv " ></i></a>
+															<a onclick="addPoints({vidreg},'{vidurlpdf}',10)" class="btn btn-circle bg-main-event mb-1" style=" {displaypdf} width: 40px;" ><i class="white fa fa-files-o"></i></a>
+															<a class="btn  btn-circle bg-main-event mb-1" style=" {displayusuario} width: 40px;" onclick="showPerfiles({vidreg});"><i class="white fa fa-user"></i></a>
+															<a class="btn bg-main-event btn-circle" onclick="likeCarta({vidreg},this);"><i class="white fa fa-thumbs-up" style="{colorlike}"></i></a>
+															</div>
+														</div>
+													</div>
+										</div>
+									</div>
+
+									<!-- END videos -->
+									</div>
+							</div>
+
+						</div>
+							<!--  ---------- SECTION ON DEMAND ---------------- -->			
+
+						<!--  ---------- SECTION CALENDARIO // ACTIVIDAD---------------- -->			<div class="col-12 row">	
+							<div class="col-lg-9 col-xl-9 col-md-9 row match-height   mx-auto  pb-5 {displaynoticias}">
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title-wrap bar-warning">
+											<h4 class="card-title">{Idioma_Noticias}</h4>
+										</div>
+									</div>						
+										<div style="display: flex; padding: 0px 16px; flex-direction: row; justify-content: start; flex-wrap: wrap;">
+											<!-- BEGIN noticias -->
+											<div class="card col-sm-12 col-md-6 col-lg-6" style="height: auto;">
+												<a href="{aviurl}" target="_blank" class="linknotas">
+
+													<div  class="col-12 p-0">
+															<div class="btn btn-round bublechildren mt-2" style="width: 100%;height: 280px; background-image: url({aviimagen});background-size: cover; background-repeat: no-repeat;background-position: center;">
+															</div>
+															<div class="color-main-event font-medium-4 text-left mt-2 " style="line-height: 1rem; margin-bottom: 14px;">{avititulo}</div>
+															<div class="  font-small-3 mt-2 " style="line-height: 1rem; height: 80px; overflow: hidden; text-align: left; color: black; font-weight: lighter;">{avidescrip}</div>
+													</div>
+												</a>
+											</div>
+											<!-- END noticias -->	
+										</div>
+								</div>
+
+
+
+							<!-- ---------------------------------- x ---------------------------------- -->
+							<!--<div class="col-md-4 col-sm-4 " style="height: 100% !important;">
+								<div class="card" style="min-height: 500px !important;">
+									<div class="card-header">
+										<div class="card-title-wrap bar-warning">
+											<h4 class="card-title">{comunidad}</h4>
+										</div>
+									</div>
+									<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+										<div class="carousel-inner" role="listbox">
+
+
+											<div class="carousel-item active p-2 text-center ">
+												<a target="_blanck" href="muro/bsq">
+
+													<img class="img-fluid"
+														style="height: 95% !important; width: 95% !important;"
+														src="assets-nuevodisenio/img/logo.jpg">
+												</a>
+
+											</div>
+
+
+										</div>
+									</div>
+								</div>
+							</div>-->
+
+							<!-- ---------------------------------- x ---------------------------------- -->
+
+
+
+							</div>
+							<div class="col-lg-3 col-xl-3 col-md-3 row match-height   mx-auto  pb-5 {displaynoticias}">
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title-wrap bar-warning">
+											<h4 class="card-title">Chat</h4>
+										</div>
+										<a id="botonverconversaciones"  class="mt-2 btn text-uppercase white" onclick="showBrowserChat()" title="Conversaciones"><i class="fa fa-comment"></i>
+										</a>
+										<a id="botonvertodos"  class="mt-2 btn text-uppercase white" onclick="showBrowserChatTodos()" title="Todos los asistentes"><i class="fa fa-users"></i>
+										</a>
+										
+										<form id="buscadorchat" class="mt-2">
+											<div  class="position-relative has-icon-right">
+												<input class="form-control" id="fltbuscar" name="fltbuscar" type="text" placeholder="{Idioma_Buscar}..." onkeydown="KeyEnterBuscar(event)">
+												<div class="form-control-position">
+													<i class="fa fa-search" id="buscadoricono"></i>
+												</div>
+											</div>
+										</form>
+									</div>						
+										<div style="display: flex; padding: 0px 16px; flex-direction: row; justify-content: start; flex-wrap: wrap;">
+											<div class="card-block" style="width: 100%;" id="DataBrowserChatTodos">	
+											</div>
+											<div class="card-block" style="width: 100%;" id="DataBrowserChat">
+											
+											
+										</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				
+			</div>
+
+		
+		</div>
+
+		
+    </div>
+
+	
+    <!-- # modals -->
+	
+
+
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade p-0 text-left" id="DataMaestroViewPerfil" tabindex="-1" role="dialog" aria-hidden="true"
+    data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document" id="DataViewPerfil">
+    </div>
+    </div>
+
+	<div class="modal fade p-0 text-left" id="DataMaestroViewPopUp" tabindex="-1" role="dialog" aria-hidden="true"
+    data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document" id="DataViewPopUp" style="max-height:70%;">
+    </div>
+    </div>
+
+    <div class="modal fade p-0 text-left" id="DataMaestroView" tabindex="-1" role="dialog" aria-hidden="true"
+    data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document" id="DataView" style="max-width:80%;">
+    </div>
+    </div>
+	<!-- Modal -->
+	<div class="modal fade p-0 text-left" id="DataMaestroCall" tabindex="-1" role="dialog" aria-hidden="true"
+		data-backdrop="static" data-keyboard="false">
+		<div class="modal-dialog modal-lg" role="document" id="DataView" style="max-width:80%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="">{Idioma_Conferencia}</h4>
+				</div>
+				<div class="modal-body" style="height:500px;">
+					<iframe id="ifcall" style="width:100%;height:100%;border:none;overflow:hidden;" scrolling="no">
+					</iframe>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn grey btn-outline-secondary" onclick="closeCall();">{Idioma_Cerrar}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+    <script src="assets-nuevodisenio/js/jquery.min.js?h=83e266cb1712b47c265f77a8f9e18451"></script>
+    <script src="assets-nuevodisenio/bootstrap/js/bootstrap.min.js?h=63715b63ee49d5fe4844c2ecae071373"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script src="assets-nuevodisenio/vendors/js/sweetalert2.min.js"></script>
+	<script src="assets-nuevodisenio/vendors/js/toastr.min.js"></script>
+<script>
+	$(document).ready(function() {
+		showBrowserChat();
+		{activepopup}
+		});
+
+function showPerfiles(vidreg) {
+			var data = { "vidreg": vidreg };
+
+			$('#DataView').load('videos/modalperfil.php', data);
+			$('#DataMaestroView').modal('show');
+		}
+
+	function likeCarta(reg,obj){
+		var formData = new FormData($('#FrmMst')[0]);
+		formData.append("vidreg", reg);
+		
+		$.ajax({
+			type: "POST",
+			url: 'videos/grblikecarta.php',
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false
+		}).done(function (rsp) {
+			data = $.parseJSON(rsp);
+			
+			window.location.reload();
+			
+		});
+	}
+	const botontodos = document.querySelector("#botonvertodos");
+  const botonconversaciones = document.querySelector("#botonverconversaciones");
+	function showBrowserChat() {
+			
+
+			$('#DataBrowserChat').load('../chat/chatmodulo.php');
+			$('#DataMaestro').css('display', 'none');
+			$('#DataBrowserChatTodos').css('display', 'none');
+			$('#DataBrowserChat').css('display', '');
+			botontodos.classList.add('bg-color-gris');
+			botontodos.classList.remove('bg-main-event');
+			botonconversaciones.classList.add('bg-main-event');
+			botonconversaciones.classList.remove('bg-color-gris');
+			
+			$('#buscadorchat').css('display', 'none');
+			
+			
+		}
+	function showBrowserChatTodos() {
+		var fltbuscar = $('#fltbuscar').val();
+			var data = {"fltbuscar": fltbuscar};
+
+		$('#DataBrowserChatTodos').load('../chat/chatmodulotodos.php',data);
+		$('#DataMaestro').css('display', 'none');
+		$('#DataBrowserChatTodos').css('display', '');
+		$('#DataBrowserChat').css('display', 'none');
+			botontodos.classList.add('bg-main-event');
+			botontodos.classList.remove('bg-color-gris');
+			botonconversaciones.classList.add('bg-color-gris');
+			botonconversaciones.classList.remove('bg-main-event');
+		$('#buscadorchat').css('display', '');
+	}
+	let formulario = document.getElementById("buscadorchat");
+		formulario.addEventListener("submit", function(evt) {
+        evt.preventDefault();
+		});
+	function KeyEnterBuscar(e) {
+			if (!e) var e = window.event
+			if (e.keyCode) code = e.keyCode;
+			else if (e.which) code = e.which;
+			if (code == 13) {
+				showBrowserChatTodos();
+			}
+		}
+		
+    function showVideo(vidreg) {
+			var data = { "vidreg": vidreg };
+
+			$('#DataView').load('videos/modalvideos.php', data);
+			$('#DataMaestroView').modal('show');
+		}
+		function showPopUp() {
+
+			$('#DataViewPopUp').load('popup/popup.php');
+			$('#DataMaestroViewPopUp').modal('show');
+		}
+		function addPoints(exp,url,tipo){
+          var data = {
+            
+                      "expreg":exp,
+                      "tipo":tipo
+                    };
+          		
+            if(tipo == 10){
+              window.open(url);
+            }else if(tipo == 9){
+              showVideo(exp);
+            }else{
+
+            }
+            
+          
+        }
+
+	function showCall(reureg) {
+		var data = { "reureg": reureg };
+		$('#ifcall').attr('src', '../reuniones/call.php?R=' + reureg);
+		$('#DataMaestroCall').modal('show');
+	}
+
+	function closeCall() {
+		$('#ifcall').attr('src','');
+		$('#DataMaestroCall').modal('hide');
+	}
+	var timer1= '';
+	//////// duracion reuniones 30 min
+	var durreunion = {durreunion};
+	if (durreunion!=''){
+
+		var reudur = (durreunion*60000)*-1;
+
+		}
+
+		function vervivo() {
+			
+			window.location = "vivo.php"
+			  }
+	
+	function countdown(finish_date, timer,cant){
+
+		var x = setInterval(function() {
+	
+						var now = new Date().getTime();
+	
+						var distance = finish_date*1000 - now;
+	
+						var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+						var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+						var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+						var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+						var timer1= document.querySelector('#idreunion' + timer)
+						var reuconf= document.querySelector('#idreuconf' + timer)
+						var ageconf= document.querySelector('#addeventatc' + cant)
+						var timer2= document.querySelector('#idreunion1' + timer)
+						var reuconf2= document.querySelector('#idreuconf1' + timer)
+						var ageconf2= document.querySelector('#addeventatc1' + cant)
+
+						timer1.innerHTML = days + "<span style='font-weight:normal'>d</span> " + hours + "h " + minutes + "m " + seconds + "s ";
+						timer2.innerHTML = days + "<span style='font-weight:normal'>d</span> " + hours + "h " + minutes + "m " + seconds + "s ";
+
+						reuconf.style.display= "none";
+						reuconf2.style.display= "none";
+						if (distance < 0 && distance >= reudur) {
+							timer1.style.display= "none";
+							reuconf.style.display= "";
+							timer2.style.display= "none";
+							reuconf2.style.display= "";
+						}
+						if (distance < reudur) {
+						clearInterval(x);
+						timer1.style.display= "";
+						timer2.style.display= "";
+						
+						timer1.innerHTML = "Finalizada";
+						ageconf.style.display= "none";
+						timer2.innerHTML = "Finalizada";
+						ageconf2.style.display= "none";
+						
+						}
+						}, 1000);
+	}
+	
+	
+	
+	var array = {arrayreuniones};
+				if (array!=null){
+					array.forEach(reunion => {
+	
+					
+					
+						if (reunion != null ){
+							
+							
+							countdown(reunion.key, reunion.value, reunion.cant)
+						}
+						
+					});
+
+				}
+
+				function countdownCharlas(start_date, finish_date,value){
+
+var y = setInterval(function() {
+
+				var nowcharla = new Date().getTime();
+
+				var start = start_date*1000 - nowcharla;
+				var finish = finish_date*1000 - nowcharla;
+
+				var charla= document.querySelector('#idcharla' + value);
+				var charlavivo= document.querySelector('#idcharlavivo' + value);
+				var charla1= document.querySelector('#idcharla1' + value);
+				var charlavivo1= document.querySelector('#idcharlavivo1' + value);
+				
+				
+				charla.style.display= "";
+				charlavivo.style.display= "none";
+				charla1.style.display= "";
+				charlavivo1.style.display= "none";
+				if (start < 0 && finish > 0) {
+					charla.style.display= "none";
+					charlavivo.style.display= "";
+					charla1.style.display= "none";
+					charlavivo1.style.display= "";
+					
+				}
+				if (finish < 0) {
+				clearInterval(y);
+				charla.style.display= "";
+				charla.innerHTML = "<span class='badge bg-secondary p-2 white'>FINALIZADA</span>";
+				
+				
+				charlavivo.style.display= "none";
+				charla1.style.display= "";
+				
+				charla1.innerHTML = "<span class='badge bg-secondary p-2 white'>FINALIZADA</span>";
+				charlavivo1.style.display= "none";
+				
+				
+				}
+				}, 1000);
+}
+
+
+
+var arraycharlas = {arraycharlas};
+		if (arraycharlas!=null){
+			arraycharlas.forEach(charla => {
+
+				
+			
+				if (charla != null ){
+					
+					
+					countdownCharlas(charla.inicio, charla.fin, charla.value)
+				}
+				
+			});
+
+		}
+
+		// Set the date we're counting down to
+	</script>
+    <!-- END PAGE LEVEL JS-->
+	
+	<!-- <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-messaging.js"></script>
+	
+   <script>
+       console.log({avatar});
+
+   </script>-->
+   
+
+
+</body>
+
+</html>

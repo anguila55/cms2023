@@ -1,0 +1,117 @@
+<div class="modal-content">
+    <div class="p-3">
+        <form class="form form-horizontal">
+			<div class="form-body">
+                <h4 class="form-section"><i class="icon-user"></i>{backendadminreun}</h4>
+                <div class="form-group row tipoPerfil" style="{tipoPerfil}">
+					<label class="col-md-3 label-control" for="paicodigo">{backconfreusol}: </label>
+					<div class="col-md-9">
+						<select id="pertipo" name="pertipo" class="form-control" {disabledselect}>
+							<option value="0">{Idioma_Seleccione}...</option>
+							<!-- BEGIN perfiles -->
+							<option data-id="{tiporeunion}" value="{percodigo}" {pertipsel}>{percompan} - {pernombre} {perapelli}</option>
+							<!-- END perfiles -->
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group row clasePerfil" style="{clasePerfil}">
+					<label class="col-md-3 label-control" for="paicodigo">{backconfreucont}: </label>
+					<div class="col-md-9">
+						<select id="perclasecontraparte" name="perclasecontraparte" class="form-control" >
+							<option value="" selected>{Idioma_Seleccione}...</option>
+							<!-- BEGIN perfilescontraparte -->
+							<option value="{percodigocontraparte}">{percompancontraparte} - {pernombrecontraparte} {perapellicontraparte}</option>
+							<!-- END perfilescontraparte -->
+						</select>
+					</div>
+				</div>
+                <div class="form-group row ">
+					<label class="col-md-3 label-control" for="paicodigo">{reunionesselectipo}: </label>
+					<div class="col-md-9">
+						<select id="tiporeu" name="tiporeu" class="form-control" >
+							<option value="" selected>{Idioma_Seleccione}...</option>
+							
+						</select>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-md-3 label-control" for="reuconfnoti">{backconfreunoti}: </label>
+					<div class="col-md-9">
+						<input type="checkbox" id="reuconfnoti">
+						
+					</div>
+				</div>
+
+               
+
+            </div>
+        </form>
+        <input id="fechasolicitante" name="fechasolicitante" type=hidden value="{fechasolicitante}">
+		<input id="horasolicitante" name="horasolicitante" type=hidden value="{horasolicitante}">
+        <div class="modal-footer">			
+			<button id="btnsolicitar" type="button" class="btn grey btn-outline-secondary"
+				onclick="solicitarReunionTurno();"><i id="spinnersolicitar" class="fa fa-spinner fa-spin"> </i> Agendar</button>
+			<button id="btncancelar" type="button" class="btn grey btn-outline-secondary"
+				data-dismiss="modal">{Idioma_Cancelar}</button>
+		</div>
+    </div>
+</div>
+<script>
+document.querySelector("#spinnersolicitar").style.display = 'none';
+function solicitarReunionTurno() {
+	document.querySelector("#spinnersolicitar").style.display = '';
+    var solicitante=$('#pertipo').val();
+    var contraparte=$('#perclasecontraparte').val();
+    var tipo=$('#tiporeu').val();
+    var fechasolicitante=$('#fechasolicitante').val();
+	var horasolicitante=$('#horasolicitante').val();
+	var reuconfnoti= ($('#reuconfnoti').is(':checked'))? '1': '0';
+
+	if( (tipo === '0') || (tipo ==='1') ){
+		solicitarReunionMaestro(solicitante,contraparte, tipo, fechasolicitante,horasolicitante,reuconfnoti);
+	}else{
+		toastr.error('SELECCIONE TIPO DE REUNION', 'ERROR');
+	}
+
+	document.querySelector("#spinnersolicitar").style.display = 'none';	
+}
+
+  var tiporeu=0;
+  tiporeu = $('#pertipo').find(':selected').data('id');
+  var tiporeuselect = $('#tiporeu');
+  
+
+  if (tiporeu==2){
+    tiporeuselect.empty();
+			$("<option/>", {
+				val: '',
+				text: '{Idioma_Seleccione}...'
+			}).appendTo(tiporeuselect);
+    $("<option/>", {
+				val: '0',
+				text: '{reunionesvirtual}'
+			}).appendTo(tiporeuselect);
+    $("<option/>", {
+				val: '1',
+				text: '{reunionespresencial}'
+			}).appendTo(tiporeuselect);
+
+    }else if (tiporeu==0){
+        tiporeuselect.empty();
+			$("<option/>", {
+				val: '0',
+				text: '{reunionesvirtual}'
+			}).appendTo(tiporeuselect);
+
+    }else if (tiporeu==1){
+        tiporeuselect.empty();
+			$("<option/>", {
+				val: '1',
+				text: '{reunionespresencial}'
+			}).appendTo(tiporeuselect);
+
+    }
+
+
+</script>

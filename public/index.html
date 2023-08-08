@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <meta name="description"
+  content="BTBOX _your business toolbox. Todas las soluciones en una plataforma para potenciar tu próximo evento">
+  <meta name="keywords"
+  content="btbox, evento, fisico, hibrido, event, admin, btoolbox, networking, reuniones">
+  <meta name="author" content="BTBOX">
+  <title>Chat - Convex bootstrap 4 admin dashboard template</title>
+  <link rel="apple-touch-icon" sizes="60x60" href="../app-assets/img/ico/apple-icon-60.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../app-assets/img/ico/apple-icon-76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../app-assets/img/ico/apple-icon-120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../app-assets/img/ico/apple-icon-152.png">
+  <link rel="shortcut icon" type="image/x-icon" href="../app-assets/img/ico/favicon.ico">
+  <link rel="shortcut icon" type="image/png" href="../app-assets/img/ico/favicon-32.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link
+    href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900%7CMontserrat:300,400,500,600,700,800,900"
+    rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../app-assets/fonts/feather/style.min.css">
+  <link rel="stylesheet" type="text/css" href="../app-assets/fonts/simple-line-icons/style.css">
+  <link rel="stylesheet" type="text/css" href="../app-assets/fonts/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/perfect-scrollbar.min.css">
+  <link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/prism.min.css">
+  <link rel="stylesheet" type="text/css" href="../app-assets/css/app.css">
+
+  <style>
+    .you {
+      background-color: rgb(15, 132, 179);
+      color: white;
+      border-radius: 5px;
+      padding: 5px;
+    }
+
+    .other {
+      padding: 5px;
+      border-radius: 5px;
+      background-color: rgb(80, 156, 105);
+      color: white;
+    }
+
+    /* sidebar chat */
+    .chat-sidebar.chat-fixed-search {
+      background-color: cadetblue !important;
+      border-radius: 15px !important;
+
+
+
+    }
+
+    .chat-application {
+      width: 100%;
+      margin-top: 40px !important;
+      /* border:blue solid 2px; */
+      height: 86vh !important;
+      border-radius: 15px !important;
+      -webkit-box-shadow: -4px 9px 17px -7px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: -4px 9px 17px -7px rgba(0, 0, 0, 0.75);
+      box-shadow: -4px 9px 17px -7px rgba(0, 0, 0, 0.75);
+    }
+
+    .chat-name {
+      border-radius: 15px;
+      /* margin-left:0px !important; */
+    }
+
+    .chat-fixed-search {
+      border-radius: 15px 15px 0 0;
+      /* border:red solid 2px; */
+    }
+  </style>
+</head>
+
+<body data-col="2-columns" class=" 2-columns ">
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+  <div class="wrapper nav-collapsed menu-collapsed">
+
+    <!-- Menu  -->
+    <div data-active-color="white" data-background-color="black" data-image="../imagenes-evento/menu.jpg"
+      class="app-sidebar">
+
+
+
+      <div class="sidebar-content ">
+        <div class="nav-container">
+          <div class="sidebar-header">
+            <div class="logo clearfix">
+              <a href="../index" class="logo-text d-flex justify-content-center">
+
+                <img class=" p-1" src="../imagenes-evento/logo.jpg" alt="logo" width="50%" />
+              </a>
+            </div>
+          </div>
+          <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main"
+            style="display:{viewadmin}">
+            <li class="has-sub nav-item">
+              <a>
+                <i class="icon-settings"></i>
+                <span data-i18n="" class="menu-title">{Idioma_Configuracion}</span>
+              </a>
+              <ul class="menu-content">
+                <li><a href="../perfiles/bsq" class="menu-item">{Idioma_Perfiles}</a></li>
+                <li class="has-sub">
+                  <a href="">{Idioma_Productos}</a>
+                  <ul class="menu-content">
+                    <li><a href="../sectores/bsq" class="menu-item" style="{btnsectores}">{Idioma_Sectores}</a></li>
+                    <li><a href="../subsectores/bsq" class="menu-item" style="{btnsubsectores}">{Idioma_Subsectores}</a>
+                    </li>
+                    <li><a href="../categorias/bsq" class="menu-item" style="{btncategorias}">{Idioma_Categorias}</a>
+                    </li>
+                    <li><a href="../subcategorias/bsq" class="menu-item" style="{btnsubcategorias}">{Idioma_SubC}</a>
+                    </li>
+                  </ul>
+                </li>
+                <li style="{ParamMenuNoticias}"><a href="../avisos/bsq" class="menu-item">{Idioma_Noticias}</a>
+                </li>
+                <li style="{ParamMenuAgenda}"><a href="../agenda/bsq" class="menu-item">{Idioma_Agenda}</a>
+                </li>
+                <li style="{ParamMenuMensajes}"><a href="../mensajeria/bsq" class="menu-item">{Idioma_Mensajeria}</a>
+                </li>
+                <li style="{ParamMenuAgenda}"><a href="../agenda/bsq" class="menu-item">{Idioma_Agenda}</a>
+                </li>
+                <li style="{ParamMenuMensajes}"><a href="../tipos/bsq" class="menu-item">Tipos De
+                    Perfil</a></li>
+                <li style="{ParamMenuMensajes}"><a href="../clases/bsq" class="menu-item">Clase</a></li>
+                <li style="{ParamMenuMensajes}"><a href="../cupones/bsq" class="menu-item">Cupones</a>
+                </li>
+                <li style="{ParamMenuMensajes}"><a href="../idioma/bsq" class="menu-item">Idioma</a>
+                </li>
+                <li style="{ParamMenuMensajes}"><a href="../pitcher/bsq" class="menu-item">Pitcher</a>
+                </li>
+                <li><a href="../expositores/bsq" class="menu-item">{Idioma_ExpositoresApp}</li>
+                <li><a href="../traduccion/bsq">{Idioma_Tradiccion}</a></li>
+
+                <li style="{ParamMenuExportar}" class="has-sub">
+                  <a>Exportar</a>
+                  <ul class="menu-content">
+                    <li><a href="../exportar/exportarPerfiles.php" class="menu-item" style="#">Perfiles</a>
+                    </li>
+                    <li><a href="../exportar/exportarReuniones.php" class="menu-item" style="#">Reuniones</a></li>
+                    <li><a href="../exportar/exportarChats.php" class="menu-item" style="#">Conversaciones</a></li>
+                    <li><a href="../exportar/exportarQR.php" class="menu-item" style="#">QR
+                        Escaneados</a></li>
+                  </ul>
+                </li>
+                <li style=""><a href="../importar/bsq" class="menu-item" style="">Importar</a></li>
+                <li style="{ParamMenuEncuesta}"><a href="../encuestamst/bsq" class="menu-item">{Idioma_Encuesta}</a>
+                </li>
+
+                <li><a href="../speakers/bsq" class="menu-item">{Idioma_Speakers1}</a></li>
+                <li><a href="../parametros/bsq" class="menu-item">{Idioma_Parametros}</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
+            <li class="has-sub nav-item">
+              <a>
+                <i class="icon-list"></i>
+                <span data-i18n="" class="menu-title">Asistentes</span>
+              </a>
+              <ul class="menu-content">
+                <li><a href="../directorio/bsq" class="menu-item">{Idioma_Buscar}</a></li>
+                <li><a href="../directorio/bsq?R" class="menu-item">{Idioma_Recomendados}</a></li>
+                <li class="has-sub">
+                  <a>{Idioma_Reuniones}</a>
+                  <ul class="menu-content">
+                    <input type="hidden" id="fltbuscar" name="fltbuscar" value="{fltbuscar}">
+                    <li {fltbuscaractive_1}><a href="../.reuniones/bsq?T=1"
+                        class="menu-item">{Idioma_ReunionesEnviadas}<span id="cantenv"
+                          class="tag badge badge-pill badge-primary mt-1">{cantEnviados}</span></a>
+                    </li>
+                    <li {fltbuscaractive_2}><a href="../reuniones/bsq?T=2"
+                        class="menu-item">{Idioma_ReunionesRecibidas}<span id="cantrec"
+                          class="tag badge badge-pill badge-primary mt-1">{cantRecibidos}</span></a>
+                    </li>
+                    <li {fltbuscaractive_3}><a href="../reuniones/bsq?T=3"
+                        class="menu-item">{Idioma_ReunionesConfirmadas}<span id="cantcon"
+                          class="tag badge badge-pill badge-primary mt-1">{cantConfirmados}</span></a>
+                    </li>
+                    <li {fltbuscaractive_4}><a href="../reuniones/bsq?T=4"
+                        class="menu-item">{Idioma_ReunionesCanceladas}<span id="cantcan"
+                          class="tag badge badge-pill badge-primary mt-1">{cantCanceladas}</span></a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main"
+            style="{ParamMenuActividades}">
+            <li class="nav-item ">
+              <a href="../stand/bsq">
+                <i class="icon-badge"></i>
+                <span data-i18n="" class="menu-title">Sponsor</span>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a>
+                <i class="icon-speech"></i>
+                <span data-i18n="" class="menu-title">Mensajes</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="../actividades/bsq">
+                <i class=" fa fa-tasks"></i>
+                <span data-i18n="" class="menu-title">Programa</span>
+              </a>
+            </li>
+
+            <li class="nav-item ">
+              <a>
+                <i class="icon-user"></i>
+                <span data-i18n="" class="menu-title">Speakers</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="../calendario/bsq">
+                <i class="icon-calendar"></i>
+                <span data-i18n="" class="menu-title">Reuniones</span>
+              </a>
+            </li>
+
+
+            <li class="nav-item ">
+              <a>
+                <i class="icon-bubbles"></i>
+                <span data-i18n="" class="menu-title">Noticias</span>
+              </a>
+            </li>
+
+
+            <li class="nav-item ">
+              <a>
+                <i class="icon-bubbles"></i>
+                <span data-i18n="" class="menu-title">Credihub</span>
+              </a>
+            </li>
+          </ul>
+          <!-- Configuracion -->
+          <!-- <div id="conf">
+              
+              <button type="button" class="btn btn-outline-warning" >
+    
+                  <i class="fa fa-cogs"> <a  href="../../configuracion/bsq.php" >Configuración</a> </i>
+    
+              </button>
+            </div>  -->
+          <!-- End configuracion -->
+        </div>
+      </div>
+      <div class="sidebar-background"></div>
+    </div>
+
+
+    <!-- Menu End -->
+
+    <!-- Barra de navegacion Top -->
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-faded">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" class="navbar-toggle d-lg-none float-left">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="d-lg-none navbar-right navbar-collapse-toggle">
+            <a class="open-navbar-container"><i class="ft-more-vertical"></i></a>
+          </span>
+        </div>
+
+        <div class="navbar-container ">
+          <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+
+              <li class="dropdown nav-item mt-1 " id="notigroup">
+                <a id="dropdownBasic2" <<onclick="notificationupd()" data-toggle="dropdown"
+                  class="nav-link position-relative dropdown-toggle">
+                  <i class="ft-bell blue-grey darken-4"></i>
+
+                  <span class="notification badge badge-pill badge-danger" id="notinum"> </span>
+
+                  <p class="d-none">Notifications</p>
+
+                </a>
+
+                <div class="notification-dropdown dropdown-menu dropdown-menu-right " id="notiopen">
+                  <div class="arrow_box_right">
+                    <div class="noti-list" id="notification">
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+
+
+              <li class="dropdown nav-item mr-0">
+                <a id="dropdownBasic3" data-toggle="dropdown"
+                  class="nav-link position-relative dropdown-user-link dropdown-toggle">
+                  <span class="avatar avatar-online">
+                    <img id="navbar-avatar" src="{peravatar}" alt="avatar" title="{pernombre} {perapelli}" />
+                  </span>
+                  <p class="d-none">Usuario</p>
+                </a>
+                <div aria-labelledby="dropdownBasic3" class="dropdown-menu dropdown-menu-right">
+                  <div class="arrow_box_right">
+                    <a href="../../perfiles/miperfil" class="dropdown-item py-1">
+                      <i class="ft-edit mr-2"></i>
+                      <span>{Idioma_miPerfil}</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="../../login" class="dropdown-item">
+                      <i class="ft-power mr-2"></i>
+                      <span>{Idioma_Salir}</span>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- End Barra de navegación nav top -->
+
+
+
+    <div class="main-panel">
+      <div class="main-content">
+        <div class="content-wrapper">
+          <div class="container-fluid">
+            <div class="chat-application mt-2">
+
+
+              <br>
+              <br>
+
+              <div class="content-overlay"></div>
+              <div class="chat-sidebar float-left d-none d-sm-none d-md-block d-lg-block">
+                <div class="chat-sidebar-content">
+                  <div class="chat-fixed-search p-2">
+                    <!-- <div class="row">
+          <div class="col-md-6" style="background-color: rgb(199, 151, 61);color:white; padding: 20px;">
+            <h5>Bienvenido</h5>
+         
+          </div>
+          <div class="col-md-6 float-left text-left">
+            <span>{pernombre}</span>
+          </div>
+        </div> -->
+                    {pernombre}
+                    <form>
+                      <div class="position-relative has-icon-left">
+                        <input class="form-control" id="timesheetinput1" name="employeename" type="text">
+                        <div class="form-control-position">
+                          <i class="ft-user"></i>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <br>
+                  <div id="users-list" class="list-group position-relative">
+                    <div class="users-list-padding" id="users">
+
+                      <input class="user-input" type="hidden" value="{pernombre}">
+                      <!-- <a class="list-group-item bg-blue-grey bg-lighten-5 border-right-primary border-right-2">  
+            <span class="media">
+              <span class="avatar avatar-md avatar-online mr-2">
+                <img class="media-object d-flex mr-3 bg-primary rounded-circle" src="../app-assets/img/portrait/small/avatar-s-1.jpg"
+                  alt="Generic placeholder image">
+                <i></i>
+              </span>
+              <div class="media-body">
+                <h6 class="list-group-item-heading ">{pernombre}
+                  <span class="float-right info">4:14 AM</span>
+                </h6>
+                <p class="list-group-item-text text-muted">
+                  <i class="ft-check info font-small-2"></i> Okay
+                  <span class="float-right info">
+                    <i class="font-medium-1 icon-pin blue-grey lighten-3"></i>
+                  </span>
+                </p>
+              </div>
+            </span>
+          </a> -->
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="chat-name p-2 bg-white">
+                <div class="media">
+                  <span
+                    class="chat-app-sidebar-toggle ft-align-justify font-large-1 mr-2 d-none d-block d-sm-block d-md-none"></span>
+                  <img src="../app-assets/img/portrait/small/avatar-s-1.jpg" width="37" class="rounded-circle mr-1"
+                    alt="avatar" />
+                  <div class="media-body ">
+                    <span class="float-left datamedia">
+                      <span id="userdest">
+
+                      </span>
+                      <span id="userdest2">
+
+                      </span>
+                      <p class="success font-small-2">Online2</p>
+                    </span>
+                    <i class="ft-more-vertical float-right mt-1"></i>
+                  </div>
+                </div>
+              </div>
+              <section class="chat-app-window">
+                <div class="badge badge-dark mb-1">Chat History</div>
+                <div class="chats ">
+                  <div class="chats">
+                    <div id="cont_messages"></div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <p class="typing mt-3"></p>
+                </div>
+              </section>
+              <section class="chat-app-form bg-blue-grey bg-lighten-5">
+                <form class="chat-app-input row contentbutton" id="formData">
+                  <fieldset class="form-group position-relative has-icon-left col-lg-10 col-8 m-0">
+                    <div class="form-control-position">
+                      <i class="icon-emoticon-smile"></i>
+                    </div>
+                    <input type="hidden" id="destinatario" name="" placeholder="destinatario">
+                    <input type="text" class="form-control msg-input" id="mensaje" placeholder="Type your message">
+                    <div class="form-control-position control-position-right">
+                      <i class="ft-image"></i>
+                    </div>
+                  </fieldset>
+                  <fieldset class="form-group position-relative has-icon-left col-lg-2 col-4 m-0 " id="contentbutton">
+                    <button type="button" class="btn btn-info send" onclick="enviar_msj()">
+                      <i class="fa fa-paper-plane-o hidden-lg-up"></i> Send</button>
+                  </fieldset>
+                </form>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <footer class="footer footer-static footer-light">
+          <p class="clearfix text-muted text-center px-2"><span>Copyright  &copy; 2018 <a href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" id="pixinventLink" target="_blank" class="text-bold-800 primary darken-2">PIXINVENT </a>, All rights reserved. </span></p>
+        </footer> -->
+
+    </div>
+  </div>
+
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+  <aside id="notification-sidebar" class="notification-sidebar d-none d-sm-none d-md-block"><a
+      class="notification-sidebar-close"><i class="ft-x font-medium-3"></i></a>
+    <div class="side-nav notification-sidebar-content">
+      <div class="row">
+        <div class="col-12 mt-1">
+          <ul class="nav nav-tabs">
+            <li class="nav-item"><a id="base-tab1" data-toggle="tab" aria-controls="base-tab1" href="#activity-tab"
+                aria-expanded="true" class="nav-link active"><strong>Activity</strong></a></li>
+            <li class="nav-item"><a id="base-tab2" data-toggle="tab" aria-controls="base-tab2" href="#settings-tab"
+                aria-expanded="false" class="nav-link"><strong>Settings</strong></a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="activity-tab" role="tabpanel" aria-expanded="true" aria-labelledby="base-tab1"
+              class="tab-pane active">
+              <div id="activity-timeline" class="col-12 timeline-left">
+                <h6 class="mt-1 mb-3 text-bold-400">RECENT ACTIVITY</h6>
+                <div class="timeline">
+                  <ul class="list-unstyled base-timeline activity-timeline ml-0">
+                    <li>
+                      <div class="timeline-icon bg-danger"><i class="ft-shopping-cart"></i></div>
+                      <div class="base-timeline-info"><a href="#" class="text-uppercase text-danger">Update</a><span
+                          class="d-block">Jim Doe Purchased new equipments for zonal office.</span></div><small
+                        class="text-muted">just now</small>
+                    </li>
+                    <li>
+                      <div class="timeline-icon bg-primary"><i class="fa fa-plane"></i></div>
+                      <div class="base-timeline-info"><a href="#" class="text-uppercase text-primary">Added</a><span
+                          class="d-block">Your Next flight for USA will be on 15th August 2015.</span></div><small
+                        class="text-muted">25 hours ago</small>
+                    </li>
+                    <li>
+                      <div class="timeline-icon bg-dark"><i class="ft-mic"></i></div>
+                      <div class="base-timeline-info"><a href="#" class="text-uppercase text-dark">Assined</a><span
+                          class="d-block">Natalya Parker Send you a voice mail for next conference.</span></div><small
+                        class="text-muted">15 days ago</small>
+                    </li>
+                    <li>
+                      <div class="timeline-icon bg-warning"><i class="ft-map-pin"></i></div>
+                      <div class="base-timeline-info"><a href="#" class="text-uppercase text-warning">New</a><span
+                          class="d-block">Jessy Jay open a new store at S.G Road.</span></div><small
+                        class="text-muted">20 days ago</small>
+                    </li>
+                    <li>
+                      <div class="timeline-icon bg-primary"><i class="ft-inbox"></i></div>
+                      <div class="base-timeline-info"><a href="#" class="text-uppercase text-primary">Added</a><span
+                          class="d-block">voice mail for conference.</span></div><small class="text-muted">2 Week
+                        Ago</small>
+                    </li>
+                    <li>
+                      <div class="timeline-icon bg-danger"><i class="ft-mic"></i></div>
+                      <div class="base-timeline-info"><a href="#" class="text-uppercase text-danger">Update</a><span
+                          class="d-block">Natalya Parker Jessy Jay open a new store at S.G Road.</span></div><small
+                        class="text-muted">1 Month Ago</small>
+                    </li>
+                    <li>
+                      <div class="timeline-icon bg-dark"><i class="ft-inbox"></i></div>
+                      <div class="base-timeline-info"><a href="#" class="text-uppercase text-dark">Assined</a><span
+                          class="d-block">Natalya Parker Send you a voice mail for Updated conference.</span></div>
+                      <small class="text-muted">1 Month ago</small>
+                    </li>
+                    <li>
+                      <div class="timeline-icon bg-warning"><i class="ft-map-pin"></i></div>
+                      <div class="base-timeline-info"><a href="#" class="text-uppercase text-warning">New</a><span
+                          class="d-block">Started New project with Jessie Lee.</span></div><small class="text-muted">2
+                        Month ago</small>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div id="settings-tab" aria-labelledby="base-tab2" class="tab-pane">
+              <div id="settings" class="col-12">
+                <h6 class="mt-1 mb-3 text-bold-400">GENERAL SETTINGS</h6>
+                <ul class="list-unstyled">
+                  <li>
+                    <div class="togglebutton">
+                      <div class="switch"><span class="text-bold-500">Notifications</span>
+                        <div class="float-right">
+                          <div class="form-group">
+                            <div class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                              <input id="notifications1" checked="checked" type="checkbox" class="custom-control-input">
+                              <label for="notifications1" class="custom-control-label"></label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p>Use checkboxes when looking for yes or no answers.</p>
+                  </li>
+                  <li>
+                    <div class="togglebutton">
+                      <div class="switch"><span class="text-bold-500">Show recent activity</span>
+                        <div class="float-right">
+                          <div class="form-group">
+                            <div class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                              <input id="recent-activity1" checked="checked" type="checkbox"
+                                class="custom-control-input">
+                              <label for="recent-activity1" class="custom-control-label"></label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p>The for attribute is necessary to bind our custom checkbox with the input.</p>
+                  </li>
+                  <li>
+                    <div class="togglebutton">
+                      <div class="switch"><span class="text-bold-500">Notifications</span>
+                        <div class="float-right">
+                          <div class="form-group">
+                            <div class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                              <input id="notifications2" type="checkbox" class="custom-control-input">
+                              <label for="notifications2" class="custom-control-label"></label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p>Use checkboxes when looking for yes or no answers.</p>
+                  </li>
+                  <li>
+                    <div class="togglebutton">
+                      <div class="switch"><span class="text-bold-500">Show recent activity</span>
+                        <div class="float-right">
+                          <div class="form-group">
+                            <div class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                              <input id="recent-activity2" type="checkbox" class="custom-control-input">
+                              <label for="recent-activity2" class="custom-control-label"></label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p>The for attribute is necessary to bind our custom checkbox with the input.</p>
+                  </li>
+                  <li>
+                    <div class="togglebutton">
+                      <div class="switch"><span class="text-bold-500">Show your emails</span>
+                        <div class="float-right">
+                          <div class="form-group">
+                            <div class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                              <input id="show-emails" type="checkbox" class="custom-control-input">
+                              <label for="show-emails" class="custom-control-label"></label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p>Use checkboxes when looking for yes or no answers.</p>
+                  </li>
+                  <li>
+                    <div class="togglebutton">
+                      <div class="switch"><span class="text-bold-500">Show Task statistics</span>
+                        <div class="float-right">
+                          <div class="form-group">
+                            <div class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                              <input id="show-stats" checked="checked" type="checkbox" class="custom-control-input">
+                              <label for="show-stats" class="custom-control-label"></label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p>The for attribute is necessary to bind our custom checkbox with the input.</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+
+  <!-- BEGIN VENDOR JS-->
+  <script src="../app-assets/vendors/js/core/jquery-3.3.1.min.js"></script>
+  <script src="../app-assets/vendors/js/core/popper.min.js"></script>
+  <script src="../app-assets/vendors/js/core/bootstrap.min.js"></script>
+  <script src="../app-assets/vendors/js/perfect-scrollbar.jquery.min.js"></script>
+  <script src="../app-assets/vendors/js/prism.min.js"></script>
+  <script src="../app-assets/vendors/js/jquery.matchHeight-min.js"></script>
+  <script src="../app-assets/vendors/js/screenfull.min.js"></script>
+  <script src="../app-assets/vendors/js/pace/pace.min.js"></script>
+  <!-- BEGIN VENDOR JS-->
+  <!-- BEGIN PAGE VENDOR JS-->
+  <!-- END PAGE VENDOR JS-->
+  <!-- BEGIN CONVEX JS-->
+  <script src="../app-assets/js/app-sidebar.js"></script>
+  <script src="../app-assets/js/notification-sidebar.js"></script>
+  <!-- END CONVEX JS-->
+  <!-- BEGIN PAGE LEVEL JS-->
+  <script src="../app-assets/js/chat.js"></script>
+  <!-- END PAGE LEVEL JS-->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+
+  <script src="sockets.js"></script>
+  <script>
+
+    // let useronline = $(".datauser").val();
+    // console.log($(".datauser").val());
+
+
+    //Logueo Automático
+    usuario = '{pernombre}';
+    data = {
+      "usuario": usuario
+    };
+    //console.log(data)
+    socket.emit('datos_usuario', data);
+  </script>
+</body>
+
+</html>

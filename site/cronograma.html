@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+	
+	
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Congreso 2019</title>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<!-- Chrome, Firefox OS and Opera -->
+		<meta name="theme-color" content="#85BC3C">
+		<!-- Windows Phone -->
+		<meta name="msapplication-navbutton-color" content="#85BC3C">
+		<!-- iOS Safari -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="#85BC3C">
+		<!--FONT RALEWAY-->
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+		<!--FONT ROBOTO-->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,900&display=swap" rel="stylesheet">		<!--JQUERY
+		<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+		  crossorigin="anonymous"></script>-->
+		<!--BOOSTRAP
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>-->
+		
+		<!-- Material Design for Bootstrap CSS -->
+		<link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    	<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+    	<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    	<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+		
+		<!--Font Awesome-->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+		<!--AOS-->
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+		<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+   		<link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />    
+		<script src="https://unpkg.com/gijgo@1.9.13/js/messages/messages.es-es.js" type="text/javascript"></script>
+		
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-title" content="Congreso Aapresid">
+		<link rel="apple-touch-icon" href="<?php echo $this->Html->url('/img/aap-icon_192.png'); ?>">
+
+		<meta name="description" content="Congreso - Aapresid">
+
+		<link href="css/swiper.min.css" rel="stylesheet" type="text/css" />    
+		<link href="css/lightgallery.css" rel="stylesheet" type="text/css" />    
+		<link href="css/style12.css" rel="stylesheet" type="text/css" />   
+		<script src="js/lightgallery.js" type="text/javascript"></script> 
+		<script src="js/lightgallery-all.min.js" type="text/javascript"></script> 
+		<script src="js/default11.js" type="text/javascript"></script> 
+		
+	</head>
+	<body>  
+    <header class="container-fluid">
+      <div class="row justify-content-between"> 
+      
+          <nav class="navbar navbar-expand-lg menu menu-user fixed-top">
+              <div class="container">    
+                  <a class="navbar-brand" href="/"><img src="img/logo_aapresid_01.svg"></a>
+            <button class="navbar-toggler first-button float-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="animated-icon1"><span></span><span></span><span></span></div>
+            </button>
+            
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse pl-5" id="navbarSupportedContent" >
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="speakers">Disertantes <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="cronograma">Programa</a>
+                </li>
+                <!-- <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dropdown
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </li> -->
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="sponsors">Nos acompañan</a>
+                </li>
+                </ul>
+              
+              </div>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav user-menu order-0">
+                  
+                  
+                  <li class="mobile-item link-no-desktop">
+                    <a class="nav-link " href="" title=""><p class="link-no-desktop"><i class="fas fa-user"></i><span class="spanish">Ver mi perfil</span><span class="english">View my profile</span></p></a>										
+                  </li> 
+                  <li class="divider"></li>
+                  
+
+                  <li class="dropdown link-no-mobile">
+                    <a href="#" role="button" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="" ?><i class="fas fa-user"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownUser">
+                      <!---Este va para ver perfil-->
+                      <a class="nav-link" href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'view'));?>" title="<?php if(!empty($_COOKIE['idiomaIngles'])) { echo 'View my profile';} else { echo 'Ver mi perfil'; } ?>"><span class="spanish">VER MI PERFIL</span><span class="english">VIEW MY PROFILE</span></a>
+                      <!---Este va para cerrar perfil-->
+                      <a class="nav-link" href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'logout'));?>" title="CERRAR SESIÓN"><span class="spanish">CERRAR SESIÓN</span><span class="english">SIGN OFF</span></a>
+                    </div>
+                  </li>
+                  <li><a class="nav-link activelink" id="select-spanish">Esp </a></li> 
+                  <li class="nav-link separete">|</li>
+                  <li><a class="nav-link" id="select-english" >Eng</a></li>
+                </ul>
+              </div>
+            </div>   
+              </div>    
+          </nav>
+      </div>
+  </header>
+	
+    <div class="container">  
+    <div class="row justify-content-between  align-items-center">
+      <div class="col-md-8 col-12">    
+      <h2 class="spanish">Cronograma</h2>
+      <h2 class="english" style="display: none;">Agenda</h2>
+      </div>
+      <div class="col-md-4 boton-descarga"> 
+         
+        <a class="donwload-3 btn-lg spanish" target="new" href="./uploads/Page/2/AAP-Programa-Diario-m-j-v.pdf" download="">DESCARGA <i class="fas fa-arrow-down"></i></a>
+        <a class="donwload-3 btn-lg english" target="new" href="./uploads/Page/2/AAP-Programa-Diario-m-j-v.pdf" download="" style="display: none;">DOWNLOAD <i class="fas fa-arrow-down"></i></a>
+            </div>
+    </div>  
+  </div>  
+    <div class="container container-fluid-crograma">           
+      <div class="row justify-content-end">
+        <div class="col-lg-8 col-sm-12 col-12">  
+                      <ul class="nav justify-content-center" id="evento-dias">
+                              <li>
+                  <a class="nav-link activelink" id="day_0"><span class="spanish">Miércoles 7</span><span class="english" style="display: none;">Wednesday 7</span></a>
+                </li>
+                              <li>
+                  <a class="nav-link " id="day_1"><span class="spanish">Jueves 8</span><span class="english" style="display: none;">Thursday 8</span></a>
+                </li>
+                              <li>
+                  <a class="nav-link " id="day_2"><span class="spanish">Viernes 9</span><span class="english" style="display: none;">Friday 9</span></a>
+                </li>
+                          </ul>
+                  </div>
+        <!-- Botones -->
+                              <div class="col-lg-1 col-md-3 col-sm-3 buttom-day buttom-day-0">
+              <div class="swiper-button-prev swiper-button-prev-0 swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"><i class="fas fa-arrow-left"></i></div>
+              <div class="swiper-button-next swiper-button-next-0" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"><i class="fas fa-arrow-right "></i></div>
+            </div>
+                      <div class="col-lg-1 col-md-3 col-sm-3 buttom-day buttom-day-1" style="display: none;">
+              <div class="swiper-button-prev swiper-button-prev-1"><i class="fas fa-arrow-left"></i></div>
+              <div class="swiper-button-next swiper-button-next-1"><i class="fas fa-arrow-right "></i></div>
+            </div>
+                      <div class="col-lg-1 col-md-3 col-sm-3 buttom-day buttom-day-2" style="display: none;">
+              <div class="swiper-button-prev swiper-button-prev-2"><i class="fas fa-arrow-left"></i></div>
+              <div class="swiper-button-next swiper-button-next-2"><i class="fas fa-arrow-right "></i></div>
+            </div>
+                        </div>
+    </div> 
+    <div class="container-fluid"> 
+                              <div class="dias" id="day0">
+              <div class="colum-time">
+                <table class="table-striped" width="100%" cellspacing="0">
+                   <tbody>
+                      <tr>
+                        <td class="cell-hour"><span class="spanish">HORA</span><span class="english" style="display: none;">HOUR</span></td>
+                      </tr>
+                                              <tr>
+                          <td>09:00 - 10:00</td>
+                        </tr>
+                                              <tr>
+                          <td>10:00 - 11:00</td>
+                        </tr>
+                                              <tr>
+                          <td class="cell-lightgreen">11:00 - 11:30</td>
+                        </tr>
+                                              <tr>
+                          <td>11:30 - 13:00 </td>
+                        </tr>
+                                              <tr>
+                          <td class="cell-lightgreen">13:00 - 14:30</td>
+                        </tr>
+                        <tr>
+                          <td>14:30 - 15:30</td>
+                        </tr>
+                        <tr>
+                          <td>15:30 - 16:30</td>
+                        </tr>
+                        <tr>
+                          <td class="cell-lightgreen">16:30 - 17:00</td>
+                        </tr>
+                                              <tr>
+                                                <td>17:00 - 18:30</td>
+                                              </tr>
+                                        </tbody>
+                </table>
+              </div>
+              <div class="cronograma-container">
+
+                <div class="swiper-container-0 swiper-container-horizontal swiper-container-free-mode">
+
+                  <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                    <!-- BEGIN dias -->
+                    <div class="swiper-slide swiper-slide-active" style="width: 418.703px;"> 
+                      <table class="table-striped" width="100%" cellspacing="0">
+                        <tbody>
+                          <tr>
+                            <!-- BEGIN tabs -->
+                            <td class="cell-green">{dia}</td>
+                            <!-- END tabs -->
+                          </tr>
+                          <!-- BEGIN actividades -->
+                          <tr>
+                            <td class="cell-grey">
+                              <p>
+                                <span>{agetitulo}</span>
+                                <span class="spanish">{agedescri}</span>
+                                <i class="fas fa-headphones float-right"></i>
+                              </p>
+                          <p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </td>
+                          </tr>
+                          <!-- END actividades -->
+                                          
+                         </tbody>
+                        </table>
+                    </div>
+                    <!-- END dias -->
+                                               
+                       </div>
+                  <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div> 
+                </div> 
+                          </div>  
+                                       
+     </div>  
+                             
+   
+                      <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<script type="text/javascript">
+ 
+ /**Cronograma */
+                      var swiper = new Swiper('.swiper-container-0', {
+              slidesPerView: 4.01,
+              speed: 1000,
+              loop: false,
+              freeMode: true,
+              pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+              },
+                navigation: {
+                nextEl: '.swiper-button-next-0',
+               prevEl: '.swiper-button-prev-0',
+              },
+              // Responsive breakpoints
+                breakpoints: {
+                  // when window width is <= 320px
+                  320: {
+                    slidesPerView: 1.1,
+                  },
+                  // when window width is <= 480px
+                  480: {
+                    slidesPerView: 1.1,
+                  },
+                  // when window width is <= 640px
+                  640: {
+                    slidesPerView:2.01,
+                  }
+                }
+            });
+            $('#day_0').click(function(){
+          $('div[id^=day]').hide();
+          $('#day0').fadeIn();
+          $('.buttom-day').hide();
+          $('.buttom-day-0').fadeIn();
+          var swiper = new Swiper('.swiper-container-0', {
+              slidesPerView: 4.01,
+              speed: 1000,
+              loop: false,
+              freeMode: true,
+              pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+              },
+                navigation: {
+                nextEl: '.swiper-button-next-0',
+                prevEl: '.swiper-button-prev-0',
+              },
+              // Responsive breakpoints
+                breakpoints: {
+                  // when window width is <= 320px
+                  320: {
+                    slidesPerView: 1.1,
+                  },
+                  // when window width is <= 480px
+                  480: {
+                    slidesPerView: 1.1,
+                  },
+                  // when window width is <= 640px
+                  640: {
+                    slidesPerView:2.01,
+                  }
+                }
+            });
+          });
+                  $('#day1').hide();
+        $('.buttom-day-1').hide();
+            $('#day_1').click(function(){
+          $('div[id^=day]').hide();
+          $('#day1').fadeIn();
+          $('.buttom-day').hide();
+          $('.buttom-day-1').fadeIn();
+          var swiper = new Swiper('.swiper-container-1', {
+              slidesPerView: 4.01,
+              speed: 1000,
+              loop: false,
+              freeMode: true,
+              pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+              },
+                navigation: {
+                nextEl: '.swiper-button-next-1',
+                prevEl: '.swiper-button-prev-1',
+              },
+              // Responsive breakpoints
+                breakpoints: {
+                  // when window width is <= 320px
+                  320: {
+                    slidesPerView: 1.1,
+                  },
+                  // when window width is <= 480px
+                  480: {
+                    slidesPerView: 1.1,
+                  },
+                  // when window width is <= 640px
+                  640: {
+                    slidesPerView:2.01,
+                  }
+                }
+            });
+          });
+                  $('#day2').hide();
+        $('.buttom-day-2').hide();
+            $('#day_2').click(function(){
+          $('div[id^=day]').hide();
+          $('#day2').fadeIn();
+          $('.buttom-day').hide();
+          $('.buttom-day-2').fadeIn();
+          var swiper = new Swiper('.swiper-container-2', {
+              slidesPerView: 4.01,
+              speed: 1000,
+              loop: false,
+              freeMode: true,
+              pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+              },
+                navigation: {
+                nextEl: '.swiper-button-next-2',
+                prevEl: '.swiper-button-prev-2',
+              },
+              // Responsive breakpoints
+                breakpoints: {
+                  // when window width is <= 320px
+                  320: {
+                    slidesPerView: 1.1,
+                  },
+                  // when window width is <= 480px
+                  480: {
+                    slidesPerView: 1.1,
+                  },
+                  // when window width is <= 640px
+                  640: {
+                    slidesPerView:2.01,
+                  }
+                }
+            });
+          });
+    
+</script>
+
+		<footer>
+		    <div class="container">
+		        <div class="row">         
+		            <div class="col-lg-2 col-md-2">
+						<h5 class="spanish">CONTACTO</h5> 
+						<h5 class="english">CONTACT</h5> 
+						<p class="spanish">Oficina AAPRESID</p>
+						<p class="english">Aapresid Office</p>
+		                <p>+54 341 4260745/46</p>
+		                <p>aapresid@aapresid.org.ar </p>      
+		            </div>
+		            <div class="col-lg-2 link-no-mobile">
+					<h5 class="spanish">ACCESOS</h5> 
+						<h5 class="english">ACCESS</h5> 
+						<a href="<?php echo $this->Html->url(array('controller' => 'pages', 'action' => 'sobreelcongreso')); ?>"><span class="spanish" title="Asistentes">Asistentes</span><span class="english" title="Attendes">Attendees</span></a> 
+						<a href="<?php echo $this->Html->url(array('controller' => 'benefits', 'action' => 'index')); ?>"><span class="spanish" title="Beneficios a Asistentes">Beneficios a Asistentes</span><span class="english" title="Benefits for attendees">Benefits for attendees</span></a> 
+						<a class="spanish" data-toggle="modal" data-target=".faq" class="boton-sobre-congreso"  title="Preguntas Frecuentes">Preguntas Frecuentes</a> 
+						<a class="english" data-toggle="modal" data-target=".faq-eng" class="boton-sobre-congreso"  title="FAQ">FAQ</a> 
+						<a href="<?php echo $this->Html->url(array('controller' => 'tourists', 'action' => 'view')); ?>" ><span class="spanish" title="Turismo">Turismo</span><span class="english" title="Tourism">Tourism</span></a>
+						<a href="<?php echo $this->Html->url(array('controller' => 'pages', 'action' => 'cronograma')); ?>"><span class="spanish" title="Cronograma">Cronograma</span><span class="english" title="Agenda">Agenda</span></a> 
+		                <a href="<?php echo $this->Html->url(array('controller' => 'speakers', 'index' => 'disertantes')); ?>"><span class="spanish" title="Disertantes">Disertantes</span><span class="english" title="Speakers">Speakers</span></a> 
+		                <a href="<?php echo $this->Html->url(array('controller' => 'companions', 'action' => 'index')); ?>"><span class="spanish" title="Nos Acompañan">Nos Acompañan</span><span class="english" title="Support">Support</span></a> 
+						<a href="<?php echo $this->Html->url(array('controller' => 'pages', 'action' => 'indumentaria_oficial')); ?>"><span class="spanish" title="Indumentaria Oficial">Indumentaria Oficial</span><span class="english" title="Official wear">Official wear</span></a> 
+						<a href="<?php echo $this->Html->url(array('controller' => 'gacetillas', 'action' => 'prensa')); ?>"><span class="spanish" title="Prensa">Prensa</span><span class="english" title="Press">Press</span></a> 
+		                <a href="<?php echo $this->Html->url(array('controller' => 'pages', 'action' => 'patrocinantes')); ?>"><span class="spanish" title="Patrocinantes">Patrocinantes</span><span class="english" title="Sponsors">Sponsors</span></a> 
+						<a target="new" href="https://www.eventosagr.com/aapresid" title="Streaming">Streaming</a> 
+						<a href="<?php echo $this->Html->url(array('controller' => 'congress_albums', 'action' => 'index')); ?>"><span class="spanish" title="Fotos del Congreso">Fotos del Congreso</span><span class="english" title="Congress photos">Congress photos</span></a> 
+						<a href="<?php echo $this->Html->url(array('controller' => 'pages', 'action' => 'agtech')); ?>" title="Agtech">Agtech</a></li>
+		            </div>
+		            <div class="col-lg-3">
+					<h5 class="spanish">INFORMACIÓN ADICIONAL</h5> 
+						<h5 class="english">ADDITIONAL INFORMATION</h5> 
+						<a class="spanish" target="_blanck" href="https://metropolitanoros.com.ar/" title="Metropolitano">Metropolitano</a>     
+						<a class="spanish" target="_blanck" href="https://www.google.com.ar/maps/place/Metropolitano+Rosario/@-32.9289278,-60.6716869,17z/data=!3m1!4b1!4m5!3m4!1s0x95b654ab95c3334d:0x7224cf8ee87e72c9!8m2!3d-32.9289323!4d-60.6694982" title="Ubicación">Ubicación</a>      
+						<a class="english" target="_blanck" href="https://metropolitanoros.com.ar/" title="Place">Place</a><BR>  
+						<a class="english" target="_blanck" href="https://www.google.com.ar/maps/place/Metropolitano+Rosario/@-32.9289278,-60.6716869,17z/data=!3m1!4b1!4m5!3m4!1s0x95b654ab95c3334d:0x7224cf8ee87e72c9!8m2!3d-32.9289323!4d-60.6694982" title="Location">Location</a>      
+		            </div>
+		            <div class="col-lg-5">
+						<a class="logo-footer" href=""><img src="img/logo_aapresid_white.svg"></a>
+		            </div>
+            	</div>           
+				<div class="d-flex justify-content-between">
+					<div class="p-2">
+						<h6>© AAPRESID 2019</h6>
+					</div>
+					</div>
+				</div>
+		    </div>    
+		</footer>  
+
+
+		<script type="text/javascript">
+				if (Boolean(readCookie('idiomaIngles'))) {
+					$('.english').fadeIn();
+					$('.spanish').hide();
+					$('#select-english').addClass('active-idiom');
+				}else{
+					$('.english').hide();
+					$('.spanish').fadeIn();
+				}
+				/*Si se hace el click sobre el boton English*/    
+				$('#select-english').click(function (e) {
+					$(this).addClass('active-idiom');
+					$('.english').fadeIn();
+					$('.spanish').hide();
+					e.stopPropagation();
+
+					createCookie('idiomaIngles', true, 1);
+					createCookie2('idiomaEspaniol', "", -1);
+
+					return false;
+				});
+
+				/*Crea el cookie por un dia*/    
+				function createCookie(idioma, value, days) {
+					if (days == 1) {
+						var date = new Date();
+						date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+						var expires = "; expires=" + date.toGMTString();
+					}
+					else var expires2 = "";
+					document.cookie = idioma + "=" + value + "; expires=" + expires + "; path=/";
+
+				//  $.cookie(name, value, { expires: days });
+				}
+
+				function readCookie(idioma) {
+					var idiomaEQ = idioma + "=";
+					var ca = document.cookie.split(';');
+					for (var i = 0; i < ca.length; i++) {
+						var c = ca[i];
+						while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+						if (c.indexOf(idiomaEQ) == 0) return c.substring(idiomaEQ.length, c.length);
+					}
+					return null;
+				}
+
+				/*Busca el cookie y si esta muestra los textos en español estan*/    
+				if (Boolean(readCookie('idiomaEspaniol'))) {
+					$('#select-spanish').addClass('active-idiom');
+					$('.english').hide();
+					$('.spanish').fadeIn();
+				}
+				/*Si se hace el click sobre el boton Español*/    
+				$('#select-spanish').click(function (e) {
+					$(this).addClass('active-idiom');
+					$('.spanish').fadeIn();
+					$('.english').hide();
+
+					e.stopPropagation();
+					createCookie('idiomaIngles', "", -1);
+					createCookie2('idiomaEspaniol', true, 1);
+					return false;
+				});
+
+				function createCookie2(idioma, value, days) {
+					if (days == 1) {
+						var date = new Date();
+						date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+						var expires = "; expires=" + date.toGMTString();
+					}
+					else var expires2 = "";
+					document.cookie = idioma + "=" + value + "; expires=" + expires + "; path=/";
+
+        }
+			function checkPass()
+			{
+			    //Store the password field objects into variables ...
+			    var password = document.getElementById('password2');
+			    var confirm  = document.getElementById('confirm2');
+			    //Store the Confirmation Message Object ...
+			    var message = document.getElementById('confirm-message2');
+			    //Set the colors we will be using ...
+			    var good_color = "#66cc66";
+			    var bad_color  = "#ff6666";
+			    //Compare the values in the password field 
+			    //and the confirmation field
+			    if(password.value == confirm.value){
+			        //The passwords match. 
+			        //Set the color to the good color and inform
+			        //the user that they have entered the correct password 
+			        confirm.style.backgroundColor = good_color;
+			        message.style.color           = good_color;
+			        message.innerHTML             = '<img src="/wp-content/uploads/2019/04/tick.png" alt="Passwords Match!">';
+			    }else{
+			        //The passwords do not match.
+			        //Set the color to the bad color and
+			        //notify the user.
+			        confirm.style.backgroundColor = bad_color;
+			        message.style.color           = bad_color;
+			        message.innerHTML             = '<img src="/wp-content/uploads/2019/04/publish_x.png" alt="Passwords Do Not Match!">';
+			    }
+			}  
+		</script>
+	</body>
+</html>

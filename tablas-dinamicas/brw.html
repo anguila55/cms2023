@@ -1,0 +1,65 @@
+﻿
+<style>
+	#recent-orders span{
+  display:none;
+  
+}
+table             { 
+  border-spacing: 1; 
+  border-collapse: collapse; 
+  background:white;
+  border-radius:6px;
+  overflow:hidden;
+  max-width:800px; 
+  width:100%;
+  margin:0 auto;
+  position:relative;
+}
+  
+  td,th           { padding-left:8px}
+
+  thead tr        { 
+    height:60px;
+    background:#FFED86;
+    font-size:16px;
+  }
+  
+  tbody tr        { height:48px; border-bottom:1px solid #E3F1D5 ;
+  }
+  
+  td,th           { text-align:center;
+  }
+  td{
+	border-right: solid 1px #E3F1D5; 
+  }
+
+</style>
+	<div class="content-wrapper">
+		<div class="container-fluid">					
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="card">
+								<div class="card-body">
+									<div class="card-block">
+										<div class="card-header">
+                                            <div class="card-title-wrap bar-success">
+                                                <h4 class="card-title">Tabla Pivot</h4>
+                                            </div>
+                                        </div>
+                                        <div class="card-body collapse show">
+                                            <div class="card-block card-dashboard" style="overflow-x:scroll ;">
+                                                {pruebatablapivot}
+                                            </div>
+                                        </div>
+									</div>
+								</div>
+							</div>
+						</div>
+						</div>
+	
+		</div>
+	  </div>
+
+  <script>
+document.querySelector("#spinnercoordinar").style.display = 'none';
+  </script>

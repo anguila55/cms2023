@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="description"
+    content="BTBOX _your business toolbox. Todas las soluciones en una plataforma para potenciar tu próximo evento">
+    <meta name="keywords"
+    content="btbox, evento, fisico, hibrido, event, admin, btoolbox, networking, reuniones">
+    <meta name="author" content="BTBOX">
+	<title>{SisNombreEvento}</title>
+	<link rel="shortcut icon" type="image/png" href="../assets-nuevodisenio/img/favicon.jpg">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/index.css">
+	<!-- script para levantar el navbar -->
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+</head>
+
+<body data-col="2-columns" class=" 2-columns ">
+
+		<input id="percodnotif" name="percodnotif" type=hidden value="{percodnotif}">
+
+		<!-- Navigation bar -->
+		<div id="nav-placeholder">
+
+		</div>
+
+		<script>
+			$(function () {
+				var data = {
+					"menu": ""
+				};
+
+				$("#nav-placeholder").load("../navbar/navbar.php", data);
+
+			});
+		</script> 
+		<!-- end of Navigation bar -->
+
+		<!-- Menu  -->
+
+	
+<!--MENU FIN-->
+
+<div id="portada-programa" class="pt-3">
+	<div class="row mx-0">
+		 <!-- // fila izquierda -->
+		<div class="col-12 col-lg-8">
+			<a href="{urlbannersuperior}" target="_blank" class="{displaybannersuperior}"><img src="{bannerhomeimgsuperior}" width="100%"></a>
+			<input id="agereg" name="agereg" type="hidden" value="{agereg}">
+			
+			<div class="videostreaming">
+				<iframe id="streaming" class="video__iframe {visbleconstreaming}" style="border-radius: 10px;" src="{ageyoulnk}" frameborder="0" width="100%"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen>
+				</iframe>
+				<p class="{visblesinstreaming}" style="font-size: 18px;margin-top: 25%;margin-left: 25%;">{salasinstreaming}</p>
+			</div>
+			<div style="text-align: center;" class="mt-1">
+				<a id="boton0" class="  btn {colorfiltro0} {visibility0} mb-1" onclick="filtroVideo(0)" style="font-size: small; color: white; "><img src="../app-assets/img/flags/es.png" alt="Spanish Flag" ></a>
+				<a id="boton1" class="  btn {colorfiltro1} {visibility1} mb-1" onclick="filtroVideo(1)" style="font-size: small; color: white; "><img src="../app-assets/img/flags/us.png" alt="English Flag"  ></a>
+				<a id="boton2" class="  btn {colorfiltro2} {visibility2} mb-1" onclick="filtroVideo(2)" style="font-size: small; color: white; "><img src="../app-assets/img/flags/br.png" alt="Portuguese Flag" ></a>
+			</div>
+		</div>
+		<!-- // fila izquierda -->        
+		<!-- // fila derecha -->            
+		<div id="fondocelestesala" class="col-12 col-lg-4">
+			<div class="row">
+				<a id="botonslido" class="btn botonrecto ml-3 mr-1 {visiblechat}" onclick="mostrarslido();" role="button"><i class="icon-bubbles mr-1"></i>CHAT</a>
+				<a id="botoninfo" class="btn botonrecto  mr-1" onclick="mostrarinfo();"  role="button"><i class="ft-info mr-1"></i>INFO</a>
+			</div>
+			<div id="fondoblancopreguntas">
+				<div id="slido">
+					<iframe src="https://app.sli.do/event/{linkslido}/live/polls?lang=es_ES&user_name={pernombre}%20{perapelli}&user_email={percorreo}&user_company={percompan}" height="500px" width="100%" ></iframe> 
+				</div>
+				<div id="info">
+					<div class="col-12">
+						<p class="text-warning pt-1" style="font-weight: 500;line-height: 1rem;margin-bottom: 0px;">{agetitulo}</p>
+						<p  style="font-size:0.8rem; font-weight: 800; margin-top: 2px;
+						margin-bottom: 0px;" class="text-muted ">{agehorini} - {agehorfin}</p>
+						<p class="text-muted text-justify lineheightdesc" style="line-height: 1rem; font-size: 0.8rem;">
+							<strong>{Idioma_Descripcion}: </strong> {agedescri}
+						</p>
+					</div>
+					<div class="col 12 row text-height-n mt-2">
+						<!-- BEGIN spkimg -->
+						<div class="col-md-12 align-items-center" style="display: flex;" >
+							<img class="img-fluid ml-2 mb-2 align-self-center" src="../spkimg/{spkreg}/{spkimg}" width="{imagespk}" alt=" Avatar">
+							<p id="nombrespeaker" style="width: 100%; line-height: 20px;" class="ml-2"><strong>{skpnombre}</strong><br>{skpempres}<br>{skpcargo}</p>
+						</div>
+						<!-- END spkimg -->			
+					</div>
+				</div>
+				<div class="{displaybannerinferior}"><a href="{urlbannerinferior}" target="_blank"><img src="{bannerhomeimginferior}" class="margen_chico" width="100%" alt=""></a></div>
+			</div>
+		</div>
+		<!-- // fila derecha -->                  
+	 </div>   
+  </div>
+
+	</div>
+
+	
+	 <!-- Modal -->
+	 <div
+	 class="modal fade p-0 text-left"
+	 id="DataMaestroViewPerfil"
+	 tabindex="-1"
+	 role="dialog"
+	 aria-hidden="true"
+	 data-backdrop="static"
+	 data-keyboard="false"
+ >
+	 <div
+		 class="modal-dialog modal-lg"
+		 role="document"
+		 id="DataViewPerfil"
+	 ></div>
+ 	</div>
+
+	<script src="../assets-nuevodisenio/vendors/js/core/jquery-3.3.1.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/core/popper.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/core/bootstrap.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/perfect-scrollbar.jquery.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/prism.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/jquery.matchHeight-min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/screenfull.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/pace/pace.min.js"></script>
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<!-- END PAGE VENDOR JS-->
+	<!-- BEGIN CONVEX JS-->
+	<script src="../assets-nuevodisenio/js/app-sidebar.js"></script>
+	<!-- END CONVEX JS-->
+	<!-- BEGIN PAGE LEVEL JS-->
+	<!-- END PAGE LEVEL JS-->
+
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<script src="../gaming/gaming.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/sweetalert2.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/toastr.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/switchery.min.js"></script>
+	<script src="../assets-nuevodisenio/js/jquery.multiselect.js"></script>
+	<!-- END PAGE VENDOR JS-->
+
+	<script>
+
+		$(document).ready(function () {
+				{scriptbrwprofile};
+				addPointsGaming(1,{agereg});
+
+			});
+
+		  
+
+		const botonslido = document.querySelector("#botonslido");
+		const botoninfo = document.querySelector("#botoninfo");
+	
+		const slido = document.querySelector("#slido");
+		const info = document.querySelector("#info");
+		
+		function mostrarslido(){
+			//console.log(slido);
+			slido.style.display = "";
+			info.style.display = "none";
+
+			botonslido.classList.add('bg-main-event');
+			botonslido.classList.add('white');
+			botoninfo.classList.remove('bg-main-event');
+			botoninfo.classList.remove('white');
+
+		}
+
+		{scriptbrwslido};
+
+		function mostrarinfo(){
+
+		slido.style.display = "none"
+		info.style.display = ""
+
+		botoninfo.classList.add('bg-main-event');
+		botoninfo.classList.add('white');
+		botonslido.classList.remove('bg-main-event');
+		botonslido.classList.remove('white');
+		}
+		//----------------------------------------------------------------------------------------------
+		function viewOpcion(opc) {
+			var agereg = $('#agereg').val();
+			var data = { "agereg": agereg };
+
+			var file = '';
+			switch (opc) {
+				case 1:
+					file = 'pregbrw.php';
+				
+					break;
+				case 2:
+					file = 'encubrw.php';
+				
+					break;
+			}
+
+
+			$('#viewOpcion').load(file, data);
+		}
+
+		function showPuntossala(exp){
+			var data = {"agereg":exp};
+			$.ajax({
+			type: "POST",
+			url: 'grbpun.php',
+			data: data
+			}).done(function(rsp) {
+				data = $.parseJSON(rsp);			
+					
+			});
+		}
+		
+		function filtroVideo(reg){
+			const boton0 = document.querySelector("#boton0");
+			const boton1 = document.querySelector("#boton1");
+			const boton2 = document.querySelector("#boton2");
+			var elem = document.getElementById('streaming');
+			if (reg == 0){
+
+				elem.src = '{botonlink0}';
+				// boton0.className = "";
+				// boton1.className = "";
+				// boton2.className = "";
+				boton0.classList.add("mb-1");
+				boton1.classList.add("mb-1");
+				boton2.classList.add("mb-1");
+				boton0.classList.add("btn");
+				boton1.classList.add("btn");
+				boton2.classList.add("btn");
+				boton0.classList.add("banderaseleccionada");
+				boton0.classList.remove("banderanoseleccionada");
+				boton1.classList.add("banderanoseleccionada");
+				boton2.classList.add("banderanoseleccionada");
+
+			}else if (reg == 1){
+
+				elem.src = '{botonlink1}';
+				// boton0.className = "";
+				// boton1.className = "";
+				// boton2.className = "";
+				boton0.classList.add("mb-1");
+				boton1.classList.add("mb-1");
+				boton2.classList.add("mb-1");
+				boton0.classList.add("btn");
+				boton1.classList.add("btn");
+				boton2.classList.add("btn");
+				boton0.classList.add("banderanoseleccionada");
+				boton1.classList.add("banderaseleccionada");
+				boton1.classList.remove("banderanoseleccionada");
+				boton2.classList.add("banderanoseleccionada");
+			}else{
+
+				elem.src = '{botonlink2}';
+				// boton0.className = "";
+				// boton1.className = "";
+				// boton2.className = "";
+				boton0.classList.add("mb-1");
+				boton1.classList.add("mb-1");
+				boton2.classList.add("mb-1");
+				boton0.classList.add("btn");
+				boton1.classList.add("btn");
+				boton2.classList.add("btn");
+				boton0.classList.add("banderanoseleccionada");
+				boton1.classList.add("banderanoseleccionada");
+				boton2.classList.remove("banderanoseleccionada");
+				boton2.classList.add("banderaseleccionada");
+
+			}
+
+
+		}
+		//----------------------------------------------------------------------------------------------
+
+		viewOpcion(1);
+	</script>
+
+</body>
+
+</html>

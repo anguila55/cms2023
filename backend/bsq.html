@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<!-- Global site tag (gtag.js) - Google Analytics
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BNJTX7FKTM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BNJTX7FKTM');
+</script>-->
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>{SisNombreEvento}</title>
+	<link rel="shortcut icon" type="image/png" href="../assets-nuevodisenio/img/favicon.jpg">
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/index.css">
+
+	<script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
+
+	<!-- script para levantar el navbar -->
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<!-- ---------------------------------- X ---------------------------------- -->
+
+<style>
+#backend h6 {
+	color: var(--main);
+}
+
+#backend p {
+	font-weight: lighter;
+	font-family: sans-serif;
+}
+
+#backend p:hover{
+	background-color: var(--gris);
+	color: white !important;
+}
+#backend a h6:hover{
+	background-color: var(--gris);
+	color: white !important;
+}
+
+#backend a{
+	text-decoration: none;
+}
+
+</style>
+
+</head>
+
+<body>
+  <!-- <input id="percodnotif" name="percodnotif" type=hidden value="{percodnotif}"> -->
+		<!-- Navigation bar -->
+		<div id="nav-placeholder">
+
+		</div>
+
+		<script>
+			$(function () {
+				var data = {
+					"menu": "activebackend"
+				};
+
+				$("#nav-placeholder").load("../navbar/navbar.php", data);
+
+			});
+		</script>
+		<!-- end of Navigation bar -->
+
+    <section id="backend" class="pt-0">
+        <div class="main-panel mt-5 match-width">
+			<div class="main-content">
+				<div class="content-wrapper">
+					<div class="row d-none">
+						<div class="col-sm-12">
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title-wrap ">
+										<div class="col-12 mt-4 text-center banner-head">
+											<img class="img-fluid" src="../assets-nuevodisenio/img/backend.jpg"
+												alt="banner">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<h4 class="card-title ml-5">
+							{backendpanel}
+						</h4>
+					</div>
+					
+					<div class="row">
+
+					<div class="col-xl-4 col-lg-6 col-12">
+
+							<div class="card {displaysuperadmin}">
+								<div class="card-body-accesos">
+									<div class="media align-items-stretch">
+										<div class="text-center bg-main-event rounded-left" style="min-height: 60px; padding-top: 11px;">
+										<i class="ft-eye white p-3" style="font-size: 2rem;" alt=""> </i>
+										</div>
+										<div class="p-2 media-body center-content cta-home bt01" style="
+										text-align: center;
+										margin-top: auto;
+										margin-bottom: auto;
+									">
+										<a href="../parametros/bsq">	<h6 class="card-title text-uppercase">Visibilidad Backend y Navbar</h6></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						
+							<div class="card {displayperfiles}">
+								<div class="card-body-accesos">
+									<div class="media align-items-stretch">
+										<div class="text-center bg-main-event rounded-left" style="min-height: 60px; padding-top: 11px;">
+										   <i class="ft-user white p-3" style="font-size: 2rem;" alt=""> </i>
+										</div>
+										<div class="p-2 media-body center-content cta-home bt01" style="
+										text-align: center;
+										margin-top: auto;
+										margin-bottom: auto;
+									">
+										<a href="../perfiles/bsq">	<h6 class="card-title text-uppercase">{nombreperfiles}</h6></a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="card {displayconfiguracion}">
+								<div class="card-body-accesos">
+									<div class="media align-items-stretch">
+										<div class="text-center bg-main-event rounded-left" style="min-height: 60px;padding-top: 11px;">
+										   <i class="ft-settings white p-3" style="font-size: 2rem;" alt=""> </i>
+										</div>
+										<div class="p-2 media-body center-content cta-home bt01" style="
+										text-align: center;
+										margin-top: auto;
+										margin-bottom: auto;
+									">
+											<h6 class="card-title text-uppercase">{backendconfigevento}</h6>
+											<a class="{displayconfregistro}" href="../confregistro/bsq"><p class="border black">{nombreconfregistro}</p></a>
+											<a class="{displayformulario}" href="../formulario/bsq"><p class="border black">{nombreformulario}</p></a>
+											<a class="{displayaccesos}" href="../accesos/bsq"><p class="border black">{nombreaccesos}</p></a>
+											<a class="{displaytipos}" href="../tipos/bsq"><p class="mt-4 border black" >{nombretipos}</p></a>
+											<a class="{displaysectores}" href="../sectores/bsq"><p class="border black">{nombresectores}</p></a>
+											<a class="{displayzonahoraria}" href="../zonahoraria/bsq"><p class="border black">{nombrezonahoraria}</p></a>
+											<a class="{displayconfayuda}" href="../confayuda/bsq"><p class="mt-4 border black" >{nombreconfayuda}</p></a>
+											<a class="{displayadmingafete}" href="../admingafete/bsq"><p class="mt-4 border black" >{nombreadmingafete}</p></a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="card {displayexpositores}">
+								<div class="card-body-accesos">
+									<div class="media align-items-stretch">
+										<div class="text-center bg-main-event rounded-left" style="min-height: 60px;padding-top: 11px;">
+										   <i class="ft-star white p-3" style="font-size: 2rem;" alt=""> </i>
+										</div>
+										<div class="p-2 media-body center-content cta-home bt01" style="
+										text-align: center;
+										margin-top: auto;
+										margin-bottom: auto;
+									">
+										<a href="../expositores/bsq">	<h6 class="card-title text-uppercase">{nombreexpositores}</h6></a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="card {displaymensajeria}">
+								<div class="card-body-accesos">
+									<div class="media align-items-stretch">
+										<div class="text-center bg-main-event rounded-left" style="min-height: 60px;padding-top: 11px;">
+										   <i class="ft-share white p-3" style="font-size: 2rem;" alt=""> </i>
+										</div>
+										<div class="p-2 media-body center-content cta-home bt01" style="
+										text-align: center;
+										margin-top: auto;
+										margin-bottom: auto;
+									">
+										<a href="../mensajeria/bsq.php?T=2">	<h6 class="card-title text-uppercase">{nombremensajeria}</h6></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card {displayconfigimagenes}">
+								<div class="card-body-accesos">
+									<div class="media align-items-stretch">
+										<div class="text-center bg-main-event rounded-left" style="min-height: 60px;padding-top: 11px;">
+										   <i class="ft-image white p-3" style="font-size: 2rem;" alt=""> </i>
+										</div>
+										<div class="p-2 media-body center-content cta-home bt01" style="
+										text-align: center;
+										margin-top: auto;
+										margin-bottom: auto;
+									">
+									<h6 class="card-title text-uppercase">{backendadminimagenes}</h6>
+
+									<a class="{displayadminimagenes}" href="../adminimagenes/bsq"><p class="mt-4 border black" >{nombreadminimagenes}</p></a>
+									<a class="{displaypopupadmin}" href="../popupadmin/bsq"><p class="border black">{nombrepopupadmin}</p></a>
+									<a class="{displaymapaadminimagenes}" href="../mapaadminimagenes/bsq"><p class="border black">{nombremapaadminimagenes}</p></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						
+					</div>	
+
+					<div class="col-xl-4 col-lg-6 col-12">
+						
+							<div class="card {displayconfigcontenido}">
+								<div class="card-body-accesos">
+									<div class="media align-items-stretch">
+										<div class="text-center bg-main-event rounded-left" style="min-height: 60px;padding-top: 11px;">
+										   <i class="ft-info white p-3" style="font-size: 2rem;" alt=""> </i>
+										</div>
+										<div class="p-2 media-body center-content cta-home bt01" style="
+										text-align: center;
+										margin-top: auto;
+										margin-bottom: auto;
+									">
+											<h6 class="card-title text-uppercase">{backendcontenido}</h6>
+
+											<a class="{displayprensa_admin}" href="../prensa_admin/bsq"><p class="border  black">{nombreprensa_admin}</p></a>
+											<a class="{displaypitchmst}" href="../pitchmst/bsq"><p class="border  black">{nombrepitchmst}</p></a>
+											<a class="{displayvideosmst}" href="../videosmst/bsq"><p class="border black">{nombrevideosmst}</p></a>
+
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card {displayconfigreuniones}">
+								<div class="card-body-accesos">
+									<div class="media align-items-stretch">
+										<div class="text-center bg-main-event rounded-left" style="min-height: 60px;padding-top: 11px;">
+										   <i class="ft-users white p-3" style="font-size: 2rem;" alt=""> </i>
+										</div>
+										<div class="p-2 media-body center-content cta-home bt01" style="
+										text-align: center;
+										margin-top: auto;
+										margin-bottom: auto;
+									">
+										<h6 class="card-title text-uppercase">{Idioma_Reuniones}</h6>
+										<a class="{displayconfevento}" href="../confevento/bsq"><p class="mt-4 border black" >{nombreconfevento}</p></a>
+										<a class="{displaymesas}" href="../mesas/bsq" class="{mostrarqr}"><p class="border black">{nombremesas}</p></a>
+										<a class="{displaycontrol-reuniones}" href="../control-reuniones/bsq"><p class="border black">{nombrecontrol-reuniones}</p></a>
+										<a class="{displaycontrol-ingresos}" href="../control-ingresos/bsq"><p class="border black">{nombrecontrol-ingresos}</p></a>
+										<a class="{displaycalendariodereuniones}" href="../admin-reuniones/bsq"><p class="border black">{nombrecalendariodereuniones}</p></a>
+										<a class="{displaycalendariodemesas}" href="../admin-mesas/bsq"><p class="border black">{nombrecalendariodemesas}</p></a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="card {displayconfigmetricas}">
+								<div class="card-body-accesos">
+									<div class="media align-items-stretch">
+										<div class="text-center bg-main-event rounded-left" style="min-height: 60px;padding-top: 11px;">
+										   <i class="ft-bar-chart white p-3" style="font-size: 2rem;" alt=""> </i>
+										</div>
+										<div class="p-2 media-body center-content cta-home bt01" style="
+										text-align: center;
+										margin-top: auto;
+										margin-bottom: auto;
+									">
+											<h6 class="card-title text-uppercase">{backendmetricas}</h6>
+
+											<a class="{displayexportar}" href="../exportar/bsq"><p class="mt-4 border black" >{nombreexportar}</p></a>
+											<a class="{displayimportar}" href="../importar/bsq"><p class="mt-4 border black" >{nombreimportar}</p></a>
+											<a class="{displaymetricas}" href="../metricas/datatable"><p class="border black">{nombremetricas}</p></a>
+											<a class="{displaymetricas}" href="../tablas-dinamicas/bsq"><p class="border black">Tablas Dinámicas</p></a>
+											<a class="{displaymetricas}" href="../metricas-email/bsq"><p class="border black">Analíticas de Email</p></a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							
+						
+					</div>
+
+					<div class="col-xl-4 col-lg-6 col-12">
+						
+						<div class="card {displayconfigprograma}">
+							<div class="card-body-accesos">
+								<div class="media align-items-stretch">
+									<div class="text-center bg-main-event rounded-left" style="min-height: 60px;padding-top: 11px;">
+									   <i class="ft-calendar white p-3" style="font-size: 2rem;" alt=""> </i>
+									</div>
+									<div class="p-2 media-body center-content cta-home bt01" style="
+									text-align: center;
+									margin-top: auto;
+									margin-bottom: auto;
+								">
+										<h6 class="card-title text-uppercase">{backendagenda}</h6>
+
+										<a class="{displayagenda}" href="../agenda/bsq"><p class="mt-4 border black" >{nombreagenda}</p></a>
+										<a class="{displayspeakers}" href="../speakers/bsq"><p class="border black">{nombrespeakers}</p></a>
+										<a class="{displaywork_admin}" href="../work_admin/bsq"><p class="border black">{nombrework_admin}</p></a>
+										<a class="{displaynetwork_admin}" href="../network_admin/bsq"><p class="border black">{nombrenetwork_admin}</p></a>
+										<a class="{displaymapaformulario}" href="../mapaformulario/bsq"><p class="border black">{nombremapaformulario}</p></a>										
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="card {displayconfigencuestas}">
+							<div class="card-body-accesos">
+								<div class="media align-items-stretch">
+									<div class="text-center bg-main-event rounded-left" style="min-height: 60px;padding-top: 11px;">
+									   <i class="fa fa-question-circle white p-3" style="font-size: 2rem;" alt=""> </i>
+									</div>
+									<div class="p-2 media-body center-content cta-home bt01" style="
+									text-align: center;
+									margin-top: auto;
+									margin-bottom: auto;
+								">
+										<h6 class="card-title text-uppercase">{backendencuestas}</h6>
+
+										<a class="{displayencuestasgral}" href="../encuestasgral/bsq"><p class="mt-4 border black" >{nombreencuestasgral}</p></a>
+										<a class="{displayencuestamst}" href="../encuestamst/bsq"><p class="border black">{nombreencuestamst}</p></a>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="card {displaygaming_admin}">
+							<div class="card-body-accesos">
+								<div class="media align-items-stretch">
+									<div class="text-center bg-main-event rounded-left" style="min-height: 60px;padding-top: 11px;">
+									   <i class="fa fa-trophy white p-3" style="font-size: 2rem;" alt=""> </i>
+									</div>
+									<div class="p-2 media-body center-content cta-home bt01" style="
+									text-align: center;
+									margin-top: auto;
+									margin-bottom: auto;
+								">
+										<a href="../gaming_admin/bsq"><h6 class="card-title text-uppercase">{nombregaming_admin}</h6></a>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="card {displayingresos}">
+							<div class="card-body-accesos">
+								<div class="media align-items-stretch">
+									<div class="text-center bg-main-event rounded-left" style="min-height: 60px;padding-top: 11px;">
+									   <i class="ft-users white p-3" style="font-size: 2rem;" alt=""> </i>
+									</div>
+									<div class="p-2 media-body center-content cta-home bt01" style="
+									text-align: center;
+									margin-top: auto;
+									margin-bottom: auto;
+								">
+									<a href="../ingresos/bsq">	<h6 class="card-title text-uppercase">{nombreingresos}</h6></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					</div>
+
+					
+
+				
+					
+						
+				
+					</div>
+					
+
+				</div>
+			</div>
+
+		
+		</div>
+    </section>
+
+    <!-- # modals -->
+
+
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade p-0 text-left" id="DataMaestroViewPerfil" tabindex="-1" role="dialog" aria-hidden="true"
+    data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document" id="DataViewPerfil">
+    </div>
+    </div>
+
+    <div class="modal fade p-0 text-left" id="DataMaestroView" tabindex="-1" role="dialog" aria-hidden="true"
+    data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document" id="DataView" style="max-width:80%;">
+    </div>
+    </div>
+
+
+    <script src="../assets-nuevodisenio/js/jquery.min.js?h=83e266cb1712b47c265f77a8f9e18451"></script>
+    <script src="../assets-nuevodisenio/bootstrap/js/bootstrap.min.js?h=63715b63ee49d5fe4844c2ecae071373"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+</body>
+
+</html>

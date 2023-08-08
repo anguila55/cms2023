@@ -1,0 +1,6 @@
+{
+    "require": {
+        "mailchimp/transactional": "^1.0",
+        "mpdf/mpdf": "^6.1"
+    }
+}

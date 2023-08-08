@@ -1,0 +1,65 @@
+.card-sponsor {
+    position: relative;
+    width: 250px;
+    height: 300px;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    -webkit-transition: .1s ease-in-out;
+    transition: .1s ease-in-out;
+}
+
+.card-body_stand{
+    width: 100%;
+    margin-left: 0px;
+    margin-top: 10px;
+}
+
+.avatar-sponsor-container {
+    width: 100%;
+    position: relative;
+}
+
+.avatar-sponsor {
+    position: absolute;
+    z-index: 3;
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: -40px;
+}
+
+.action {
+    margin-top: 10px;
+    padding: 15px 0px;
+    background-color: #FAFAFA;
+}
+
+.banner-stand {
+    z-index: 1;
+    border-radius: 15px 15px 0px 0px;
+    width: 100%;
+    height: auto;
+    min-height: 100px;
+    background-size: cover;
+    background-position: center;
+    background-color: #F1F1F1;
+   
+}
+
+.banner-stand-img {
+    z-index: 3;
+    width: 100%;
+    height: auto;
+    min-height: 100px;
+    background-size: cover;
+    background-position: center;
+    background-color: #F1F1F1;
+}

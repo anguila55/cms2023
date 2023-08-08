@@ -1,0 +1,251 @@
+
+<section id="horizontal-form-layouts">
+	<div class="row">
+		<div class="col-sm-12">
+			<h2 class="content-header">Maestro workshop</h2>
+		</div>
+	</div>
+	
+
+	<!--New formulario-->
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-body">
+				<div class="px-3">
+					<form class="form">
+						<div class="form-body">
+
+							<div class="form-group">
+								<label for="timesheetinput1">Título</label>
+								<div class="position-relative has-icon-left">
+									<input type="hidden" id="workreg" name="workreg" value="{workreg}">
+									<input type="text" id="worktitulo"  name="worktitulo" class="form-control" value="{worktitulo}">
+									<div class="form-control-position">
+										<!--En caso que requiera icono-->
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="timesheetinput2">Descripción</label>
+								<div class="position-relative has-icon-left">
+									<textarea class="form-control" rows="4" id="workdescri"  name="workdescri" class="form-control" value="{workdescri}" maxlength="3000"> {workdescri} </textarea>
+									<div class="form-control-position">
+										<!--En caso que requiera icono-->
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group ">
+								<label >Speakers: </label>
+								
+									<select multiple id="spkreg" name="spkreg" class="form-control" >
+										<option value="" >Seleccione...</option>
+										<!-- BEGIN speakers -->
+											<option value="{spkreg}" {spkselect}>{spknombre}</option>
+										<!-- END speakers -->
+									</select>
+							</div>
+							<div class="form-group ">
+								<label >Perfiles Invitados: </label>
+								
+									<select multiple id="perfiles" name="pertipo" class="form-control" >
+										<option value="" >Seleccione...</option>
+										<!-- BEGIN perfiles -->
+											<option value="{percodigo}" {persel}> {pernombre}
+												{perapelli}</option>
+										<!-- END perfiles -->
+									</select>
+							</div>
+
+							<div class="form-group">
+								<label for="timesheetinput3">Fecha</label>
+								<div class="position-relative has-icon-left">
+									<input type="date" id="workfch" class="form-control" name="workfch" value="{workfch}">
+									<div class="form-control-position">
+										<i class="ft-message-square"></i>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="timesheetinput5">Hora Inicio</label>
+										<div class="position-relative has-icon-left">
+											<input type="time" id="workhorini" class="form-control" name="workhorini" value="{workhorini}">
+											<div class="form-control-position">
+												<i class="ft-clock"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="timesheetinput6">Hora Fin</label>
+										<div class="position-relative has-icon-left">
+											<input type="time" id="workhorfin" class="form-control" name="workhorfin" value="{workhorfin}">
+											<div class="form-control-position">
+												<i class="ft-clock"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label for="timesheetinput1">Link Workshop</label>
+								<div class="position-relative has-icon-left">
+									<input type="text" id="workbbb"  name="workbbb" class="form-control" value="{workbbb}">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="timesheetinput1">Link Web</label>
+								<div class="position-relative has-icon-left">
+									<input type="text" id="worklink"  name="worklink" class="form-control" value="{worklink}">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="timesheetinput1">Link PDF</label>
+								<div class="position-relative has-icon-left">
+									<input type="text" id="workpdf"  name="workpdf" class="form-control" value="{workpdf}">
+								</div>
+							</div>
+						
+						</div>
+
+						<div class="form-actions right">
+								<button id="btnguardar" type="button" class="btn btn-success" onclick="guardarMaestroMsg();">
+									<i class="icon-note"></i> Guardar
+								</button>
+								<button id="btncancelar" type="button" class="btn btn-danger mr-1" onclick="showBrowser();">
+									<i class="icon-arrow-left"></i> Cancelar
+								</button>
+								&nbsp;&nbsp;
+							</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</section>
+
+<script>
+	
+	$('#spkreg').multiselect({
+			columns: 1,
+			placeholder: 'Seleccione speakers',
+			search: true,
+			selectAll: true
+		});
+	
+	$('#perfiles').multiselect({
+			columns: 1,
+			placeholder: 'Seleccione Perfiles invitados',
+			search: true,
+			selectAll: true
+		});	
+	
+
+	function guardarMaestroMsg(){
+		
+		var errcod = 0;
+		var errmsg = '';
+			
+		if(errcod==0){
+			swal({
+				title:"SAVE",
+				text: "¿Confirma guardar los cambios / Are sure?",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: 'Confirmar',
+				cancelButtonText: 'Cancelar',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+				guardarMaestro();
+				
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+	}
+
+	function guardarMaestro(){
+		var workreg 		= $('#workreg').val();
+		var worktitulo 	= $('#worktitulo').val();
+		var workdescri 	= $('#workdescri').val();
+		var workfch 		= $('#workfch').val();
+		var workhorini 	= $('#workhorini').val();
+		var workhorfin 	= $('#workhorfin').val();
+		var estcodigo	= $('#estcodigo').val();
+		var spkreg     	= $('#spkreg').val();
+		console.log(spkreg);
+		var perfiles     	= $('#perfiles').val();
+		console.log(perfiles);
+		var workbbb   = $('#workbbb').val();
+		var worklink   = $('#worklink').val();
+		var workpdf   = $('#workpdf').val();
+		
+		let speakers=''
+		$.each(spkreg,function(i,val){ 
+			speakers+= val+','; 
+			
+		});
+		speakers += '0';
+
+		let invitados=''
+		$.each(perfiles,function(i,val){ 
+			invitados+= val+','; 
+			
+		});
+		invitados += '0';
+			
+		
+		var data = {"workreg":workreg,
+					"worktitulo":worktitulo,
+					"workdescri":workdescri,
+					"workfch":workfch,
+					"workhorini":workhorini,
+					"workhorfin":workhorfin,
+					"estcodigo":estcodigo,
+					"speakers":speakers,
+					"invitados":invitados,
+					"workbbb":workbbb,
+					"worklink":worklink,
+					"workpdf":workpdf
+					};
+		
+		$.ajax({
+		  type: "POST",
+		  url: 'grb.php',
+		  data: data
+		}).done(function( rsp ) {
+			data = $.parseJSON(rsp);
+			
+			if(data.errcod == 0){
+				toastr.success(data.errmsg, 'SAVE');			
+				//swal("GUARDAR", data.errmsg, "success").done();
+				showBrowser();
+			}else{
+				toastr.error(data.errmsg, 'SAVE');	
+				//swal("GUARDAR", data.errmsg, "error").done();
+			}
+			
+		});
+	}
+	
+	
+
+</script>
+	 
+	  
+	  

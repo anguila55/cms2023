@@ -1,0 +1,21 @@
+	
+<!-- BEGIN categorias -->
+<div id="categoria_{catcodigo}" class="col-md-4 col-sm-6 col-lg-4 mb-2 pt-1 pb-1" onmouseover="viewPatern(this,3,{secscod});">
+			
+	<div class="d-flex ">
+		<p class="fw-100 sectors-text">{catdescri}</p>
+		<input type="checkbox" id="catselect_{catcodigo}" name="catselect" class="switchery-small" data-color="white" data-jack-color="color-main-event" data-codigo="{catcodigo}" {catchecked}
+			onchange="loadSubCategorias();"/>
+	</div>
+</div>
+<!-- END categorias -->
+				
+<script>
+	//createSwitch('catselect');
+	loadSubCategorias();
+</script>
+
+	
+	 
+	  
+	  

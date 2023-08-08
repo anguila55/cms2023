@@ -1,0 +1,142 @@
+<input
+id="encobligapend"
+name="encobligapend"
+type="hidden"
+value="{encobligapend}"
+/>
+<p class="text-center fw-700 {encuestassincontestar}">IMPORTANTE: Tienes encuestas obligatorias pendientes sin contestar. No podrás ingresar a tu próxima reunión hasta que la respondas.</p>
+<div class="row text"  style="background-color: white;">
+	<!-- BEGIN browser -->
+	<div class="reunion-card {display}">
+		<div class="reunion-card__left-content">
+			<div class="reunion-card__status">
+				<i class="{iconoconexion} reunion-card__status-icon" style="{colorconexion}"></i>
+			</div>	
+			<div class="reunion-card__datetime">
+				<div class="reunion-card__date">
+					<i class="icon-calendar reunion-card__date--icon"></i> <span class="reunion-card__date--text">{reufechaconf}</span>
+				</div>
+				<div class="reunion-card__time">
+					<i class="icon-clock reunion-card__time--icon"></i> {horacalendar}:{minutoscalendar}
+				</div>
+				<p class="{mostrarqr} reunion-card__type">{nombretiporeunion}</p>
+			</div>
+			
+		</div>
+		<div class="reunion-card__right-content">
+			<div class="reunion-card__information-container">
+				<img class="rounded-circle reunion-card__avatar" style="height: 80px; width:80px;" src="{peravatar}" alt="">
+				<div class="reunion-card__information">
+					<div class="reunion-card__user-data">{perapelli} {pernombre} <a class="btn btn-circle bg-main-event white ml-2 mt-1 mb-1" 
+						onclick="showView({percodigo});"> <i class="icon-magnifier-add"></i></a></div>
+					<div class="reunion-card__company">{percargo} - {percompan}</div>
+					<div class="reunion-card__company {mostrarqr} {displaymesa}">MESA: {mesnumero}</div>
+				</div>
+				
+			</div>
+			<div class="reunion-card__actions">
+				<div class=" btn-group-justified">
+					<a class="btn btn-success text-uppercase mr-2 white mb-1 mt-0" onclick="solicitarReunionMaestro({percodigo},{reureg},'{reufechaconf}',{reutipo});" style="{btnconfirmarstyle};background-color: gray; font-weight: 700;"> {Aceptar_Reprogramar}</a>
+					<a class="btn btn-danger text-uppercase mr-2 white mb-1 mt-0" onclick="cancelarReunion({reureg});" style="{btncancelarstyle}; background-color: gray; font-weight: 700;">{Idioma_BotonCan}</a>
+					<a class="btn btn-danger text-uppercase mr-2 white mb-1 mt-0" onclick="eliminarReunion({reureg});" style="{btneliminarstyle}; background-color: gray; font-weight: 700;"> {Idioma_Eliminar}</a>
+					<a id="idencuesta{reureg}" class="btn btn-info text-uppercase mr-2 {btnverencuesta} white mb-1 mt-0" onclick="showViewPreg({reureg});" style="background-color: #ed6809; font-weight: 700;"><i
+						class="fa fa-address-book" style="margin-right: 6px;"></i>{Idioma_Encuesta}</a>
+					<a class="btn btn-success text-uppercase mr-2 white mb-1 mt-0" onclick="showViewContacto('{perreuurl}');" style="{btnvercontact}; background-color: gray; font-weight: 700;"> {Idioma_Contacto}</a>
+					<a class="btn btn-warning text-uppercase mr-2 white mb-1 mt-0" onclick="window.open('{reulink}');" style="{btnverreulink};  background-color: green; font-weight: 700;"><i class="icon-camcorder"></i> {Ingresar_Reunion}</a>
+					<a id="idreunion{reureg}" class="btn btn-warning mr-2 text-uppercase bg-verde white mb-1 mt-0" style="{btnhorasrest}; font-weight: 700;"><i class="icon-camcorder"></i> {Ingresar}: {reuhorarest}</a>
+					<a id="idreuconf{reureg}" class="btn btn-warning mr-2 text-uppercase bg-verde white mb-1 mt-0" style="font-weight: 700;" onclick="showCall({reureg});" ><i class="icon-camcorder"></i> {Ingresar}</a>
+					<div class=" btn  white addeventatc text-uppercase mb-1 mt-0 mr-2"  style="z-index:inherit; background-color: var(--addevent); font-size: 15px!important; box-shadow:none !important; font-family: Conv_GothamRounded-Medium!important;{btnagendarcal}"><i
+						class="ft-calendar" style="margin-right: 6px;"></i>{agregarcalendario}
+						
+						<span class="start">{fechacalendar} {horacalendar}:{minutoscalendar}</span>
+						<span class="end">{fechacalendar} {minutosfincalendar}</span>
+						<span class="title">{titulocalendar}</span>
+						<span class="location">{locationcalendar}</span>
+						<span class="description">{SisNombreEvento}</span>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+		
+	<!-- END browser -->
+
+
+
+</div>
+
+<script src="../assets-nuevodisenio/js/htmltopdf/html2canvas.js"></script>
+<script src="../assets-nuevodisenio/js/htmltopdf/jspdf.debug.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script>
+	var timer1= '';
+	//////// duracion reuniones 30 min
+	var finalizada ="{Reunion_Finalizada}";
+	var reudur = ({durreunion}*60000)*-1;
+	let encuestaobligatoria = {encuestaobligatoria};
+	let existeencuesta = {existeencuesta};
+	let inputencuesta = document.querySelector('#encobligapend');
+
+	
+	function countdown(finish_date, timer,cant,estado){
+
+var x = setInterval(function() {
+
+				var now = new Date().getTime();
+
+				var distance = finish_date*1000 - now;
+
+				var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+				var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+				//var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+				var timer1= document.querySelector('#idreunion' + timer)
+				var reuconf= document.querySelector('#idreuconf' + timer)
+				var encuesta= document.querySelector('#idencuesta' + timer)
+				var ageconf= document.querySelector('#addeventatc' + cant)
+
+				timer1.innerHTML ="<i class='icon-camcorder pr-2'></i>" + days + "<span style='font-weight:normal'>d</span> " + hours + "h " + minutes + "m";
+				reuconf.style.display= "none";
+				if (distance < 0 && distance >= reudur) {
+					timer1.style.display= "none";
+					reuconf.style.display= "";
+				}
+				if (distance < reudur && estado==2) {
+				clearInterval(x);
+				timer1.style.display= "";
+				
+				timer1.innerHTML = finalizada;
+				
+				/// MOSTRAR EL BOTON SI EXISTE ENCUESTA
+				if(existeencuesta){
+					encuesta.classList.remove('d-none');
+				/// VER SI TIENE ENCUESTA OBLIGATORIA
+					if(encuestaobligatoria){
+						inputencuesta.value = 'true';
+					}
+				}
+				
+				ageconf.style.display= "none";
+				
+				}
+				}, 1000);
+}
+
+
+
+var array = {arrayreuniones};
+		
+		array.forEach(reunion => {
+
+			
+			
+			if (reunion != null ){
+				
+				
+				countdown(reunion.key, reunion.value, reunion.cant, reunion.estado)
+			}
+			
+		});
+		// Set the date we're counting down to
+	</script>

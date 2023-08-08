@@ -1,0 +1,150 @@
+
+<div class="modal-content">
+	<div class="px-3">
+		<form class="form form-horizontal">
+			<div class="form-body">
+				<div class="form-group {bloquearreunion}">
+					<label class="mt-2 pt-3" for="timesheetinput3">{Idioma_Dia_fecha}:</label>
+					<div class="position-relative has-icon-left">
+						<input onkeypress="return false;" onchange="loadHorarios(this);" type="date" data-date-inline-picker="true" id="agefch" class="form-control" min="{fechainicial}" max="{fechafinal}" name="agefch" placeholder="Seleccione la fecha...">
+					
+						<div class="form-control-position">
+							<i class="ft-message-square"></i>
+						</div>
+					</div>
+				</div>
+				
+				<input id="tiporeunion" name="tiporeunion" type=hidden value="{tiporeunion}">
+				<input id="solicitante" name="solicitante" type=hidden value="{solicitante}">
+				<input id="contraparte" name="contraparte" type=hidden value="{contraparte}">
+				<input id="reuconfnoti" name="reuconfnoti" type=hidden value="{reuconfnoti}">
+				<input id="reureg" name="reureg" type=hidden value="{reureg}">
+				<label id="labelhorarios" style="display: none;" class="mt-2" for="timesheetinput3">{backconfreuselectdate}:</label>
+				<div id="horarios" class="form-group row pl-2 pr-2">
+					
+
+					
+					
+				</div>
+
+
+			</div>
+		</form>
+		<div class="modal-footer">
+			<img id="imgloading" src="../app-assets/img/loader.gif" style="width:35px; height:auto; display:none;">
+			<button id="btnsolicitar" type="button" class="btn grey btn-outline-secondary {bloquearreunion}"
+				onclick="solicitarReunion({contraparte});">{Idioma_Guardar}</button>
+			<button id="btncancelar" type="button" class="btn grey btn-outline-secondary"
+				data-dismiss="modal">{Idioma_Cancelar}</button>
+		</div>
+	</div>
+</div>
+
+<script src="../control-reuniones/brw.js"></script>
+<script src="../assets-nuevodisenio/js/switch.min.js"></script>
+
+<script>
+
+
+var nombreboton='';
+	function handleClick(cb) {
+
+		if (cb.id!=nombreboton && nombreboton!=''){
+			
+			
+			document.querySelector("#"+nombreboton).checked = false;
+			nombreboton=cb.id;
+
+		}
+		if (nombreboton ==''){
+			
+			nombreboton=cb.id;
+		}
+		
+		
+	}
+
+	function solicitarReunion(reg) {
+	
+		let fecha = '';
+		var tiporeunion = $('#tiporeunion').val();
+		var solicitante = $('#solicitante').val();
+		var reureg = $('#reureg').val();
+		var reuconfnoti = $('#reuconfnoti').val();
+		var cantHoras = 0;
+		var dataCoordinar = [];
+		$.each($('input[name="coordtime"]:checked').not(':disabled'), function () {
+			 fecha = $(this).data('fecha');
+			var hora = $(this).data('hora');
+			var data = { "fecha": fecha, "hora": hora };
+
+			dataCoordinar.push(data);
+			cantHoras++;
+		});
+
+		if ( (cantHoras == 0) || (fecha === '31/12/1969') ) {
+			toastr.error('{backconfreuselectdate}', '{Idioma_Reuniones}');
+		} else if (cantHoras > 1) {
+			toastr.error('{backconfreuselectdate}', '{Idioma_Reuniones}');
+		} else {
+			$('#btnsolicitar').hide();
+			$('#imgloading').show();
+			console.log(dataCoordinar)
+			var data = {
+				"percodigo": solicitante,
+				"percoddst": reg,
+				"dataCoordinar": dataCoordinar,
+				"tiporeunion": tiporeunion,
+				"reureg": reureg,
+				"reuconfnoti": reuconfnoti
+			};
+
+			$.ajax({
+				type: "POST",
+				url: '../control-reuniones/coordinargrb.php',
+				data: data
+			}).done(function (rsp) {
+				data = $.parseJSON(rsp);
+
+				if (data.errcod == 0) {
+					toastr.success(data.errmsg, 'MEETING');
+					$('#DataMaestroViewHorario').modal('hide');
+					window.location.href='../control-reuniones/bsq';
+				} else {
+					toastr.error(data.errmsg, 'MEETING');
+					//swal("GUARDAR", data.errmsg, "error").done();
+				}
+				$('#btnsolicitar').show();
+				$('#imgloading').hide();
+			});
+		}
+	}
+	function loadHorarios(obj) {//Se cargan las clases en relacion con el Tipo de Perfil
+		var agefch = $(obj).val();
+		var percod = {contraparte};
+		var percodsol = {solicitante};
+		var tiporeunion = document.querySelector("#tiporeunion").value; 
+		
+		$.ajax({
+			type: "POST",
+			url: "../control-reuniones/coordinarhora.php",
+			data: { "agefch": agefch,
+					"percodigo": percodsol,
+					"percoddst": percod,
+					"tiporeunion":tiporeunion  }
+		}).done(function (rsp) {
+
+			data = $.parseJSON(rsp);
+			Eliminar();
+			data.forEach(producto => {
+				
+				if (producto != null ){
+					Mostrar(producto);
+				}
+
+				});
+			document.querySelector('#labelhorarios').style= 'block';
+		});
+
+	}
+</script>

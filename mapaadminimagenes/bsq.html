@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		var nombrecodigo = {percodnotif};
+		dataLayer.push({'event' : 'login', 'userId' : nombrecodigo});
+		</script>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-MW2RMSR');</script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>{SisNombreEvento}</title>
+	<link rel="shortcut icon" type="image/png" href="../assets-nuevodisenio/img/favicon.jpg">
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/index.css">
+
+	<script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
+
+	<!-- script para levantar el navbar -->
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<!-- ---------------------------------- X ---------------------------------- -->
+
+<style>
+#backend h6 {
+	color: var(--main);
+}
+
+#backend p {
+	font-weight: lighter;
+	font-family: sans-serif;
+}
+
+#backend p:hover{
+	background-color: var(--gris);
+	color: white !important;
+}
+#backend a h6:hover{
+	background-color: var(--gris);
+	color: white !important;
+}
+
+#backend a{
+	text-decoration: none;
+}
+
+</style>
+
+</head>
+
+<body>
+  <!-- <input id="percodnotif" name="percodnotif" type=hidden value="{percodnotif}"> -->
+		<!-- Navigation bar -->
+		<div id="nav-placeholder">
+
+		</div>
+
+		<script>
+			$(function () {
+				var data = {
+					"menu": "activebackend"
+				};
+
+				$("#nav-placeholder").load("../navbar/navbar.php", data);
+
+			});
+		</script>
+		<!-- end of Navigation bar -->
+
+    <section id="backend" class="pt-0">
+        <div class="main-panel mt-5 match-width">
+			<div class="main-content">
+				<div class="content-wrapper">
+					<div class="row d-none">
+						<div class="col-sm-12">
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title-wrap ">
+										<div class="col-12 mt-4 text-center map-head">
+											<img class="img-fluid" src="../assets-nuevodisenio/img/backend.jpg"
+												alt="map">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<h4 class="card-title ml-5">
+							Mapa Imagenes
+						</h4>
+					</div>
+					
+					<div class="row">
+
+						<div class="col-md-12">
+
+							<!-- BEGIN browser -->
+							<label for="exptelefo">Mapa (cliquea sobre la imagen para editar). Ancho recomendado (1920px): </label>
+							
+							<div>
+								<input id="mapreg" name="mapreg" type=hidden value="{mapreg}">
+								<a>
+									<img id="mapimg" alt="" class="" src="{mapimg}"
+										style="width: 80%; height: 200px;" onclick="findAvatar('{mapreg}');" style="display: none">
+								</a>
+								<form id="frmfilemaphome" enctype="multipart/form-data">
+									<input id="filemaphome" name="filemaphome" type="file" value="{mapimg}" accept=".png, .jpg, .jpeg"
+										style="display:none;" onchange="readURLAvatar(this,'{mapreg}');" />
+								</form>
+							</div>
+			
+							<div class="col-md-12 mt-2">
+								<label class="" for="visibilidad">Visibilidad: </label>
+										<select id="visibilidad" name="visibilidad" class="form-control">
+											<option value="1" {activo}>Visible</option>
+											<option value="0" {inactivo}>Oculto</option>
+										</select>
+							</div>
+							<div>
+								<button class="btn  mr-1 mt-1 mb-4 bg-main-event" style="color:white;" onclick="cambiomap('{mapreg}')">Guardar Cambios</button>
+							</div>
+							<!-- END browser -->
+
+
+						</div>
+					
+						
+				
+					</div>
+					
+
+				</div>
+			</div>
+
+		
+		</div>
+    </section>
+
+    <!-- # modals -->
+
+
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade p-0 text-left" id="DataMaestroViewPerfil" tabindex="-1" role="dialog" aria-hidden="true"
+    data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document" id="DataViewPerfil">
+    </div>
+    </div>
+
+    <div class="modal fade p-0 text-left" id="DataMaestroView" tabindex="-1" role="dialog" aria-hidden="true"
+    data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document" id="DataView" style="max-width:80%;">
+    </div>
+    </div>
+	<!-- Modal -->
+	
+
+
+    <script src="../assets-nuevodisenio/js/jquery.min.js?h=83e266cb1712b47c265f77a8f9e18451"></script>
+    <script src="../assets-nuevodisenio/bootstrap/js/bootstrap.min.js?h=63715b63ee49d5fe4844c2ecae071373"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script src="../assets-nuevodisenio/vendors/js/sweetalert2.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/toastr.min.js"></script>
+
+	<script>
+
+		function findAvatar(reg) {
+				//$('#mapimg').attr('src', '{mapimg}');
+				console.log(reg);
+				$('#filemaphome').click();
+			}
+		
+		function readURLAvatar(input,reg) {
+		
+					var fuData = document.getElementById('filemaphome');
+					var FileUploadPath = fuData.value;
+		
+		
+					if (FileUploadPath == '') {
+						toastr.error('Por favor suba una imagen!', 'map');
+		
+					} else {
+					var Extension = FileUploadPath.substring(FileUploadPath.lastIndexOf('.') + 1).toLowerCase();
+		
+		
+		
+							if (Extension == "gif" || Extension == "png" || Extension == "bmp"
+						|| Extension == "jpeg" || Extension == "jpg") {
+		
+		
+							if (fuData.files && fuData.files[0]) {
+		
+						var size = fuData.files[0].size;
+						
+		
+						if(size > 2097152){ // NO SUPERE LOS 2 MEGAS
+							toastr.error('La imagen no puede superar los dos megas!', 'map');
+							return;
+						}else{
+							var reader = new FileReader();
+						var fname = null;
+		
+						reader.onload = function (e) {
+							$('#mapimg').attr('src', e.target.result);
+		
+							var image = new Image();
+							image.src = e.target.result;
+							image.onload = function () {
+								
+							};
+						}
+		
+						reader.readAsDataURL(input.files[0]);
+						}
+					}
+		
+					}else {
+						toastr.error('Solo se permiten los siguientes formatos GIF, PNG, JPG, JPEG and BMP.', 'map');
+					}
+			
+			}
+		}
+		
+		function cambiomap(reg){
+		
+			var reg1 = reg;
+				
+			if (reg1 >= 0)
+			{
+				
+				var formData = new FormData($('#FrmMst')[0]);
+				if (typeof ($('#filemaphome')[0].files[0]) !== "undefined") {
+					formData.append('filemaphome', $('#filemaphome')[0].files[0]);
+				}
+				formData.append("mapreg", reg1);
+				formData.append("visibilidad", $('#visibilidad').val());
+				$.ajax({
+					type: "POST",
+					url: "mapahomegrb.php",
+					dataType: "html",
+					data: formData,
+					cache: false,
+					contentType: false,
+					processData: false
+				}).done(function (rsp) {
+					data = $.parseJSON(rsp);
+		
+		
+					if (data.errcod == 0) {
+						toastr.success(data.errmsg, 'map');
+					} else {
+						toastr.error(data.errmsg, 'map');
+					}
+		
+				});
+			
+			}
+		
+		
+		}
+		
+		</script>
+
+	
+</body>
+
+</html>

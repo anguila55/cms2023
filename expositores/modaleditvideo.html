@@ -1,0 +1,77 @@
+<div class="modal-content">
+	<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	</div>
+	<div class="modal-body">
+			<input type="hidden" value="{expreg}" id="expreg">
+			<input type="hidden" value="{vidreg}" id="vidreg">
+			<div class="col-md-12 mt-2">
+				<label for="vidnombre">Nombre: </label>
+				<input type="text" id="vidnombre" name="vidnombre" class="form-control"
+					value="{vidnombre}">
+			</div>
+			<div class="col-md-12 mt-2">
+				<label for="vidurlid">Link video: </label>
+				<input type="text" id="vidurl" name="vidurlid" class="form-control"
+					value="{vidurl}">
+			</div>
+
+	  </div>
+	  <div class="modal-footer">
+		<div class="form-actions col-12 text-center">
+			<button id="btnguardar" type="button" class="btn btn-success" onclick="guardarEdit();">
+				<i class="icon-note"></i> Guardar
+			</button>
+		</div>
+	  </div>
+	  
+</div>
+<script>
+
+function guardarEdit() {
+		var formData = new FormData($('#FrmMst')[0]);
+		formData.append("expreg", $('#expreg').val());
+		formData.append("vidreg", $('#vidreg').val());
+		formData.append("vidnombre", $('#vidnombre').val());
+		formData.append("vidurl", $('#vidurl').val());
+		formData.append("vidurlid", getIdUrl($("#vidurl").val()));
+
+
+		$.ajax({
+			type: "POST",
+			url: "grbvideo.php",
+			dataType: "html",
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false
+		}).done(function (rsp) {
+			data = $.parseJSON(rsp);
+
+			if (data.errcod == 0) {
+				toastr.success(data.errmsg, 'GUARDAR');
+
+				$('#DataMaestroView').modal('hide');
+				
+					showMaestro({expreg});
+				
+				
+			} else {
+				toastr.error(data.errmsg, 'GUARDAR');
+
+			}
+
+		});
+	}
+	function getIdUrl(url) {
+  let regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  let match = url.match(regExp);
+
+  return match && match[2].length === 11 ? match[2] : null;
+}
+
+
+</script>
+

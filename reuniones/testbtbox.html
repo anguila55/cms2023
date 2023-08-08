@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+
+		<!-- Global site tag (gtag.js) - Google Analytics
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BNJTX7FKTM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BNJTX7FKTM');
+</script> -->
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="description"
+    content="BTBOX _your business toolbox. Todas las soluciones en una plataforma para potenciar tu próximo evento">
+    <meta name="keywords"
+    content="btbox, evento, fisico, hibrido, event, admin, btoolbox, networking, reuniones">
+    <meta name="author" content="BTBOX">
+	<title>BTBOX</title>
+    <link rel="shortcut icon" type="image/png" href="../assets-nuevodisenio/img/favicon.jpg">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/index.css">
+	<!-- ---------------------------------- X ---------------------------------- -->
+	
+
+	<!-- script para levantar el navbar -->
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<style>
+
+		.addeventatc .addeventatc_icon{
+
+			background: none!important ;
+			
+		}
+
+	</style>
+</head>
+
+<body data-col="2-columns" class=" 2-columns ">
+
+	<div class="wrapper nav-collapsed menu-collapsed">
+		<input id="percodnotif" name="percodnotif" type=hidden value="{percodnotif}">
+
+	
+
+		<!-- Menu  -->
+
+	
+<!--MENU FIN-->
+	
+
+		
+			<div class="main-content">
+				<div class="content-wrapper">
+					<div class="container-fluid">
+
+						<div id="shopping-cart">
+							<div class="row">
+								<div class="col-sm-12" style="text-align: center;">
+									<div class="card">
+										<div class="card-header">
+											<div class="card-title-wrap bar-warning" style="margin-top: 16px; margin-bottom: 16px;">
+												<div class="col-12 text-center banner-head">
+													<img class="img-fluid" src="../assets-nuevodisenio/img/imagesoundcheck.jpg"
+														alt="banner">
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- programa -->
+									<div style="text-align: center">
+										<video id="gum-video" playsinline style="width: 20%"></video>
+										<br>
+										<audio id="gum-audio"></audio>
+										<br>
+										<a id="button" class="btn bg-main-event white mb-1" onclick="toggleTest()">{chequeo0}</a>
+										<p class="mb-0" style="padding-top: 10px;"><strong>{chequeo1}</strong></p>
+										<p class="mb-0" >{chequeo2}</p>
+										<p class="mb-0" >{chequeo3}</p>
+										<p class="mb-0" >{chequeo4}</p>
+									
+										<p style="padding-top: 3%; font-weight: bold; color: red;" id="errorMsg"></p>
+									
+										
+									  </div>
+							<br>
+								</div>
+							</div>
+							
+						
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- FIN- <div class="wrapper"> -->
+
+
+
+
+	
+
+	<!-- BEGIN VENDOR JS-->
+	<script src="../assets-nuevodisenio/vendors/js/core/jquery-3.3.1.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/core/popper.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/core/bootstrap.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/perfect-scrollbar.jquery.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/prism.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/jquery.matchHeight-min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/screenfull.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/pace/pace.min.js"></script>
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<script src="../assets-nuevodisenio/vendors/js/jquery.raty.js"></script>
+	<!-- END PAGE VENDOR JS-->
+	<!-- BEGIN CONVEX JS-->
+	<script src="../assets-nuevodisenio/js/app-sidebar.js"></script>
+
+	<!-- END CONVEX JS-->
+	<!-- BEGIN PAGE LEVEL JS-->
+
+	<script src="../assets-nuevodisenio/js/rating.js"></script>
+
+	<!-- END PAGE LEVEL JS-->
+
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<script src="../assets-nuevodisenio/vendors/js/sweetalert2.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/toastr.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/switchery.min.js"></script>
+	<!--<script src="jquery.min.js"></script>
+	<script src="materialize.min.js"></script>
+	<script src="AgoraRTCSDK-3.0.2.js"></script>-->
+	<script src="./js/adapter-latest.js"></script>
+    <script src="./js/video.js"></script>
+    <script src="./js/audio.js"></script>
+    <script type="text/javascript">
+      function toggleTest() {
+        var but = document.getElementById("button");
+        var vid = document.getElementById("gum-video");
+        var aud = document.getElementById("gum-audio");
+      
+        if (but.innerHTML == "{chequeo0}") {
+          but.innerHTML = "{chequeo5}";
+          vid.play();
+          aud.play();
+        } else {
+          but.innerHTML = "{chequeo0}";
+          vid.pause();
+          aud.pause();
+        }
+      }
+    </script>
+  
+
+	<!-- END PAGE VENDOR JS-->
+
+
+</body>
+
+</html>

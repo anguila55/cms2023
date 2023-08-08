@@ -1,0 +1,156 @@
+﻿<style>
+#seccionenviar{
+	margin-bottom: 0px;
+}
+
+
+#botonenviar{
+	
+	display: inline-block;
+    width: 75%;
+}
+
+</style>
+
+
+
+<div class="chat-name p-2 bg-main-event">
+    <div class="media">
+        <span class="chat-app-sidebar-toggle ft-align-justify font-large-1 mr-2 d-none d-block d-sm-block d-md-none"></span>
+        <img src="{avatar}" width="37" class="rounded-circle mr-1" alt="avatar" />
+        <div class="media-body">
+          <span class="fw-600 float-left pl-1 pt-2 white">
+			{pernomdst} {perapedst} - {percomdst}
+			<input id="percoddst" type="hidden" value="{percoddst}">
+			<input id="pernomdst" type="hidden" value="{pernomdst}">
+            <p class="white font-small-2 m-0">{perstatusdst}</p>
+          </span>
+          
+        </div>
+    </div>
+  </div>
+
+
+
+<section class="chat-app-window" >
+	<div id="compartir" class="fw-700 badge-secondary mb-2 pt-1 pb-1 {mostrarcompartir}" >
+		 <button type="button" class="btn bg-main-event btn-circle mr-1 mb-0 pt-1 pb-1 white" onclick="compartir();"><i class="fa fa-share-alt"></i> </button> 
+		 {compartechat}
+	
+	</div>
+	<div class="chats pt-1">
+	  <div id="brwchat" class="chats">
+		<div  class="chat" style="display:none;">	
+			  
+		  <div class="chat-body">
+			<div class="chat-content">			
+			  <p id="chatmensaje"></p>
+			</div>
+		  </div>
+		</div>
+	  
+		<!-- BEGIN conversacion -->
+		<div id="chatmsg" class="chat {clasechat}">
+		  <div class="chat-avatar">
+				<a class="avatar" data-toggle="tooltip" data-placement="right" title="" data-original-title="">
+					<img src="{foto}" class="width-50 rounded-circle" alt="avatar" />
+				</a>
+		  </div>
+		  <div class="chat-body">
+			<div class="chat-content">
+			
+			  <p id="chatmensaje">{mensajes}</p>
+			  <p id="chathora" style="font-size:11px;"<i>{chafchreg}</i></p>
+			</div>
+		  </div>
+		</div>
+		<!-- END conversacion -->
+			 
+	  </div>
+	</div>
+</section>
+
+<section class="chat-app-form bg-blue-grey bg-lighten-5" >
+    <form class="chat-app-input row">
+      <fieldset class="form-group mb-2 position-relative col-12">
+        <input type="text" class="form-control" id="txtmensaje" placeholder="{escribir_chat}" onkeypress="keyPressMensaje(event);"
+         >
+      </fieldset>
+      <fieldset class="form-group position-relative col-12">
+		<button type="button" class="btn bg-main-event white {mostrarcompartir}" onclick="compartir();"><i class="fa fa-share-alt"></i></button>
+        <button type="button" class="btn bg-main-event text-white" onclick="sendMensaje();">
+			<i class="fa fa-paper-plane-o hidden-lg-up "></i> {enviar}</button>
+      </fieldset>
+    </form>
+  </section>
+      
+
+<script>
+	var PerCodigo = {percodigo};
+	var PerNombre = '{pernombre}';
+
+	function compartir(){
+		var mensaje = '{comparti_contacto}';
+		var percoddst = $('#percoddst').val();
+	
+		var data = {"percoddst":percoddst,
+					"mensaje":mensaje};
+		
+		//console.log(data);
+		//Guardo mensaje
+		$.ajax({
+		  type: "POST",
+		  url: 'comp.php',
+		  data: data
+		}).done(function( rsp ) {
+			
+			
+			document.getElementById("compartir").style.display = "none";
+			var senddata = PerCodigo+':##:'+PerNombre+':##:'+percoddst+':##:'+pernomdst+':##:'+mensaje;
+			socket.emit('mensaje', senddata);
+			
+			$('#txtmensaje').val(''); 
+			toastr.success('Data Shared / Datos Compartidos', 'OK');
+
+		});
+	}
+	
+	function sendMensaje(){
+		var mensaje = $('#txtmensaje').val();
+		var percoddst = $('#percoddst').val();
+		var pernomdst = $('#pernomdst').val();
+	
+		var data = {"percoddst":percoddst,
+					"mensaje":mensaje};
+	
+		//console.log('envio mensaje');
+		//Guardo mensaje
+		$.ajax({
+		  type: "POST",
+		  url: 'grbmsg.php',
+		  data: data
+		}).done(function( rsp ) {
+			//console.log(rsp);
+			//data = $.parseJSON(rsp);
+			
+			var senddata = PerCodigo+':##:'+PerNombre+':##:'+percoddst+':##:'+pernomdst+':##:'+mensaje;
+			//console.log('SendData:'+senddata);
+			socket.emit('mensaje', senddata);
+			//console.log(socket);
+			$('#txtmensaje').val('');
+		});
+	}
+	
+	
+	function keyPressMensaje(e){
+		if (e.keyCode == 13) {
+			e.preventDefault();
+			sendMensaje();
+			return false;
+		}
+	}
+
+	$('.chat-app-window').animate({ scrollTop: 100000 }, 1000);	
+</script>	  
+	  
+<script src="../assets-nuevodisenio/js/chat.js"></script>  

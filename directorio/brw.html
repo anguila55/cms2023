@@ -1,0 +1,146 @@
+﻿<!-- Contact Card ~ #01 -->
+<style>
+	.notify-badge{
+    position: absolute;
+    right:67px;
+    top:83px;
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+	border: 5px solid white;
+    padding:10px 10px;
+    font-size:20px;
+}
+</style>
+<div class="row col-12 {displaytotalasistentes}">
+	<div class="text-center pt-1 pb-1 mt-1 mb-1  ml-4">
+		<p class="fw-600 mb-2 mt-1 texto-totalasistentes"><i class="icon-users color-main-event mr-1">  </i>  {totalasistentes}</p>
+	</div>
+	
+</div>
+
+<!-- BEGIN browser -->
+<div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3 d-flex justify-content-center ">
+	<div class="card-contact">
+
+		<div class="row fav actions d-inline-block float-right mt-2 mr-2 justify-content-center" style="vertical-align: middle;">
+			<div onclick="setFavorito(this,{percodigo})" data-favo="{esfavorito}">
+				<i style="color: goldenrod; font-size: 20px;" class="fa fa-fw  fa {colorfavo} " style="font-size:20px;"></i>
+			</div>
+			<div >
+				<a style="visibility: {display-sponsor};" title="{hallcomercial3}" href="../sponsor/bsq?id={sponsorcod}"><i style="color: goldenrod; font-size: 20px;" class="fa fa-bullhorn" style="font-size:20px;"></i></a>
+			</div>
+		</div>
+		
+		
+		<div class="mt-2 mb-2">
+			<span class="notify-badge" style="{perfilesenlinea}"></span>
+			<img class="avatar-contact" src="{peravatar}" alt="">
+		</div>
+
+		<div class="mb-1" style="min-height: 6rem;">
+
+			<h3 class="font-small-2 card-title fw-600 text-bold-500"> {pernombre} {perapelli}</h3>
+			<h3 id="cargo" class="font-small-2 card-title fw-600 text-bold-500"> {percargo}</h3>
+			<div class="company ">
+
+				<a style="cursor: default;" class="fw-700 p-2">{percompan}</a>
+
+			</div>
+		</div>
+
+
+		<div class=" btn-group-justified mt-1 d-flex justify-content-center m-1 pt-1">
+			<a class="btn btn-circle bg-main-event white ml-2" onclick="solicitarReunionMaestro({percodigo},{pertipo});"
+				style="{btnviewreunion};" title="{title1}"> <i class="icon-calendar"></i></a>
+
+			<a class="btn btn-circle bg-main-event white ml-2 " 
+				onclick="showView({percodigo});" title="{title2}"> <i class="icon-plus"></i></a>
+			<a class="btn btn-circle bg-main-event white ml-2 {btnviewmsg}" 
+				onclick="showChatView({percodigo},0);" title="{title3}"> <i class="icon-bubbles"></i></a>
+
+		</div>
+		
+		<div >
+			<ul class="action mt-1 ">
+				<a class="redes" {perlinked} target="_blank"><i class="fa fa-linkedin"></i></a>
+				<a class="redes" {perfac} target="_blank"><i class="fa fa-facebook"></i></a>
+				<a class="redes" {pertwi} target="_blank"><i class="fa fa-twitter"></i></a>
+				<a class="redes" {perins} target="_blank"><i class="fa fa-instagram"></i></a>
+				<a class="redes" {perurlweb} target="_blank"><i class="fa fa-globe"></i></a>
+			</ul>
+		</div>
+
+
+	</div>
+
+</div>
+
+<!-- END browser -->
+<!--
+<div class="col-md-4 col-12">
+
+	<div class="card border-left my-4 border-primary border-3">
+		<div class="card-block pt-3">
+			<div class="clearfix">
+				<h5 class="text-bold-500 primary float-left">{percompan}</h5>
+				<div class="actions float-right" style="cursor:pointer;" onclick="setFavorito(this,{percodigo})"
+					data-favo="{esfavorito}">
+					<i class="fa fa-fw {colorfavo} danger" style="font-size:20px;"></i>
+				</div>
+			</div>
+			<img src="{peravatar}" class="rounded-circle width-50 mr-2 float-right" alt="user image">
+			<div class="media">
+				<div class="media-body">
+					<h5 class="media-heading">{perapelli},{pernombre}</h5>
+					<p>{perempdes}</p>
+				</div>
+			</div>
+
+			<div class="btn-group btn-group-justified">
+				<a class="btn btn-primary" onclick="solicitarReunionMaestro({percodigo},{pertipo});"
+					style="{btnviewreunion}">Meet</a>
+				<a class="btn btn-success">Contactarnos</a>
+				<a class="btn btn-warning" onclick="showView({percodigo});">View Profile</a>
+			</div>
+
+		</div>
+	</div>
+
+
+</div>
+-->
+
+<script src="../assets-nuevodisenio/js/htmltopdf/html2canvas.js"></script>
+<script src="../assets-nuevodisenio/js/htmltopdf/jspdf.debug.js"></script>
+<script>
+	runBuscarMas = false;
+
+	function setFavorito(obj, reg) {
+		var percodigo = reg;
+		var esfavo = $(obj).data('favo');
+
+		if (esfavo == 1) {
+			$(obj).find('i').removeClass('fa-star');
+			$(obj).find('i').addClass('fa-star-o');
+			$(obj).data('favo', 0);
+			toastr.error('Removed from your favorites', 'Remove');
+
+		} else {
+			$(obj).find('i').addClass('fa-star');
+			$(obj).find('i').removeClass('fa-star-o');
+			$(obj).data('favo', 1);
+			toastr.success('Added to your favorites', 'Add');
+		}
+
+		var data = { "percodfav": percodigo };
+		// console.log(data);
+		$.ajax({
+			type: "POST",
+			url: 'fav.php',
+			data: data
+		}).done(function (rsp) {
+			data = $.parseJSON(rsp);
+		});
+	}
+
+</script>

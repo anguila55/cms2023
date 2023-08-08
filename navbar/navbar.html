@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BNJTX7FKTM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BNJTX7FKTM');
+</script> -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description"
+    content="BTBOX _your business toolbox. Todas las soluciones en una plataforma para potenciar tu próximo evento">
+    <meta name="keywords"
+    content="btbox, evento, fisico, hibrido, event, admin, btoolbox, networking, reuniones">
+    <meta name="author" content="BTBOX">
+    <title>{SisNombreEvento}</title>
+    <link rel="shortcut icon" type="image/png" href="../assets-nuevodisenio/img/favicon.jpg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/index.css">
+
+    <!-- script para levantar el navbar / esta en cada bsq--> 
+    <!-- <script src="https://code.jquery.com/jquery-1.10.2.js"></script> -->
+</head>
+
+<body>
+    <input id="percodnotif" name="percodnotif" type=hidden value="{percodnotif}">
+    <div class="navbar__ghost-placeholder"></div>
+    <nav class="navbar navbar-light navbar-expand-xl fixed-top bg-white shadow-lg">
+        <div class="container-fluid"><a  href="../index"><img src="../admimg/{file}" alt="navbar" width="180" height="60"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="navbar__collapsible-flex nav navbar-nav mx-auto">
+                    <li class="nav-item d-xl-flex flex-shrink-0"><a style="display:{viewadmin}; margin: auto; transform: scale(1.3);" class=" nav-link icon-settings {activebackend}" aria-expanded="false" href="../backend/bsq"></a>
+                    </li>
+                    
+                    <li class="nav-item dropdown {displayindexdemo}">
+                        <a class="fw-700 dropdown-toggle nav-link {activeindex} " data-toggle="dropdown" aria-expanded="false" href="#" style="font-size: 0.75rem;">{nombreindexdemo}</a>
+                        <div class="dropdown-menu" role="menu">
+                            <a class="fw-700 dropdown-item text-uppercase" role="presentation" href="../index" style="font-size: 0.75rem;"><i class="fa fa-arrow-right mr-1"></i>{nombreindexdemo}1</a>
+                            <a class="fw-700 dropdown-item text-uppercase" role="presentation" href="../index2" style="font-size: 0.75rem;"><i class="fa fa-arrow-right mr-1"></i>{nombreindexdemo}2</a>
+                            <a class="fw-700 dropdown-item text-uppercase" role="presentation" href="../index3" style="font-size: 0.75rem;"><i class="fa fa-arrow-right mr-1"></i>{nombreindexdemo}3</a>
+                           
+                        </div>
+                    </li>
+                    <li class="nav-item {displayindex}" role="presentation"><a class="fw-700 nav-link {activeindex}" href="../index" style="font-size: 0.75rem;">{nombreindexdemo}</a></li>
+                    <li class="nav-item {displaydirectorio}" role="presentation">
+                        <a class="fw-700 nav-link {activedirectorio}" href="../directorio/bsq" style="font-size: 0.75rem;">{nombredirectorio}</a>
+                    </li>
+                    <li class="fw-700 nav-item dropdown {displaydropexpositores}">
+                        <a class="fw-700 dropdown-toggle nav-link {activestand} " data-toggle="dropdown" aria-expanded="false" href="#" style="font-size: 0.75rem;">{nombrestand}</a>
+                        <div class="dropdown-menu" role="menu">
+                            <a class="fw-700 dropdown-item text-uppercase {displaystand}" role="presentation" href="../stand/bsq" style="font-size: 0.75rem;"><i class="fa fa-arrow-right mr-1"></i>{nombrestand}</a>
+                            <a class="fw-700 dropdown-item text-uppercase {displayofertas}" role="presentation" href="../ofertas/bsq" style="font-size: 0.75rem;"><i class="fa fa-arrow-right mr-1"></i>{nombreofertas}</a>
+                            <a class="fw-700 dropdown-item text-uppercase {displaymapa}" role="presentation" href="../mapa/bsq" style="font-size: 0.75rem;"><i class="fa fa-arrow-right mr-1"></i>{nombremapa}</a>
+                        </div>
+                    </li>
+                    <li class="nav-item {displaystandunico}" role="presentation">
+                        <a class="fw-700 nav-link {activestand}" href="../stand/bsq" style="font-size: 0.75rem;">{nombrestand}</a>
+                    </li>
+                    <li class="nav-item {displayofertasunico}" role="presentation">
+                        <a class="fw-700 nav-link {activestand}" href="../ofertas/bsq" style="font-size: 0.75rem;">{nombreofertas}</a>
+                    </li>
+                    <li class="nav-item {displaymapaunico}" role="presentation">
+                        <a class="fw-700 nav-link {activestand}" href="../mapa/bsq" style="font-size: 0.75rem;">{nombremapa}</a>
+                    </li>
+                    <li class="nav-item {displayreuniones}" role="presentation">
+                        <a class="fw-700 nav-link {activereuniones}" href="../reuniones/bsq" style="font-size: 0.75rem;">{nombrereuniones}</a>
+                    </li>
+                    <li class="nav-item dropdown {displaydropactividades}">
+                        <a class="fw-700 dropdown-toggle nav-link {activeactividades} " data-toggle="dropdown" aria-expanded="false" href="#" style="font-size: 0.75rem;">{nombreactividades}</a>
+                        <div class="dropdown-menu" role="menu">
+                            <a class="fw-700 dropdown-item text-uppercase {displayactividades}" role="presentation" href="../actividades/bsq" style="font-size: 0.75rem;"><i class="fa fa-arrow-right mr-1"></i>{nombreactividades}</a>
+                            <a class="fw-700 dropdown-item text-uppercase {displayvideos}" role="presentation" href="../videos/bsq" style="font-size: 0.75rem;"><i class="fa fa-arrow-right mr-1"></i>{nombrevideos}</a>
+                            <a class="fw-700 dropdown-item text-uppercase {displayspeakers-lista}" role="presentation" href="../speakers-lista/bsq" style="font-size: 0.75rem;"><i class="fa fa-arrow-right mr-1"></i>{nombrespeakers-lista}</a>
+                        </div>
+                    </li>
+                    <li class="nav-item {displayactividadesunico}" role="presentation">
+                        <a class="fw-700 nav-link {activeactividades}" href="../actividades/bsq" style="font-size: 0.75rem;">{nombreactividades}</a>
+                    </li>
+                    <li class="nav-item {displayvideosunico}" role="presentation">
+                        <a class="fw-700 nav-link {activeactividades}" href="../videos/bsq" style="font-size: 0.75rem;">{nombrevideos}</a>
+                    </li>
+                    <li class="nav-item {displayspeakers-listaunico}" role="presentation">
+                        <a class="fw-700 nav-link {activeactividades}" href="../speakers-lista/bsq" style="font-size: 0.75rem;">{nombrespeakers-lista}</a>
+                    </li>
+
+
+                    <li class="nav-item {displaychat}" role="presentation">
+                        <a class="fw-700 nav-link {activechat}" href="../chat/bsq" style="font-size: 0.75rem;">{nombrechat}</a>
+                    </li>
+
+
+                    <li class="nav-item dropdown {displaydropcocreate}">
+                        <a class="fw-700 dropdown-toggle nav-link {activecocreate} " data-toggle="dropdown" aria-expanded="false" href="#" style="font-size: 0.75rem;">{cocreate}</a>
+                        <div class="dropdown-menu" role="menu">
+                            <a class="fw-700 dropdown-item text-uppercase {displaymesasredondas}" role="presentation" href="../mesasredondas/bsq" style="font-size: 0.75rem;"><i class="fa fa-arrow-right mr-1"></i>{nombremesasredondas}</a>
+                            <a class="fw-700 dropdown-item text-uppercase {displaypitch}" role="presentation" href="../pitch/bsq" style="font-size: 0.75rem;"><i class="fa fa-arrow-right mr-1"></i>{nombrepitch}</a>
+                            <a class="fw-700 dropdown-item text-uppercase {displayencuestas}" role="presentation" href="../encuestas/bsq" style="font-size: 0.75rem;"><i class="fa fa-arrow-right mr-1"></i>{nombreencuestas}</a>
+                           
+                        </div>
+                    </li>
+                    <li class="nav-item {displaymesasredondasunico}" role="presentation">
+                        <a class="fw-700 nav-link {activecocreate}" href="../mesasredondas/bsq" style="font-size: 0.75rem;">{nombremesasredondas}</a>
+                    </li>
+                    <li class="nav-item {displaypitchunico}" role="presentation">
+                        <a class="fw-700 nav-link {activecocreate}" href="../pitch/bsq" style="font-size: 0.75rem;">{nombrepitch}</a>
+                    </li>
+                    <li class="nav-item {displayencuestasunico}" role="presentation">
+                        <a class="fw-700 nav-link {activecocreate}" href="../encuestas/bsq" style="font-size: 0.75rem;">{nombreencuestas}</a>
+                    </li>
+
+                    <li class="nav-item {displayprensa}" role="presentation">
+                        <a class="fw-700 nav-link {activecomunidad}" href="../prensa/bsq" style="font-size: 0.75rem;">{nombreprensa}</a>
+                    </li>
+
+                  
+                 
+                   
+                </ul>
+
+
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item mt-1 "> <a class="fw-700 nav-link" onclick="showChatView({chatuser},1);"><i class="ft-help-circle" style="font-size: 20px;"></i></a> </li>
+                    <li class="dropdown dropdown-menu-right nav-item mt-1 " id="notigroup">
+                        <a id="dropdownBasic2" href="" onclick="notificationupd()" data-toggle="dropdown"
+                            class="fw-700 nav-link position-relative dropdown-toggle">
+                            <i class="ft-bell" style="font-size: 18px;"></i>
+    
+                            <span class="fw-700 notification badge badge-pill badge-danger" id="notinum"> </span>
+    
+                            <p class="fw-700 d-none">Notifications</p>
+    
+                        </a>
+    
+                            <div class="fw-700 notification-dropdown dropdown-menu" id="notiopen">
+                                    <div class="noti-list" id="notification">                                        
+                                    </div>
+                                    <a href="../notificaciones/bsq" class="fw-700 all-notis">{Idioma_Buscartodas}</a>
+                            </div>
+                        
+                    </li>
+                    <li class="dropdown nav-item mr-0" id="usersettings-dropdown"><a id="dropdownBasic3" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-user-link dropdown-toggle" aria-expanded="true"><span class="avatar avatar-online"><img id="navbar-avatar" src="{peravatar}"  alt="avatar" title="{pernombre} {perapelli}"></span>
+                        <p class="d-none">User Settings</p></a>
+                      <div aria-labelledby="dropdownBasic3" id="usersettings-dropdown2" class="dropdown-menu">
+                            <a href="../perfiles/miperfil" class="dropdown-item d-flex py-1">
+                                <div style="width: 30px;">
+                                    <i class="ft-edit mr-1"></i>
+                                </div>
+                                <span>{Idioma_miPerfil}</span>
+                            </a>
+							<!-- <a href="../calendario/bsq"   class="dropdown-item py-1"><i class="ft-calendar mr-2"></i><span>{agenda}</span></a> -->
+							<a href="../reuniones/bsq"  class="dropdown-item d-flex py-1">
+                                <div style="width: 30px;">
+                                    <i class="ft-user-plus mr-2"></i>
+                                </div>
+                                <span>{nombrereuniones}</span>
+                            </a>
+                           
+                            <a onclick="viewQRnavbar('{qrreg}');" class="dropdown-item py-1 {mostrarqr}">
+                                <div style="width: 30px;">  
+                                    <i class="fa fa-qrcode mr-2"></i>
+                                </div>
+                                <span>{miqr}</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="../login" class="dropdown-item d-flex">
+                                <div style="width: 30px;">  
+                                    <i class="ft-power mr-2"></i>
+                                </div>
+                                <span>{Idioma_Salir}</span>
+                            </a>
+                            
+                      </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="dropup mr-2 {mostrarqr}">
+		<button class="qrflotante" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		    <i class="fa fa-qrcode white" style="font-size: 35px;"></i></button>
+		<span class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <a class="dropdown-item"  href="../directorio/bsq?COMP=1"><i class="fa fa-users ml-1"></i> Compartidos</a>
+		    <a class="dropdown-item"  onclick="viewQRnavbar('{qrreg}');"><i class="fa fa-user ml-1"></i> Mostrar QR</a>
+		    <a class="dropdown-item" href="../qrleer/bsq"><i class="fa fa-camera ml-1" ></i> Leer QR</a>
+		</span>
+	</div>
+    <div class="chat-fixed {displaychatdesplegable}">
+        <div class="chat-fixed__container">
+            <div class="chat-fixed__buttons">
+                <div class="card-title card-title-new fw-500 d-flex justify-content-between align-items-center">
+    
+                    <div class="chat-fixed__title" style="width: 220px;">
+                        Chat <span id="total" class="badge badge-pill badge-info {numerocharlas}" >{chatsuma}</span>
+                    </div>
+                    <div class="d-flex">
+                        <a id="botonverconversaciones" class="ml-3 mt-1 btn bg-color-gris text-uppercase white" onclick="showBrowserChat()" title="Conversaciones"><i class="fa fa-comment"></i>
+                        </a>
+                        <a id="botonvertodos" class="ml-1 mt-1 btn bg-color-gris text-uppercase white" onclick="showBrowserChatTodos()" title="Todos los asistentes"><i class="fa fa-users"></i>
+                        </a>
+                        <a id="botoncerrarchat" style="display: none;" class="ml-1 mt-1 btn bg-color-gris text-uppercase white" onclick="CloseChat()" title="Cerrar chat"><i class="fa fa-close"></i>
+                        </a>
+                    </div>
+                </div>
+    
+            </div>
+            <div id="chatdropup" class="chat__dropup-container">
+                <div style="display: flex; flex-direction: row; justify-content: start; flex-wrap: wrap;">
+                    <div class="card-block" style="width: 100%;" id="DataBrowserChatTodos">
+                    </div>
+                    <div class="card-block" style="width: 100%;" id="DataBrowserChat">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Notificaciones-->
+    <script src="../assets-nuevodisenio/js/notification-sidebar.js"></script>
+    <script src="../assets-nuevodisenio/js/socket.io.js"></script>
+    <script src="../assets-nuevodisenio/js/notifnoden.js"></script>
+    <script src="../assets-nuevodisenio/vendors/js/sweetalert2.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/toastr.min.js"></script>
+    <!-- END PAGE LEVEL JS-->
+    <script>
+    const botontodos = document.querySelector("#botonvertodos");
+  	const botonconversaciones = document.querySelector("#botonverconversaciones");
+    const botoncerrarchat = document.querySelector("#botoncerrarchat");
+	function showBrowserChat() {
+			$('#DataBrowserChat').load('../chat/chatmodulo.php');
+			$('#DataMaestro').css('display', 'none');
+			$('#DataBrowserChatTodos').css('display', 'none');
+			$('#DataBrowserChat').css('display', '');
+			botontodos.classList.add('bg-color-gris');
+			botontodos.classList.remove('bg-main-event');
+			botonconversaciones.classList.add('bg-main-event');
+			botonconversaciones.classList.remove('bg-color-gris');
+			$('#buscadorchat').css('display', 'none');
+            $('#botoncerrarchat').css('display', '');
+		}
+	function showBrowserChatTodos() {
+		var fltbuscar = $('#fltbuscar').val();
+			var data = {"fltbuscar": fltbuscar};
+		$('#DataBrowserChatTodos').load('../chat/chatmodulotodos.php',data);
+		$('#DataMaestro').css('display', 'none');
+		$('#DataBrowserChatTodos').css('display', '');
+		$('#DataBrowserChat').css('display', 'none');
+        botontodos.classList.add('bg-main-event');
+        botontodos.classList.remove('bg-color-gris');
+        botonconversaciones.classList.add('bg-color-gris');
+        botonconversaciones.classList.remove('bg-main-event');
+		$('#buscadorchat').css('display', '');
+        $('#botoncerrarchat').css('display', '');
+	}
+
+    const clickchat = document.querySelector(".chat-fixed__title");
+
+    clickchat.onclick = function(){
+
+        let cerrado =  botonconversaciones.classList.contains('bg-color-gris');
+
+        if (cerrado){
+            $('#DataBrowserChat').load('../chat/chatmodulo.php');
+			$('#DataMaestro').css('display', 'none');
+			$('#DataBrowserChatTodos').css('display', 'none');
+			$('#DataBrowserChat').css('display', '');
+			botontodos.classList.add('bg-color-gris');
+			botontodos.classList.remove('bg-main-event');
+			botonconversaciones.classList.add('bg-main-event');
+			botonconversaciones.classList.remove('bg-color-gris');
+			$('#buscadorchat').css('display', 'none');
+            $('#botoncerrarchat').css('display', '');
+
+        }else{
+            $('#DataMaestro').css('display', 'none');
+		$('#DataBrowserChatTodos').css('display', 'none');
+		$('#DataBrowserChat').css('display', 'none');
+		botontodos.classList.add('bg-color-gris');
+        botontodos.classList.remove('bg-main-event');
+		botonconversaciones.classList.add('bg-color-gris');
+        botonconversaciones.classList.remove('bg-main-event');
+		$('#buscadorchat').css('display', 'none');
+        $('#botoncerrarchat').css('display', 'none');
+        }
+
+    };
+
+
+    function CloseChat() {
+		$('#DataMaestro').css('display', 'none');
+		$('#DataBrowserChatTodos').css('display', 'none');
+		$('#DataBrowserChat').css('display', 'none');
+		botontodos.classList.add('bg-color-gris');
+        botontodos.classList.remove('bg-main-event');
+		botonconversaciones.classList.add('bg-color-gris');
+        botonconversaciones.classList.remove('bg-main-event');
+		$('#buscadorchat').css('display', 'none');
+        $('#botoncerrarchat').css('display', 'none');
+	}
+	
+	function KeyEnterBuscar(e) {
+           
+			if (!e) var e = window.event
+			if (e.keyCode) code = e.keyCode;
+			else if (e.which) code = e.which;
+			if (code == 13) {
+                e.preventDefault();
+				showBrowserChatTodos();
+			}
+		}
+
+    $(window).bind("resize", function () {
+        console.log($(this).width())
+        if ($(this).width() < 1200) {
+            $('#notigroup').addClass('dropup')
+            $('#usersettings-dropdown').addClass('dropup')
+            $('#usersettings-dropdown2').removeClass('dropdown-menu-right')
+            $('#notiopen').removeClass('dropdown-menu-right')
+        } else {
+            $('#notigroup').removeClass('dropup')
+            $('#usersettings-dropdown').removeClass('dropup')
+            $('#usersettings-dropdown2').addClass('dropdown-menu-right')
+            $('#notiopen').addClass('dropdown-menu-right')
+        }
+    }).trigger('resize');
+    function viewQRnavbar(reg){
+				
+				swal({
+					title: "QR",
+					text: "<img class='border border-main-event' src='" + reg + "' style='width:200px;'> <br> <p class='mt-2'>{escanea}</p>",
+					type: '',
+					showCancelButton: false,
+					confirmButtonColor: '#FFC210',
+					cancelButtonColor: '#FF586B',
+					confirmButtonText: '{Idioma_Cerrar}',
+					cancelButtonText: 'Cancelar',
+					confirmButtonClass: 'btn btn-raised bg-main-event',
+					cancelButtonClass: 'btn btn-raised bg-main-event',
+					buttonsStyling: true
+				}).then(function () {
+					//window.location='../sala/bsq.php?A='+reg;
+				}, function (dismiss) {
+					// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+					if (dismiss === 'cancel') {
+					}
+				}).done();
+			
+		}
+
+    function showChatView(reg,exp) {
+
+                    var data = { "percoddst": reg, "modayuda":exp };
+                    $('#DataViewPerfil').load('../chat/chatinicio.php', data);
+                    $('#DataMaestroViewPerfil').modal('show');
+                }
+        // /* Code for changing active  
+        //             link on clicking */
+
+        // var btns = $("#nav-placeholder .navbar-nav .nav-link");
+
+        // for (var i = 0; i < btns.length; i++) {
+        //     btns[i].addEventListener("click",
+
+        //         function () {
+        //             var current = document
+        //                 .getElementsByClassName("active");
+
+        //             current[0].className = current[0]
+        //                 .className.replace(" active", "");
+
+        //             this.className += " active";
+        //             alert(btns[i])
+        //         });
+        // } 
+
+        // Get the container element
+        // var btnContainer = document.getElementById("nav-placeholder");
+
+        // let btn = document.querySelector("#navcol-1");
+        // let btns = btn.querySelectorAll('.nav-link')
+
+        // btns.forEach((button) => {
+        //     button.addEventListener('click', () => {
+        //     button.classList.add("active")
+        //     alert(button.classList);
+        //             // current[0].className = current[0].className.replace(" active", "");
+        //             // this.className += " active";
+        //         // alert("forEach worked");
+        //     });
+        // });
+        // btns.onclick = (e) => {
+
+        //     // let elemento = evento.target.innerHTML
+        //     alert("hola");
+        // }
+
+            // alert(btn);
+            // Get all buttons with class="btn" inside the container
+            // var btns = btnContainer.getElementsByClassName("nav-link");
+
+            // Loop through the buttons and add the active class to the current/clicked button
+            // for (var i = 0; i < btns.length; i++) {
+            //     btns[i].addEventListener("click", function () {
+            //         var current = document.getElementsByClassName("active");
+            //         current[0].className = current[0].className.replace(" active", "");
+            //         this.className += " active";
+            //         alert(btns.lenght);
+            //     });
+            // }
+    </script>
+
+</body>
+
+</html>

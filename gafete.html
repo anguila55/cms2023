@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+		
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="description"
+    content="BTBOX _your business toolbox. Todas las soluciones en una plataforma para potenciar tu próximo evento">
+    <meta name="keywords"
+    content="btbox, evento, fisico, hibrido, event, admin, btoolbox, networking, reuniones">
+    <meta name="author" content="BTBOX">
+	<title>{SisNombreEvento}</title>
+    <link rel="shortcut icon" type="image/png" href="../assets-nuevodisenio/img/logo.jpg">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/index.css">
+
+	<!-- script para levantar el navbar -->
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<!-- ---------------------------------- X ---------------------------------- -->
+</head>
+
+
+<body id="printableArea" class="bodygafete">
+
+	<div id="botonesgafete" class="{displaybotones}">
+		<select id="cuadrante1" name="cuadrante1" class="form-control botoncuadrante" onchange="actualizocuadrantes();">
+			<option value="true" {selected1}>Imprimir Nro 1</option>
+			<option value="false"  {selected2}>No Imprimir Nro 1</option>
+		</select>
+		<select id="cuadrante2" name="cuadrante2" class="form-control botoncuadrante" onchange="actualizocuadrantes();">
+			<option value="true" {selected3}>Imprimir Nro 2</option>
+			<option value="false" {selected4} >No Imprimir Nro 2</option>
+		</select>
+		<select id="cuadrante3" name="cuadrante3" class="form-control botoncuadrante" onchange="actualizocuadrantes();"> 
+			<option value="true" {selected5}>Imprimir Nro 3</option>
+			<option value="false" {selected6}>No Imprimir Nro 3</option>
+		</select>
+		<select id="cuadrante4" name="cuadrante4" class="form-control botoncuadrante" onchange="actualizocuadrantes();">
+			<option value="true" {selected7}>Imprimir Nro 4</option>
+			<option value="false" {selected8}>No Imprimir Nro 4</option>
+		</select>
+		
+		<!-- <input type="button" class="botondescargar nav-link mr-1 boton-simple-rounded" onclick="descargarDiv()" value="Descargar Gafete" /> -->
+	</div>
+	<input id="botonesgafete2" type="button" class="botonimprimir nav-link mr-1 boton-simple-rounded" onclick="printDiv()" value="Imprimir Gafete" />
+
+		<div id="div1" class="divgafete text-center">
+
+			<img src="{bannerhomeimg}" width="40%" alt="" class="mt-4 mb-2">
+			<div class="bg-main-event fondogafetecolor">
+				
+				<img src="{peravatar}" alt="" class="imagengafete" width="30%">
+				<p class="nombregafete">{pernombre}</p>
+				<p class="compangafete">{percompan}</p>
+				<p class="cargogafete">{percargo}</p>
+				<img src="{bannerhomeimg2}" width="100%" class="bg-white bannergafete" alt="">
+			</div>
+			
+		</div>
+		<div id="div2" class="divgafete text-center">
+
+			<img src="{bannerhomeimg}" width="40%" alt="" class="mt-4 mb-2">
+			<div class="bg-main-event fondogafetecolor">
+				
+				<img src="{qrcode}" alt="" class="qrgafete" width="30%">
+				<p class="nombregafete">{pernombre}</p>
+				<p class="compangafete">{percompan}</p>
+				<p class="cargogafete">{percargo}</p>
+				<img src="{bannerhomeimg2}" width="100%" class="bg-white bannergafete" alt="">
+			</div>
+			
+		</div>
+		<div id="div3" class="bg-main-event divgafete text-center ">
+			
+				<img src="{imagen}" alt="" class="cuad1imagen" width="50%">
+				<p class="nombreevento">{titulo}</p>
+				<p class="descrievento">{descri}</p>
+
+			
+		</div>
+		<div id="div4" class="bg-main-event divgafete text-center ">
+		
+				<img src="{imagen2}" alt="" class="mapaevento">
+		
+
+		</div>
+		
+	
+
+
+	<!-- BEGIN VENDOR JS-->
+	<script src="../assets-nuevodisenio/vendors/js/core/jquery-3.3.1.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/core/popper.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/core/bootstrap.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/perfect-scrollbar.jquery.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/prism.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/jquery.matchHeight-min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/screenfull.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/pace/pace.min.js"></script>
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<!-- END PAGE VENDOR JS-->
+	<!-- BEGIN CONVEX JS-->
+	<script src="../assets-nuevodisenio/js/app-sidebar.js"></script>
+	<!-- <script src="../assets-nuevodisenio/js/notification-sidebar.js"></script> -->
+	<!-- END CONVEX JS-->
+	<!-- BEGIN PAGE LEVEL JS-->
+	<!-- END PAGE LEVEL JS-->
+
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<script src="../assets-nuevodisenio/vendors/js/sweetalert2.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/toastr.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/switchery.min.js"></script>
+	<script src="../html2pdf.bundle.min.js"></script>
+	
+	<!-- END PAGE VENDOR JS-->
+	<script>
+
+$(document).ready(function() {
+
+actualizocuadrantes();
+
+
+});
+
+function actualizocuadrantes(){
+
+	let cuadrante1 = document.querySelector("#cuadrante1");
+	let cuadrante2 = document.querySelector("#cuadrante2");
+	let cuadrante3 = document.querySelector("#cuadrante3");
+	let cuadrante4 = document.querySelector("#cuadrante4");
+	let divcuadrante1 = document.querySelector("#div1");
+	let divcuadrante2 = document.querySelector("#div2");
+	let divcuadrante3 = document.querySelector("#div3");
+	let divcuadrante4 = document.querySelector("#div4");
+
+
+	if (cuadrante1.value == "true"){
+		divcuadrante1.classList.remove('d-none');
+	}else{
+		divcuadrante1.classList.add('d-none');
+	}
+
+	if (cuadrante2.value == "true"){
+		divcuadrante2.classList.remove('d-none');
+	}else{
+		divcuadrante2.classList.add('d-none');
+	}
+
+	if (cuadrante3.value == "true"){
+		divcuadrante3.classList.remove('d-none');
+	}else{
+		divcuadrante3.classList.add('d-none');
+	}
+
+	if (cuadrante4.value == "true"){
+		divcuadrante4.classList.remove('d-none');
+	}else{
+		divcuadrante4.classList.add('d-none');
+	}
+
+}
+
+
+	function printDiv() {
+
+	let admin = '{admin}';
+	
+	var botonesgafete = document.querySelector("#botonesgafete");
+	botonesgafete.classList.add('d-none');
+	var botonesgafete2 = document.querySelector("#botonesgafete2");
+	botonesgafete2.classList.add('d-none');
+
+
+     window.print();
+
+	if(admin === '1'){
+		botonesgafete.classList.remove('d-none');
+	}
+
+	 botonesgafete2.classList.remove('d-none');
+
+	}
+
+	function descargarDiv(){
+		
+	var botonesgafete = document.querySelector("#botonesgafete");
+	botonesgafete.classList.add('d-none');
+    
+	
+	let box = document.getElementById("printableArea");
+
+			let width = box.offsetWidth;
+			let height = box.offsetHeight;
+
+			var opt = {
+				margin:       0,
+				filename:     "Gafete"+'{pernombre}'+".pdf",
+				image:        { type: 'jpeg', quality: 0.98 },
+				html2canvas:  { scale: 2 },
+				jsPDF:        { unit: 'in', format: 'A4', orientation: 'portrait' },
+				};
+
+		html2pdf().set(opt).from(box).save().then(function sacoheader (){botonesgafete.classList.remove('d-none');});
+
+
+	}
+	</script>
+	
+</body>
+
+</html>

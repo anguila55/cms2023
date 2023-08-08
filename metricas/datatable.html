@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+
+    <script>
+		window.dataLayer = window.dataLayer || [];
+		var nombrecodigo = {percodnotif};
+		dataLayer.push({'event' : 'login', 'userId' : nombrecodigo});
+		</script>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-MW2RMSR');</script>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description"
+    content="BTBOX _your business toolbox. Todas las soluciones en una plataforma para potenciar tu próximo evento">
+    <meta name="keywords"
+    content="btbox, evento, fisico, hibrido, event, admin, btoolbox, networking, reuniones">
+    <meta name="author" content="BTBOX">
+	<title>{SisNombreEvento}</title>
+    <link rel="shortcut icon" type="image/png" href="../assets-nuevodisenio/img/logo.jpg">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/vendors/css/tables/datatable/datatables.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/index.css">
+	<!-- script para levantar el navbar -->
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<!-- ---------------------------------- X ---------------------------------- -->
+</head>
+
+<body data-col="2-columns" class=" 2-columns " >
+
+	<div class="wrapper nav-collapsed menu-collapsed">
+		<!-- Navigation bar -->
+		<div id="nav-placeholder">
+
+		</div>
+
+		<script>
+			$(function () {
+				var data = {
+					"menu": "activeindex"
+				};
+
+				$("#nav-placeholder").load("../navbar/navbar.php", data);
+
+			});
+		</script>
+		<!-- end of Navigation bar -->
+	
+<!--MENU FIN-->
+	
+	
+<!--MENU FIN-->
+    <div class="main-panel">
+        <div class="main-content">
+          <div class="content-wrapper">
+            <div class="container-fluid">
+                 <!--Arranca la row 1-->
+            <!--Division Titulo Registros-->     
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-2">
+                        <div class="bar-success ">
+                            <h4 class="">REGISTRO</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<div class="row">
+				<div class="col-xl-4 col-lg-4 col-12">
+					<div class="card bg-main-event">
+						<div class="card-body">
+							<div class="px-3 py-3">
+								<div class="media">
+									<div class="align-center">
+										<i class="icon-pointer text-white font-large-2 float-left"></i>
+									</div>
+									<div class="media-body text-white text-right">
+										<h3 class="text-white">{usuarioslogueados}</h3>
+										<span>Usuario Logueados</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-4 col-lg-4 col-12">
+					<div class="card bg-main-event">
+						<div class="card-body">
+							<div class="px-3 py-3">
+								<div class="media">
+									<div class="align-center">
+										<i class="icon-pointer text-white font-large-2 float-left"></i>
+									</div>
+									<div class="media-body text-white text-right">
+										<h3 class="text-white">{perfilesenlinea}</h3>
+										<span>Usuarios Activos</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+                <div class="col-xl-4 col-lg-4 col-12">
+					<div class="card bg-main-event">
+						<div class="card-body">
+							<div class="px-3 py-3">
+								<div class="media">
+									<div class="align-center">
+										<i class="icon-pointer text-white font-large-2 float-left"></i>
+									</div>
+									<div class="media-body text-white text-right">
+										<h3 class="text-white">{perfilesenlineaporcentaje}</h3>
+										<span>Usuarios Activos en %</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+			</div>
+			<!--Termina la row 1-->
+            <!-- Pie Chart -->
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title-wrap bar-success">
+                                <h4 class="card-title">Asistenes por tipo de perfil</h4>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-block chartjs">
+                                <canvas id="asistentes-pie-chart" height="400"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title-wrap bar-danger">
+                                <h4 class="card-title">% de Logueados / Registrados</h4>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-block chartjs">
+                                <canvas id="asistentes-doughnut-chart" height="400"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- Bar Chart -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title-wrap bar-primary">
+                                <h4 class="card-title">Registros</h4>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-block chartjs">
+                                <canvas id="registros-chart" height="400"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+                <!--Division Titulo Reuniones-->     
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-4 mt-4">
+                        <div class="bar-success ">
+                            <h4 class="">REUNIONES</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="">
+                            <div class="mb-2 mt-4">
+                                <div class="bar-success ">
+                                    <h5 class="">Seleccione Fecha </h5>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <div class="row pb-3">
+                                    <div class="col-md-1">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <label for="desde">Desde:</label>
+                                        <input  type="date" id="desde" placeholder="dd-mm-yyyy" class="form-control" name="desde" value="{desde}" />
+                                    </div>
+                                    <div class="col-md-5 mb-2">
+                                        <label for="desde">Hasta:</label>
+                                        <input  type="date" id="hasta" class="form-control" name="hasta" value="{hasta}" />
+                                    </div>
+                                    <div class="col-md-1 mt-auto" style="text-align: center;">
+                                        <button id="btnfiltrar" type="button" class="btn btn-success " onclick="filtrar();">
+                                            Filtrar
+                                        </button>
+                                    </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-12">
+                        <div class="card bg-main-event">
+                            <div class="card-body">
+                                <div class="px-3 py-3">
+                                    <div class="media">
+                                        <div class="align-center">
+                                            <i class="icon-pointer text-white font-large-2 float-left"></i>
+                                        </div>
+                                        <div class="media-body text-white text-right">
+                                            <h3 class="text-white">{reunionesconfirmadas}</h3>
+                                            <span>Reuniones Confirmadas</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-12">
+                        <div class="card bg-main-event">
+                            <div class="card-body">
+                                <div class="px-3 py-3">
+                                    <div class="media">
+                                        <div class="align-center">
+                                            <i class="icon-pointer text-white font-large-2 float-left"></i>
+                                        </div>
+                                        <div class="media-body text-white text-right">
+                                            <h3 class="text-white">{reunionespendientes}</h3>
+                                            <span>Reuniones Pendientes</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-12">
+                        <div class="card bg-main-event">
+                            <div class="card-body">
+                                <div class="px-3 py-3">
+                                    <div class="media">
+                                        <div class="align-center">
+                                            <i class="icon-pointer text-white font-large-2 float-left"></i>
+                                        </div>
+                                        <div class="media-body text-white text-right">
+                                            <h3 class="text-white">{reunionescanceladas}</h3>
+                                            <span>Reuniones Canceladas</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                </div>
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-12">
+                        <div class="card bg-main-event">
+                            <div class="card-body">
+                                <div class="px-3 py-3">
+                                    <div class="media">
+                                        <div class="align-center">
+                                            <i class="icon-pointer text-white font-large-2 float-left"></i>
+                                        </div>
+                                        <div class="media-body text-white text-right">
+                                            <h3 class="text-white">{reunionessinconfirmar}</h3>
+                                            <span>Reuniones Confirmadas %</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-12">
+                        <div class="card bg-main-event">
+                            <div class="card-body">
+                                <div class="px-3 py-3">
+                                    <div class="media">
+                                        <div class="align-center">
+                                            <i class="icon-pointer text-white font-large-2 float-left"></i>
+                                        </div>
+                                        <div class="media-body text-white text-right">
+                                            <h3 class="text-white">{reunionesconcretadas}</h3>
+                                            <span>Reuniones Realizadas</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title-wrap bar-success">
+                                    <h4 class="card-title">Estado de Reuniones</h4>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-block chartjs">
+                                    <canvas id="reuniones-pie-chart" height="400"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- DOM - jQuery events table -->
+                <section id="reuniones">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title-wrap bar-success">
+                                    <h4 class="card-title">Reuniones</h4>
+                                </div>
+                            </div>
+                            <div class="card-body collapse show">
+                                <div class="card-block card-dashboard">
+                                    <table id="tablareuniones" class="table table-striped table-bordered dom-jQuery-events">
+                                        <thead>
+                                            <tr>
+                                                <th>Fecha</th>
+                                                <th>Solicitante</th>
+                                                <th>Destinatario</th>
+                                                <th>Estado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- BEGIN reuniones -->
+                                            <tr>
+                                                <td class="text-truncate">{reunionfecha}</td>
+                                                <td class="text-truncate">{reunionempresasol} - {reunionnomsol}</td>
+                                                <td class="text-truncate">{reunionempresadst} - {reunionnomdst}</td>
+                                                <td class="text-truncate">{reunionestado}</td>
+                                            </tr>
+                                            <!-- END reuniones -->
+                                            
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Fecha</th>
+                                                <th>Solicitante</th>
+                                                <th>Destinatario</th>
+                                                <th>Estado</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="reunionespais">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title-wrap bar-success">
+                                    <h4 class="card-title">Reuniones x países</h4>
+                                </div>
+                            </div>
+                            <div class="card-body collapse show">
+                                <div class="card-block card-dashboard">
+                                    <table id="tablareuniones" class="table table-striped table-bordered dom-jQuery-events">
+                                        <thead>
+                                            <tr>
+                                                <th>País</th>
+                                                <th>Cantidad de reuniones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- BEGIN reunionespais -->
+                                            <tr>
+                                                <td class="text-truncate">{paisreunion}</td>
+                                                <td class="text-truncate">{cantidadreunionespais}</td>
+                                            </tr>
+                                            <!-- END reunionespais -->
+                                            
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>País</th>
+                                                <th>Cantidad de reuniones</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="reunionessectores">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title-wrap bar-success">
+                                    <h4 class="card-title">Reuniones x sectores</h4>
+                                </div>
+                            </div>
+                            <div class="card-body collapse show">
+                                <div class="card-block card-dashboard">
+                                    <table id="tablareuniones" class="table table-striped table-bordered dom-jQuery-events">
+                                        <thead>
+                                            <tr>
+                                                <th>Sector</th>
+                                                <th>Cantidad de reuniones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- BEGIN reunionessectores -->
+                                            <tr>
+                                                <td class="text-truncate">{sectorreunion}</td>
+                                                <td class="text-truncate">{cantidadreunionessectores}</td>
+                                            </tr>
+                                            <!-- END reunionessectores -->
+                                            
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Sector</th>
+                                                <th>Cantidad de reuniones</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- DOM - jQuery events table -->
+            <!-- DOM - jQuery events table -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-2 mt-4">
+                        <div class="bar-success ">
+                            <h4 class="">ENCUESTAS</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-12">
+                    <div class="card bg-main-event">
+                        <div class="card-body">
+                            <div class="px-3 py-3">
+                                <div class="media">
+                                    <div class="align-center">
+                                        <i class="icon-pointer text-white font-large-2 float-left"></i>
+                                    </div>
+                                    <div class="media-body text-white text-right">
+                                        <h3 class="text-white">{enccompletadas}</h3>
+                                        <span>Cantidad de Encuestas Completadas</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section id="encuestaspregunta">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title-wrap bar-success">
+                                    <h4 class="card-title">Resultado por Pregunta</h4>
+                                </div>
+                            </div>
+                            <div class="card-body collapse show">
+                                <div class="card-block card-dashboard">
+                                    <table id="tablareuniones" class="table table-striped table-bordered dom-jQuery-events">
+                                        <thead>
+                                            <tr>
+                                                <th>Pregunta</th>
+                                                <th>Respuesta</th>
+                                                <th>Nombre</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- BEGIN encrespuestas -->
+                                            <tr>
+                                                <td class="text-truncate">{encpregunta}</td>
+                                                <td class="text-truncate">{encrespuesta}</td>
+                                                <td class="text-truncate">{encusuario}</td>
+                                            </tr>
+                                            <!-- END encrespuestas -->
+                                            
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Pregunta</th>
+                                                <th>Respuesta</th>
+                                                <th>Nombre</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title-wrap bar-primary">
+                                <h4 class="card-title">Respuestas Pregunta</h4>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-block chartjs">
+                                <canvas id="encrespuestas-chart" height="400"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section id="encuestaspais">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title-wrap bar-success">
+                                    <h4 class="card-title">Encuestas x países</h4>
+                                </div>
+                            </div>
+                            <div class="card-body collapse show">
+                                <div class="card-block card-dashboard">
+                                    <table id="tablareuniones" class="table table-striped table-bordered dom-jQuery-events">
+                                        <thead>
+                                            <tr>
+                                                <th>País</th>
+                                                <th>Cantidad de encuestas</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- BEGIN encuestaspaises -->
+                                            <tr>
+                                                <td class="text-truncate">{paisencuesta}</td>
+                                                <td class="text-truncate">{cantidadencuestaspais}</td>
+                                            </tr>
+                                            <!-- END encuestaspaises -->
+                                            
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>País</th>
+                                                <th>Cantidad de encuestas</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+           <!--Division Titulo Interacciones-->     
+           <div class="row">
+            <div class="col-12">
+                <div class="mb-2 mt-4">
+                    <div class="bar-success ">
+                        <h4 class="">INTERACCIONES</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <section id="charlas">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title-wrap bar-success">
+                                    <h4 class="card-title">Charlas</h4>
+                                </div>
+                            </div>
+                            <div class="card-body collapse show">
+                                <div class="card-block card-dashboard">
+                                    <table class="table table-striped table-bordered dom-jQuery-events">
+                                        <thead>
+                                            <tr>
+                                                <th>Charla</th>
+                                                <th>Cantidad de visitas</th>
+                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- BEGIN populares -->
+                                            <tr>
+                                                <td class="text-truncate d-none">{agereg}</td>
+                                                <td class="text-truncate">{agetitulo}</td>
+                                                <td class="text-truncate">{cantidadperqrper}</td>
+                                                
+                                                
+                                            </tr>
+                                            <!-- END populares -->
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Charla</th>
+                                                <th>Cantidad de visitas</th>
+                                                
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Bar Chart -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title-wrap bar-primary">
+                                <h4 class="card-title">Charlas</h4>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-block chartjs">
+                                <canvas id="charlas-chart" height="400"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        <section id="stands">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title-wrap bar-success">
+                                <h4 class="card-title">Stands</h4>
+                            </div>
+                        </div>
+                        <div class="card-body collapse show">
+                            <div class="card-block card-dashboard">
+                                <table class="table table-striped table-bordered dom-jQuery-events">
+                                    <thead>
+                                        <tr>
+                                            <th>Stand</th>
+                                            <th>Categoria</th>
+                                            <th>Visitas</th>
+                                            <th>Productos</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- BEGIN sponsors -->
+                                        <tr>
+                                            <td class="text-truncate">{expnombre}</td>
+                                            <td class="text-truncate">{catdescri}</td>
+                                            <td class="text-truncate">{visitasstand1}</td>
+                                            <td class="text-truncate">{descargasproductos}</td>
+                                        </tr>
+                                        <!-- END sponsors -->
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Stand</th>
+                                            <th>Categoria</th>
+                                            <th>Visitas</th>
+                                            <th>Productos</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title-wrap bar-primary">
+                                <h4 class="card-title">Stands</h4>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-block chartjs">
+                                <canvas id="stands-chart" height="400"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section id="chatssol">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title-wrap bar-success">
+                                    <h4 class="card-title">Chats</h4>
+                                </div>
+                            </div>
+                            <div class="card-body collapse show">
+                                <div class="card-block card-dashboard">
+                                    <table class="table table-striped table-bordered dom-jQuery-events">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Solicitados</th>
+                                                <th>Recibidos</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- BEGIN chatssol -->
+                                            <tr>
+                                                <td class="text-truncate">{solnombre}</td>
+                                                <td class="text-truncate">{solcantidad}</td>
+                                                <td class="text-truncate">{cantidadchatsrecibidos}</td>
+                                            </tr>
+                                            <!-- END chatssol -->
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Solicitados</th>
+                                                <th>Recibidos</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </section>
+                
+                    <section id="ranking">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-title-wrap bar-success">
+                                            <h4 class="card-title">Ranking Games</h4>
+                                        </div>
+                                    </div>
+                                    <div class="card-body collapse show">
+                                        <div class="card-block card-dashboard">
+                                            <table class="table table-striped table-bordered dom-jQuery-events">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Posicion</th>
+                                                        <th>Nombre</th>
+                                                        <th>Puntos</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- BEGIN ranking -->
+                                                    <tr>
+                                                        <td class="text-truncate">{posicion}</td>
+                                                        <td class="text-truncate">{pernombre}</td>
+                                                        <td class="text-truncate">{puntos}</td>
+                                                    </tr>
+                                                    <!-- END ranking -->
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>Posicion</th>
+                                                        <th>Nombre</th>
+                                                        <th>Puntos</th>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </section>
+                        
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+  
+    <!-- BEGIN VENDOR JS-->
+    <script src="../assets-nuevodisenio/vendors/js/core/jquery-3.3.1.min.js"></script>
+    <script src="../assets-nuevodisenio/vendors/js/core/popper.min.js"></script>
+    <script src="../assets-nuevodisenio/vendors/js/core/bootstrap.min.js"></script>
+    <script src="../assets-nuevodisenio/vendors/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="../assets-nuevodisenio/vendors/js/prism.min.js"></script>
+    <script src="../assets-nuevodisenio/vendors/js/jquery.matchHeight-min.js"></script>
+    <script src="../assets-nuevodisenio/vendors/js/screenfull.min.js"></script>
+    <script src="../assets-nuevodisenio/vendors/js/pace/pace.min.js"></script>
+    <!-- BEGIN VENDOR JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <script src="../assets-nuevodisenio/vendors/js/chart.min.js"></script>
+    <script src="../assets-nuevodisenio/vendors/js/datatable/datatables.min.js"></script>
+    <script src="../assets-nuevodisenio/vendors/js/datatable/dataTables.buttons.min.js"></script>
+    <script src="../assets-nuevodisenio/vendors/js/datatable/buttons.flash.min.js"></script>
+    <script src="../assets-nuevodisenio/vendors/js/datatable/jszip.min.js"></script>
+    <script src="../assets-nuevodisenio/vendors/js/datatable/pdfmake.min.js"></script>
+    <script src="../assets-nuevodisenio/vendors/js/datatable/vfs_fonts.js"></script>
+    <script src="../assets-nuevodisenio/vendors/js/datatable/buttons.html5.min.js"></script>
+    <script src="../assets-nuevodisenio/vendors/js/datatable/buttons.print.min.js"></script>
+    
+    <!-- END PAGE VENDOR JS-->
+    <!-- BEGIN CONVEX JS-->
+    <script src="../assets-nuevodisenio/js/app-sidebar.js"></script>
+    <script src="../assets-nuevodisenio/js/notification-sidebar.js"></script>
+    <!-- END CONVEX JS-->
+    <!-- BEGIN PAGE LEVEL JS-->
+    <script src="../assets-nuevodisenio/js/data-tables/datatable-advanced.js"></script>
+    
+    <!-- END PAGE LEVEL JS-->
+
+    <script>
+        $('#tablareuniones').dataTable( {
+            "pageLength": 20
+            } );
+
+            var arraytipoparticipantes = {tipoparticipantesJSON};
+            var arraycantparticipantes = {cantparticipantesJSON};
+            var arrayregistros = {arrayregistrosJSON};
+            var asistentesregistros = {asistentesregistrosJSON};
+            var arrayencuestapregunta = {arrayencuestapreguntaJSON};
+            var cantidadrespuesta = {cantidadrespuestaJSON};
+            var cantidadasistentes = {cantidadasistentes};
+            var usuarioslogueados = {usuarioslogueados};
+            var reunionesconfirmadas = {reunionesconfirmadas};
+            var reunionespendientes = {reunionespendientes};
+            var reunionescanceladas = {reunionescanceladas};
+            var arraycharlas = {arraycharlasJSON};
+            var participantescharlas = {participantescharlasJSON};
+            var arraystands = {arraystandsJSON};
+            var participantesstands = {participantesstandsJSON};
+
+            
+             //Get the context of the Chart canvas element we want to select
+             var ctx = $("#encrespuestas-chart");
+
+            // Chart Options
+            var chartOptions = {
+                // Elements options apply to all of the options unless overridden in a dataset
+                // In this case, we are setting the border of each bar to be 2px wide and green
+                elements: {
+                    rectangle: {
+                        borderWidth: 2,
+                        borderColor: 'rgb(0, 255, 0)',
+                        borderSkipped: 'bottom'
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                scaleShowVerticalLines: false,
+                responsiveAnimationDuration: 500,
+                legend: {
+                    position: 'top',
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        gridLines: {
+                            color: "#f3f3f3",
+                            drawTicks: false,
+                        },
+                        scaleLabel: {
+                            display: true,
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        gridLines: {
+                            color: "#f3f3f3",
+                            drawTicks: false,
+                        },
+                        scaleLabel: {
+                            display: true,
+                        }
+                    }]
+                }
+            };
+
+            // Chart Data
+            var chartData = {
+                labels: arrayencuestapregunta,
+                datasets: [{
+                    label: "¿Cómo percibió la calidad de los productos o servicios presentados?",
+                    data: cantidadrespuesta,
+                    backgroundColor: "rgba(255, 95, 32, 0.8)",
+                    borderColor: "transparent",
+                    pointBackgroundColor: 'rgba(148,159,177,1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+                }]
+            };
+
+            var config = {
+                type: 'bar',
+
+                // Chart Options
+                options: chartOptions,
+
+                data: chartData
+            };
+            // Create the chart
+            var lineChart = new Chart(ctx, config);
+
+            //Get the context of the Chart canvas element we want to select
+            var ctx = $("#registros-chart");
+
+            // Chart Options
+            var chartOptions = {
+                // Elements options apply to all of the options unless overridden in a dataset
+                // In this case, we are setting the border of each bar to be 2px wide and green
+                elements: {
+                    rectangle: {
+                        borderWidth: 2,
+                        borderColor: 'rgb(0, 255, 0)',
+                        borderSkipped: 'bottom'
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                scaleShowVerticalLines: false,
+                responsiveAnimationDuration: 500,
+                legend: {
+                    position: 'top',
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        gridLines: {
+                            color: "#f3f3f3",
+                            drawTicks: false,
+                        },
+                        scaleLabel: {
+                            display: true,
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        gridLines: {
+                            color: "#f3f3f3",
+                            drawTicks: false,
+                        },
+                        scaleLabel: {
+                            display: true,
+                        }
+                    }]
+                }
+            };
+
+            // Chart Data
+            var chartData = {
+                labels: arrayregistros,
+                datasets: [{
+                    label: "Participantes",
+                    data: asistentesregistros,
+                    backgroundColor: "rgba(255, 95, 32, 0.8)",
+                    borderColor: "transparent",
+                    pointBackgroundColor: 'rgba(148,159,177,1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+                }]
+            };
+
+            var config = {
+                type: 'bar',
+
+                // Chart Options
+                options: chartOptions,
+
+                data: chartData
+            };
+
+            // Create the chart
+            var lineChart = new Chart(ctx, config);
+            
+            var ctx = $("#asistentes-pie-chart");
+
+             
+
+        // Chart Options
+            var chartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                responsiveAnimationDuration: 500,
+            };
+
+            // Chart Data
+            var chartData = {
+                labels: arraytipoparticipantes,
+                datasets: [{
+                    label: "Cantidad de Participantes",
+                    data: arraycantparticipantes,
+                    backgroundColor: ["#F0F8FF", "#FAEBD7", "#A52A2A","#5F9EA0", "#BDB76B", "#E9967A", "#F0E68C", "#E6E6FA", "#778899", "#FAF0E6","#F5F5F5"],
+                }]
+            };
+
+            var config = {
+                type: 'pie',
+
+                // Chart Options
+                options: chartOptions,
+
+                data: chartData
+            };
+
+            // Create the chart
+            var pieSimpleChart = new Chart(ctx, config);
+			
+
+        //Get the context of the Chart canvas element we want to select
+        //Get the context of the Chart canvas element we want to select
+        var ctx = $("#asistentes-doughnut-chart");
+
+        // Chart Options
+        var chartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            responsiveAnimationDuration: 500,
+        };
+
+        // Chart Data
+        var chartData = {
+            labels: ['Registrados', 'Logueados'],
+            datasets: [{
+                label: "% de logueados sobre registrados",
+                data: [cantidadasistentes, usuarioslogueados],
+                backgroundColor: ["rgba(102, 110, 232, 0.8)", "rgba(30, 159, 242, 0.8)"],
+            }]
+        };
+
+        var config = {
+            type: 'doughnut',
+
+            // Chart Options
+            options: chartOptions,
+
+            data: chartData
+        };
+
+        // Create the chart
+        var doughnutSimpleChart = new Chart(ctx, config);
+
+        ///////////////////////////////////////////////////////////////////////////////////////
+        var ctx = $("#reuniones-pie-chart");
+
+        // Chart Options
+            var chartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                responsiveAnimationDuration: 500,
+            };
+
+            // Chart Data
+            var chartData = {
+                labels: ['Confirmadas', 'Pendientes','Canceladas'],
+                datasets: [{
+                    label: "Estado de Reuniones",
+                    data: [reunionesconfirmadas, reunionespendientes, reunionescanceladas],
+                    backgroundColor: ["rgba(102, 110, 232, 0.8)", "rgba(30, 159, 242, 0.8)", "rgba(255, 95, 32, 0.8)"],
+                }]
+            };
+
+            var config = {
+                type: 'pie',
+
+                // Chart Options
+                options: chartOptions,
+
+                data: chartData
+            };
+
+            // Create the chart
+            var pieSimpleChart = new Chart(ctx, config);
+
+            //Get the context of the Chart canvas element we want to select
+            var ctx = $("#charlas-chart");
+
+            // Chart Options
+            var chartOptions = {
+                // Elements options apply to all of the options unless overridden in a dataset
+                // In this case, we are setting the border of each bar to be 2px wide and green
+                elements: {
+                    rectangle: {
+                        borderWidth: 2,
+                        borderColor: 'rgb(0, 255, 0)',
+                        borderSkipped: 'bottom'
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                scaleShowVerticalLines: false,
+                responsiveAnimationDuration: 500,
+                legend: {
+                    position: 'top',
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        gridLines: {
+                            color: "#f3f3f3",
+                            drawTicks: false,
+                        },
+                        scaleLabel: {
+                            display: true,
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        gridLines: {
+                            color: "#f3f3f3",
+                            drawTicks: false,
+                        },
+                        scaleLabel: {
+                            display: true,
+                        }
+                    }]
+                }
+            };
+
+            // Chart Data
+            var chartData = {
+                labels: arraycharlas,
+                datasets: [{
+                    label: "Cantidad de visitas",
+                    data: participantescharlas,
+                    backgroundColor: "rgba(255, 95, 32, 0.8)",
+                    borderColor: "transparent",
+                    pointBackgroundColor: 'rgba(148,159,177,1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+                }]
+            };
+
+            var config = {
+                type: 'bar',
+
+                // Chart Options
+                options: chartOptions,
+
+                data: chartData
+            };
+
+            // Create the chart
+            var lineChart = new Chart(ctx, config);
+
+            //Get the context of the Chart canvas element we want to select
+            var ctx = $("#stands-chart");
+
+            // Chart Options
+            var chartOptions = {
+                // Elements options apply to all of the options unless overridden in a dataset
+                // In this case, we are setting the border of each bar to be 2px wide and green
+                elements: {
+                    rectangle: {
+                        borderWidth: 2,
+                        borderColor: 'rgb(0, 255, 0)',
+                        borderSkipped: 'bottom'
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                scaleShowVerticalLines: false,
+                responsiveAnimationDuration: 500,
+                legend: {
+                    position: 'top',
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        gridLines: {
+                            color: "#f3f3f3",
+                            drawTicks: false,
+                        },
+                        scaleLabel: {
+                            display: true,
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        gridLines: {
+                            color: "#f3f3f3",
+                            drawTicks: false,
+                        },
+                        scaleLabel: {
+                            display: true,
+                        }
+                    }]
+                }
+            };
+
+            // Chart Data
+            var chartData = {
+                labels: arraystands,
+                datasets: [{
+                    label: "Visitas",
+                    data: participantesstands,
+                    backgroundColor: "rgba(255, 95, 32, 0.8)",
+                    borderColor: "transparent",
+                    pointBackgroundColor: 'rgba(148,159,177,1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+                }]
+            };
+
+            var config = {
+                type: 'bar',
+
+                // Chart Options
+                options: chartOptions,
+
+                data: chartData
+            };
+
+            // Create the chart
+            var lineChart = new Chart(ctx, config);
+
+            function filtrar() {
+
+           var desde = $("#desde").val();
+           var hasta = $("#hasta").val()
+           window.location='../metricas/datatable?ID='+desde+'||'+hasta;
+        };
+        // Obtener los datos de la base de datos en formato JSON
+       
+        
+          
+
+    </script>
+  </body>
+</html>

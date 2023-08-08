@@ -1,0 +1,129 @@
+<div class="modal-content modal-radius modalchat pl-3 pr-3">
+	<button type="button" class="color-main-event boton-x" data-dismiss="modal">X</button>
+	<div class="col-12">
+		<h4 class="meeting-banner_text text-center fw-300">{iniciotitulo}<br><span class="color-main-event fw-700">{pernomdst} {perapedst}</span> ({percardst}) {iniciofrom} <span class="color-main-event">{percomdst}</span></h4>	
+	</div>
+	<div class="d-block mr-auto ml-auto mt-3">
+		<img src="../assets-nuevodisenio/img/icons/popupchat.png" width="200px" alt="">
+	</div>
+	
+	<div class="modal-body">
+		<div class="form-group row">
+			<div class="col-md-12">
+				<input id="percoddst" type="hidden" value="{percoddst}">
+				<input id="pernomdst" type="hidden" value="{pernomdst}">
+				<textarea  class="form-control text-area-chatmodal" id="txtmensaje" name="txtmensaje" rows="2" maxlength="5000" placeholder="{iniciochat}"></textarea>
+			</div>
+		</div>
+		<div class="col-md-12 d-flex justify-content-end">
+			<div>
+				<a style="{displayfaq}" type="button" class="boton-new-rounded-o mr-1 mb-2" target="_blank" href="../faq/bsq">FAQ</a>
+				<a style="{displaywhatsapp}" type="button" class="boton-new-rounded-o mr-1 mb-2" target="_blank" href="https://api.whatsapp.com/send?phone={ayunumero}&text=Hola%2C%20me%20gustaria%20comenzar%20una%20conversaci%C3%B3n%20contigo...">Whatsapp</a>
+				<a style="{displaycorreo}" type="button" class="boton-new-rounded-o mr-1 mb-2" href="mailto:{ayucorreo}?Subject=Ayuda%20Help">{Idioma_Correo}</a>
+				<a style="{viewmodal2}" id="compartir" type="button" class="boton-new-rounded-o mr-1 mb-2 {mostrarcompartir}" onclick="compartir();" ><i class="fa fa-share-alt"></i> {compartir_datos}</a>
+				<a id="btnchatenviar" type="button" class="boton-new-rounded mr-1 mb-2" onclick="sendMensaje();">{streaming_send}</a>
+			</div>
+		
+		</div>
+		
+		
+		
+	</div>
+	<div class="col-md-12 {displaybannermodal}">
+		<a href="{urlbannermodal}" target="_blank"><img src="{bannermodal}" width="100%" alt=""></a>
+	</div>
+</div>
+<script src="../gaming/gaming.js"></script>
+<script src="../chat/socket.io.js"></script>  
+<script>
+	var PerCodigo = {percodigo};
+	var PerNombre = '{pernombre}';
+	
+	//connect to the socket server.
+    var socket = io.connect('http://rondasbtbox.localhost:9283');
+	// var socket = io.connect('https://rondasbtbox.onlife.com.ar:9283');
+
+	$(document).ready(function () {
+		registrar();
+	});
+	
+	function compartir(){
+		var mensaje = '{comparti_contacto}';
+		var percoddst = $('#percoddst').val();
+	
+		var data = {"percoddst":percoddst,
+					"mensaje":mensaje};
+		
+		//console.log(data);
+		//Guardo mensaje
+		$.ajax({
+		  type: "POST",
+		  url: '../chat/comp.php',
+		  data: data
+		}).done(function( rsp ) {
+			
+			
+			document.getElementById("compartir").style.display = "none";
+			var senddata = PerCodigo+':##:'+PerNombre+':##:'+percoddst+':##:'+pernomdst+':##:'+mensaje;
+			socket.emit('mensaje', senddata);
+
+			
+			$('#txtmensaje').val(''); 
+			toastr.success('Data Shared / Datos Compartidos', 'OK');
+
+			$('#DataMaestroViewPerfil').modal('hide');
+
+			var link = "../chat/bsq?P=" + percoddst;
+			setTimeout(function(){location.href=link} , 1000);  
+			
+
+		});
+	}
+
+
+	function sendMensaje(){
+		
+		var mensaje = $('#txtmensaje').val();
+		var percoddst = $('#percoddst').val();
+		var pernomdst = $('#pernomdst').val();
+		if (mensaje!=''){
+			addPointsGaming(13,percoddst);
+			var data = {"percoddst":percoddst,
+						"mensaje":mensaje};
+		
+			// console.log(data);
+			$('#btnchatenviar').hide();
+			//Guardo mensaje
+			$.ajax({
+			type: "POST",
+			url: '../chat/grbmsg.php',
+			data: data
+			}).done(function( rsp ) {
+				// console.log(rsp);
+				$('#btnchatenviar').show();
+				//data = $.parseJSON(rsp);
+				
+				var senddata = PerCodigo+':##:'+PerNombre+':##:272:##:Usuario11:##:'+mensaje;
+				socket.emit('mensaje', senddata);
+				$('#DataMaestroViewPerfil').modal('hide');
+				window.location='../chat/bsq?P='+percoddst;
+			});
+		}else{
+			toastr.error('{iniciochaterror}', '{chat}');
+		}
+	}
+	
+	function registrar(){
+		socket.emit('registrar', '{chatregister}');
+	}
+
+	function keyPressMensaje(e){
+		if (e.keyCode == 13) {
+			sendMensaje();
+			return false;
+		}
+	}
+
+</script>
+	  
+	  

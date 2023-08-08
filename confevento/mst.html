@@ -1,0 +1,402 @@
+<section id="horizontal-form-layouts">
+  <!--New formulario-->
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="px-3">
+          <form class="form">
+            <div class="form-body">
+              <div class="form-group">
+                <label for="timesheetinput3">{backconfreunionesinicioevento}</label>
+                <div class="position-relative has-icon-left">
+                  <input
+                    type="date"
+                    id="evefch"
+                    class="form-control"
+                    name="evefch"
+                    value="{evefch}"
+                  />
+                  <div class="form-control-position">
+                    <i class="ft-message-square"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="timesheetinput1">{backconfreunionesduracionevento}</label>
+                <div class="position-relative has-icon-left">
+                  <input
+                    type="number"
+                    id="evedur"
+                    name="evedur"
+                    class="form-control"
+                    value="{evedur}"
+                  />
+                  <div class="form-control-position">
+                    <!--En caso que requiera icono-->
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="timesheetinput5">{horainicio}</label>
+                    <div class="position-relative has-icon-left">
+                      <input
+                        type="time"
+                        id="evehorini"
+                        class="form-control"
+                        name="evehorini"
+                        value="{evehorini}"
+                      />
+                      <div class="form-control-position">
+                        <i class="ft-clock"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="timesheetinput6">{horafin}</label>
+                    <div class="position-relative has-icon-left">
+                      <input
+                        type="time"
+                        id="evehorfin"
+                        class="form-control"
+                        name="evehorfin"
+                        value="{evehorfin}"
+                      />
+                      <div class="form-control-position">
+                        <i class="ft-clock"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="timesheetinput1"
+                      >{backconfreunionesduracion}</label
+                    >
+                    <div class="position-relative has-icon-left">
+                      <input
+                        type="number"
+                        id="reudur"
+                        name="reudur"
+                        class="form-control"
+                        value="{reudur}"
+                      />
+                      <div class="form-control-position">
+                        <!--En caso que requiera icono-->
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="timesheetinput1"
+                      >Descanso entre reuniones en minutos</label
+                    >
+                    <div class="position-relative has-icon-left">
+                      <input
+                        type="number"
+                        id="reudes"
+                        name="reudes"
+                        class="form-control"
+                        value="{reudes}"
+                      />
+                      <div class="form-control-position">
+                        <!--En caso que requiera icono-->
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="timesheetinput2">{backconfreunionestipo}</label>
+                <p style="font-weight: 600; font-size:12px;">- Oferta/Demanda: Diseñado para eventos de negocios basados en la compra y venta de productos y servicios. El sistema le recomienda contrapartes a los usuarios cuando detecta que los intereses de oferta de unos coinciden con la demanda de los otros.<br>
+                  - Networking: Diseñado para eventos en los cuales los participantes se vinculan entre sí a través de intereses en común, sin implicar una acción comercial de por medio. El sistema recomienda contrapartes a los usuarios cuando detecta que ambos comparten algún interés en común.<br>
+                  El sistema de recomendaciones se basa en los Sectores y Subsectores, los cuales se pueden personalizar desde el Panel de Configuración.</p>
+                <div class="position-relative has-icon-left">
+                  <select
+                    id="tiporeunion"
+                    name="tiporeunion"
+                    class="form-control"
+                  >
+                    <option value="true" {valorreunionesod}>{Idioma_ClasificarVentas}/{Idioma_ClasificarCompras}</option>
+                    <option value="false" {valorreunionesn}>{backconfreunionesnetworking}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="timesheetinput2">{backconfreunionestipoevento}</label>
+                <div class="position-relative has-icon-left">
+                  <select
+                    id="tipoevento"
+                    name="tipoevento"
+                    class="form-control"
+                  >
+                    <option value="true" {valoreventohibrido}>{backconfreunioneshibrido}</option>
+                    <option value="false" {valoreventodigital}>{backconfreunionesdigital}</option>
+                    <option value="fix" {valoreventopresencial}>{backconfreunionespresencial}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="timesheetinput2">{backconfreunionescompartir}</label>
+                <div class="position-relative has-icon-left">
+                  <select
+                    id="compartirdatos"
+                    name="compartirdatos"
+                    class="form-control"
+                  >
+                    <option value="true" {valorcompartirsi}>{backconfreunionescompartirsi}</option>
+                    <option value="false" {valorcompartirno}>{backconfreunionescompartirno}</option>
+                 
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="mt-2" for="timesheetinput3"
+                  >{backconfreunionesbloqueo}:</label
+                >
+                <div class="position-relative has-icon-left">
+                  <input
+                    onkeypress="return false;"
+                    onchange="loadHorarios(this);"
+                    type="date"
+                    id="agefch"
+                    class="form-control"
+                    min="{fechainicial}"
+                    max="{fechafinal}"
+                    value="{fechaincioreunion}"
+                    name="agefch"
+                    placeholder="Seleccione la fecha..."
+                  />
+                  <div class="form-control-position">
+                    <i class="ft-message-square"></i>
+                  </div>
+                </div>
+              </div>
+              
+              <div id="desrireu" class="row pl-2 pr-2 mt-1 mb-1">
+                <p class="col-12 fw-600 mb-0">{descripcionreuniones}</p>
+              </div>
+              <div id="horarios" class="form-group row"></div>
+            </div>
+            <div class="form-actions right">
+              <a
+                id="btnguardar"
+                type="button"
+                class="btn btn-success"
+                onclick="guardarMaestroMsg();"
+              >
+                <i class="icon-note"></i> {Idioma_Guardar}
+              </a>
+              <a
+                id="btncancelar"
+                type="button"
+                class="btn btn-danger mr-1 white"
+                href="../backend/bsq"
+              >
+                <i class="icon-arrow-left"></i> {atras}
+              </a>
+              &nbsp;&nbsp;
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="brw.js"></script>
+<script src="../assets-nuevodisenio/js/switch.min.js"></script>
+<script>
+  $("#spkreg").multiselect({
+    columns: 1,
+    placeholder: "Seleccione speakers",
+    search: true,
+    selectAll: true,
+  });
+  var desrireu = document.querySelector("#desrireu");
+  desrireu.style.display= "none";
+  function guardarMaestroMsg() {
+    var errcod = 0;
+    var errmsg = "";
+    var evefch = $("#evefch").val();
+    var evedur = $("#evedur").val();
+    var evehorini = $("#evehorini").val();
+    var evehorfin = $("#evehorfin").val();
+    var reudur = $("#reudur").val();
+    var reudes = $("#reudes").val();
+	var tipoevento = $("#tipoevento").val();
+
+  var tiporeunion = $("#tiporeunion").val();
+
+    if (evefch == "") {
+      errcod = 2;
+    }
+    if (evedur == "") {
+      errcod = 2;
+    }
+    if (evehorini == "") {
+      errcod = 2;
+    }
+    if (evehorfin == "") {
+      errcod = 2;
+    }
+    if (reudur == "") {
+      errcod = 2;
+    }
+    if (reudes == "") {
+      errcod = 2;
+    }
+	if (tipoevento == "") {
+      errcod = 2;
+    }
+    if (tiporeunion == "") {
+      errcod = 2;
+    }
+
+
+    if (errcod != 0) {
+      //swal("GUARDAR", errmsg, "error").done();
+      toastr.error(
+        "{completeelcampo}...",
+        "{Idioma_GuardarSwal}"
+      );
+    }
+
+    if (errcod == 0) {
+      swal({
+        title: "SAVE",
+        text: "¿Confirma guardar los cambios / Are sure?",
+        type: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#0CC27E",
+        cancelButtonColor: "#FF586B",
+        confirmButtonText: "Confirmar",
+        cancelButtonText: "Cancelar",
+        confirmButtonClass: "btn btn-success btn-raised mr-5",
+        cancelButtonClass: "btn btn-danger btn-raised",
+        buttonsStyling: false,
+      })
+        .then(
+          function () {
+            guardarMaestro();
+          },
+          function (dismiss) {
+            // dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+            if (dismiss === "cancel") {
+            }
+          }
+        )
+        .done();
+    }
+  }
+
+  function guardarMaestro() {
+    var evefch = $("#evefch").val();
+    var evedur = $("#evedur").val();
+    var evehorini = $("#evehorini").val();
+    var evehorfin = $("#evehorfin").val();
+    var reudur = $("#reudur").val();
+    var reudes = $("#reudes").val();
+	var tipoevento = $("#tipoevento").val();
+  var compartirdatos = $("#compartirdatos").val();
+  var tiporeunion = $("#tiporeunion").val();
+    //Busco la disponibilidad
+    auxdataDisponibilidad = [];
+    $.each($('input[name="distime"]'), function () {
+      var fecha = $(this).data("fecha");
+      var hora = $(this).data("hora");
+      var data = "";
+      if ($(this).prop("checked") == false) {
+        data = { fecha: fecha, hora: hora, dispbool: 1 };
+        //do something
+      } else {
+        data = { fecha: fecha, hora: hora, dispbool: 0 };
+      }
+      auxdataDisponibilidad.push(data);
+    });
+    console.log(auxdataDisponibilidad);
+    var dataDisponibilidad = JSON.stringify(auxdataDisponibilidad);
+
+    var data = {
+      evefch: evefch,
+      evedur: evedur,
+      evehorini: evehorini,
+      evehorfin: evehorfin,
+      reudur: reudur,
+      reudes: reudes,
+      dataDisponibilidad: dataDisponibilidad,
+	  tipoevento: tipoevento,
+    compartirdatos:compartirdatos,
+    tiporeunion: tiporeunion
+    };
+
+    $.ajax({
+      type: "POST",
+      url: "grb.php",
+      data: data,
+    }).done(function (rsp) {
+      data = $.parseJSON(rsp);
+
+      if (data.errcod == 0) {
+        toastr.success(data.errmsg, "SAVE");
+        //swal("GUARDAR", data.errmsg, "success").done();
+        showBrowser();
+      } else {
+        toastr.error(data.errmsg, "SAVE");
+        //swal("GUARDAR", data.errmsg, "error").done();
+      }
+    });
+  }
+  function loadHorarios(obj) {
+    if ($("#reudur").val() != 0) {
+      var agefch = $(obj).val();
+      desrireu.style.display= "";
+      var fechalabel = formatDate(agefch);
+      var fechalabelstring = formatDateString(agefch);
+      $.ajax({
+        type: "POST",
+        url: "disponibilidadhora.php",
+        data: { agefch: agefch },
+      }).done(function (rsp) {
+        data = $.parseJSON(rsp);
+        Eliminar(fechalabel, fechalabelstring);
+        console.log(data);
+        data.forEach((producto) => {
+          if (producto != null) {
+            Mostrar(producto);
+          }
+        });
+      });
+    } else {
+      toastr.error(
+        "Recuerde guardar la duración de las reuniones",
+        "{Idioma_GuardarSwal}"
+      );
+    }
+  }
+  function formatDate(input) {
+    var datePart = input.match(/\d+/g),
+      year = datePart[0].substring(2), // get only two digits
+      month = datePart[1],
+      day = datePart[2];
+
+    return day + "/" + month + "/" + year;
+  }
+  function formatDateString(input) {
+    var datePart = input.match(/\d+/g),
+      year = datePart[0].substring(2), // get only two digits
+      month = datePart[1],
+      day = datePart[2];
+
+    return day + month + year;
+  }
+</script>

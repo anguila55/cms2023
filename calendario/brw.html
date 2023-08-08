@@ -1,0 +1,54 @@
+﻿<div class="timeline ">
+	<!-- BEGIN personal-calendar -->
+	<div class="container-calendario bg-main-event {orientacion}">
+		<div class="content" style="width: 200px;">
+			<h2 class="font-small-2">{percompan}</h2>
+			<h2 class="font-small-2">{perapelli} {pernombre}</h2>
+
+			<p class="pepe"><strong>{reufecha}</strong></p>
+			<p class="pepe">{reuhora}</p>
+
+
+
+			<!-- <a href="http://www.google.com/calendar/render?
+			action=TEMPLATE
+			&text=[Atlantic Food Export]-{percompan}-{pernombre}-{perapelli}
+			&ctz=Europe/London
+			&dates={fechacalendar}T{horacalendar}{minutoscalendar}00%2F{fechacalendar}T{horafincalendar}{minutosfincalendar}00
+			" target="_blank" rel="nofollow" class=" btn btn-primary btn-md font-small-2">{agregarcalendario}</a> -->
+
+			<div class=" btn btn-primary addeventatc"  style="z-index:inherit; padding-left: 31px; background-color: transparent; box-shadow:none !important;">{agregarcalendario}
+                <!--<img src="imagenes-evento/homenuevo/icono-drive.png" width=70% alt="">-->
+                <span class="start">{fechacalendar} {horacalendar}:{minutoscalendar}</span>
+                <span class="end">{fechacalendar} {horafincalendar}:{minutosfincalendar}</span>
+                <span class="timezone">Buenos_Aires/Argentina</span>
+                <span class="title">{titulocalendar}</span>
+                <span class="description">{SisNombreEvento}</span>
+            </div>
+
+
+		</div>
+	</div>
+	
+<!-- END personal-calendar -->
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<script>
+
+
+	function sendToGoogleCalendar() {
+
+		window.location = "https://www.google.com/calendar/"
+	}
+
+</script>

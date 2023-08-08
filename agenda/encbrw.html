@@ -1,0 +1,99 @@
+
+<section id="horizontal-form-layouts">
+	<div class="row">
+		<div class="col-sm-12">
+			<h2 class="content-header">Visualizar Encuestas de Agenda  "{agetitulo}" </h2>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="table-responsive">
+						<table id="recent-orders" class="table table-hover table-xl mb-0">
+							<thead>
+								<tr>
+									<th class="border-top-0"></th>                                
+									<th class="border-top-0">{Idioma_Encuesta}</th>
+									<th class="border-top-0"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- BEGIN browser -->
+								<tr>
+									<td class="text-truncate">
+									</td>
+									<td class="text-truncate"><span>{encdescri}</span></td>				
+									<td class="text-truncate">
+										<a class="danger p-0" data-original-title="" title="Eliminar"onclick="eliminarAgeEncuesta({agenda},{encreg});">
+											<i class="fa fa-trash-o font-medium-3 mr-2"></i>
+										</a>			
+									</td>
+								</tr>
+								<!-- END browser -->
+								
+							</tbody>
+						</table>
+						
+					</div>
+				</div>
+				<br>
+				<div class="form-actions">
+					<button id="btnguardar" type="button" class="btn btn-success" onclick="showMaestroEncuesta({agereg},0);">
+						<i class="icon-note"></i> {Nuevo}
+					</button>
+					<button id="btncancelar" type="button" class="btn btn-danger mr-1" onclick="showBrowser();">
+						<i class="icon-trash"></i> {Idioma_Cerrar}
+					</button>
+					&nbsp;&nbsp;
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</section>
+
+<script>
+	function eliminarAgeEncuesta(agereg,encreg){
+		var data = {"agereg":agereg,
+					"encreg":encreg};
+		
+		swal({
+			title: "ELIMINAR",
+			text: "¿Confirma eliminar la encuesta de la agenda?",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#0CC27E',
+			cancelButtonColor: '#FF586B',
+			confirmButtonText: {Idioma_BotonConf},
+			cancelButtonText: {Idioma_BotonCan},
+			confirmButtonClass: 'btn btn-success btn-raised mr-5',
+			cancelButtonClass: 'btn btn-danger btn-raised',
+			buttonsStyling: false
+		}).then(function () {
+			$.ajax({
+			  type: "POST",
+			  url: 'delageenc.php',
+			  data: data
+			}).done(function( rsp ) {
+				// console.log(rsp);
+				data = $.parseJSON(rsp);
+				
+				if(data.errcod == 0){			
+					toastr.success(data.errmsg, 'ELIMINAR');
+					showEncuesta(agereg);
+				}else{
+					toastr.error(data.errmsg, 'ELIMINAR');
+				}				
+			});			
+			
+		}, function (dismiss) {
+			if (dismiss === 'cancel') {
+			}
+		}).done();
+	}
+</script>
+	 
+	  
+	  

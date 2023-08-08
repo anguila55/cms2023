@@ -1,0 +1,193 @@
+<section id="horizontal-form-layouts">
+	<div class="row">
+		<div class="col-sm-12">
+			<h2 class="content-header">Networking Room</h2>
+		</div>
+	</div>
+	
+
+	<!--New formulario-->
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-body">
+				<div class="px-3">
+					<form class="form">
+						<div class="form-body">
+
+							<div class="form-group">
+								<label for="timesheetinput1">Título</label>
+								<div class="position-relative has-icon-left">
+									<input type="hidden" id="networkreg" name="networkreg" value="{networkreg}">
+									<input type="text" id="networktitulo"  name="networktitulo" class="form-control" value="{networktitulo}">
+									<div class="form-control-position">
+										<!--En caso que requiera icono-->
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="timesheetinput3">Fecha</label>
+								<div class="position-relative has-icon-left">
+									<input type="date" id="networkfch" class="form-control" name="networkfch" value="{networkfch}">
+									<div class="form-control-position">
+										<i class="ft-message-square"></i>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="timesheetinput5">Hora Inicio</label>
+										<div class="position-relative has-icon-left">
+											<input type="time" id="networkhorini" class="form-control" name="networkhorini" value="{networkhorini}">
+											<div class="form-control-position">
+												<i class="ft-clock"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="timesheetinput6">Hora Fin</label>
+										<div class="position-relative has-icon-left">
+											<input type="time" id="networkhorfin" class="form-control" name="networkhorfin" value="{networkhorfin}">
+											<div class="form-control-position">
+												<i class="ft-clock"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label for="timesheetinput1">Link Networking Room</label>
+								<div class="position-relative has-icon-left">
+									<input type="text" id="networkbbb"  name="networkbbb" class="form-control" value="{networkbbb}">
+								</div>
+							</div>
+
+							<!-- <div class="form-group">
+								<label for="timesheetinput1">LIVE</label>
+								<input id="checklive" type="checkbox"  class="switchery"
+								data-color="white" data-jack-color="success" 
+								{checked} />
+							</div> -->
+							<label for="timesheetinput1">LIVE/SOON/FULL</label>
+							<select id="checklive" name="checklive" class="form-control" >
+										
+								<option value="{checklive}" >{checklivenombre}</option>
+								<option value="1" >LIVE</option>
+								<option value="2" >FULL</option>
+								<option value="3" >SOON</option>
+								
+							
+							
+							</select>
+							
+						
+						</div>
+
+						<div class="form-actions right">
+								<button id="btnguardar" type="button" class="btn btn-success" onclick="guardarMaestroMsg();">
+									<i class="icon-note"></i> Guardar
+								</button>
+								<button id="btncancelar" type="button" class="btn btn-danger mr-1" onclick="showBrowser();">
+									<i class="icon-arrow-left"></i> Cancelar
+								</button>
+								&nbsp;&nbsp;
+							</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</section>
+<script src="../assets-nuevodisenio/js/switch.min.js"></script>
+<script>
+	
+
+	
+
+	function guardarMaestroMsg(){
+		
+		var errcod = 0;
+		var errmsg = '';
+			
+		if(errcod==0){
+			swal({
+				title:"SAVE",
+				text: "¿Confirma guardar los cambios / Are sure?",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: 'Confirmar',
+				cancelButtonText: 'Cancelar',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+				guardarMaestro();
+				
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+	}
+
+	function guardarMaestro(){
+		var networkreg 		= $('#networkreg').val();
+		var networktitulo 	= $('#networktitulo').val();
+		var networkfch 		= $('#networkfch').val();
+		var networkhorini 	= $('#networkhorini').val();
+		var networkhorfin 	= $('#networkhorfin').val();
+		var estcodigo	= $('#estcodigo').val();
+		var networkbbb   = $('#networkbbb').val();
+		let checked=  $('#checklive').val();;
+
+		
+		
+
+			
+		var data = {"networkreg":networkreg,
+					"networktitulo":networktitulo,
+					"networkfch":networkfch,
+					"networkhorini":networkhorini,
+					"networkhorfin":networkhorfin,
+					"estcodigo":estcodigo,
+					"networkbbb":networkbbb,
+					"switch":checked
+					};
+
+		
+		$.ajax({
+		  type: "POST",
+		  url: 'grb.php',
+		  data: data
+		}).done(function( rsp ) {
+			data = $.parseJSON(rsp);
+			
+			if(data.errcod == 0){
+				toastr.success(data.errmsg, 'SAVE');			
+				//swal("GUARDAR", data.errmsg, "success").done();
+				showBrowser();
+			}else{
+				toastr.error(data.errmsg, 'SAVE');	
+				//swal("GUARDAR", data.errmsg, "error").done();
+			}
+			
+		});
+	}
+	
+	
+
+</script>
+	 
+	  
+	  

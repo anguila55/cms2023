@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		var nombrecodigo = {percodnotif};
+		dataLayer.push({'event' : 'login', 'userId' : nombrecodigo});
+		</script>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-MW2RMSR');</script>
+		
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="description"
+    content="BTBOX _your business toolbox. Todas las soluciones en una plataforma para potenciar tu próximo evento">
+    <meta name="keywords"
+    content="btbox, evento, fisico, hibrido, event, admin, btoolbox, networking, reuniones">
+    <meta name="author" content="BTBOX">
+	<title>{SisNombreEvento}</title>
+    <link rel="shortcut icon" type="image/png" href="../assets-nuevodisenio/img/logo.jpg">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/index.css">
+
+	<!-- script para levantar el navbar -->
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<!-- ---------------------------------- X ---------------------------------- -->
+</head>
+
+<body data-col="2-columns" class=" 2-columns " >
+
+	<div class="wrapper nav-collapsed menu-collapsed">
+		<!-- Navigation bar -->
+		<div id="nav-placeholder">
+
+		</div>
+
+		<script>
+			$(function () {
+				var data = {
+					"menu": "activeindex"
+				};
+
+				$("#nav-placeholder").load("../navbar/navbar.php", data);
+
+			});
+		</script>
+		<!-- end of Navigation bar -->
+	
+<!--MENU FIN-->
+	
+
+		<div class="main-panel">
+			<div class="main-content">
+				<div class="content-wrapper">
+					<div class="container-fluid">
+
+						<!--Inicio TABLA -->
+						<section id="shopping-cart">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="card">
+										<div class="card-header">
+											<div class="card-title-wrap bar-warning">
+												<h4 class="card-title">
+													Control de Ingresos
+													<a class="info p-0" title="exportar ingresos" href="../exportar/exportarIngresos.php"
+																style="position:absolute;right:170px; "><i class="fa fa-download font-medium-5 mr-2"></i></a>
+													<a id="navbar-notification-sidebar" href="javascript:;"
+														class="nav-link notification-sidebar-toggle"
+														style="position:absolute;right:70px; top:20px;">
+														<i style="color:grey;" class="ft-filter">{Idioma_Filtros}</i>
+														<p class="d-none">Notifications Sidebar</p>
+													</a>
+												</h4>
+											</div>
+										</div>
+										<div id="databrw" class="card-body">
+											<div  class="container-seleccion d-flex justify-content-center">
+												<div class="row col-12"  id="fltpermisos">
+													<div class="table-responsive">
+														<table id="recent-orders" class="table table-hover table-xl mb-0">
+															<thead>
+																<tr>
+																	<th class="border-top-0" style="text-align: left; width: 10%;"></th>                                
+																	<th class="border-top-0" style="text-align: left; width: 20%;">{Idioma_Nombre}</th>
+																	<th class="border-top-0" style="text-align: left;width: 20%;">{Idioma_Compania}</th>
+																	<th class="border-top-0" style="text-align: left;width: 30%;">Fecha Ingesos</th>
+																	<th class="border-top-0" style="text-align: left; width: 20%;">{Idioma_Nombrecontrol}</th>
+																	
+																</tr>
+																
+															</thead>
+															<tbody>
+
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+											
+											<div id="databrw1">
+												<div class="card-block" id="DataBrowser"></div>
+											</div>
+											
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</section>
+						<!--Fin TABLA -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> <!-- FIN- <div class="wrapper"> -->
+
+	<!-- Modal -->
+	<div class="modal fade p-0 text-left" id="DataMaestroDisp" tabindex="-1" role="dialog" aria-hidden="true"
+		data-backdrop="static" data-keyboard="false">
+		<div class="modal-dialog modal-lg" role="document" id="DataDisp" style="max-width:80%;">
+		</div>
+	</div>
+
+	<div class="modal fade p-0 text-left" id="DataMaestroClasif" tabindex="-1" role="dialog" aria-hidden="true"
+		data-backdrop="static" data-keyboard="false">
+		<div class="modal-dialog modal-lg" role="document" id="DataClasif" style="max-width:1300px;">
+		</div>
+	</div>
+
+
+	<!-- Inicio CONFIGURACION -->
+	<aside id="notification-sidebar" class="notification-sidebar d-none d-sm-none d-md-block">
+		<a class="notification-sidebar-close">
+			<i class="ft-x font-medium-3"></i>
+		</a>
+		<div class="side-nav notification-sidebar-content">
+			<div class="row">
+				<div class="col-12 mt-1">
+
+					<div id="activity-timeline" class="col-12 timeline-left">
+						<h6 class="mt-1 mb-3 text-bold-400">{Idioma_Filtros}</h6>
+
+
+						<div class="timeline">
+							<ul class="list-unstyled base-timeline activity-timeline ml-0">
+								<li class="d-none">
+									<div class="timeline-icon bg-primary">
+										<i class="fa fa-plane"></i>
+									</div>
+									<div class="base-timeline-info">
+										<a href="#" class="text-uppercase text-primary">{Idioma_Usuario}</a>
+										<br>
+										<div class="form-group row">
+											<div class="col-md-12">
+												<input type="text" id="fltusuacc" name="fltusuacc" class="form-control"
+													value="" placeholder="" onkeypress="KeyEnterBuscar(event)">
+											</div>
+										</div>
+								</li>
+								<li>
+									<div class="d-none timeline-icon bg-primary">
+										<i class="fa fa-plane"></i>
+									</div>
+									<div class="base-timeline-info">
+										<a href="#" class="text-uppercase text-primary">{Idioma_Nombre}</a>
+										<br>
+										<div class="form-group row">
+											<div class="col-md-12">
+												<input type="text" id="fltnombre" name="fltnombre" class="form-control"
+													value="" placeholder="" onkeypress="KeyEnterBuscar(event)">
+											</div>
+										</div>
+								</li>
+								<li>
+									<div class="d-none timeline-icon bg-primary">
+										<i class="fa fa-plane"></i>
+									</div>
+									<div class="base-timeline-info">
+										<a href="#" class="text-uppercase text-primary">{Idioma_Apellido}</a>
+										<br>
+										<div class="form-group row">
+											<div class="col-md-12">
+												<input type="text" id="fltapelli" name="fltapelli" class="form-control"
+													value="" placeholder="" onkeypress="KeyEnterBuscar(event)">
+											</div>
+										</div>
+								</li>
+								<li>
+									<div class="d-none timeline-icon bg-primary">
+										<i class="fa fa-plane"></i>
+									</div>
+									<div class="base-timeline-info">
+										<a href="#" class="text-uppercase text-primary">{Idioma_Compania}</a>
+										<br>
+										<div class="form-group row">
+											<div class="col-md-12">
+												<input type="text" id="fltcompan" name="fltcompan" class="form-control"
+													value="" placeholder="" onkeypress="KeyEnterBuscar(event)">
+											</div>
+										</div>
+								</li>
+								<li class="d-none">
+									<div class="timeline-icon bg-primary">
+										<i class="fa fa-plane"></i>
+									</div>
+									<div class="base-timeline-info">
+										<a href="#" class="text-uppercase text-primary">{Idioma_Correo}</a>
+										<br>
+										<div class="form-group row">
+											<div class="col-md-12">
+												<input type="text" id="fltcorreo" name="fltcorreo" class="form-control"
+													value="" placeholder="" onkeypress="KeyEnterBuscar(event)">
+											</div>
+										</div>
+								</li>
+
+
+								<li>
+									<div class="d-none timeline-icon bg-primary">
+										<i class="fa fa-plane"></i>
+									</div>
+									<div class="base-timeline-info">
+										<a href="#" class="text-uppercase text-primary">{Idioma_OrdenarPor}...</a>
+										<br>
+										<select id="fltorden" name="fltorden" class="form-control">
+											<option value="0">{reunionconfirmada3}</option>
+											<option value="1">{Idioma_Nombre}</option>
+											<option value="2">{Idioma_Apellido}</option>
+											<option value="3">{Idioma_Compania}</option>
+										</select>
+								</li>
+
+								<li class="d-none">
+									<div class="timeline-icon bg-primary">
+										<i class="fa fa-plane"></i>
+									</div>
+									<div class="base-timeline-info">
+										<a href="#" class="text-uppercase text-primary">{Idioma_Estado}</a>
+										<br>
+										<select id="fltestado" name="fltestado" class="form-control">
+											<option value="0" selected>{Idioma_PLbtodos}</option>
+											<option value="1">{Idioma_PLbactivos}</option>
+											<option value="3">{Idioma_PLbeliminados}</option>
+											<option value="8">{Idioma_PLbnoliberados}</option>
+											<option value="9">{Idioma_PLbcorreonoconf}</option>
+										</select>
+								</li>
+
+								<li class="d-none">
+									<div class="timeline-icon bg-primary">
+										<i class="fa fa-plane"></i>
+									</div>
+									<div class="base-timeline-info">
+										<a href="#" class="text-uppercase text-primary">{Idioma_CBtipo}</a>
+										<br>
+										<select id="fltpertipo" name="fltpertipo" class="form-control">
+											<option value="">{Idioma_PLbtodos}</option>
+											<!-- BEGIN pertipos -->
+											<option value="{pertipo}">{pertipdes}</option>
+											<!-- END pertipos -->
+										</select>
+								</li>
+
+								<li class="d-none">
+									<div class="timeline-icon bg-primary">
+										<i class="fa fa-plane"></i>
+									</div>
+									<div class="base-timeline-info">
+										<a href="#" class="text-uppercase text-primary">{clase}</a>
+										<br>
+										<select id="fltperclase" name="fltperclase" class="form-control">
+											<option value="">Todos</option>
+											<!-- BEGIN perclases -->
+											<option value="{perclase}">{perclades}</option>
+											<!-- END perclases -->
+										</select>
+								</li>
+
+							</ul>
+
+							<div class="card-body">
+								<div class="card-block">
+									<form>
+										<div class="form-group">
+											<div class="text-center mt-4">
+												<button type="button"
+													class="btn btn-primary px-4 py-2 text-uppercase white font-small-4 box-shadow-2 border-0"
+													onclick="showBrowser();">{buscar}</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</aside>
+
+
+	<!-- Fin CONFIGURACION -->
+
+	<!-- BEGIN VENDOR JS-->
+	<script src="../assets-nuevodisenio/vendors/js/core/jquery-3.3.1.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/core/popper.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/core/bootstrap.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/perfect-scrollbar.jquery.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/prism.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/jquery.matchHeight-min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/screenfull.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/pace/pace.min.js"></script>
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<!-- END PAGE VENDOR JS-->
+	<!-- BEGIN CONVEX JS-->
+	<script src="../assets-nuevodisenio/js/app-sidebar.js"></script>
+	<!-- <script src="../assets-nuevodisenio/js/notification-sidebar.js"></script> -->
+	<!-- END CONVEX JS-->
+	<!-- BEGIN PAGE LEVEL JS-->
+	<!-- END PAGE LEVEL JS-->
+
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<script src="../assets-nuevodisenio/vendors/js/sweetalert2.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/toastr.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/switchery.min.js"></script>
+	<script src="../assets-nuevodisenio/js/socket.io.js"></script>
+	<script src="../assets-nuevodisenio/js/notifnoden.js"></script>
+	<!-- END PAGE VENDOR JS-->
+	<script>
+
+		var fltorden = null;
+		var fltordentipo = 1;
+		$(document).ready(function () {
+
+
+			showBrowser();
+
+			//$('#fltbuscar').keypress(function (event){if (event.which == 13) { showBrowser(); } });	
+		});
+
+		function changeidioma() {
+
+			var en = $('#en').val();
+			var es = $('#es').val();
+			//console.log(en);
+		}
+
+		var pageNumero = 0;
+		var runBuscarMas = false;
+		function showBrowser() {
+			document.querySelector("#databrw1").innerHTML='';
+			var newDiv = $('<div class="card-block" id="DataBrowser"></div>');
+				newDiv.appendTo($('#databrw1'));
+			 pageNumero = 0;
+			runBuscarMas = false;
+			
+			var fltnombre = $('#fltnombre').val();
+			var fltusuacc = $('#fltusuacc').val();
+			var fltapelli = $('#fltapelli').val();
+			var fltcompan = $('#fltcompan').val();
+			var fltcorreo = $('#fltcorreo').val();
+			var orden = $('#fltorden').val();
+			var fltestado = $('#fltestado').val();
+			var fltpertipo = $('#fltpertipo').val();
+			var fltperclase = $('#fltperclase').val();
+
+			if (orden == fltorden) {
+				if (fltordentipo == 2) {
+					fltordentipo = 1; //Ascendente
+				} else {
+					fltordentipo = 1; //Descendente
+				}
+
+			} else {
+				fltordentipo = 1; //Ascendente
+			}
+			fltorden = orden;
+
+			var data = {
+				
+				"fltnombre": fltnombre,
+				"fltusuacc": fltusuacc,
+				"fltapelli": fltapelli,
+				"fltcompan": fltcompan,
+				"fltcorreo": fltcorreo,
+				"fltorden": fltorden,
+				"fltordentipo": fltordentipo,
+				"fltestado": fltestado,
+				"fltpertipo": fltpertipo,
+				"fltperclase": fltperclase
+			};
+			console.log(data);
+			$('#DataBrowser').load('brw.php', data);
+			$('#DataMaestro').css('display', 'none');
+			$('#DataBrowser').css('display', '');
+
+		}
+
+
+
+		function KeyEnterBuscar(e) {
+			if (!e) var e = window.event
+			if (e.keyCode) code = e.keyCode;
+			else if (e.which) code = e.which;
+			if (code == 13) {
+				showBrowser();
+			}
+		}
+		
+		function browserVermas(){
+			//console.log('ver mas:'+pageNumero);
+			runBuscarMas=true;
+			$('div[id="dvvermas"]').hide();
+			
+			pageNumero++;
+			var fltnombre = $('#fltnombre').val();
+			var fltusuacc = $('#fltusuacc').val();
+			var fltapelli = $('#fltapelli').val();
+			var fltcompan = $('#fltcompan').val();
+			var fltcorreo = $('#fltcorreo').val();
+			var orden = $('#fltorden').val();
+			var fltestado = $('#fltestado').val();
+			var fltpertipo = $('#fltpertipo').val();
+			var fltperclase = $('#fltperclase').val();
+			fltordentipo = 1; //Ascendente
+			
+			fltorden = orden;
+
+			var data = {
+				"fltnombre": fltnombre,
+				"fltusuacc": fltusuacc,
+				"fltapelli": fltapelli,
+				"fltcompan": fltcompan,
+				"fltcorreo": fltcorreo,
+				"fltorden": fltorden,
+				"fltordentipo": fltordentipo,
+				"fltestado": fltestado,
+				"fltpertipo": fltpertipo,
+				"fltperclase": fltperclase,
+				"pageNumero": pageNumero
+			};
+			
+			//console.log(data);
+			if($('#DataMaestro').css('display')=='none'){
+				var newDiv = $('<div class="card-block" id="DataBrowser'+pageNumero+'"></div>');
+				newDiv.load('brw.php', data);
+				newDiv.appendTo($('#databrw1'));
+			}
+			
+		}
+		$(window).scroll(function(){
+			if(runBuscarMas==false){
+				if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+					browserVermas();
+				}
+			}
+		});
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,228 @@
+<div class="modal-content">
+    <div class="p-3">
+        <form class="form form-horizontal">
+			<div class="form-body">
+                <h4 class="form-section"><i class="icon-user"></i>{backendadminreun}</h4>
+                <div class="form-group row tipoPerfil" style="{tipoPerfil}">
+					<label class="col-md-3 label-control" for="paicodigo">{backconfreusol}: </label>
+					<div class="col-md-9">
+						<select id="pertipo" name="pertipo" class="form-control"
+							onchange="loadClases(this);" {disabledselect}>
+							<option value="0">{Idioma_Seleccione}...</option>
+							<!-- BEGIN perfiles -->
+							<option data-id="{tiporeunion}" value="{percodigo}" {pertipsel}>{percompan} - {pernombre} {perapelli}</option>
+							<!-- END perfiles -->
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group row clasePerfil" style="{clasePerfil}">
+					<label class="col-md-3 label-control" for="paicodigo">{backconfreucont}: </label>
+					<div class="col-md-9">
+						<select id="perclase" name="perclase" class="form-control" {disabledselect} >
+							<option value="" selected>{Idioma_Seleccione}...</option>
+							<!-- BEGIN perclases -->
+							<option value="{perclacod}" {perclasel}>{perclades}</option>
+							<!-- END perclases -->
+						</select>
+					</div>
+				</div>
+                <div class="form-group row ">
+					<label class="col-md-3 label-control" for="paicodigo">{reunionesselectipo}: </label>
+					<div class="col-md-9">
+						<select id="tiporeu" name="tiporeu" class="form-control" >
+							<option value="" selected>{Idioma_Seleccione}...</option>
+							
+						</select>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-md-3 label-control" for="reuconfnoti">{backconfreunoti}: </label>
+					<div class="col-md-9">
+						<input type="checkbox" id="reuconfnoti">
+						
+					</div>
+				</div>
+
+               
+
+            </div>
+        </form>
+        <input id="reureg" name="reureg" type=hidden value="{reureg}">
+        <div class="modal-footer">
+			<button id="btnsolicitar" type="button" class="btn grey btn-outline-secondary {editartiporeunion}"
+				onclick="solicitarReunionTurnoTipo();">{backconfreuhorario}</button>
+			
+			<button id="btnsolicitar" type="button" class="btn grey btn-outline-secondary {bloquearreunion}"
+				onclick="solicitarReunionTurno();">{backconfreuhorarioedit}</button>
+			<button id="btncancelar" type="button" class="btn grey btn-outline-secondary"
+				data-dismiss="modal">{Idioma_Cancelar}</button>
+		</div>
+    </div>
+</div>
+<script>
+
+function solicitarReunionTurno() {
+
+    var solicitante=$('#pertipo').val();
+    var contraparte=$('#perclase').val();
+    var tipo=$('#tiporeu').val();
+    var reureg=$('#reureg').val();
+	var reuconfnoti= ($('#reuconfnoti').is(':checked'))? '1': '0';
+
+	if( (tipo === '0') || (tipo ==='1') ){
+		solicitarReunionMaestro(solicitante,contraparte, tipo, reureg,reuconfnoti);
+	}else{
+		toastr.error('SELECCIONE TIPO DE REUNION', 'ERROR');
+	}
+   
+    
+			
+}
+function solicitarReunionTurnoTipo() {
+
+var solicitante=$('#pertipo').val();
+var contraparte=$('#perclase').val();
+var tipo=$('#tiporeu').val();
+var reureg=$('#reureg').val();
+var reuconfnoti= ($('#reuconfnoti').is(':checked'))? '1': '0';
+
+var data = {
+				"percodigo": solicitante,
+				"percoddst": contraparte,
+				"tiporeunion": tipo,
+				"reureg": reureg,
+				"reuconfnoti": reuconfnoti
+			};
+
+			$.ajax({
+				type: "POST",
+				url: '../control-reuniones/coordinargrbtipo.php',
+				data: data
+			}).done(function (rsp) {
+				data = $.parseJSON(rsp);
+
+				if (data.errcod == 0) {
+					toastr.success(data.errmsg, '{Idioma_Reuniones}');
+					$('#DataMaestroView').modal('hide');
+					showBrowser(0);
+				} else {
+					toastr.error(data.errmsg, '{Idioma_Reuniones}');
+					//swal("GUARDAR", data.errmsg, "error").done();
+				}
+				
+			});
+		
+}
+
+if ($('#reureg').val()!=0){
+    
+    var tiporeu1=0;
+  tiporeu1 = $('#pertipo').find(':selected').data('id');
+  var tiporeuselect1 = $('#tiporeu');
+  
+
+  if (tiporeu1==2){
+    tiporeuselect1.empty();
+			$("<option/>", {
+				val: '',
+				text: '{Idioma_Seleccione}...'
+			}).appendTo(tiporeuselect1);
+    $("<option/>", {
+				val: '0',
+				text: '{reunionesvirtual}'
+			}).appendTo(tiporeuselect1);
+    $("<option/>", {
+				val: '1',
+				text: '{reunionespresencial}'
+			}).appendTo(tiporeuselect1);
+
+    }else if (tiporeu1==0){
+        tiporeuselect1.empty();
+			$("<option/>", {
+				val: '0',
+				text: '{reunionesvirtual}'
+			}).appendTo(tiporeuselect1);
+
+    }else if (tiporeu1==1){
+        tiporeuselect1.empty();
+			$("<option/>", {
+				val: '1',
+				text: '{reunionespresencial}'
+			}).appendTo(tiporeuselect1);
+
+    }
+
+
+}
+
+
+$('#pertipo').change(function(){
+  var tiporeu=0;
+  tiporeu = $(this).find(':selected').data('id');
+  var tiporeuselect = $('#tiporeu');
+  
+
+  if (tiporeu==2){
+    tiporeuselect.empty();
+			$("<option/>", {
+				val: '',
+				text: '{Idioma_Seleccione}...'
+			}).appendTo(tiporeuselect);
+    $("<option/>", {
+				val: '0',
+				text: '{reunionesvirtual}'
+			}).appendTo(tiporeuselect);
+    $("<option/>", {
+				val: '1',
+				text: '{reunionespresencial}'
+			}).appendTo(tiporeuselect);
+
+    }else if (tiporeu==0){
+        tiporeuselect.empty();
+			$("<option/>", {
+				val: '0',
+				text: '{reunionesvirtual}'
+			}).appendTo(tiporeuselect);
+
+    }else if (tiporeu==1){
+        tiporeuselect.empty();
+			$("<option/>", {
+				val: '1',
+				text: '{reunionespresencial}'
+			}).appendTo(tiporeuselect);
+
+    }
+});
+
+
+function loadClases(obj) {//Se cargan las clases en relacion con el Tipo de Perfil
+		var pertipo = $(obj).val();
+        
+		$.ajax({
+			type: "POST",
+			url: "getclases.php",
+			data: { "pertipo": pertipo }
+		}).done(function (rsp) {
+
+			data = $.parseJSON(rsp);
+			console.log(data)
+			var clases = $('#perclase');
+			clases.empty();
+			$("<option/>", {
+				val: '',
+				text: '{Idioma_Seleccione}...'
+			}).appendTo(clases);
+
+			$.each(data, function () {
+				//console.log(this.perclase);
+				//console.log(this.perclades);
+				$("<option/>", {
+					val: this.perclase,
+					text: this.perclades
+				}).appendTo(clases);
+			});
+		});
+
+	}
+</script>

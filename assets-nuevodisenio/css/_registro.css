@@ -1,0 +1,177 @@
+
+@media print {
+    @page {
+        size: A4 portrait;
+    }
+
+    #printableArea {
+        padding-left: 1px;
+        margin-top: 200px;
+        margin-left: 170px;
+        transform: scale(1.35) !important;
+        }
+
+  }
+
+#lock-screen {
+    padding: 0;
+    background-color: var(--main);
+}
+#fondo {
+    background-color: var(--main);
+}
+#botonvalidar {
+    font-family: gotham book,sans-serif;
+    background: 0 0;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-size: .9rem;
+    color: white!important;
+    background-color: var(--main);
+    border: 1px solid var(--main);
+    text-align: center;
+    margin: 0px 25%;
+    margin-bottom: 10px;
+}
+
+
+.bodygafete{
+    width:  210mm !important;
+    height: 297mm !important;
+    padding: 10;
+    margin: 0;
+}
+
+.divgafete{
+    border: 2px black solid;
+    width: 105mm;
+    height: 147mm;
+    float: left;
+    -webkit-print-color-adjust: exact !important;
+}
+
+.fondogafetecolor{
+    border-top-right-radius: 170px;
+    border-top-left-radius: 170px;
+    position: relative;
+    height:469px !important;
+    -webkit-print-color-adjust: exact !important;
+}
+
+.botonimprimir{
+    position: fixed;
+    left: 322px;
+    top: 50px;
+    text-align: center;
+    z-index: 400;
+}
+.botondescargar{
+    position: fixed;
+    left: 322px;
+    top: 110px;
+    text-align: center;
+    z-index: 400;
+}
+
+.imagengafete{
+ border-radius: 50%;
+ margin-top: 70px;   
+}
+
+.botoncuadrante{
+    width: 25%;
+    float: left;
+}
+
+.qrgafete{
+    border-radius: 10%;
+    margin-top: 70px;    
+}
+
+.cuad1imagen{
+border-radius: 10%; 
+margin-top: 30px;
+margin-bottom: 10px;  
+}
+
+
+.bannergafete{
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+}
+
+.nombregafete{
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 30px;
+    height: auto;
+    line-height: 28px;
+    margin-bottom: 10px;
+}
+
+.cargogafete{
+    font-size: 15px;
+    font-weight: 100;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.compangafete{
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.nombreevento{
+    font-size: 17px;
+    margin-top: 10px;
+    color: white;
+    font-weight: 700;
+    height: 35px;
+    line-height: 19px;
+}
+
+.descrievento{
+    font-size: 15px;
+    margin-top: 10px;
+    color: white;
+    font-weight: 100;
+    height: 35px;
+    line-height: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 235px;
+    overflow-y: hidden;
+}
+
+.mapaevento{
+   
+    text-align: center;
+    height: auto;
+    width: 100%;
+    max-height: 552px;
+   
+}
+
+.registro-container{
+    padding: 30px 50px;
+}
+
+@media (max-width: 768px) {
+    .registro-container{
+        padding: 30px 20px;
+    }
+    
+}
+
+
+@media print{
+    .box-text {
+      /* font-size: 27px !important; 
+      color: blue !important; */
+      -webkit-print-color-adjust: exact !important;
+    }
+  }

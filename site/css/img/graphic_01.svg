@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="306" height="256" viewBox="0 0 306 256">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectángulo_592" data-name="Rectángulo 592" width="306" height="256" transform="translate(1060 690)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="graphic_01" transform="translate(-1060 -690)" clip-path="url(#clip-path)">
+    <g id="graphic_01-2" data-name="graphic_01">
+      <rect id="Rectángulo_576" data-name="Rectángulo 576" width="442" height="112" rx="56" transform="translate(1043 844.37) rotate(-25)" fill="#c0da9a"/>
+      <rect id="Rectángulo_577" data-name="Rectángulo 577" width="245" height="61" rx="30.5" transform="translate(1242.087 839.262) rotate(-25)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

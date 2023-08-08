@@ -1,0 +1,16 @@
+{
+  "name": "BTBOX",
+  "short_name": "BTBOX",
+  "start_url": "./login",
+  "display": "standalone",
+  "background_color": "#FEC60F",
+  "description": "Coordinador de Reuniones",
+  "theme_color": "#FEC60F",
+  "icons": [
+    {
+      "src": "./assets-nuevodisenio/img/app512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

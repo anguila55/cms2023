@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="description"
+    content="BTBOX _your business toolbox. Todas las soluciones en una plataforma para potenciar tu próximo evento">
+    <meta name="keywords"
+    content="btbox, evento, fisico, hibrido, event, admin, btoolbox, networking, reuniones">
+    <meta name="author" content="BTBOX">
+	<title>{SisNombreEvento}</title>
+	<link rel="apple-touch-icon" sizes="60x60" href="../app-assets/img/ico/apple-icon-60.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../app-assets/img/ico/apple-icon-76.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../app-assets/img/ico/apple-icon-120.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../app-assets/img/ico/apple-icon-152.png">
+	<link rel="shortcut icon" type="image/x-icon" href="../app-assets/img/ico/favicon.ico">
+	<link rel="shortcut icon" type="image/png" href="../app-assets/img/ico/favicon-32.png">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<link
+		href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900%7CMontserrat:300,400,500,600,700,800,900"
+		rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../app-assets/fonts/feather/style.min.css">
+	<link rel="stylesheet" type="text/css" href="../app-assets/fonts/simple-line-icons/style.css">
+	<link rel="stylesheet" type="text/css" href="../app-assets/fonts/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/perfect-scrollbar.min.css">
+	<link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/prism.min.css">
+	<link rel="stylesheet" type="text/css" href="../app-assets/css/app.css">
+	<link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/sweetalert2.min.css">
+	
+	<link rel="stylesheet" type="text/css" href="../app-assets/css/jquery.multiselect.css">
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/css/estilos.css">
+	<link rel="stylesheet" href="../assets-nuevodisenio/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets-nuevodisenio/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets-nuevodisenio/css/styles.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/fonts/feather/style.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/fonts/simple-line-icons/style.css">
+   <!-- <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">-->
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/css/estilos.css">
+	<link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/sweetalert2.min.css">
+	<link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/toastr.css">
+</head>
+
+<body data-col="2-columns" class=" 2-columns ">
+
+	<div class="wrapper nav-collapsed menu-collapsed">
+		<input id="percodnotif" name="percodnotif" type=hidden value="{percodnotif}">
+		<!-- Menu  -->
+		<nav class="navbar navbar-light navbar-expand-md fixed-top bg-light shadow-lg">
+			<div class="container-fluid"><a class="navbar-brand" href="../index"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+				<div class="collapse navbar-collapse"
+					id="navcol-1">
+					<ul class="nav navbar-nav mx-auto">
+						<li class="nav-item dropdown d-xl-flex flex-shrink-0"><a style="display:{viewadmin};  margin-top: 17%; transform: scale(1.3);" class="dropdown-toggle nav-link icon-settings" data-toggle="dropdown" aria-expanded="false" href="#"></a>
+							<div class="dropdown-menu dropdown-menu-right" role="menu">
+								<a class="dropdown-item" role="presentation" href="../perfiles/bsq"><i class="fa fa-arrow-right mr-1"></i>{Idioma_Perfiles}</a>
+								<a class="dropdown-item" role="presentation" href="../sectores/bsq"><i class="fa fa-arrow-right mr-1"></i>{Idioma_Sectores}</a>
+								<a class="dropdown-item" role="presentation" href="../subsectores/bsq"><i class="fa fa-arrow-right mr-1"></i>{Idioma_Subsectores}</a>
+								<!--<a class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="">{Idioma_Productos}</a>
+									<div class="dropdown-menu dropdown-menu-right" role="menu">
+										<a class="dropdown-item" role="presentation" href="../sectores/bsq"><i class="fa fa-arrow-right mr-1"></i>{Idioma_Sectores}</a>
+										<a class="dropdown-item" role="presentation" href="#"><i class="fa fa-arrow-right mr-1"></i>{Idioma_Subsectores}</a>
+										<a class="dropdown-item" role="presentation" href="#"><i class="fa fa-arrow-right mr-1"></i>{Idioma_Categorias}</a>
+										<a class="dropdown-item" role="presentation" href="#"><i class="fa fa-arrow-right mr-1"></i>{Idioma_SubC}</a>
+									</div>
+								</a>-->
+								<a style="{ParamMenuNoticias}" class="dropdown-item" role="presentation" href="../avisos/bsq"><i class="fa fa-arrow-right mr-1"></i>{Idioma_Noticias}</a>
+								<a style="{ParamMenuAgenda}" class="dropdown-item" role="presentation" href="../agenda/bsq"><i class="fa fa-arrow-right mr-1"></i>{Idioma_Agenda}</a>
+								<a style="{ParamMenuMensajes}" class="dropdown-item" role="presentation" href="../mensajeria/bsq"><i class="fa fa-arrow-right mr-1"></i>{Idioma_Mensajeria}</a>
+								<a  style="{ParamMenuMensajes}" class="dropdown-item" role="presentation" href="../tipos/bsq"><i class="fa fa-arrow-right mr-1"></i>Tipos de Perfil</a>
+								<a style="{ParamMenuMensajes}" class="dropdown-item" role="presentation" href="../clases/bsq"><i class="fa fa-arrow-right mr-1"></i>Clases de Perfil</a>
+								<!--<a style="{ParamMenuMensajes}" class="dropdown-item" role="presentation" href="../cupones/bsq"><i class="fa fa-arrow-right mr-1"></i>Cupones</a>
+								<a style="{ParamMenuMensajes}" class="dropdown-item" role="presentation" href="../idioma/bsq"><i class="fa fa-arrow-right mr-1"></i>Idioma</a>
+								<a style="{ParamMenuMensajes}" class="dropdown-item" role="presentation" href="../pitcher/bsq"><i class="fa fa-arrow-right mr-1"></i>Pitcher</a>-->
+								<a class="dropdown-item" role="presentation" href="../expositores/bsq"><i class="fa fa-arrow-right mr-1"></i>{Idioma_ExpositoresApp}</a>
+								<a class="dropdown-item" role="presentation" href="../stand/bsq"><i class="fa fa-arrow-right mr-1"></i>Sponsors</a>
+								<!--<a style="{ParamMenuExportar}" class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="">Exportar</a>
+									<div class="dropdown-menu dropdown-menu-right" role="menu">
+										<a class="dropdown-item" role="presentation" href="../exportar/exportarPerfiles.php"><i class="fa fa-arrow-right mr-1"></i>Perfiles</a>
+										<a class="dropdown-item" role="presentation" href="../exportar/exportarReuniones.php"><i class="fa fa-arrow-right mr-1"></i>Reuniones</a>
+										<a class="dropdown-item" role="presentation" href="../exportar/exportarChats.php"><i class="fa fa-arrow-right mr-1"></i>Conversaciones</a>
+										<a class="dropdown-item" role="presentation" href="../exportar/exportarQR.php"><i class="fa fa-arrow-right mr-1"></i>QR
+											Escaneados</a>
+									</div>
+								</a>-->
+								<a class="dropdown-item" role="presentation" href="../exportar/bsq"><i class="fa fa-arrow-right mr-1"></i>Exportar</a>
+								<!--<a class="dropdown-item" role="presentation" href="../importar/bsq"><i class="fa fa-arrow-right mr-1"></i>Importar</a>-->
+								<a style="{ParamMenuEncuesta}" class="dropdown-item" role="presentation" href="../encuestamst/bsq"><i class="fa fa-arrow-right mr-1"></i>{Idioma_Encuesta}</a>
+								<a class="dropdown-item" role="presentation" href="../speakers/bsq"><i class="fa fa-arrow-right mr-1"></i>{Idioma_Speakers1}</a>
+								<!--<a class="dropdown-item" role="presentation" href="../parametros/bsq"><i class="fa fa-arrow-right mr-1"></i>{Idioma_Parametros}</a>-->
+							</div>
+						</li>
+						<li class="nav-item" role="presentation"><a class="nav-link active"  href="../actividades/bsq">Cronograma</a></li>
+						<li class="nav-item" role="presentation"><a class="nav-link"  href="../speakers-lista/bsq">Speakers</a></li>
+						<li class="dropdown nav-item mr-0"><a id="dropdownBasic3" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-user-link dropdown-toggle" aria-expanded="true"><span>Asistentes</span></a>
+						  <div aria-labelledby="dropdownBasic3" class="dropdown-menu dropdown-menu-right">
+							<div class="arrow_box_right">
+								<a href="../directorio/bsq" class="dropdown-item py-1"></i><span>Buscar</span></a>
+								<div class="dropdown-divider"></div><a href="../reuniones/bsq" class="dropdown-item"><span>Reuniones</span></a>
+								<div class="dropdown-divider"></div><a href="../calendario/bsq" class="dropdown-item"><span>Mi Agenda</span></a>
+							</div>
+						  </div>
+						</li>
+						<!--<li class="nav-item" role="presentation"><a class="nav-link" id="paddinglis" href="../directorio/bsq">Asistentes</a></li>-->
+						<!--<li class="nav-item" role="presentation"><a class="nav-link" href="../reuniones/bsq">Reuniones</a></li>-->
+						<!--<li class="nav-item" role="presentation"><a class="nav-link" id="paddinglis" href="../calendario/bsq">Mi Agenda</a></li>-->		
+						<li class="nav-item" role="presentation"><a class="nav-link"  href="../chat/bsq">Mensajes</a></li>
+						<li class="nav-item" role="presentation"><a class="nav-link"  href="../novedades/bsq">Prensa</a></li>
+						<li class="nav-item" role="presentation"><a class="nav-link"  onclick="showChatView(3048);">Mesa de Ayuda</a></li>
+						<li class="nav-item" role="presentation"><a class="nav-link"   href="">Recorrido virtual</a></li>
+					</ul>
+					<ul class="nav navbar-nav ml-auto">
+						<li class="nav-item d-xl-flex align-items-xl-center" role="presentation"><a class="nav-link" href="#">ENG</a>
+						</li>
+						<li class="dropdown nav-item mt-1 " id="notigroup">
+							<a id="dropdownBasic2" href="" onclick="notificationupd()" data-toggle="dropdown"
+								class="nav-link position-relative dropdown-toggle">
+								<i class="ft-bell"></i>
+		
+								<span class="notification badge badge-pill badge-danger" id="notinum"> </span>
+		
+								<p class="d-none">Notifications</p>
+		
+							</a>
+		
+							<div class="notification-dropdown dropdown-menu dropdown-menu-right " id="notiopen">
+								<div class="arrow_box_right">
+									<div class="noti-list" id="notification">
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="dropdown nav-item mr-0"><a id="dropdownBasic3" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-user-link dropdown-toggle" aria-expanded="true"><span class="avatar avatar-online"><img id="navbar-avatar" src="{peravatar}"  alt="avatar" title="{pernombre} {perapelli}"></span>
+							<p class="d-none">User Settings</p></a>
+						  <div aria-labelledby="dropdownBasic3" class="dropdown-menu dropdown-menu-right">
+							<div class="arrow_box_right">
+								<a href="../perfiles/miperfil" class="dropdown-item py-1"><i class="ft-edit mr-2"></i><span>{Idioma_miPerfil}</span></a>
+								<div class="dropdown-divider"></div><a href="../login" class="dropdown-item"><i class="ft-power mr-2"></i><span>{Idioma_Salir}</span></a>
+							</div>
+						  </div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	
+<!--MENU FIN-->
+
+
+
+
+		<style>
+			.pepe {
+				background-image: url('../imagenes-evento/menu.jpg');
+				width: 100vw;
+				height: 110vh;
+				background-color: black;
+				background-position: top;
+				background-size: cover;
+				background-repeat: repeat;
+
+
+
+
+
+			}
+
+			.cont {
+				
+				width: 100vw;
+				height: 100vh;
+
+			}
+
+
+			.contenido {
+				margin-top: 12%;
+
+
+
+			}
+
+			.video {
+
+				height: 60vh;
+				position: relative;
+			}
+
+			.video iframe {
+				float: right;
+			}
+
+
+			.titulo-age {
+				margin-top: 1vh !important;
+				float: right;
+				width: 81.6%;
+				vertical-align: middle;
+				height: 3vh;
+				margin-right: 0.1vh !important;
+			}
+
+
+			.chat {
+				float: left;
+				height: 60% !important;
+				width: 80% !important;
+				position: relative;
+			}
+
+			.option {
+				float: left;
+				height: 54vh;
+				width: 93% !important;
+				overflow: hidden;
+				background-color: white;
+				padding-left: 0px !important;
+				padding-right: 0px !important;
+				margin-left: 2.4vh;
+				
+			}
+
+			.botonera {
+				float: left;
+				width: 100%;
+				overflow: auto;
+				top: 0px;
+			}
+
+			.titulo {
+
+			
+				background-color: white;
+				width: 80%;
+				border-bottom-left-radius: 0px;
+
+
+			}
+
+			#viewOpcion {
+				z-index: 100;
+				width: 100%;
+				font-size: 5px !important;
+				
+
+			}
+
+			.anuncios {
+				position: relative;
+				width: 100%;
+				bottom: 0;
+				height: 4vh !important;
+				margin-top: 5.3vh !important;
+
+			}
+
+
+			.fecha {
+				margin-top: 1vh;
+				font-size: 12px !important;
+				font-weight: lighter !important;
+				text-align: left;
+				padding-left: 1vh;
+			}
+
+		
+			
+			.cuadradotexto {
+				margin-top: 1.6vh;
+				text-align: left;
+				margin-bottom: 1.8vh;
+				align-items: center;
+			}
+
+			.textoalineado {
+				padding-bottom: 1vh;
+				margin: 2.7vh;
+				
+			}
+
+
+
+			
+
+			
+
+
+
+
+			#streaming {
+				padding-top: -120px;
+				-webkit-border-top-left-radius: 5px;
+				-webkit-border-bottom-left-radius: 5px;
+				-moz-border-radius-topleft: 5px;
+				-moz-border-radius-bottomleft: 5px;
+				border-top-left-radius: 5px;
+
+				-webkit-border-top-right-radius: 5px;
+				-webkit-border-bottom-right-radius: 5px;
+				-moz-border-radius-topright: 5px;
+				-moz-border-radius-bottomright: 5px;
+				border-top-right-radius: 5px;
+
+				margin-left: 8vh;
+			}
+		</style>
+
+
+
+		<div class="main-panel mt-0 pepe">
+
+
+
+			<div class="row cont">
+				<div class="col-12 contenido mx-auto text-center">
+
+					<div class="row d-flex justify-content-center">
+
+						<div class="col-8 video mr-0 pr-0 ">
+							<input id="agereg" name="agereg" type="hidden" value="{agereg}">
+
+							<iframe class="mb-20" id="streaming" src="{ageyoulnk}" frameborder="0" width="80%"
+								height="100%"
+								allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen></iframe>
+
+							<div class="col-12 titulo-age  mr-0 pr-0  my-auto">
+
+								<div class="card mt-0 mb-0">
+
+									<div class="card-title-wrap cuadradotexto">
+											
+										<h6 class="card-title textoalineado">
+											{agetitulo}
+										</h6>
+
+
+									</div>
+
+
+								</div>
+
+
+							</div>
+
+						</div>
+
+					
+						<div class="col-4 chat ml-0 pl-0 mx-auto">
+
+							<div>
+								<div class="col-12 botonera">
+
+									<img id="btnqa" src="../app-assets/img/salas/btnqaon.png" onclick="viewOpcion(1);"
+										style="cursor:pointer;" width="48.9%" height="43px" />
+									<img id="btnpolls" src="../app-assets/img/salas/btnpollsoff.png"
+										onclick="viewOpcion(2);" style="cursor:pointer;" width="49.4%" height="43px" />
+								</div>
+								
+								<div class="col-12 option">
+	
+								 
+									<div class="row">
+										<div id="viewOpcion">
+										</div>
+									</div>
+									
+	
+								</div>
+							
+
+
+							</div>
+							
+
+							
+							<div class="col-12  anuncios  mx-auto">
+
+								<div id="carouselExampleSlidesOnly" class="carousel slide " data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item active mt-1">
+											<img class="d-block w-100" src="../imagenes-evento/straming/c1.png"
+												alt="First slide">
+										</div>
+										<div class="carousel-item mt-1">
+											<img class="d-block w-100" src="../imagenes-evento/straming/c2.png"
+												alt="Second slide">
+										</div>
+										<div class="carousel-item mt-1">
+											<img class="d-block w-100" src="../imagenes-evento/straming/c3.png"
+												alt="Third slide">
+										</div>
+									</div>
+								</div>
+	
+							</div>
+
+
+						</div>
+
+					
+						<div class="col-4 chat ml-0 pl-0 mx-auto">
+
+						
+
+
+						</div>
+
+						
+
+					
+
+
+
+					</div>
+
+
+
+				</div>
+
+
+
+			</div>
+		</div>
+
+
+
+	</div>
+	</div>
+	<script src="../app-assets/vendors/js/core/jquery-3.3.1.min.js"></script>
+	<script src="../app-assets/vendors/js/core/popper.min.js"></script>
+	<script src="../app-assets/vendors/js/core/bootstrap.min.js"></script>
+	<script src="../app-assets/vendors/js/perfect-scrollbar.jquery.min.js"></script>
+	<script src="../app-assets/vendors/js/prism.min.js"></script>
+	<script src="../app-assets/vendors/js/jquery.matchHeight-min.js"></script>
+	<script src="../app-assets/vendors/js/screenfull.min.js"></script>
+	<script src="../app-assets/vendors/js/pace/pace.min.js"></script>
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<!-- END PAGE VENDOR JS-->
+	<!-- BEGIN CONVEX JS-->
+	<script src="../app-assets/js/app-sidebar.js"></script>
+	<script src="../app-assets/js/notification-sidebar.js"></script>
+	<!-- END CONVEX JS-->
+	<!-- BEGIN PAGE LEVEL JS-->
+	<!-- END PAGE LEVEL JS-->
+
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<script src="../app-assets/vendors/js/sweetalert2.min.js"></script>
+	<script src="../app-assets/vendors/js/toastr.min.js"></script>
+	<script src="../app-assets/vendors/js/switchery.min.js"></script>
+	<script src="../app-assets/js/jquery.multiselect.js"></script>
+	<script src="../app-assets/js/reuniones.js"></script>
+	<script src="../app-assets/js/notif.js"></script>
+	<!-- END PAGE VENDOR JS-->
+	<script>
+		//----------------------------------------------------------------------------------------------
+		function viewOpcion(opc) {
+			var agereg = $('#agereg').val();
+			var data = { "agereg": agereg };
+
+			var file = '';
+			switch (opc) {
+				case 1:
+					file = 'pregbrw.php';
+					$('#btnqa').attr('src', '../app-assets/img/salas/btnqaon.png');
+					$('#btnpolls').attr('src', '../app-assets/img/salas/btnpollsoff.png');
+					break;
+				case 2:
+					file = 'encubrw.php';
+					$('#btnqa').attr('src', '../app-assets/img/salas/btnqaoff.png');
+					$('#btnpolls').attr('src', '../app-assets/img/salas/btnpollson.png');
+					break;
+			}
+
+
+			$('#viewOpcion').load(file, data);
+		}
+		//----------------------------------------------------------------------------------------------
+
+		viewOpcion(1);
+	</script>
+
+</body>
+
+</html>

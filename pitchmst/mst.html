@@ -1,0 +1,171 @@
+
+<section id="horizontal-form-layouts">	
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="px-3">
+						<form class="form form-horizontal">
+							<div class="form-body">
+								
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pitchemp">{Idioma_Empresa}: </label>
+									<div class="col-md-9">
+										<input type="hidden" id="pitchreg" name="pitchreg" value="{pitchreg}">
+										<input type="text" id="pitchemp" maxlength="500" name="pitchemp" class="form-control" value="{pitchemp}">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pitchdes">{backpitchintro}: </label>
+									<div class="col-md-9">
+										<textarea class="form-control" rows="4" id="pitchdes"  name="pitchdes" class="form-control" value="{pitchdes}" maxlength="1000"> {pitchdes} </textarea>
+									</div>
+								</div>
+								
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pitchurl">{backpitchweb}: </label>
+									<div class="col-md-9">
+										<input type="text" id="pitchurl"  name="pitchurl" class="form-control" value="{pitchurl}" placeholder="Poner url con https://">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pitchimg">{backpitchlogo}: ({backpitchidealformato})</label>
+									<div class="col-md-9">
+										<input type="file" id="pitchimg" name="pitchimg" class="form-control"
+												value="{pitchimg} " accept=".png, .jpg, .jpeg">
+									
+										<img src="{pitchimg}" class="img-fluid mt-3 mx-auto" style="width: 20%;" alt="">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pitchurlpdf">{backpitchbrochure}: </label>
+									<div class="col-md-9">
+										<input type="text" id="pitchurlpdf"  name="pitchurlpdf" class="form-control" value="{pitchurlpdf}" placeholder="https://">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pitchid">{backendcategoria}: </label>
+									<div class="col-md-9">
+										<select id="pitchid" name="pitchid" class="form-control">
+											<option  value="">{Idioma_Seleccione}...</option>
+											<!-- BEGIN categorias -->
+											<option {selected} value="{catreg}">{catdescri}</option>
+											<!-- END categorias -->						
+										</select>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pitchvid">{backpitchvideo}: </label>
+									<div class="col-md-9">
+										<input type="text" id="pitchvid"  name="pitchvid" class="form-control" value="{pitchvid}">
+									</div>
+								</div>
+								<div class="form-group row ">
+									<label class="col-md-3 label-control" for="pitchcontacto">{backpitchcontacto}: </label>
+									<div class="col-md-9">
+										<select id="pitchcontacto" name="pitchcontacto" class="form-control" >
+											<option value="0" >{Idioma_Seleccione}...</option>
+											<!-- BEGIN perfiles -->
+												<option value="{percodigo}" {persel}>{perapelli} {pernombre}
+													</option>
+											<!-- END perfiles -->
+										</select>
+									</div>
+								</div>
+																	
+							</div>
+
+							<div class="form-actions right">
+								<button id="btnguardar" type="button" class="btn btn-success" onclick="guardarMaestroMsg();">
+									<i class="icon-note"></i> {Idioma_Guardar}
+								</button>
+								<button id="btncancelar" type="button" class="btn btn-danger mr-1" onclick="showBrowser();">
+									<i class="icon-arrow-left"></i> {atras}
+								</button>
+								&nbsp;&nbsp;
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</section>
+		
+<script>
+
+	// $('#tipo').change(() =>{alert($('#tipo').val())})
+
+	function guardarMaestroMsg(){
+		var errcod = 0;
+		var errmsg = '';
+			
+		if(errcod==0){
+			swal({
+				title: "{Idioma_GuardarSwal}",
+				text: "{Idioma_Confirmar}",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: '{Idioma_BotonConf}',
+				cancelButtonText: '{Idioma_BotonCan}',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+				guardarMaestro();
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+	}
+	
+	function guardarMaestro(){
+		var formData = new FormData($('#FrmMst')[0]);
+		formData.append("pitchreg", $('#pitchreg').val());
+		formData.append("pitchemp", $('#pitchemp').val());
+		formData.append("pitchdes", $('#pitchdes').val());
+		formData.append("pitchurl", $('#pitchurl').val());
+		formData.append("pitchurlpdf", $('#pitchurlpdf').val());
+		formData.append("pitchid", $('#pitchid').val())
+		formData.append("pitchvid", $('#pitchvid').val());
+		formData.append("percodigo", $('#pitchcontacto').val());
+		//console.log($('#pitchcontacto').val());
+
+
+		//avatar
+		if (typeof ($('#pitchimg')[0].files[0]) !== "undefined") {
+			formData.append('pitchimg', $('#pitchimg')[0].files[0]);
+		}
+
+		$.ajax({
+			type: "POST",
+			url: "grb.php",
+			dataType: "html",
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false
+		}).done(function (rsp) {
+			//console.log(rsp);
+			data = $.parseJSON(rsp);
+			//console.log(data.errcod);
+			if(data.errcod == 0){
+				toastr.success(data.errmsg, '{Idioma_GuardarSwal}');
+				showBrowser();
+				//console.log("entro aca2");
+			}else{
+				toastr.error(data.errmsg, '{Idioma_GuardarSwal}');
+				//console.log("entro aca3");
+			}
+			
+		});
+	}
+</script>
+	 
+	  
+	  

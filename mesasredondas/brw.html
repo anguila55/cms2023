@@ -1,0 +1,133 @@
+﻿
+
+	<div class="tab-content py-3 px-4 w-100" id="nav-tabContent">
+		<!-- BEGIN dias -->
+		<div class="tab-pane fade show {active}" id="dia{numeroDia}" role="tabpanel"
+			aria-labelledby="nav-home-tab">
+			<div class="act-container d-flex flex-column">
+				<!-- BEGIN workshops -->
+				<p id="horaevento" class="bg-main-event text-muted">{hora} - {workhorfin}</p>
+				<div class="actividad">
+					{msg}
+					<div class="row">
+						<div class="col-sm-8 col-12" style="text-align: left;">
+							<div class="fw-600 card-title-new text-uppercase color-main-event">{worktitulo}</div>
+							<p class="text-muted font-small-3 text-justify lineheightdesc">
+								<strong>{Idioma_Descripcion} </strong> {workdescri}
+							</p>
+						</div>
+						<div class="col-sm-4 col-12">
+							<div id="botonesprograma" class="float-right">
+								<a  onclick="irSalaWorkshops({workreg},'{workbbb}');" title='Access' class="button-hover  align-items-center fw-700 btn mt-2 text-uppercase bg-main-event white {video}" style=" width: 150px;">
+									<div style="width: 24px;"> 
+									<i class="ft-video" style="margin-right: 8px;"></i>
+								</div>
+								<div>{Idioma_Ingresar}</div>
+								</a>
+								<a href="{workpdf}" target="_blank" title='Documents' class="button-hover  align-items-center fw-700 btn mt-2 text-uppercase bg-color-gris white  {displaypdf}" style=" width: 150px;">
+									<div style="width: 24px;"> 
+										<i class="fa fa-file" style="margin-right: 8px;"></i>
+									</div>
+									<div>{Idioma_Descargar}</div>
+								</a>
+								<a href="{worklink}" target="_blank" title='More Information' class=" button-hover  align-items-center fw-700 btn mt-2 text-uppercase bg-color-gris  white {displaylink}" style=" width: 150px;">
+									<div style="width: 24px;"> 
+										<i class="fa fa-info" style="margin-right: 8px;"></i>
+									</div>
+									<div>{Idioma_Ver}</div>
+								</a>
+							</div>
+						</div>
+					</div>
+						<div class="col 12 row text-height-n mt-2">
+							<!-- BEGIN spkimg -->
+							<div class="col-md-4 align-items-center" style="display: flex; text-align: left;" >
+								<img class="img-fluid m-3 align-self-center" src="../spkimg/{spkreg}/{spkimg}" width="{imagespk}"
+									alt=" Avatar" style="
+									border-radius: 50%;
+								">
+								<p  id="nombrespeaker" style="width: 100%; line-height: 20px;" class="ml-2"><strong>{skpnombre}</strong><br>{skpempres}<br>{skpcargo}</p>
+							</div>	
+							<!-- END spkimg -->
+						
+					
+						</div>		
+					</div>
+				</div>
+				<!-- END workshops -->
+			</div>
+		</div>
+		<!-- END dias -->
+
+	<script src="../gaming/gaming.js"></script>
+	<script>
+
+		function agendarEvento(reg, clase) {
+			var mensaje = '';
+			var titulo = '';
+			var tipo;
+
+			if (clase === 'fa-star') {
+				titulo = '{eliminar_evento}';
+				mensaje = '{eliminar_pregunta}';
+				tipo = 1;
+			}
+
+			if (clase === 'fa-star-o') {
+				titulo = '{agregar_evento}';
+				mensaje = '{agregar_agenda}';
+				tipo = 2;
+			}
+			swal({
+				title: titulo,
+				text: mensaje,
+				type: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: '{Idioma_BotonConf}',
+				cancelButtonText: '{Idioma_BotonCan}',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+				var data = { "workreg": reg };
+
+				$.ajax({
+					type: "POST",
+					url: 'agendar.php',
+					data: data
+				}).done(function (rsp) {
+					data = $.parseJSON(rsp);
+
+					if (data.errcod == 0) {
+						if (tipo == 1) {
+							toastr.success('Agenda eliminada', 'AGENDA');
+
+						} else {
+
+							toastr.success(data.errmsg, 'AGENDA');
+						}
+
+					} else {
+						toastr.error(data.errmsg, 'AGENDA');
+					}
+					showBrowser();
+				});
+
+
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+		
+		function irSalaWorkshops(reg,link){
+		
+			addPointsGaming(8,reg);
+			window.location=link;
+
+
+		}
+	</script>

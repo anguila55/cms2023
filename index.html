@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		var nombrecodigo = {percodnotif};
+		dataLayer.push({ 'event': 'login', 'userId': nombrecodigo });
+	</script>
+	<script>(function (w, d, s, l, i) {
+			w[l] = w[l] || []; w[l].push({
+				'gtm.start':
+					new Date().getTime(), event: 'gtm.js'
+			}); var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-MW2RMSR');</script>
+
+
+	<meta charset="utf-8">
+	<meta http-equiv="refresh" content="60">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta name="description"
+		content="BTBOX _your business toolbox. Todas las soluciones en una plataforma para potenciar tu próximo evento">
+	<meta name="keywords" content="btbox, evento, fisico, hibrido, event, admin, btoolbox, networking, reuniones">
+	<meta name="author" content="BTBOX">
+	<title>{SisNombreEvento}</title>
+	<link rel="shortcut icon" type="image/png" href="assets-nuevodisenio/img/favicon.jpg">
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/index.css">
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/vendors/css/wizard.css">
+	<script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
+
+	<!-- script para levantar el navbar -->
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<!-- ---------------------------------- X ---------------------------------- -->
+
+	<style>
+		.addeventatc {
+
+			font-family: "Open Sans", "sans-serif";
+			padding-right: 0px !important;
+			margin-right: 0px !important;
+		}
+
+		.addeventatc .addeventatc_icon {
+
+
+			padding-right: 0px !important;
+			margin-right: 0px !important;
+		}
+
+		.addeventatc_dropdown {
+
+			left: auto !important;
+			right: 26px !important;
+			top: auto !important;
+
+		}
+
+		.addeventatc:hover {
+
+			font-size: 12px !important;
+		}
+
+		.card-sponsor1 {
+			position: relative;
+			/* ⬅ Size - Small (width: 200px), Medium (width: 225px), Large (width: 250px) */
+
+			background-color: #FFFFFF;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			text-align: center;
+			-webkit-transition: .1s ease-in-out;
+			transition: .1s ease-in-out;
+		}
+
+		.card-sponsor1:hover {
+			background-color: #f0f5ab !important;
+		}
+
+		.addeventatc .addeventatc_icon {
+
+			background: none !important;
+
+		}
+
+		.scroll1 {
+			max-height: 250px;
+			overflow-y: auto;
+			overflow-x: hidden;
+		}
+
+		/* width */
+		.scroll1::-webkit-scrollbar {
+			width: 5px;
+		}
+
+		/* Track */
+		.scroll1::-webkit-scrollbar-track {
+			box-shadow: inset 0 0 20px 20px grey;
+			border-radius: 10px;
+		}
+
+		/* Handle */
+		.scroll1::-webkit-scrollbar-thumb {
+			background: #ffc107;
+			border-radius: 10px;
+		}
+
+		/* Handle on hover */
+		.scroll1::-webkit-scrollbar-thumb:hover {
+			background: #ffc107;
+		}
+
+		.btn-outline-reuniones {
+
+			border-color: #ffc107 !important;
+
+		}
+
+		.btn-outline-reuniones:hover {
+
+
+			background-color: #ffc107 !important;
+		}
+
+		.accordionreuniones__content.collapse.show {
+			height: 300px;
+		}
+
+		tbody {
+			display: block;
+		}
+
+		thead,
+		tbody tr {
+			display: table;
+			width: 100%;
+			table-layout: fixed;
+			/* even columns width , fix width of table too*/
+		}
+
+		thead {
+			width: calc(100% - 1em)
+				/* scrollbar is average 1em/16px width, remove it from thead width */
+		}
+
+		table {
+			width: 400px;
+		}
+
+
+		@media (min-width: 575px) {
+			.width-override-100 {
+				width: 100px;
+			}
+
+			.width-override-140 {
+				width: 140px;
+			}
+
+			.width-override-230 {
+				width: 230px;
+			}
+
+			.width-override-260 {
+				width: 260px;
+			}
+
+			.width-override-430 {
+				width: 430px;
+			}
+		}
+
+		@media (max-width: 575px) {
+
+			thead,
+			tbody tr {
+				display: grid;
+			}
+
+			.scroll1 {
+				max-height: max-content;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<!-- <input id="percodnotif" name="percodnotif" type=hidden value="{percodnotif}"> -->
+	<!-- Navigation bar -->
+	<div id="nav-placeholder">
+
+	</div>
+
+	<script>
+		$(function () {
+			var data = {
+				"menu": "activeindex"
+			};
+
+			$("#nav-placeholder").load("../navbar/navbar.php", data);
+
+		});
+	</script>
+	<!-- end of Navigation bar -->
+
+	<div id="home" class="pt-0">
+		<div class="main-panel match-width mt-0">
+			<div class="main-content ">
+				<div class="carousel-container mb-3" style="margin-top: -36px;">
+					<div id="carousel-pause" class="carousel slide" data-ride="carousel">
+						<ol class="carousel-indicators">
+							<!-- BEGIN browserpause -->
+							<li data-target="#carousel-pause" data-slide-to="{bannerid}" class="{activepause}"></li>
+							<!-- END browserpause -->
+						</ol>
+						<div class="carousel-inner carousel-index-responsive">
+
+							<!-- BEGIN browserbanners -->
+							<div class="carousel-item {activebanner}" data-interval="3000">
+
+								<figure class="backing">
+									<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+										xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 300"
+										preserveAspectRatio="xMinYMin meet">
+										<image width="1000" height="300" xlink:href="{bannerhomeimg}">
+										</image>
+										<a xlink:href="{urlbanner}" target="{urltarget}">
+											<rect x="0" y="0" width="1000" height="300" fill="#fff" opacity="0" />
+										</a>
+									</svg>
+								</figure>
+
+							</div>
+							<!-- END browserbanners -->
+
+						</div>
+						<a class="carousel-control-prev" href="#carousel-pause" role="button" data-slide="prev">
+
+						</a>
+						<a class="carousel-control-next" href="#carousel-pause" role="button" data-slide="next">
+
+						</a>
+					</div>
+
+				</div>
+				<div class="content-wrapper container-general">
+
+
+
+
+					<!--	 ----------------------------------------------------------------------- -->
+					<!--                       SECTION BOTONES PRINCIPALES                       -->
+					<!-- ----------------------------------------------------------------------- -->
+					<div id="botonesprincipales" class="mx-3 pb-5 d-flex justify-content-center flex-wrap">
+						<!-- BEGIN accesos -->
+
+						<a class="boton-index-link {accmostrar}" {acchref}>
+							<div class="boton-index">
+								<div class="boton-index__top">
+									<img class="imagenes-accesos" src="assets-nuevodisenio/img/{accicono}" width="70px"
+										alt="">
+								</div>
+								<div class="boton-index__bottom">
+									<div class="boton-index__title">{{acctitulo}}</div>
+									<div class="boton-index__fakebg"></div>
+									<div class="boton-index__arrow bg-main-event">
+										<i class="white fa fa-long-arrow-right"></i>
+									</div>
+								</div>
+							</div>
+						</a>
+						<!-- END accesos -->
+
+						<!-- {asistentes}{sponsors2}{reunion2}{backendmesaayuda}{chat}{cronograma2}{mesasredondas2}{programa}{miperfil}{Idioma_miPerfil}{miqractividad}{ondemand}{leerqr}{mostrarqr} -->
+					</div>
+					<!-- ------------------- END SECTION BOTONES PRINCIPALES ------------------- -->
+					<!-- ----------------------------------------------------------------------- -->
+
+					<!-- COMPARTIR EN REDES -->
+
+					<div class="mx-3 d-flex justify-content-end">
+
+						<p class="fw-600 compartirredes">{compartiloredes}</p>
+						<a class="redes mr-1" target="_blank"
+							href="https://api.whatsapp.com/send?text=Estoy participando de este evento y creo que puede ser de tu interés {EventoUrl}"><i
+								class="fa fa-whatsapp" style="font-size:16px"></i></a>
+						<a class="redes mr-1" target="_blank"
+							href="https://www.facebook.com/sharer/sharer.php?u={EventoUrl}"><i class="fa fa-facebook"
+								style="font-size:16px"></i></a>
+						<a class="redes mr-1" href="http://twitter.com/share?url={EventoUrl}" target="_blank"><i
+								class="fa fa-twitter" style="font-size:16px"></i></a>
+						<a class="redes mr-1" href="https://www.linkedin.com/shareArticle?mini=true&url={EventoUrl}"
+							target="_blank"><i class="fa fa-linkedin" style="font-size:16px"></i></a>
+					</div>
+
+					<!-- COMPARTIR EN REDES -->
+
+
+
+					<!--                     SECTION REUNIONES // REUNIONES                     -->
+					<!-- ----------------------------------------------------------------------- -->
+
+
+					<!-- ----------------------------------------------------------------------- -->
+					<!--                     SECTION CALENDARIO // ACTIVIDAD                     -->
+					<!-- ----------------------------------------------------------------------- -->
+					<div class="col-12 d-lg-block mt-3" {display-calendario-evento}>
+						<div>
+							<div>
+								<div class="card-title-wrap bar-warning">
+									<div class="card-title card-title-new borde-costado">{agenda-actividades}</div>
+								</div>
+
+
+							</div>
+							<div class="{displaytextoactividades}">
+								<p class="ml-3 mt-4 mb-4 borde-costado">{nohayactividades}</p>
+							</div>
+							<div class=" {displayactividades}">
+
+								<div class="table-responsive">
+									<table id="recent-orders" class="table table-xl mb-3">
+
+
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!--  ---------- SECTION ON DEMAND ---------------- -->
+					<div class="col-lg-12 col-xl-12 col-md-12 row match-height my-3 mx-auto {displayondemand}">
+						<div>
+							<div>
+								<div class="card-title-wrap bar-warning">
+									<div class="card-title card-title-new borde-costado">{ondemand}</div>
+								</div>
+							</div>
+							<div class="index-ondemand">
+								<!-- BEGIN videos -->
+								<div class="index-ondemand__card">
+									<div class="index-ondemand__card-img-container">
+										<a class="index-ondemand__card-play" onclick="{botonclicklink}">
+											<i class="fa {botonclick}"></i>
+										</a>
+										<img class="index-ondemand__card-img" src="{vidimg}" alt="">
+										<div class="index-ondemand__card-btns">
+											<a class="index-ondemand__card-btn" style="{displayvideo}"
+												onclick="addPoints({vidreg},'',9)">
+												<i class="white fa fa-tv"></i>
+											</a>
+											<a onclick="addPoints({vidreg},'{vidurlpdf}',10)"
+												class="index-ondemand__card-btn" style="{displaypdf}">
+												<i class="white fa fa-files-o"></i>
+											</a>
+											<a class="index-ondemand__card-btn" style="{displayusuario}"
+												onclick="showPerfiles({vidreg});">
+												<i class="white fa fa-user"></i></a>
+											<a class="index-ondemand__card-btn" onclick="likeCarta({vidreg},this);">
+												<i class="white fa fa-thumbs-up" style="{colorlike}"></i>
+											</a>
+										</div>
+									</div>
+									<div class="index-ondemand__card-information">
+										<div class="index-ondemand__card-title fw-700">{vidtitulo}</div>
+										<div class="index-ondemand__card-hashtag">#{vidcatego}</div>
+									</div>
+								</div>
+								<!-- END videos -->
+							</div>
+						</div>
+
+					</div>
+					<!--  ---------- SECTION ON DEMAND ---------------- -->
+
+					<!--  ---------- SECTION CALENDARIO // ACTIVIDAD---------------- -->
+					<div class="col-12 row index-noticias">
+						<div
+							class="col-lg-12 col-xl-9 col-md-12 row match-height  mt-3 mx-auto  pb-5 {displaynoticias}">
+							<div>
+								<div>
+									<div class="card-title-wrap bar-warning">
+										<div class="card-title card-title-new borde-costado">{Idioma_Noticias}</div>
+									</div>
+								</div>
+								<div class="index-noticias">
+									<!-- BEGIN noticias -->
+									<div class="index-noticias__card">
+										<a href="{aviurl}" target="_blank" class="linknotas">
+											<img class="index-noticias__card-img" src="{aviimagen}" alt="">
+											<div class="index-noticias__card-information">
+												<div class="index-noticias__card-title">{avititulo}</div>
+												<div class="index-noticias__card-text">{avidescrip}</div>
+												<div class="index-noticias__card-footer">
+													<div class="index-noticias__card-category">{avicatego}</div>
+													<div class="index-noticias__card-footer-divisor">|</div>
+													<div class="index-noticias__card-date">{avifecha}</div>
+												</div>
+
+											</div>
+										</a>
+									</div>
+									<!-- END noticias -->
+								</div>
+							</div>
+							<!-- ---------------------------------- x ---------------------------------- -->
+							<!--<div class="col-md-4 col-sm-4 " style="height: 100% !important;">
+								<div class="card" style="min-height: 500px !important;">
+									<div class="card-header">
+										<div class="card-title-wrap bar-warning">
+											<div class="card-title card-title-new">{comunidad}</div>
+										</div>
+									</div>
+									<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+										<div class="carousel-inner" role="listbox">
+
+
+											<div class="carousel-item active p-2 text-center ">
+												<a target="_blanck" href="muro/bsq">
+
+													<img class="img-fluid"
+														style="height: 95% !important; width: 95% !important;"
+														src="assets-nuevodisenio/img/logo.jpg">
+												</a>
+
+											</div>
+
+
+										</div>
+									</div>
+								</div>
+							</div>-->
+
+							<!-- ---------------------------------- x ---------------------------------- -->
+
+
+
+						</div>
+						<div
+							class="col-lg-12 col-xl-3 col-md-12 row match-height  mt-3 mx-auto  pb-5 {displaynoticias}">
+							<div>
+								<div>
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col-12 row text-center mb-3">
+						<div class="ml-auto mr-auto">
+							Powered by <a href="https://btoolbox.com" target="_blank"><img class="ml-1"
+									src="/assets-nuevodisenio/img/btbox.png" width="110px" height="auto" alt=""></a>
+						</div>
+					</div>
+
+
+				</div>
+
+
+			</div>
+
+
+		</div>
+
+
+		<!-- # modals -->
+
+
+		
+
+
+
+
+		<!-- Modal -->
+		<div class="modal fade p-0 text-left" id="DataMaestroViewPerfil" tabindex="-1" role="dialog" aria-hidden="true"
+			data-backdrop="static" data-keyboard="false">
+			<div class="modal-dialog modal-lg" role="document" id="DataViewPerfil">
+			</div>
+		</div>
+
+		<div class="modal fade p-0 text-left" id="DataMaestroViewPopUp" tabindex="-1" role="dialog" aria-hidden="true"
+			data-backdrop="static" data-keyboard="false">
+			<div class="modal-dialog modal-dialog-centered" role="document" id="DataViewPopUp" style="max-height:70%;">
+			</div>
+		</div>
+
+		<div class="modal fade p-0 text-left" id="DataMaestroDisp" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+			<div class="modal-dialog modal-new" role="document" id="DataDisp" >
+			</div>
+		</div>
+		
+		<div class="modal fade p-0 text-left" id="DataMaestroClasif" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+			<div class="modal-dialog modal-new" role="document" id="DataClasif">
+			</div>
+		</div>
+
+		<div class="modal fade p-0 text-left" id="DataMaestroView" tabindex="-1" role="dialog" aria-hidden="true"
+			data-backdrop="static" data-keyboard="false">
+			<div class="modal-dialog modal-lg" role="document" id="DataView" style="max-width:80%;">
+			</div>
+		</div>
+		   <!-- Modal -->
+		   <div class="modal fade p-0 text-left" id="DataMaestroCall" tabindex="-1" role="dialog" aria-hidden="true"
+		   data-backdrop="true" data-keyboard="true">
+		   <div class="modal-dialog modal-lg" role="document" id="DataViewCall">
+		   </div>
+		   </div>
+		<script src="actividades.js"></script>
+		<script src="../gaming/gaming.js"></script>
+		<script src="assets-nuevodisenio/js/jquery.min.js?h=83e266cb1712b47c265f77a8f9e18451"></script>
+		<script src="assets-nuevodisenio/bootstrap/js/bootstrap.min.js?h=63715b63ee49d5fe4844c2ecae071373"></script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<script src="assets-nuevodisenio/vendors/js/sweetalert2.min.js"></script>
+		<script src="assets-nuevodisenio/vendors/js/toastr.min.js"></script>
+		
+		<script>
+
+$(document).ready(function() {
+	
+		{activepopup}
+
+		{activepopupinicio}
+
+		
+		});
+
+		function showPopUpInicio() {
+
+$('#DataViewPopUp').load('popup/popupinicio.php');
+$('#DataMaestroViewPopUp').modal('show');
+}
+
+
+function showPerfiles(vidreg) {
+			var data = { "vidreg": vidreg };
+
+			$('#DataView').load('videos/modalperfil.php', data);
+			$('#DataMaestroView').modal('show');
+		}
+
+	function likeCarta(reg,obj){
+		
+		addPointsGaming(12,reg);
+		var formData = new FormData($('#FrmMst')[0]);
+		formData.append("vidreg", reg);
+		
+		$.ajax({
+			type: "POST",
+			url: 'videos/grblikecarta.php',
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false
+		}).done(function (rsp) {
+			data = $.parseJSON(rsp);
+			
+			window.location.reload();
+			
+		});
+	}
+		
+    function showVideo(vidreg) {
+			var data = { "vidreg": vidreg };
+
+			$('#DataView').load('videos/modalvideos.php', data);
+			$('#DataMaestroView').modal('show');
+		}
+		function showPopUp() {
+
+			$('#DataViewPopUp').load('popup/popup.php');
+			$('#DataMaestroViewPopUp').modal('show');
+		}
+		function addPoints(exp,url,tipo){
+
+			addPointsGaming(11,exp);
+          var data = {
+            
+                      "expreg":exp,
+                      "tipo":tipo
+                    };
+          		
+            if(tipo == 10){
+              window.open(url);
+            }else if(tipo == 9){
+              showVideo(exp);
+            }else{
+
+            }
+            
+          
+        }
+
+		function showCall(reureg) {
+                var data = { reureg: reureg };
+
+                $("#DataViewCall").load("../reuniones/call.php", data);
+                $("#DataMaestroCall").modal("show");
+            }
+
+
+
+		var arraycharlas = {arraycharlas};
+
+
+		if (arraycharlas!=null){
+			arraycharlas.forEach(charla => {
+			
+				if (charla != null ){
+					
+					Mostrar(charla,'{peridioma}')
+					countdownCharlas(charla)
+				}
+				
+			});
+
+		}
+	
+
+		// Set the date we're counting down to
+		</script>
+		<!-- END PAGE LEVEL JS-->
+
+		<!-- <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-messaging.js"></script>
+
+   <script>
+       console.log({avatar});
+
+   </script>-->
+
+
+
+</body>
+
+</html>

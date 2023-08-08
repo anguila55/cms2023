@@ -1,0 +1,237 @@
+﻿<!-- Contact Card ~ #01 -->
+<style>
+	.avatar-sponsor2-container {
+		width: 100%;
+		position: relative;
+
+
+	}
+
+	.avatar-sponsor2 {
+		z-index: 3;
+		height: 150px;
+		width: 150px;
+		border-radius: 100%;
+		margin-top: 5%;
+		margin-left: auto;
+		margin-right: auto;
+		left: 0;
+		right: 0;
+
+
+	}
+
+	.card-sponsor1:hover{
+		background-color: transparent !important;
+	}
+</style>
+<div class="row col-12 mb-1 justify-content-end" >
+	
+		<div>
+			<a href="../postulaciones/bsq" class="bg-main-event btn-circle p-1 mr-1 white btn"> {postulaciones} </a>
+		</div>
+		<div class="{displayanuncios}">
+			<a onclick="showClasificados({expregsponsor})" class="bg-main-event btn-circle p-1 white btn"><i class="icon-plus"></i> {creadesafio} </a>
+			<a onclick="showAnuncios({expregsponsor2})"  class="bg-main-event btn-circle p-1 white btn" style="{display-anuncios}"> {misdesafios} </a>
+		<a onclick="showBrowser()" class="bg-main-event btn-circle p-1 white btn" style="{display-todos}"> {Idioma_PLbtodos} </a>
+		
+		</div>
+	
+	
+	
+</div>
+<div class="row" style="padding: 0px 16px;">
+	<input type="hidden" id="medida" name="medida"
+										value="{medida}">
+	<div class="col-sm-12 col-md-12 col-lg-12 mb-12 d-flex justify-content-left flex-wrap
+		mt-2">
+		<!-- BEGIN cupones -->
+
+		<div class="card-sponsor1 rounded p-2 col-sm-12 col-md-3 m-2">
+			
+				
+				<div class="row p-2">
+				<div class="col-3 avatar-sponsor1">
+						<img src="{expavatar}" width="100%" alt="">
+				</div>	
+				<div class="col-7 mt-3 text-left">
+					<p class="mb-0 font-small font-weight-bold" style="line-height: 15px;">{expnombre}</p>
+					<p class="color-gris font-small-2 font-weight-light">{expcupzon}</p>
+				</div>
+				<div class="col-2 text-right">
+					<a class="success p-0  {visiblepublicar}" data-original-title="" title="Modificar" onclick="editarClasificados({expreg},{expcupreg})">
+						<i class="fa fa-pencil font-medium-3 mr-2"></i>
+					</a>
+					<a class="danger p-0 mt-2 {visiblepublicar}" data-original-title="" title="Eliminar" onclick="eliminarMaestroCupon({expreg},{expcupreg});">
+						<i class="fa fa-trash-o font-medium-3 mr-2 mt-2"></i>
+					</a>
+				</div>
+				<div class="row text-center ml-4">
+						<a onclick="modalOfertas({expreg},{expcupreg},{expcatego})" class="bg-main-event btn-circle white mr-1 btn rounded " title="Ver Desafío"> <i class="fa fa-plus "></i></a>
+						<a href="../sponsor/bsq?id={expreg}" target="_blank" class="bg-main-event btn-circle white mr-1 btn rounded" title="Ver Sponsor"> <i class="fa fa-bullhorn"></i></a>
+						<a onclick="showChatView({representantesponsor})" class="bg-main-event btn-circle white btn rounded" title="Contactar Sponsor"> <i class="icon-bubbles"></i></a>
+				</div>
+				<hr class="col-10 mb-0">
+				</div>
+				
+				<div class="row p-2">
+					<div class="col-12  font-medium-1 text-left mt-2 color-main-event " style="line-height: 1.2rem;">{expcuptit}</div>	
+			
+			
+					<div class="col-12 text-right" style="font-weight: lighter;    font-size: 0.7rem !important; line-height: 2.5rem; ">{expcupfch}</div>
+				
+				
+					<div class="col-12 font-small text-left mt-2 bg-main-event white {expcupval}"> <i class="fa fa-star"></i> Destacado</div>
+
+				</div>
+
+
+		</div>
+		<!-- END cupones -->
+	</div>
+	<div class="card col-md-3 mt-1 d-none" id="ventana">
+
+		<div id="activity-timeline" class="col-12 timeline-left">
+			<h6 class="mt-1 mb-3 text-bold-400">{Idioma_Filtros}</h6>
+
+
+			<div>
+				<ul class="list-unstyled base-timeline activity-timeline ml-0">
+
+					<li>
+						<div class="timeline-icon bg-warning d-none">
+							<i class="fa fa-plane"></i>
+						</div>
+						<div class="base-timeline-info">
+							<a href="#" class="text-uppercase text-primary">{Idioma_Buscar}</a>
+							<br>
+							<div class="form-group row">
+								<div class="col-md-12">
+									<input type="hidden" id="fltrecomendado" name="fltrecomendado"
+										value="{fltrecomendado}">
+									
+									<input type="hidden" id="fltfavoritos" name="fltfavoritos"
+										value="{fltfavoritos}">
+									<input style="width: 100%;" type="text" class="fltbuscar"
+										name="fltbuscar" class="form-control" value=""
+										placeholder="Buscar por palabra clave"
+										onkeypress="KeyEnterBuscar(event)">
+
+									<input style="width: 100%;" type="text" class="empresa mt-3"
+										name="fltbuscar" class="form-control" value=""
+										placeholder="Buscar por empresa" onkeypress="KeyEnterBuscar(event)">
+								</div>
+							</div>
+						</div>
+					</li>
+
+					</ul>
+
+					<div>
+						<div class="card-block">
+							<form>
+								<div class="form-group">
+									<div class="text-center mt-4">
+										<button type="button"
+											class="btn btn-warning px-4 py-2 text-uppercase white font-small-4 box-shadow-2 border-0"
+											onclick="showBrowser1();">{Idioma_Buscar}</button>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="text-center mt-4">
+										<button type="button"
+											class="btn btn-warning px-4 py-2 text-uppercase white font-small-4 box-shadow-2 border-0"
+											onclick="showBrowserAll();">{Idioma_Buscartodos}</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+	</div>
+</div>
+<script>
+	function eliminarMaestroCupon(reg,item){
+		var data = {"expreg":reg,"expcupreg":item};
+		
+		swal({
+			title: "{Idioma_Eliminar}",
+			text: "¿Confirma eliminar el anuncio?",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#0CC27E',
+			cancelButtonColor: '#FF586B',
+			confirmButtonText: '{Idioma_BotonConf}',
+			cancelButtonText: '{Idioma_BotonCan}',
+			confirmButtonClass: 'btn btn-success btn-raised mr-5',
+			cancelButtonClass: 'btn btn-danger btn-raised',
+			buttonsStyling: false
+		}).then(function () {
+			$.ajax({
+			  type: "POST",
+			  url: 'delcupon.php',
+			  data: data
+			}).done(function( rsp ) {
+				console.log(rsp);
+				data = $.parseJSON(rsp);
+				
+				if(data.errcod == 0){			
+					toastr.success(data.errmsg, '{Idioma_Eliminar}');
+					//swal("GUARDAR", data.errmsg, "success").done();
+					showBrowser();
+				}else{
+					toastr.error(data.errmsg, '{Idioma_Eliminar}');
+					//swal("GUARDAR", data.errmsg, "error").done();
+				}
+				
+			});
+			
+			
+		}, function (dismiss) {
+			// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+			if (dismiss === 'cancel') {
+			}
+		}).done();
+	}
+	
+function showBrowser1() {
+			var fltbuscar = $('.fltbuscar').val();
+			var empresa = $('.empresa').val();
+			var medida = $('#medida').val();
+			
+			var data = { "fltbuscar": fltbuscar,
+				"medida": medida,
+				"empresa": empresa};
+
+			$('#DataBrowser').load('brw.php', data);
+			$('#DataMaestro').css('display', 'none');
+			$('#DataBrowser').css('display', '');
+
+		}
+		function showBrowserAll() {
+			var fltbuscar = '';
+			var medida = $('#medida').val();
+			
+			var data = {
+				"fltbuscar": fltbuscar,
+				"medida": medida
+			};
+
+			$('#DataBrowser').load('brw.php', data);
+			$('#DataMaestro').css('display', 'none');
+			$('#DataBrowser').css('display', '');
+		}
+		function KeyEnterBuscar(e) {
+			if (!e) var e = window.event
+			if (e.keyCode) code = e.keyCode;
+			else if (e.which) code = e.which;
+			if (code == 13) {
+				showBrowser1();
+			}
+		}
+
+</script>
+
+

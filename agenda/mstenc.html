@@ -1,0 +1,101 @@
+<div class="card-header">
+	<div class="card-title-wrap bar-warning">
+		<h4 class="card-title">
+			Encuesta de Agenda "{agetitulo}"
+			
+			<input id="agereg" name="agereg" type="hidden" value="{agereg}">
+		</h4>
+	</div>
+</div>
+<div class="col-md-12">
+	<div class="card">
+		<div class="card-body">
+			<div class="px-3">
+				<form class="form">
+					<div class="form-body">
+
+						<div class="form-group">
+							<label for="timesheetinput2">Encuestas</label>
+							<div class="position-relative has-icon-left">
+								<select id="encreg" name="encreg" class="form-control" >
+									<option value="" >Seleccione...</option>
+									<!-- BEGIN encuestas -->
+									<option value="{encreg}" {encselect}>{encdescri}</option>
+									<!-- END encuestas -->
+								</select>
+							</div>
+						</div>
+						
+					<div class="form-actions right">
+						<button id="btnguardar" type="button" class="btn btn-success" onclick="guardarMaestroEncMsg();">
+							<i class="icon-note"></i> Asignar
+						</button>
+						<button id="btncancelar" type="button" class="btn btn-danger mr-1" onclick="showEncuesta({agereg});">
+							<i class="icon-trash"></i> Cancelar
+						</button>
+						&nbsp;&nbsp;
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	function guardarMaestroEncMsg(){		
+		var errcod = 0;
+		var errmsg = '';
+		
+		if(errcod==0){
+			swal({
+				title:"SAVE",
+				text: "¿Confirma asignar la Encuesta a la Agenda?",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: 'Confirmar',
+				cancelButtonText: 'Cancelar',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+				guardarMaestro();
+				
+			}, function (dismiss) {
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+	}
+
+	function guardarMaestro(){
+		var agereg 	= $('#agereg').val();
+		var encreg 	= $('#encreg').val();
+		
+		var data = {"agereg":agereg,
+					"encreg":encreg
+					};
+		
+		$.ajax({
+		  type: "POST",
+		  url: 'grbageenc.php',
+		  data: data
+		}).done(function( rsp ) {
+			data = $.parseJSON(rsp);
+			
+			if(data.errcod == 0){
+				toastr.success(data.errmsg, 'SAVE');			
+				//swal("GUARDAR", data.errmsg, "success").done();
+				showEncuesta(agereg);
+			}else{
+				toastr.error(data.errmsg, 'SAVE');	
+				//swal("GUARDAR", data.errmsg, "error").done();
+			}
+			
+		});
+	}
+</script>
+
+

@@ -1,0 +1,213 @@
+<style>
+	.enviar {
+
+		width: 100px;
+		transition: 0.3s;
+	}
+
+	.enviar:hover {
+
+		transform: scale(1.1)
+	}
+
+	.cancel {
+		background-color: white;
+		color: #362a72;
+		border: 2px solid #362a72;
+		transition: 0.3s;
+	}
+
+	.cancel:hover {
+		background-color: #362a72;
+		color: white;
+
+	}
+</style>
+<div class="modal-content">
+	<div class="modal-header">
+		<div class="row">
+			<img src="../imagenes-evento/banner.jpg" width="100%" class="img-fluid p-0 m-0" alt="">
+		</div>
+		
+	</div>
+	<div class="modal-body text-right">
+		<div class="row">
+			<h4 class=" pt-2 pl-1 pb-2 text-white font-medium-2 " style="background-color: #fd8105;" id="">Publicar Post</b></h4>
+		</div>
+		<div class="form-group row">
+			<div class="col-md-12">
+				<input id="percodigo" type="hidden" value="{percodigo}">
+				<input id="murreg" type="hidden" value="{murreg}">
+			</div>
+
+			<div class="col-md-12 mt-3">
+				<input type="text" id="murtitulo" name="murtitulo" class="form-control" maxlength="250" placeholder="Titulo(Max 250)">
+
+			</div>
+
+
+			<div class="col-md-12 mt-3 d-none" style="{tagdiv}">
+				<input type="text" id="murtag" name="murtag" class="form-control" maxlength="250" placeholder="Tag (Max 250)">
+
+			</div>
+
+
+			<div class="col-md-12 mt-3">
+				<p><span id=charcount></span></p>
+				<textarea onkeyup="charcountupdate(this.value)" class="form-control" name="murdescri" id="murdescri" cols="30" maxlength="500" rows="10"
+					placeholder="{Idioma_Descripcion} (Max 500)"></textarea>
+			</div>
+			<div class="col-md-12 mt-3" style="{enlacediv}">
+				<input type="text" id="murenlace" name="murenlace" class="form-control" placeholder="Sitio web (opcional/optional)">
+
+			</div>
+
+
+
+			<div class="col-md-12 mt-3" style="{imgdiv}">
+				<a class="btn btn-warning upload  text-white mr-1 btn-fab col-12">
+					<i class="fa fa-file "> </i>
+					Subir Imagen (Menor a 2MB)
+				</a>
+				<input hidden placeholder="Imagen" type="file" id="murimg" name="murimg"
+					class="form-control text-center" accept="image/*">
+
+			</div>
+
+
+		</div>
+
+
+		<button  type="button" class="btn  enviar text-white" style="background-color: #fd8105; {botonmuro}" onclick="guardarMaestroMsg();">Publicar</button>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn cancel" data-dismiss="modal">Cancelar</button>
+	</div>
+</div>
+
+
+<script>
+
+
+
+	$('.upload').click(() => {
+		$('#murimg').click();
+	})
+
+
+	$('#murimg').bind('change', function() {
+
+		console.log(this.files[0].size/1024/1024)
+		if(this.files[0].size/1024/1024 < 2.097152){
+
+			$('.upload').text($('#murimg')[0].files[0].name)
+		}else{
+			console.log("entro aca")
+			toastr.error('La imagen es demasiado pesada, pruebe optimizandola...', 'GUARDAR');
+		}
+		
+	});
+
+
+	function charcountupdate(str) {
+	var lng = str.length;
+	document.querySelector("#charcount").innerHTML = lng + ' de 500 caracteres';
+	}
+
+	$('.upload-file').click(() => {
+		$('#murarchivo').click();
+	})
+
+	$('#murarchivo').change(() => {
+		$('.upload-file').text($('#murarchivo')[0].files[0].name)
+
+	});
+	
+		
+	function guardarMaestroMsg() {
+		var errcod = 0;
+		var errmsg = '';
+		var murtitulo = $('#murtitulo').val();
+		var murtag = $('#murtag').val();
+		var murenlace = $('#murenlace').val();
+		var murimg = $('#murimg').val();
+		var murdescri = $('#murdescri').val();
+
+		if (murtitulo == '') {
+			errcod = 2;
+			errmsg = 'Falta el titulo';
+		}
+		if (murdescri == '') {
+			errcod = 2;
+			errmsg = 'Falta la descripción';
+		}
+		
+
+
+		if (errcod != 0) {
+			//swal("GUARDAR", errmsg, "error").done();
+			toastr.error(errmsg, 'GUARDAR');
+		}
+
+		if (errcod == 0) {
+			swal({
+				title: "",
+				text: "¿Estás listo para publicar?",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: '{Idioma_BotonConf}',
+				cancelButtonText: '{Idioma_BotonCan}',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+				guardarMaestro();
+				$('.cancel').click();
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+	}
+	function guardarMaestro() {
+		var formData = new FormData($('#FrmMst')[0]);
+		formData.append("murtitulo", $('#murtitulo').val());
+		formData.append("murtag", $('#murtag').val());
+		formData.append("murenlace", $('#murenlace').val());
+		formData.append("percodigo", $('#percodigo').val());
+		formData.append("murreg", $('#murreg').val());
+		formData.append("murdescri", $('#murdescri').val());
+
+		if (typeof ($('#murimg')[0].files[0]) !== "undefined") {
+			//console.log('entro');
+			formData.append('murimg', $('#murimg')[0].files[0]);
+		}
+
+
+		$.ajax({
+			type: "POST",
+			url: '../muro/grb.php',
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false
+		}).done(function (rsp) {
+			data = $.parseJSON(rsp);
+			console.log(rsp)
+
+			if (data.errcod == 0) {
+				toastr.success(data.errmsg, '{Idioma_GuardarSwal}');
+					//swal("GUARDAR", data.errmsg, "success").done();
+				showBrowserMuro();
+
+			} else {
+				toastr.error(data.errmsg, '{Idioma_GuardarSwal}');
+			}
+
+		});
+	}
+
+</script>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		var nombrecodigo = {percodnotif};
+		dataLayer.push({'event' : 'login', 'userId' : nombrecodigo});
+		</script>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-MW2RMSR');</script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>{SisNombreEvento}</title>
+	<link rel="shortcut icon" type="image/png" href="../assets-nuevodisenio/img/favicon.jpg">
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/index.css">
+
+	<script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
+
+	<!-- script para levantar el navbar -->
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<!-- ---------------------------------- X ---------------------------------- -->
+
+<style>
+#backend h6 {
+	color: var(--main);
+}
+
+#backend p {
+	font-weight: lighter;
+	font-family: sans-serif;
+}
+
+#backend p:hover{
+	background-color: var(--gris);
+	color: white !important;
+}
+#backend a h6:hover{
+	background-color: var(--gris);
+	color: white !important;
+}
+
+#backend a{
+	text-decoration: none;
+}
+
+</style>
+
+</head>
+
+<body>
+  <!-- <input id="percodnotif" name="percodnotif" type=hidden value="{percodnotif}"> -->
+		<!-- Navigation bar -->
+		<div id="nav-placeholder">
+
+		</div>
+
+		<script>
+			$(function () {
+				var data = {
+					"menu": "activebackend"
+				};
+
+				$("#nav-placeholder").load("../navbar/navbar.php", data);
+
+			});
+		</script>
+		<!-- end of Navigation bar -->
+
+    <section id="backend" class="pt-0">
+        <div class="main-panel mt-5 match-width">
+			<div class="main-content">
+				<div class="content-wrapper">
+					<div class="row d-none">
+						<div class="col-sm-12">
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title-wrap ">
+										<div class="col-12 mt-4 text-center banner-head">
+											<img class="img-fluid" src="../assets-nuevodisenio/img/backend.jpg"
+												alt="banner">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<h4 class="card-title ml-5">
+							PopUp Inicio
+						</h4>
+					</div>
+
+					<div class="col-md-12 p-0 mt-2">
+						<label class="" for="popuptipo">PopUP Inicio: </label>
+								<select id="popupinicio" name="popupinicio" class="form-control">
+									<option value="1" {visible}>Visible</option>
+									<option value="0" {novisible}>No Visible</option>
+								</select>
+								<label class="" for="popuptipo">PopUP Inicio - Huso Horario: </label>
+								<select id="popupinicio1" name="popupinicio1" class="form-control">
+									<option value="1" {visible1}>Visible</option>
+									<option value="0" {novisible1}>No Visible</option>
+								</select>
+								<label class="" for="popuptipo">PopUP Inicio - Empresa y Oferta y Demanda: </label>
+								<select id="popupinicio2" name="popupinicio2" class="form-control">
+									<option value="1" {visible2}>Visible</option>
+									<option value="0" {novisible2}>No Visible</option>
+								</select>
+								<label class="" for="popuptipo">PopUP Inicio - Disponibilidad: </label>
+								<select id="popupinicio3" name="popupinicio3" class="form-control">
+									<option value="1" {visible3}>Visible</option>
+									<option value="0" {novisible3}>No Visible</option>
+								</select>
+					</div>
+
+					<div class="row">
+						<h4 class="card-title ml-5 mt-4">
+							Admin PopUp
+						</h4>
+					</div>
+					
+					<div class="row">
+
+						<div class="col-md-12">
+
+							<!-- BEGIN browser -->
+							<label for="exptelefo">PopUp Img (cliquea sobre la imagen para editar): </label>
+							
+							<div>
+								<input id="popupreg" name="popupreg" type=hidden value="{popupreg}">
+								<a>
+									<img id="popupimg{popupreg}" alt="" class="" src="{popupimg}"
+										style="width: 25%; height: 25%;" onclick="findAvatar('{popupreg}');" style="display: none">
+								</a>
+								<form id="frmfilepopupimg{popupreg}" enctype="multipart/form-data">
+									<input id="filepopupimg{popupreg}" name="filepopupimg{popupreg}" type="file" value="{popupimg}" accept=".png, .jpg, .jpeg"
+										style="display:none;" onchange="readURLAvatar(this,'{popupreg}');" />
+								</form>
+							</div>
+							<div class="col-md-12 p-0 mt-2 d-flex">
+								<label class="" for="pernombre">Pop Up Descripcion: </label>
+								<input type="text" id="popupdescri{popupreg}" name="popupdescri{popupreg}" class="form-control"
+									value="{popupdescri}">
+							</div>
+							<div class="col-md-12 p-0 mt-2 d-flex">
+								<label class="" for="pernombre">Url Pop Up: </label>
+								<input type="text" id="popupurl{popupreg}" name="popupurl{popupreg}" class="form-control"
+									value="{popupurl}">
+							</div>
+							<div class="col-md-12 p-0 mt-2 d-flex">
+								<label class="" for="popuptipo">Tipo PopUP: </label>
+										<select id="popuptipo{popupreg}" name="popuptipo{popupreg}" class="form-control">
+											<option value="1" {imgtexto}>Imagen + Texto</option>
+											<option value="2" {imgsolo}>Imagen sola</option>
+											<option value="3" {textosolo}>Texto solo</option>
+										</select>
+							</div>
+							
+							<div class="col-md-12 p-0 mt-2 d-flex">
+								<label class="" for="estcodigo">Mostrar PopUP: </label>
+										<select id="estcodigo{popupreg}" name="estcodigo{popupreg}" class="form-control">
+											<option value="1" {activo}>Activo</option>
+											<option value="0" {inactivo}>Inactivo</option>
+										</select>
+							</div>
+							<div>
+								<button class="btn  mr-1 mt-1 mb-4 bg-main-event" style="color:white;" onclick="cambiobanner('{popupreg}')">Guardar Cambios</button>
+							</div>
+							<!-- END browser -->
+
+
+						</div>
+					
+						
+				
+					</div>
+					
+
+				</div>
+			</div>
+
+		
+		</div>
+    </section>
+
+    <!-- # modals -->
+
+
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade p-0 text-left" id="DataMaestroViewPerfil" tabindex="-1" role="dialog" aria-hidden="true"
+    data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document" id="DataViewPerfil">
+    </div>
+    </div>
+
+    <div class="modal fade p-0 text-left" id="DataMaestroView" tabindex="-1" role="dialog" aria-hidden="true"
+    data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document" id="DataView" style="max-width:80%;">
+    </div>
+    </div>
+	<!-- Modal -->
+	
+
+
+    <script src="../assets-nuevodisenio/js/jquery.min.js?h=83e266cb1712b47c265f77a8f9e18451"></script>
+    <script src="../assets-nuevodisenio/bootstrap/js/bootstrap.min.js?h=63715b63ee49d5fe4844c2ecae071373"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script src="../assets-nuevodisenio/vendors/js/sweetalert2.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/toastr.min.js"></script>
+
+	<script>
+
+		function findAvatar(reg) {
+				//$('#bannerhomeimg'+reg).attr('src', '{bannerhomeimg}');
+				console.log(reg);
+				$('#filepopupimg'+reg).click();
+			}
+		
+		function readURLAvatar(input,reg) {
+		
+					var fuData = document.getElementById('filepopupimg'+reg);
+					var FileUploadPath = fuData.value;
+		
+		
+					if (FileUploadPath == '') {
+						toastr.error('Por favor suba una imagen!', 'Imagen');
+		
+					} else {
+					var Extension = FileUploadPath.substring(FileUploadPath.lastIndexOf('.') + 1).toLowerCase();
+		
+		
+		
+							if (Extension == "gif" || Extension == "png" || Extension == "bmp"
+						|| Extension == "jpeg" || Extension == "jpg") {
+		
+		
+							if (fuData.files && fuData.files[0]) {
+		
+						var size = fuData.files[0].size;
+						
+		
+						if(size > 2097152){ // NO SUPERE LOS 2 MEGAS
+							toastr.error('La imagen no puede superar los dos megas!', 'Imagen');
+							return;
+						}else{
+							var reader = new FileReader();
+						var fname = null;
+		
+						reader.onload = function (e) {
+							$('#popupimg'+reg).attr('src', e.target.result);
+		
+							var image = new Image();
+							image.src = e.target.result;
+							image.onload = function () {
+								
+							};
+						}
+		
+						reader.readAsDataURL(input.files[0]);
+						}
+					}
+		
+					}else {
+						toastr.error('Solo se permiten los siguientes formatos GIF, PNG, JPG, JPEG and BMP.', 'Imagen');
+					}
+			
+			}
+		}
+		
+		function cambiobanner(reg){
+		
+			var reg1 = reg;
+			function validURL(url) {
+		
+				if (url.includes('http')) {
+		
+					return true;
+				}
+		
+				return false;
+		
+				}
+		
+				if (!validURL($('#popupurl'+reg1).val())) {
+		
+		
+				if ($('#popupurl'+reg1).val() != '' && $('#popupurl'+reg1).val().includes('footer')!= true) {
+					reg1 = -1;
+				toastr.error('Revisar Campos', 'Ingresar url web valida del popup');
+				}
+		
+		
+				}
+		
+				
+			if (reg1 >= 0)
+			{
+				
+				var formData = new FormData($('#FrmMst')[0]);
+				if (typeof ($('#filepopupimg'+reg1)[0].files[0]) !== "undefined") {
+					formData.append('filepopupimg'+reg1, $('#filepopupimg'+reg1)[0].files[0]);
+				}
+
+				/// ARMO EL ARRAY CON INFO DE POP UP INICIO
+				let arraypopinicio = $('#popupinicio').val()+','+$('#popupinicio1').val()+','+$('#popupinicio2').val()+','+$('#popupinicio3').val();
+				
+
+				formData.append("popupurl", $('#popupurl'+reg1).val());
+				formData.append("popupdescri", $('#popupdescri'+reg1).val());
+				formData.append("popuptipo", $('#popuptipo'+reg1).val());
+				formData.append("popupreg", reg1);
+				formData.append("estcodigo", $('#estcodigo'+reg1).val());
+				formData.append("popupinicioinfo", arraypopinicio);
+
+				$.ajax({
+					type: "POST",
+					url: "popuphomegrb.php",
+					dataType: "html",
+					data: formData,
+					cache: false,
+					contentType: false,
+					processData: false
+				}).done(function (rsp) {
+					data = $.parseJSON(rsp);
+		
+		
+					if (data.errcod == 0) {
+						toastr.success(data.errmsg, 'IMAGEN');
+					} else {
+						toastr.error(data.errmsg, 'IMAGEN');
+					}
+		
+				});
+			
+			}
+		
+		
+		}
+		
+		</script>
+
+	
+</body>
+
+</html>

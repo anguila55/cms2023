@@ -1,0 +1,57 @@
+﻿<div class="index-ondemand">
+	<!-- BEGIN videos -->
+	<div class="index-ondemand__card">
+		<div class="index-ondemand__card-img-container">	
+			<a class="index-ondemand__card-play" onclick="{botonclicklink}">
+				<i class="fa {botonclick}"></i>
+			</a>
+			<img class="index-ondemand__card-img" src="{vidimg}" alt="">
+			<div class="index-ondemand__card-btns">
+				<a class="index-ondemand__card-btn" style="{displayvideo}" onclick="addPoints({vidreg},'',9)">
+					<i class="white fa fa-tv"></i>
+				</a>
+				<a onclick="addPoints({vidreg},'{vidurlpdf}',10)" class="index-ondemand__card-btn" style="{displaypdf}" >
+					<i class="white fa fa-files-o"></i>
+				</a>
+				<a class="index-ondemand__card-btn" style="{displayusuario}" onclick="showPerfiles({vidreg});">
+					<i class="white fa fa-user"></i></a>
+				<a class="index-ondemand__card-btn" onclick="likeCarta({vidreg},this);">
+					<i class="white fa fa-thumbs-up" style="{colorlike}"></i>
+				</a>
+			</div>
+		</div>
+		<div class="index-ondemand__card-information">
+			<div class="index-ondemand__card-title fw-700">{vidtitulo}</div>
+			<div class="index-ondemand__card-hashtag">#{vidcatego}</div>	
+		</div>
+	</div>
+	<!-- END videos -->
+</div>
+<script>
+	function likeCarta(reg,obj){
+
+		addPointsGaming(12,reg);
+		var formData = new FormData($('#FrmMst')[0]);
+		formData.append("vidreg", reg);
+		
+		$.ajax({
+			type: "POST",
+			url: 'grblikecarta.php',
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false
+		}).done(function (rsp) {
+			data = $.parseJSON(rsp);
+			showBrowser();
+			
+		});
+	}
+	function filtroVideo(reg) {		
+
+		var data = { "filtrovideo": reg };
+		$('#DataBrowser').load('brw.php', data);
+
+	}
+
+</script>

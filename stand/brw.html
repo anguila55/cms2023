@@ -1,0 +1,93 @@
+﻿<style>
+
+	#tarjetanueva{
+	  background-size: cover;
+	  position: relative;
+	  border-radius: 0.5rem;
+	  height: 120px;
+	}
+	
+	#botonmicrositio{
+		display: block;
+		position: absolute;
+		bottom: 8px;
+		right: 8px;
+		background-color: var(--main);
+		color: white;
+		 padding: 6px 16px;
+		 border-radius: 0.5rem;
+		 font-size: 0.8rem;
+		 text-transform: uppercase;
+	}
+	
+	.programa-speakers-card-block {
+	   padding: 0px !important;
+	}
+	
+	#seccionizq{
+		/* width: 40%; */
+		height: 150px;
+		background-color: white;
+		text-align: center;
+		float: left;
+		border-top-left-radius: 0.5rem;
+		border-bottom-left-radius: 0.5rem;
+	}
+	
+	#seccionder{
+	background-size: cover;
+	height: 100%;
+	float: left;
+	width: 60%;
+	text-align: center;
+	border-top-right-radius: 0.5rem;
+	border-bottom-right-radius: 0.5rem;
+	}
+	
+	.centrado{
+		width: 100%;
+		text-align: center;
+		display: block;
+	}
+	.categoriastitulo{
+		font-weight: lighter;
+		color: var(--gris);
+	}
+	
+	</style>
+
+
+
+<!-- BEGIN browsercat -->
+<div class="col-12 d-flex justify-content-center flex-wrap mt-2">
+<div class="centrado mt-2">
+		<p class="fw-200 categoriastitulo text-uppercase">{catdescri}</p>
+		<hr>
+</div>
+<!-- BEGIN oro -->
+<div class="col-sm-12 col-md-4 col-lg-4 pb-4" >
+	<a href="../sponsor/bsq?id={exprego}">
+	<div class="card" style="height: 206px; background-color: transparent !important; border: transparent; max-width: 400px;" >
+		<div id="tarjetanueva" style="background-image: url({expbanimg2o});" class="pl-0 pr-0 mt-0">
+			<div class="card-block programa-speakers-card-block">
+					<!-- <a id="botonmicrositio" style="text-decoration: none;" class="fw-700 texto-uppercase btn-circle" href="../sponsor/bsq?id={exprego}"><i class="fa fa-arrow-right"></i> </a> -->
+			</div>
+		</div>		
+		<div class="d-flex height: 32px;">
+					<img src="{expavataro}" style="
+						height: 70px;
+						width: 70px;
+						margin: 8px 16px;
+						border-radius: 0.5rem;
+					" alt="">
+					<div style="display: flex; justify-content: left; align-items: center; width: 100%; margin: 8px; color: black;">
+
+						{expnombreo}
+					</div>
+				</div>
+	</div>
+	</a>
+</div>
+<!-- END oro -->
+</div>
+<!-- END browsercat -->

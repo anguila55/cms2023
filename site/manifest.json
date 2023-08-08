@@ -1,0 +1,56 @@
+{
+	"name": "Congreso Aapresid",
+	"short_name": "Congreso Aapresid",
+	"description": "Bienvenidos al Congreso Aapresid 2019",
+	"background_color": "#FFF",
+	"theme_color": "#85BC3C",
+	"orientation": "portrait",
+	"display": "standalone",
+	"start_url": "./?utm_source=web_app_manifest",
+	"scope": "./",
+	"prefer_related_applications": false,
+	"related_applications": [
+		{
+		  "platform": "play",
+		  "id": ""
+		}
+	],
+	"lang": "es-ES",
+	"icons": [
+    {
+      "src": "./img/aap-icon_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/aap-icon_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+	{
+		"src": "./img/aap-icon_128.png",
+		"sizes": "128x128",
+		"type": "image/png"
+	},
+	{
+		"src": "./img/aap-icon_96.png",
+		"sizes": "96x96",
+		"type": "image/png"
+	},
+	{
+		"src": "./img/aap-icon_64.png",
+		"sizes": "64x64",
+		"type": "image/png"
+	},
+	{
+		"src": "./img/aap-icon_32.png",
+		"sizes": "32x32",
+		"type": "image/png"
+	},
+	{
+		"src": "./img/aap-icon_16.png",
+		"sizes": "16x16",
+		"type": "image/png"
+	}
+  ]
+}

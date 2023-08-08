@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+
+	<!-- Global site tag (gtag.js) - Google Analytics 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BNJTX7FKTM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BNJTX7FKTM');
+</script>-->
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+
+	<meta name="author" content="PIXINVENT">
+	<title>{SisNombreEvento}</title>
+	<link rel="shortcut icon" type="image/png" href="../assets-nuevodisenio/img/favicon.jpg">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/index.css">
+
+	<!-- ---------------------------------- X ---------------------------------- -->
+	<script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
+	<!-- script para levantar el navbar -->
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+
+
+<body data-col="2-columns" class=" 2-columns ">
+
+	<div class="wrapper nav-collapsed menu-collapsed">
+		<input id="percodnotif" name="percodnotif" type=hidden value="{percodnotif}">
+
+		<!-- Navigation bar -->
+		<div id="nav-placeholder">
+
+		</div>
+
+		<script>
+			$(function () {
+				var data = {
+					"menu": "activecalendario"
+				};
+
+				$("#nav-placeholder").load("../navbar/navbar.php", data);
+
+			});
+		</script>
+		<!-- end of Navigation bar -->
+
+		<!-- Menu  -->
+
+
+		<!--MENU FIN-->
+
+
+		<div class="main-panel">
+			<div class="main-content">
+				<div class="content-wrapper">
+					<div class="container-fluid">
+
+						<section id="shopping-cart">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="card">
+										<div class="card-header">
+											<div class="card-title-wrap bar-warning">
+												 <div class="col-12 mt-4 text-center banner-head">
+													<img class="img-fluid" src="../assets-nuevodisenio/img/myagenda.jpg"
+														alt="banner">
+												</div>
+												<!--
+										<button id="btndisponib" type="button" class="btn btn-info mr-1" onclick="viewDisponibilidad({percodigo});" style="position:absolute; top:20px; right:20px; {btnviewdisp}">
+											<i class="fa fa-flickr"></i> {Idioma_Disponibilidad}
+										</button>
+										-->
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="row taskboard" id="DataBrowser"></div>
+						</section>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> <!-- FIN- <div class="wrapper"> -->
+
+	<!-- Modal -->
+	<div class="modal fade p-0 text-left" id="DataMaestroView" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document" id="DataView">
+		</div>
+	</div>
+
+	<div class="modal fade p-0 text-left" id="DataMaestroDisp" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document" id="DataDisp" style="max-width:80%;">
+		</div>
+	</div>
+
+
+	<!-- BEGIN VENDOR JS-->
+	<script src="../assets-nuevodisenio/vendors/js/core/jquery-3.3.1.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/core/popper.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/core/bootstrap.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/perfect-scrollbar.jquery.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/prism.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/jquery.matchHeight-min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/screenfull.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/pace/pace.min.js"></script>
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<!-- END PAGE VENDOR JS-->
+	<!-- BEGIN CONVEX JS-->
+	<script src="../assets-nuevodisenio/js/app-sidebar.js"></script>
+	<!-- END CONVEX JS-->
+	<!-- BEGIN PAGE LEVEL JS-->
+	<!-- END PAGE LEVEL JS-->
+
+	<!-- BEGIN VENDOR JS-->
+	<!-- BEGIN PAGE VENDOR JS-->
+	<script src="../assets-nuevodisenio/vendors/js/sweetalert2.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/toastr.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/switchery.min.js"></script>
+	<script src="../assets-nuevodisenio/js/jquery.multiselect.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/moment.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/fullcalendar.min.js"></script>
+	<script src="../assets-nuevodisenio/vendors/js/jquery-ui.min.js"></script>
+	<!-- END PAGE VENDOR JS-->
+
+
+
+	<!-- --------------------------- LINEA DE TIEMPO --------------------------- -->
+	<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+	<script src='https://cdn.jsdelivr.net/scrollreveal.js/3.3.1/scrollreveal.min.js'></script>
+
+	<script src="js/index.js"></script>
+
+	<!-- ---------------------------------- X ---------------------------------- -->
+
+	<script>
+
+		$(document).ready(function () {
+			showBrowser();
+		});
+
+
+		function showView(reg, reureg) {
+			var data = { "percodigo": reg, "reureg": reureg };
+
+			//$('#DataView').addClass('modal-xs');
+			//$('#DataView').removeClass('modal-lg');
+			$('#DataView').load('vsl.php', data);
+			$('#DataMaestroView').modal('show');
+		}
+
+
+		function showBrowser() {
+			var data = null;
+			$('#DataBrowser').load('brw.php', data);
+		}
+
+		function cancelarReunion(reg) {
+			var data = { "reureg": reg };
+
+			$.ajax({
+				type: "POST",
+				url: '../reuniones/anu.php',
+				data: data
+			}).done(function (rsp) {
+				data = $.parseJSON(rsp);
+
+				if (data.errcod == 0) {
+					toastr.success(data.errmsg, 'COORDINAR REUNION');
+				} else {
+					toastr.error(data.errmsg, 'COORDINAR REUNION');
+				}
+				showBrowser();
+			});
+		}
+
+		function viewDisponibilidad(percodigo) {
+			dataDisponibilidad = [{ dataDisp }];
+
+			var data = {
+				"percodigo": percodigo,
+				"dataDisponibilidad": dataDisponibilidad
+			};
+
+			$('#DataDisp').load('../perfiles/disponibilidad.php', data);
+			$('#DataMaestroDisp').modal('show');
+		}
+	</script>
+
+</body>
+
+</html>

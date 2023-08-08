@@ -1,0 +1,54 @@
+.all-notis {
+    padding: 8px 32px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #F8F9FA;
+}
+
+.all-notis:hover {
+    text-decoration: none;
+    background: #F8F9FA;
+}
+
+#notification .noti-title {
+    white-space: normal;
+}
+
+#notification .ft-message-circle {
+    margin-bottom: 0.5rem !important;
+}
+
+.notifications-container {
+    padding: 32px;
+}
+
+.notification-card {
+    padding: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    border: 1px solid #F8F9FA;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.notification-card:hover {
+    text-decoration: none;
+    background: #F8F9FA;
+}
+
+.notification-card__avatar {
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+}
+
+.notification-card__title {
+    line-height: 1;
+}
+
+.notification-card__time {
+    color: gray;
+    opacity: 0.8;
+    font-weight: 300;
+    font-size: 14px;
+}

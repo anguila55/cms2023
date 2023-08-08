@@ -1,0 +1,174 @@
+<div class="modal-content">
+		<div class="modal-header">
+			<h4 class="modal-title" id="">Notificaciones</h4>
+			
+		</div>
+		<div class="modal-body">
+			
+			<div class="form-group">
+				<label for="timesheetinput1">Titulo:</label>
+				<div class="position-relative has-icon-left">
+					<input type="hidden" id="msgreg" name="msgreg" value="{msgreg}">
+					<input type="text" id="msgtitulo"  name="msgtitulo" class="form-control" value="{msgtitulo}">
+					<div class="form-control-position">
+						<!--En caso que requiera icono-->
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="timesheetinput1">Link Url:</label>
+				<div class="position-relative has-icon-left">
+					<input type="text" id="msgdescri"  name="msgdescri" class="form-control" value="{msgdescri}">
+					<div class="form-control-position">
+						<!--En caso que requiera icono-->
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="timesheetinput1">Links Interno: </label>
+				<div class="position-relative has-icon-left">
+					<select id="msgestado" name="msgestado" class="form-control">
+						<option value="6" selected>{seleccionaopcion}</option>
+						<option value="7" {notsel7}>Home</option>
+						<option value="8" {notsel8}>Reuniones</option>
+						<option value="9" {notsel9}>Mensajes</option>
+						<option value="10" {notsel10}>Programa</option>
+						<option value="11" {notsel11}>Sponsors</option>
+						<option value="12" {notsel12}>Asistentes</option>
+						<option value="13" {notsel13}>Prensa</option>
+						<option value="14" {notsel14}>Comunidad</option>
+					</select>
+					<div class="form-control-position">
+						<!--En caso que requiera icono-->
+					</div>
+				</div>
+			</div>					
+		</div>
+		<div class="modal-footer">
+			<button id="btnguardar" type="button" class="btn btn-success" onclick="guardarNotConf();">Guardar
+			</button>				
+			<button type="button" class="btn grey btn-outline-secondary cerrarmodal" data-dismiss="modal">Cerrar</button>
+		</div>
+	</div>
+	<script>
+		
+		function guardarNotConf(){
+
+		
+		var errcod = 0;
+		var errmsg = '';
+		//var avireg = $('#avireg').val();
+		//var avititulo = $('#avititulo').val();
+		//var aviurl = $('#aviurl'). val();
+		//var aviimagen = $('#aviimagen').val();
+		
+			if ($('#msgtitulo').val() == '') {
+				
+				errcod = 1;
+				toastr.error('Revisar Campos', 'Ingresar Titulo');
+				
+			}
+			function validURL(url) {
+
+			if (url.includes('http')) {
+
+				return true;
+			}
+
+			return false;
+
+			}
+
+			
+			if ($('#msgdescri').val() != '' && $('#msgestado').val() != 6 )  {
+				
+				errcod = 1;
+				toastr.error('Revisar Campos', 'Debes elegir entre link url o link interno');
+				
+			}else{
+
+				if ($('#msgdescri').val() != '') {
+					if (!validURL($('#msgdescri').val())) {
+					errcod = 1;
+					toastr.error('Revisar Campos', 'Ingresar url web valida');
+					}
+				}
+
+
+			}
+				
+
+			
+		if(errcod==0){
+			swal({
+				title: "GUARDAR",
+				text: "¿Confirma guardar los cambios?",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: 'Confirmar',
+				cancelButtonText: 'Cancelar',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+
+				
+
+					guardarMaestroNotConf();
+				
+				
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+		}
+
+		
+
+		function guardarMaestroNotConf(){
+		var formData = new FormData($('#FrmMst')[0]);
+		var msgsend = 0;
+		formData.append("msgreg", $('#msgreg').val());
+		formData.append("msgtitulo", $('#msgtitulo').val());
+		formData.append("msgdescri", $('#msgdescri').val());
+		if ($('#msgdescri').val()!=''){
+			formData.append("msgestadonot", 100);
+		}else{
+			formData.append("msgestadonot", $('#msgestado').val());
+		}
+		
+
+		
+		////Si tiene link el estado es 100 para que no se mezcle con los otros
+		
+			
+			
+		$.ajax({
+			type: "POST",
+			url: 'grb.php',
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false
+		}).done(function( rsp ) {
+			data = $.parseJSON(rsp);
+			
+			if(data.errcod == 0){
+				toastr.success(data.errmsg, 'GUARDAR');			
+				//swal("GUARDAR", data.errmsg, "success").done();
+				$('.cerrarmodal').click();
+				window.location="../mensajeria/bsq.php?T=4"
+			}else{
+				toastr.error(data.errmsg, 'GUARDAR');	
+				//swal("GUARDAR", data.errmsg, "error").done();
+			}
+			
+		});
+		}
+	</script>
+
+	

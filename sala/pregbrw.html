@@ -1,0 +1,81 @@
+<div id="preguntasvan" class="col-md-12">
+	<div class="card">
+		
+			
+						<!-- BEGIN browser -->
+						<div class="media border-bottom mb-2"><img class="mr-3" style="min-width: 20px;max-width: 40px;" src="{peravatar}">
+							<div class="media-body">
+								<h5 class="preguntas-nombre">{perperfil}:</h5>
+								<p class="preguntas-texto">{agepregun}</p>
+							<!--	<div class="text-truncate">{btndelete}</div> -->
+							</div>
+						</div>
+						<!-- END browser -->
+						
+				
+			</div>
+		
+</div>	
+		
+	<div class="card">
+		<div class="form-actions" style="padding-top:10px; padding-left:10px;">
+			<button id="btnnueva" type="button" class="btn btn-success" onclick="showNuevaPreg({ageregnew});">
+				<i class="icon-note"></i> {nuevo}
+			</button>
+		</div>
+	</div>
+</div>
+	
+
+<script>
+	function showNuevaPreg(agereg){
+		var data = {"agereg":agereg};
+		$('#viewOpcion').load('pregmst.php',data);
+	}
+	
+	function eliminarPregunta(agereg,agepreitm){
+		
+		var data = {"agereg":agereg,
+					"agepreitm":agepreitm};
+		
+		swal({
+			title: "REMOVE",
+			text: "Are you sure you want to remove the question?",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#0CC27E',
+			cancelButtonColor: '#FF586B',
+			confirmButtonText: 'Confirm',
+			cancelButtonText: 'Cancel',
+			confirmButtonClass: 'btn btn-success btn-raised mr-5',
+			cancelButtonClass: 'btn btn-danger btn-raised',
+			buttonsStyling: false
+		}).then(function () {
+			$.ajax({
+			  type: "POST",
+			  url: 'pregdel.php',
+			  data: data
+			}).done(function( rsp ) {
+				//console.log(rsp);
+				data = $.parseJSON(rsp);
+				
+				if(data.errcod == 0){			
+					toastr.success(data.errmsg, 'REMOVED');
+					viewOpcion(1);
+				}else{
+					toastr.error(data.errmsg, 'REMOVED');
+				}
+				
+			});
+			
+			
+		}, function (dismiss) {
+			// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+			if (dismiss === 'cancel') {
+			}
+		}).done();
+	}
+</script>
+	 
+	  
+	  

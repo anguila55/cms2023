@@ -1,0 +1,86 @@
+<style>
+	.notify-badge{
+    position: absolute;
+    right:0px;
+    top:20px;
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+    padding:5px 5px;
+    font-size:20px;
+}
+</style>
+
+<div>
+	<div class="content-overlay"></div>
+		<form id="buscadorchat" class="my-2">
+			<div  class="position-relative has-icon-right">
+				<input class="form-control" id="fltbuscar" name="fltbuscar" type="text" placeholder="{Idioma_Buscar}..." onkeydown="KeyEnterBuscar(event)">
+				<div class="form-control-position">
+					<i class="fa fa-search" id="buscadoricono"></i>
+				</div>
+			</div>
+		</form>
+		<div class="chat-fixed__allparticipants">
+			  
+				<div id="users-list" class="list-group position-relative">
+					<div class="users-list-padding">
+							 <!-- BEGIN charlastodos -->
+
+							 <a id="brwchats" class="list-group-item border" >  <!-- (click)="SetActive($event,'chat3')" -->
+								<span class="media">
+								  <span class="avatar avatar-md avatar-away mr-2">
+									<span class="notify-badge" style="{perfilesenlinea}"></span>
+									<img class="media-object d-flex mr-3 bg-primary rounded-circle" src="{charlaavatar}"
+									  alt="">
+									
+								  </span>
+								  <div class="media-body">
+									<h6 class="list-group-item-heading fw-600">{charlapernombre} {charlaperapelli}
+									  <i onclick="sendMensaje({charlapercodigo});" class="fa fa-edit float-right info"></i>
+									</h6>
+									<p class="list-group-item-text text-muted fw-700">
+									  <i class="ft-check font-small-2"></i>{charlapercompan}
+									  
+									</p>
+								  </div>
+								</span>
+							  </a>
+			 				 <!-- END charlastodos -->
+					</div>
+				</div>
+		</div>
+</div>
+
+<script src="../chat/socket.io.js"></script>  
+<script>
+	var PerCodigo = {percodigo};
+	var PerNombre = '{pernombre}';
+	
+	//connect to the socket server.
+    var socket = io.connect('http://rondasbtbox.localhost:9283');
+	// var socket = io.connect('https://rondasbtbox.onlife.com.ar:9283');
+
+	$(document).ready(function () {
+		registrar();
+	});
+	
+	function sendMensaje(reg){
+	
+		window.location='../chat/bsq?P='+reg;
+	}
+	
+	function registrar(){
+		socket.emit('registrar', '{chatregister}');
+	}
+
+	function keyPressMensaje(e){
+		if (e.keyCode == 13) {
+			sendMensaje();
+			return false;
+		}
+	}
+	
+	
+</script>
+	  
+	  

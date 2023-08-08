@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="description" content="Convex admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+	<meta name="keywords" content="admin template, Convex admin template, dashboard template, flat admin template, responsive admin template, web app">
+	<meta name="author" content="BTBox">
+	<title>{SisNombreEvento}</title>
+    <link rel="shortcut icon" type="image/png" href="assets-nuevodisenio/img/favicon.jpg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<link rel="stylesheet" type="text/css" href="assets-nuevodisenio/index.css">
+		
+	</head>
+    <body data-col="1-column" class=" 1-column  blank-page blank-page">
+		<div id="bg">
+			<img src="assets-nuevodisenio/img/fondologin.jpg" alt="">
+		</div>
+
+   
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <div class="wrapper"><!--Login Page Starts-->
+<section id="login">
+    <div class="container-fluid">
+        <div class="row full-height-vh">
+
+            <div class="col-md-8">
+                
+            </div>
+            <div class="col-md-4 d-flex align-items-center justify-content-center  ">
+                <div class="card px-4 py-2 box-shadow-2 width-500 cardtrasparent cardlog">
+                    <div class="card-header text-center">
+                        <!-- <img src="imagenes-evento/logo.jpg" alt="company-logo" class="mb-3" width="80"> -->
+                        <!-- <h4 class="text-uppercase text-bold-400 grey darken-1">Iniciar Sesión</h4> -->
+                    </div>
+                    <div class="card-body">
+                        <div class="card-block">
+								<div class="form-group">
+								  <label id="labelinscripcion">{incripciondos}</label>
+								  <label id="labeltickets">{tickets}</label>
+								</div>
+								
+								<div class="form-group">
+                                    <div class="text-left col-md-12">
+										<!-- BEGIN formstick -->
+										<button class="mercadopago-button" onclick="clickForm({tikcodfor});">{tikdesfor}</button>
+										<form id="frmpag{tikcodfor}" name="frmpag{tikcodfor}" action="comptickfrm" method="POST" target="ifrpago">
+											<input id="tikcodigo" name="tikcodigo" type="hidden" value="{tikcodfor}">
+										</form>
+										<br>
+										<!-- END formstick -->
+										
+										<!-- BEGIN formstickfree -->
+										<button class="mercadopago-button" onclick="clickFree({tikcodffor});">{tikdesffor}</button>
+										<form id="frmpag{tikcodffor}" name="frmpag{tikcodffor}" action="compproc" method="POST">
+											<input id="tikcodigo" name="tikcodigo" type="hidden" value="{tikcodffor}">
+										</form>
+										<!-- END formstickfree -->
+										
+										<form id="frmpag999" class="d-none" action="compproc.php" method="POST">
+											<label id="promocional">{codigopromocional}</label>
+											<input id="tikcodpro" name="tikcodpro" type="text" value="" maxlength="10" style="width:100%;">
+											<button id="botonvalidar">{validar}</button>
+										</form>
+									</div>
+								</div>
+								
+								<!--
+                                <div class="form-group">
+                                    <div class="text-center col-md-12">
+                                        <button type="button" class="btn btmenv1 px-4 py-2 text-uppercase white font-small-4 box-shadow-2 border-0" onclick="window.location='login';">LOGIN</button>
+                                    </div>
+                                </div>
+								-->           
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Login Page Ends-->
+    </div>
+	
+	<iframe id="ifrpago" name="ifrpago" src="" style="display:none;position:absolute; left:0px; top:0px; width:100%; height:100%; border: 0 solid;" scrolling="no"></iframe>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+    <div class="modal fade text-left" id="DataMaestroClasif" tabindex="-1" role="dialog" aria-hidden="true"
+	data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog modal-lg" role="document" id="DataClasif" style="max-width:1300px;">
+	</div>
+</div>
+		<!-- BEGIN VENDOR JS-->
+		<script src="assets-nuevodisenio/vendors/js/core/jquery-3.3.1.min.js"></script>
+		<script src="assets-nuevodisenio/vendors/js/core/popper.min.js"></script>
+		<script src="assets-nuevodisenio/vendors/js/core/bootstrap.min.js"></script>
+		<script src="assets-nuevodisenio/vendors/js/perfect-scrollbar.jquery.min.js"></script>
+		<script src="assets-nuevodisenio/vendors/js/prism.min.js"></script>
+		<script src="assets-nuevodisenio/vendors/js/jquery.matchHeight-min.js"></script>
+		<script src="assets-nuevodisenio/vendors/js/screenfull.min.js"></script>
+		<script src="assets-nuevodisenio/vendors/js/pace/pace.min.js"></script>
+		<!-- BEGIN VENDOR JS-->
+		<!-- BEGIN PAGE VENDOR JS-->
+		<!-- END PAGE VENDOR JS-->
+		<!-- BEGIN CONVEX JS-->
+		<script src="assets-nuevodisenio/js/app-sidebar.js"></script>
+		<!-- END CONVEX JS-->
+		<!-- BEGIN PAGE LEVEL JS-->
+		<!-- END PAGE LEVEL JS-->
+		
+		<!-- BEGIN VENDOR JS-->
+		<!-- BEGIN PAGE VENDOR JS-->
+		<script src="assets-nuevodisenio/vendors/js/sweetalert2.min.js"></script>
+		<script src="assets-nuevodisenio/vendors/js/toastr.min.js"></script>
+		<script src="assets-nuevodisenio/vendors/js/switchery.min.js"></script>
+		<!-- END PAGE VENDOR JS-->
+
+    <!-- END CONVEX JS-->
+    <!-- BEGIN PAGE LEVEL JS-->
+    <!-- END PAGE LEVEL JS-->
+	<script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
+  </body>
+    
+<script>
+	$(document).ready(function() {
+	});
+	
+	
+	function clickFree(cod){
+		var form = $('#frmpag'+cod);
+		swal({
+			title: "{titulocartel}",
+			text: "{textocartel}",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#0CC27E',
+			cancelButtonColor: '#FF586B',
+			confirmButtonText: '{contratar}',
+			cancelButtonText: '{cancelar}',
+			confirmButtonClass: 'btn btn-success btn-raised mr-5',
+			cancelButtonClass: 'btn btn-danger btn-raised',
+			buttonsStyling: false
+		}).then(function () {
+			form.submit();
+		}, function (dismiss) {
+			// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+			if (dismiss === 'cancel') {
+			}
+		}).done();
+	}
+	
+	function clickForm(cod){
+		var form = $('#frmpag'+cod);
+		form.submit();	
+		$('#ifrpago').show();
+	}
+</script>
+</html>
+
+
+
+
+
+

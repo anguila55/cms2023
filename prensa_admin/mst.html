@@ -1,0 +1,543 @@
+<!-- Quill -->
+<link rel="stylesheet" href="../quill/libs/quill/quill.snow.css">
+<script src="../quill/libs/quill/quill.min.js"></script>
+
+<!-- My stuff -->
+<link rel="stylesheet" type="text/css" href="../quill/styles.css">
+<script src="../quill/app.js"></script>
+<style>
+	#form-container {
+  width: 500px;
+}
+
+.row {
+  margin-top: 15px;
+}
+.row.form-group {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.btn {
+  margin-left: 15px;
+}
+
+.change-link {
+  background-color: #000;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  bottom: 0;
+  color: #fff;
+  opacity: 0.8;
+  padding: 4px;
+  position: absolute;
+  text-align: center;
+  width: 150px;
+}
+.change-link:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+img {
+  width: 150px;
+}
+
+#editor {
+  height: 130px;
+}
+
+
+</style>
+<section id="horizontal-form-layouts">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="px-3">
+						<form enctype="multipart/form-data"  class="form form-horizontal" novalidate>
+							<div class="form-body">
+
+								<!-- Titulo -->
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title-wrap bar-warning">
+											<h6 class="card-title">{backprensatitulo}:</h6>
+										</div>
+									</div>
+
+									<div class="card-body p-2">
+
+										<div class="col-md-12">
+											<label for="paicodigo"> </label>
+											<input type="hidden" id="prereg" name="prereg" value="{prereg}">
+											<input type="text" id="pretitulo"  name="pretitulo" class="form-control" value="{pretitulo}">
+										</div>
+									</div>
+
+								</div>
+
+								<!-- End Titulo -->
+								<!-- Fecha -->
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title-wrap bar-warning">
+											<h6 class="card-title">{idioma_fecha}:</h6>
+										</div>
+									</div>
+
+									<div class="card-body p-2">
+
+										<div class="col-md-12">
+											<input type="date" id="prefecha" class="form-control" name="prefecha" value="{prefecha}">
+										
+									</div>
+
+								</div>
+								<!-- Fecha -->
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title-wrap bar-warning">
+											<h6 class="card-title">{Idioma_Orden}:</h6>
+										</div>
+									</div>
+
+									<div class="card-body p-2">
+
+										<div class="col-md-12">
+											<input type="number" id="prepos"  name="prepos" class="form-control" value="{prepos}">
+										
+									</div>
+
+								</div>
+								
+								<!-- end img -->
+								<!-- Bajada -->
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title-wrap bar-warning">
+											<h6 class="card-title">{backprensabajada}:</h6>
+										</div>
+									</div>
+
+									<div class="card-body p-2">
+
+										<div class="col-md-12">
+											<textarea class="form-control" rows="4" id="prebajada"  name="prebajada" class="form-control" value="{prebajada}" maxlength="500"> {prebajada} </textarea>
+										
+									</div>
+
+								</div>
+								
+								<!-- end img -->
+									<!-- Descripcion -->
+									<div class="card">
+										<div class="card-header">
+											<div class="card-title-wrap bar-warning">
+												<h6 class="card-title">{backprensadescripcion}: (max 5000)</h6>
+											</div>
+										</div>
+	
+										<div class="card-body p-2">
+											
+  
+											<div id="editor">
+												
+												{predescri}
+											</div>
+										</div>
+
+										
+	
+									</div>
+									<!-- End descripcion -->
+								
+							
+								<!-- Url -->
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title-wrap bar-warning">
+											<h6 class="card-title">{backprensafuente}:</h6>
+										</div>
+									</div>
+
+									<div class="card-body p-2">
+
+										<div class="col-md-12">
+											<label for="paicodigo"> </label>
+											<input type="text" id="prefuente"  name="prefuente" class="form-control" value="{prefuente}">
+										</div>
+									</div>
+
+								</div>
+								<!-- End Url -->
+								<!-- img -->
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title-wrap bar-warning">
+											<h6 class="card-title">{backprensaimagen}:</h6>
+										</div>
+									</div>
+
+									<div class="card-body p-2">
+
+										<div class="col-md-12">
+											<label for="paicodigo"> </label>
+											
+										
+											<input type="file" id="preimg"  name="preimg" accept=".jpg, .jpeg" class="form-control" value="{preimg}" onchange="readURLaviso(this);" style="display: none;">
+											<br>
+											<a>
+													<img id="imgaviso" alt="" class="media-object d-flex mr-3" src="{preimg}" style="width: 200px; height: 150px; " onclick="findaviso();"
+													>
+											</a>
+										</div>
+									</div>
+
+								</div>
+								
+								
+								<!-- Url -->
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title-wrap bar-warning">
+											<h6 class="card-title">Url:</h6>
+										</div>
+									</div>
+
+									<div class="card-body p-2">
+
+										<div class="col-md-12">
+											<label for="paicodigo"> </label>
+											<input type="text" id="preurl"  name="preurl" class="form-control" value="{preurl}">
+										</div>
+									</div>
+
+								</div>
+								<!-- End Url -->
+								<!-- Perfil categoria -->
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title-wrap bar-warning">
+											<h6 class="card-title">{backendcategoria}:</h6>
+										</div>
+									</div>
+
+									<div class="card-body p-2">
+
+										<div class="col-md-12">
+											<label for="paicodigo"> </label>
+											<select id="precatego" name="precatego" class="form-control">
+											<!-- BEGIN categorias -->
+											<option {selected} value="{catdescri}">{catdescri}</option>
+											<!-- END categorias -->						
+											</select>
+										</div>
+									</div>
+
+								</div>
+						<!-- End perfil categoria -->
+								<!-- Tipo de aviso-->
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title-wrap bar-warning">
+											<h6 class="card-title">{backprensatipo}:</h6>
+										</div>
+									</div>
+
+									<div class="card-body p-2">
+
+										<div class="col-md-12">
+											<label for="paicodigo"> </label>
+											<select id="pretipo" name="pretipo" class="form-control">
+												<option value="0">{Idioma_Seleccione}...</option>
+												<option value="1" {selectednota}>{backprensnota}</option>
+												<option value="2" {selectedpubli}>{backprensapublicidad}</option>
+											
+											</select>
+										</div>
+									</div>
+
+								</div>
+						<!-- End Tipo de aviso -->
+						<!-- Tipo de aviso-->
+						<div class="card">
+							<div class="card-header">
+								<div class="card-title-wrap bar-warning">
+									<h6 class="card-title">{backprensatamano}:</h6>
+								</div>
+							</div>
+
+							<div class="card-body p-2">
+
+								<div class="col-md-12">
+									<label for="paicodigo"> </label>
+									<select id="pretamano" name="pretamano" class="form-control">
+										<option value="0">{Idioma_Seleccione}...</option>
+										<option value="3" {selectedgrande}>{backprensagrande}</option>
+										<option value="2" {selectedmediano}>{backprensamediano}</option>
+										<option value="1" {selectedchico}>{backprensachico}</option>
+									
+									</select>
+								</div>
+							</div>
+
+						</div>
+				<!-- End Tipo de aviso -->
+					<!-- Perfil relacionado -->
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title-wrap bar-warning">
+											<h6 class="card-title">{backprensaperfil}:</h6>
+										</div>
+									</div>
+
+									<div class="card-body p-2">
+
+										<div class="col-md-12">
+											<label for="paicodigo"> </label>
+											<select id="percodigo" name="percodigo" class="form-control">
+												<option value="0" selected>{Idioma_Seleccione}...</option>
+												<!-- BEGIN perfiles -->
+												<option value="{percodigo}" {persel}>{percompan} - {pernombre}
+													{perapelli}
+												</option>
+												<!-- END perfiles -->
+
+											</select>
+										</div>
+									</div>
+
+								</div>
+						<!-- End perfil relacionado -->
+
+																			
+							</div>
+
+							<div class="form-actions right">
+								<button id="btnguardar" type="button" class="btn btn-success" onclick="guardarMaestroMsg();">
+									<i class="icon-note"></i> {Idioma_Guardar}
+								</button>
+								<a id="btncancelar" type="button" class="btn btn-danger mr-1" href="../prensa_admin/bsq">
+									<i class="icon-arrow-left"></i> {atras}
+								</a>
+								&nbsp;&nbsp;
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</section>
+
+
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
+  
+<!-- Initialize Quill editor -->
+<script>
+
+	/////////////////////////
+	/*var editor = new Quill('#editor', {
+	modules: { toolbar: '#toolbar' },
+	theme: 'snow'
+  });*/
+</script>
+<script>
+	
+	/*var toolbarOptions = [
+                ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+                               // custom button values
+                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                                       // text direction
+
+                [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+                [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                [ 'link', 'image','video' ]                                         // remove formatting button
+            ];
+
+        var quill = new Quill('#editor-container', {
+            modules: {
+                toolbar: toolbarOptions
+            },
+			placeholder: 'Escriba el texto...',
+            theme: 'snow'
+        });
+   
+	/*var quill = new Quill('#editor-container', {
+  modules: {
+    toolbar: true
+  },
+  placeholder: 'Escriba el texto...',
+  theme: 'snow'
+});
+	/*var toolbarOptions = [
+                ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+                ['blockquote', 'code-block'],
+
+                [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+                [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+                [{ 'direction': 'rtl' }],                         // text direction
+
+                [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+                [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                [ 'link', 'image', 'video', 'formula' ],          // add's image support
+                [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+                [{ 'font': [] }],
+                [{ 'align': [] }],
+
+                ['clean']                                         // remove formatting button
+            ];
+
+        var quill = new Quill('#editor', {
+            modules: {
+                toolbar: toolbarOptions
+            },
+
+            theme: 'snow'
+        });
+
+*/
+
+	
+	//Tomamos el valor del id
+	var  data= $('#prereg').val();
+	//console.log(data)
+	//imagen por defecto si el id es 0
+	if (data==0) {
+		$('#imgaviso').prop('src','{imgnull}');
+	}
+	if (data != 0){
+		$('#imgaviso').prop('src','../prensaimg/{prereg}/{preimg}');
+	}
+
+	function guardarMaestroMsg(){
+		var errcod = 0;
+		var errmsg = '';
+		var pretitulo = $('#pretitulo').val();
+		//var  predescri= $('#predescri').val();
+		var  preimg= $('#preimg').val();
+		console.log(preimg);
+		var  preurl= $('#preurl').val();
+		var myEditor = document.querySelector('#editor');
+		var predescri = myEditor.children[0].innerHTML;
+
+
+		if(pretitulo==''){
+			errcod=2;
+			errmsg='{completeelcampo} {backprensatitulo}';
+		}
+		if(predescri==''){
+			errcod=2;
+			errmsg='{completeelcampo} {backprensadescripcion}';
+		}
+
+		if(preimg=='' ){
+			if (document.getElementById("imgaviso").src =='https://digital.expoagro.com.ar/app-assets/img/pages/sativa.png'){
+				errcod=2;
+				errmsg='{completeelcampo} {backprensaimagen}';
+			} 
+			
+		}
+		if(preurl==''){
+			errcod=2;
+			errmsg='{completeelcampo} url';
+		}
+		
+		if(errcod!=0){
+			//swal("GUARDAR", errmsg, "error").done();
+			toastr.error(errmsg, '{Idioma_Guardar}');
+		}
+			
+		if(errcod==0){
+			swal({
+				title: "{Idioma_GuardarSwal}",
+				text: "{Idioma_Confirmar}",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: '{Idioma_BotonConf}',
+				cancelButtonText: '{Idioma_BotonCan}',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+				guardarMaestro();
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+	}
+	function findaviso(){
+		 //$('#imgaviso').prop('src','{imgnull}');
+		 $('#preimg').click();	
+	}
+	
+	function readURLaviso(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			var fname = null;
+			reader.onload = function (e) {
+				$('#imgaviso').attr('src', e.target.result);	
+				var image = new Image();
+				image.src = e.target.result;
+				image.onload = function() {
+				};
+			}
+			reader.readAsDataURL(input.files[0]);
+			
+		}
+	}
+
+	
+	function guardarMaestro(){
+		var formData = new FormData($('#FrmMst')[0]);
+		formData.append("prereg"		, $('#prereg').val() );
+		formData.append("pretitulo"		, $('#pretitulo').val() );
+		var myEditor = document.querySelector('#editor');
+		var predescri1 = myEditor.children[0].innerHTML;
+		console.log(predescri1);
+		formData.append("predescri"		, predescri1 );
+		formData.append("preurl"		, $('#preurl').val() );
+		formData.append("precatego"		, $('#precatego').val() );
+		formData.append("percodigo"		, $('#percodigo').val() );
+		formData.append("prefuente"		, $('#prefuente').val() );
+		formData.append("prebajada"		, $('#prebajada').val() );
+		formData.append("pretipo"		, $('#pretipo').val() );
+		formData.append("pretamano"		, $('#pretamano').val() );
+		formData.append("prefecha"		, $('#prefecha').val() );
+		formData.append("prepos"		, $('#prepos').val() );
+
+		
+
+		if(typeof($('#preimg')[0].files[0]) !== "undefined"){
+			//console.log('entro');
+			formData.append('preimg', $('#preimg')[0].files[0]);
+		}
+		$.ajax({
+		  type: "POST",
+		  url: 'grb.php',
+		  data: formData,
+		  cache: false,
+		  contentType: false,
+		  processData: false
+		}).done(function( rsp ) {
+			console.log(rsp)
+			data = $.parseJSON(rsp);
+			
+			if(data.errcod == 0){
+				toastr.success(data.errmsg, '{Idioma_Guardar}');			
+				window.location='../prensa_admin/bsq'
+			}else{
+				toastr.error(data.errmsg, '{Idioma_Guardar}');	
+			}
+			
+		});
+	}
+</script>

@@ -1,0 +1,223 @@
+
+<section id="horizontal-form-layouts">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="px-3">
+						<form class="form form-horizontal">
+							<div class="form-body">
+								
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="vidtitulo">{backprensatitulo}: </label>
+									<div class="col-md-9">
+										<input type="hidden" id="vidreg" name="vidreg" value="{vidreg}">
+										<input type="text" id="vidtitulo" maxlength="100" name="vidtitulo" class="form-control" value="{vidtitulo}">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="vidtitulocarta">{backondemandtitulo}: </label>
+									<div class="col-md-9">
+										<input type="hidden" id="vidreg" name="vidreg" value="{vidreg}">
+										<input type="text" id="vidtitulocarta" maxlength="80" name="vidtitulocarta" class="form-control" value="{vidtitulocarta}">
+									</div>
+								</div>
+								
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="vidurl">{backpitchvideo}: </label>
+									<div class="col-md-9">
+										<input type="text" id="vidurl"  name="vidurl" class="form-control" value="{vidurl}" placeholder="https://player...">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="vidimg">{backpitchlogo}: ({backpitchidealrectangular})</label>
+									<div class="col-md-9">
+										<input type="file" id="vidimg" name="vidimg" class="form-control"
+													value="{vidimg} " accept=".png, .jpg, .jpeg">
+										<img src="{vidimg}" class="img-fluid mt-3 mx-auto" style="width: 20%;" alt="">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="vidurlpdf">{backondemandpdf}: </label>
+									<div class="col-md-9">
+										<input type="text" id="vidurlpdf"  name="vidurlpdf" class="form-control" value="{vidurlpdf}" placeholder="https://">
+									</div>
+								</div>
+								
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="usnombre">{Idioma_Nombre}: </label>
+									<div class="col-md-9">
+										<input type="text" id="usnombre"  name="usnombre" class="form-control" value="{usnombre}">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="usmail">{Idioma_Correo}: </label>
+									<div class="col-md-9">
+										<input type="text" id="usmail"  name="usmail" class="form-control" value="{usmail}">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="ustelefono">{Idioma_Telefono}: </label>
+									<div class="col-md-9">
+										<input type="text" id="ustelefono"  name="ustelefono" class="form-control" value="{ustelefono}">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="usempresa">{Idioma_Compania}: </label>
+									<div class="col-md-9">
+										<input type="text" id="usempresa"  name="usempresa" class="form-control" value="{usempresa}">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="uspais">{Idioma_Pais}: </label>
+									<div class="col-md-9">
+										<input type="text" id="uspais"  name="uspais" class="form-control" value="{uspais}">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="uslinkedin">Linkedin: </label>
+									<div class="col-md-9">
+										<input type="text" id="uslinkedin"  name="uslinkedin" class="form-control" value="{uslinkedin}" placeholder="Poner https://">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="usfacebook">Facebook: </label>
+									<div class="col-md-9">
+										<input type="text" id="usfacebook"  name="usfacebook" class="form-control" value="{usfacebook}" placeholder="Poner https://">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="ustwitter">Twitter: </label>
+									<div class="col-md-9">
+										<input type="text" id="ustwitter"  name="ustwitter" class="form-control" value="{ustwitter}" placeholder="Poner https://">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="usweb">{Idioma_SitioWeb}: </label>
+									<div class="col-md-9">
+										<input type="text" id="usweb"  name="usweb" class="form-control" value="{usweb}" placeholder="Poner https://">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="usweb">{backendcategoria}: </label>
+									<div class="col-md-9">
+										<select id="vidcatego" name="vidcatego" class="form-control">
+											<option  value="">{Idioma_Seleccione}...</option>
+											<!-- BEGIN categorias -->
+											<option {selected} value="{catdescri}">{catdescri}</option>
+											<!-- END categorias -->						
+										</select>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="vidid">{backondemandhome}: </label>
+									<div class="col-md-9">
+										<input type="checkbox" id="vidid" {vididchecked}>
+										
+									</div>
+								</div>
+																	
+							</div>
+
+							<div class="form-actions right">
+								<button id="btnguardar" type="button" class="btn btn-success" onclick="guardarMaestroMsg();">
+									<i class="icon-note"></i> {Idioma_Guardar}
+								</button>
+								<button id="btncancelar" type="button" class="btn btn-danger mr-1" onclick="showBrowser();">
+									<i class="icon-arrow-left"></i> {atras}
+								</button>
+								&nbsp;&nbsp;
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</section>
+		
+<script>
+
+	// $('#tipo').change(() =>{alert($('#tipo').val())})
+
+	function guardarMaestroMsg(){
+		var errcod = 0;
+		var errmsg = '';
+			
+		if(errcod==0){
+			swal({
+				title: "{Idioma_GuardarSwal}",
+				text: "{Idioma_Confirmar}",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: '{Idioma_BotonConf}',
+				cancelButtonText: '{Idioma_BotonCan}',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+				guardarMaestro();
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+	}
+	
+	function guardarMaestro(){
+		var formData = new FormData($('#FrmMst')[0]);
+		formData.append("vidreg", $('#vidreg').val());
+		formData.append("vidtitulo", $('#vidtitulo').val());
+		formData.append("vidtitulocarta", $('#vidtitulocarta').val());
+		formData.append("vidurl", $('#vidurl').val());
+		formData.append("vidurlpdf", $('#vidurlpdf').val());
+		formData.append("vidid", ($('#vidid').is(':checked'))? '1': '0');
+		formData.append("usnombre", $('#usnombre').val());
+		formData.append("usmail", $('#usmail').val());
+		formData.append("ustelefono", $('#ustelefono').val());
+		formData.append("usempresa", $('#usempresa').val());
+		formData.append("uspais", $('#uspais').val());
+		formData.append("uslinkedin", $('#uslinkedin').val());
+		formData.append("usfacebook", $('#usfacebook').val());
+		formData.append("ustwitter", $('#ustwitter').val());	
+		formData.append("usweb", $('#usweb').val());
+		formData.append("vidcatego"		, $('#vidcatego').val() );
+
+
+		//avatar
+		if (typeof ($('#vidimg')[0].files[0]) !== "undefined") {
+			formData.append('vidimg', $('#vidimg')[0].files[0]);
+		}
+
+		$.ajax({
+			type: "POST",
+			url: "grb.php",
+			dataType: "html",
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false
+		}).done(function (rsp) {
+			console.log(rsp);
+			data = $.parseJSON(rsp);
+			console.log(data.errcod);
+			if(data.errcod == 0){
+				toastr.success(data.errmsg, '{Idioma_GuardarSwal}');
+				showBrowser();
+				
+			}else{
+				toastr.error(data.errmsg, '{Idioma_GuardarSwal}');
+				
+			}
+			
+		});
+	}
+</script>
+	 
+	  
+	  

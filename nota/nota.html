@@ -1,0 +1,141 @@
+<!-- Quill -->
+<link rel="stylesheet" href="../quill/libs/quill/quill.snow.css">
+<script src="../quill/libs/quill/quill.min.js"></script>
+
+<!-- My stuff -->
+<link rel="stylesheet" type="text/css" href="../quill/styles.css">
+<script src="../quill/app.js"></script>
+<style>
+	.imagentarjeta{
+		width: 100%;
+		height: 200px;
+		background-size: cover;
+		background-position: center;
+	}
+	.card-contact{
+		width: 100%;
+	}
+
+	.card-contact:hover{
+
+background-color: #f0f5ab;
+}
+p img{
+
+width: 100%;
+	background-size: cover;
+	background-position: center;
+
+
+} 
+iframe{
+	display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 640px!important;
+	height: 480px!important;
+
+}
+</style>
+<!-- Contact Card ~ #01 -->
+
+<!-- <div class="row text"> -->
+<!-- AREA PRODUCTOS DESTACADOS -->
+<section id="notaabierta" class="col-md-12">
+
+	
+	<div class="row">
+		
+		<div class="card col-md-12 col-sm-12">
+			<div class="company text-truncate font-small-2  ml-1" style="text-align:left; margin-top:2%">
+                
+				<button class="btn bg-main-event text-white tag mb-2" style="cursor: default; padding: 3px !important;">{precatego}</button>
+			</div>
+			<div class="ml-1 mb-2" style="text-align: left;">
+				<span class="text-black mt-0" style="white-space: normal; font-size: 85%; font-weight: 500;">{compartir}:  </span>
+				<a class="redes ml-2 mr-2" target="_blank"
+				   href="https://www.facebook.com/sharer/sharer.php?u={precompartir}"><i
+						class="fa fa-facebook"
+						style="font-size:16px"></i></a>
+				<a class="redes mr-2"
+				   href="http://twitter.com/share?url={precompartir}"
+				   target="_blank"><i class="fa fa-twitter"
+									  style="font-size:16px"></i></a>
+				<a class="redes mr-2"
+				   href="https://www.linkedin.com/shareArticle?mini=true&url={precompartir}"
+				   target="_blank"><i class="fa fa-linkedin"
+									  style="font-size:16px"></i></a>
+			</div>
+			<div class="title ml-1" style="text-align:left;">
+            
+				<h2 class="card-title text-bold-500 titlevent" style="font-size: 2rem;">{pretitulo}</h2>
+			
+			</div>
+			<div class="title ml-1 " style="text-align:left;">
+            
+				<p class="font-medium-2 card-title text-bold-300 mb-2">{prebajada}</p>
+			</div>
+			<div style="text-align: center;">
+				<img src="{preimg}" class="img-fluid rounded" alt="user image">
+			</div>
+			<div class="title ml-3 mt-3" style=" text-align:left;">
+            
+				<p class="font-small-2 card-title text-bold-300 mb-2">{prefecha} - Fuente: {prefuente}</p>
+			</div>
+			<div id="editorhtml" class="ql-editor mb-2" style="overflow-y: unset;">
+				
+			</div>
+			<div class="row mt-4 {tepuedeinteresar}">
+				<h2 class=" text-bold-700 ml-2" style="font-size: 1.5rem; padding-left: 10px; color: grey;">Te Puede Interesar: </h2>
+			</div>	
+			<div class="row col-md-12 mx-auto {tepuedeinteresar}">
+				
+			<!-- BEGIN interes -->
+			<div class="col-md-4 col-12 mb-3 justify-content-center">
+                <div class="card-contact">
+            
+					<a href="../nota/bsq?ID={prereginteres}">
+						<div class=" mb-2">
+				
+							<div class="img-fluid imagentarjeta" style="background-image: url({preimginteres});"> </div>
+						</div>
+				
+						<div>
+
+						<div class="company text-truncate font-small-2 ml-1" style="text-align:left;">
+		
+								<button class="btn bg-main-event text-white tag" style="cursor: default; padding: 3px !important;">{precategointeres}</button>
+							</div>
+				
+							<div class="title ml-1 mb-2" style="text-align:left;">
+		
+								<h2 class="card-title text-bold-500 titlevent" style="font-size: 1.5rem;">{pretitulointeres}</h2>
+							
+							</div>
+							
+		
+						</div>
+					</a>
+            
+    
+                </div>
+            
+            </div>
+			<!-- END interes -->
+		</div>
+		</div>
+	</div>
+	
+</section>
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
+<script>
+	$(window).scrollTop(0);
+	var myEditor = document.querySelector('#editorhtml');
+    myEditor.innerHTML = '{predescri}';
+
+
+
+</script>
+	  
+	  

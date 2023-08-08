@@ -1,0 +1,84 @@
+<div class="col-md-12">
+	<div class="card">
+		<div class="card-body">
+			<div class="px-3">
+				<form class="form">
+					<div class="form-body">
+
+					<div class="form-group row">
+						<input id="agereg" name="agereg" type="hidden" value="{agereg}">
+						<div class="col-md-12">
+							<textarea class="form-control textopregunta" id="agepregun" name="agepregun" rows="3"maxlength="1000" placeholder="Write your question here"></textarea>
+						</div>
+					</div>	
+						
+					<div class="form-actions right">
+						<button id="btnguardar" type="button" class="btn btn-success" onclick="guardarMaestroPregMsg();">
+							<i class="icon-note"></i> {Idioma_BotonConf}
+						</button>
+						<button id="btncancelar" type="button" class="btn btn-danger mr-1" onclick="viewOpcion(1);">
+							<i class="icon-trash"></i> {Idioma_BotonCan}
+						</button>
+						&nbsp;&nbsp;
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	function guardarMaestroPregMsg(){		
+		var errcod = 0;
+		var errmsg = '';
+		
+		if(errcod==0){
+			swal({
+				title:"SAVE",
+				text: "Do you like to send the question?",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: 'Confirm',
+				cancelButtonText: 'Cancel',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+				guardarMaestroPreg();
+				
+			}, function (dismiss) {
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+	}
+
+	function guardarMaestroPreg(){
+		var agereg 		= $('#agereg').val();
+		var agepregun 	= $('#agepregun').val();
+		
+		var data = {"agereg":agereg,
+					"agepregun":agepregun};
+		
+		$.ajax({
+		  type: "POST",
+		  url: 'preggrb.php',
+		  data: data
+		}).done(function( rsp ) {
+			data = $.parseJSON(rsp);
+			
+			if(data.errcod == 0){
+				toastr.success(data.errmsg, 'SAVE');			
+				viewOpcion(1);
+			}else{
+				toastr.error(data.errmsg, 'SAVE');	
+			}
+			
+		});
+	}
+</script>
+
+

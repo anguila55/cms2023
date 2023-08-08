@@ -1,0 +1,207 @@
+
+<section id="horizontal-form-layouts">
+	<div class="row">
+		<div class="col-sm-12">
+			<h2 class="content-header">{Idioma_MSTPerfiles}</h2>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="px-3">
+						<form class="form form-horizontal">
+							<div class="form-body">
+								<h4 class="form-section"><i class="icon-user"></i>{Idioma_MSTDatosPersonales}</h4>
+								
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="pernombre">{Idioma_Nombre}: </label>
+									<div class="col-md-9">
+										<input type="hidden" id="percodigo" name="percodigo" value="{percodigo}">
+										<input type="text" id="pernombre"  name="pernombre" class="form-control" value="{pernombre}" 
+											required="" data-validation-required-message="Dato requerido">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="perapelli">{Idioma_Apellido}: </label>
+									<div class="col-md-9">
+										<input type="text" id="perapelli" name="perapelli" class="form-control" value="{perapelli}"
+											required="" data-validation-required-message="Dato requerido">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="percompan">{Idioma_Compania}: </label>
+									<div class="col-md-9">
+										<input type="text" id="percompan" name="percompan" class="form-control" value="{percompan}"
+											required="" data-validation-required-message="Dato requerido">
+									</div>
+								</div>
+
+
+								<h4 class="form-section"><i class="icon-book-open"></i>{Idioma_Contacto}</h4>
+								
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="percorreo">{Idioma_Telefono}: </label>
+									<div class="col-md-9">
+										<input type="text" id="pertelefo" name="pertelefo" class="form-control">
+									</div>
+								</div>
+								
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="percorreo">{Idioma_Correo}: </label>
+									<div class="col-md-9">
+										<input type="text" id="percorreo" name="percorreo" class="form-control">
+									</div>
+								</div>
+
+
+								<h4 class="form-section"><i class="icon-book-open"></i>{Idioma_Domicilio}</h4>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="perdirecc">{Idioma_Direccion}: </label>
+									<div class="col-md-9">
+										<input type="text" id="perdirecc" name="perdirecc" class="form-control">
+									</div>
+								</div>
+								
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="perciudad">{Idioma_Ciudad}: </label>
+									<div class="col-md-9">
+										<input type="text" id="perciudad" name="perciudad" class="form-control">
+									</div>
+								</div>
+								
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="perestado">{Idioma_Estado}: </label>
+									<div class="col-md-9">
+										<input type="text" id="perestado" name="perestado" class="form-control">
+									</div>
+								</div>
+								
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="paicodigo">{Idioma_Pais}: </label>
+									<div class="col-md-9">
+										<select id="paicodigo" name="paicodigo" class="form-control">
+											<option value="">Sin Pais...</option>
+											<!-- BEGIN paises -->
+											<option value="{paicodigo}" {paiselected}>{paidescri}</option>
+											<!-- END paises -->
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="perobserv">{Idioma_Observacion}: </label>
+									<div class="col-md-9">
+										<textarea id="perobserv" name="perobserv" rows="5" class="form-control"></textarea>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-actions">
+								<button type="button" class="btn btn-success" onclick="guardarMaestroMsg();">
+									<i class="icon-note"></i> {Idioma_Guardar}
+								</button>
+								<button type="button" class="btn btn-danger mr-1" onclick="showBrowser();">
+									<i class="icon-trash"></i> {Idioma_BotonCan}
+								</button>
+								
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</section>
+	
+		
+<script>
+	
+	function guardarMaestroMsg(){
+		var errcod = 0;
+		var errmsg = '';
+		var percodigo = $('#percodigo').val();
+		var pernombre = $('#pernombre').val();
+		var perapelli = $('#perapelli').val();
+		var percompan = $('#percompan').val();
+		
+		if(pernombre==''){
+			errcod=2;
+			errmsg='Falta el nombre';
+		}
+		if(perapelli==''){
+			errcod=2;
+			errmsg='Falta el apellido';
+		}
+		if(percompan==''){
+			errcod=2;
+			errmsg='Falta la companía';
+		}
+		
+		if(errcod!=0){
+			//swal("GUARDAR", errmsg, "error").done();
+			toastr.error(errmsg, 'GUARDAR');
+		}
+	
+		if(errcod==0){
+			swal({
+				title: "GUARDAR",
+				text: "¿Confirma guardar los cambios?",
+				type: 'question',
+				showCancelButton: true,
+				confirmButtonColor: '#0CC27E',
+				cancelButtonColor: '#FF586B',
+				confirmButtonText: 'Confirmar',
+				cancelButtonText: 'Cancelar',
+				confirmButtonClass: 'btn btn-success btn-raised mr-5',
+				cancelButtonClass: 'btn btn-danger btn-raised',
+				buttonsStyling: false
+			}).then(function () {
+				guardarMaestro();
+			}, function (dismiss) {
+				// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+				if (dismiss === 'cancel') {
+				}
+			}).done();
+		}
+	}
+	
+	function guardarMaestro(){
+		var percodigo = $('#percodigo').val();
+		var pernombre = $('#pernombre').val();
+		var perapelli = $('#perapelli').val();
+		var percompan = $('#percompan').val();
+	
+		var data = {"percodigo":percodigo,
+					"pernombre":pernombre,
+					"perapelli":perapelli,
+					"percompan":percompan};
+		
+		$.ajax({
+		  type: "POST",
+		  url: 'grb.php',
+		  data: data
+		}).done(function( rsp ) {
+			//console.log(rsp);
+			data = $.parseJSON(rsp);
+			
+			if(data.errcod == 0){
+				toastr.success(data.errmsg, 'GUARDAR');			
+				//swal("GUARDAR", data.errmsg, "success").done();
+				showBrowser();
+			}else{
+				toastr.error(data.errmsg, 'GUARDAR');	
+				//swal("GUARDAR", data.errmsg, "error").done();
+			}
+			
+		});
+	}
+	
+</script>
+	 
+	  
+	  

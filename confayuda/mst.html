@@ -1,0 +1,209 @@
+<section id="horizontal-form-layouts">
+  <!--New formulario-->
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="px-3">
+          <form class="form">
+            <div class="form-body">
+              <div class="form-group">
+                <label for="timesheetinput3">{ayudausuario}</label>
+                <div >
+
+                  <select id="ayuperfil" name="ayuperfil" class="form-control" >
+                    <option value="" >{ayudausuarioperfil}...</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="timesheetinput1">{ayudawhatsapp}</label>
+                <div class="">
+                  <input
+                    type="text"
+                    id="ayunumero"
+                    name="ayunumero"
+                    class="form-control"
+                    value="{ayunumero}"
+                  />
+                  <div class="form-control-position">
+                    <!--En caso que requiera icono-->
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="timesheetinput5">{ayudacorreo}</label>
+                    <div class="position-relative">
+                      <input
+                        type="text"
+                        id="ayucorreo"
+                        class="form-control"
+                        name="ayucor"
+                        value="{ayucorreo}"
+                      />
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="timesheetinput6">{ayudafaq}</label>
+                    <div class="position-relative">
+                      <select id="ayufaq" name="ayufaq" class="form-control" >
+                        <option value="0" >{ayudatienefaq}</option>
+                        <option value="1" {activo} >{conectadosi}</option>
+                        <option value="0" {inactivo}>{conectadono}</option>
+                      </select>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+
+             
+
+            
+            
+          
+            <div class="form-actions right">
+              <a
+                id="btnguardar"
+                type="button"
+                class="btn btn-success"
+                onclick="guardarMaestroMsg();"
+              >
+                <i class="icon-note"></i> {Idioma_Guardar}
+              </a>
+              <a
+                id="btncancelar"
+                type="button"
+                class="btn btn-danger mr-1 white"
+                href="../backend/bsq"
+              >
+                <i class="icon-arrow-left"></i> {atras}
+              </a>
+              &nbsp;&nbsp;
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+ 
+ 
+ $(document).ready(function () {
+	$('#ayuperfil').multiselect({
+						columns: 1,
+						placeholder: '{ayudausuarioperfil}',
+						search: true,
+						selectAll: false,
+            multiple: false,
+            selectedList: 1
+					});			
+				});
+
+	var arrayperfileslista = {arrayperfileslista};
+		
+		arrayperfileslista.forEach(perfileslista => {
+
+			
+			
+			if (perfileslista != null ){
+				var optionPerfiles = $('<option value="'+perfileslista.percodigo+'"'+perfileslista.perrelacionado+'>'+perfileslista.percompan+' - '+perfileslista.pernombre+' '+perfileslista.perapelli+'</option>');
+				optionPerfiles.appendTo($('#ayuperfil'));
+			}
+			
+		});
+
+
+
+  function guardarMaestroMsg() {
+    var errcod = 0;
+    var errmsg = "";
+    console.log($('#ayuperfil').val());
+    var ayucorreo = $("#ayucorreo").val();
+    var ayuperfil = $("#ayuperfil").val();
+    var ayunumero = $("#ayunumero").val();
+
+
+   
+    if (ayuperfil == "") {
+      errcod = 2;
+    }
+   
+ 
+
+    if (errcod != 0) {
+      //swal("GUARDAR", errmsg, "error").done();
+      toastr.error(
+        "{completeelcampo}...",
+        "{Idioma_GuardarSwal}"
+      );
+    }
+
+    if (errcod == 0) {
+      swal({
+        title: "{Idioma_GuardarSwal}",
+        text: "{Idioma_Confirmar}",
+        type: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#0CC27E",
+        cancelButtonColor: "#FF586B",
+        confirmButtonText: "{Idioma_BotonConf}",
+        cancelButtonText: "{Idioma_BotonCan}",
+        confirmButtonClass: "btn btn-success btn-raised mr-5",
+        cancelButtonClass: "btn btn-danger btn-raised",
+        buttonsStyling: false,
+      })
+        .then(
+          function () {
+            guardarMaestro();
+          },
+          function (dismiss) {
+            // dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+            if (dismiss === "cancel") {
+            }
+          }
+        )
+        .done();
+    }
+  }
+
+  function guardarMaestro() {
+    var ayucorreo = $("#ayucorreo").val();
+    var ayuperfil = $("#ayuperfil").val();
+    var ayunumero = $("#ayunumero").val();
+    var ayufaq = $("#ayufaq").val();
+ 
+
+    var data = {
+      ayucorreo: ayucorreo,
+      ayuperfil: ayuperfil,
+      ayunumero: ayunumero,
+      ayufaq: ayufaq
+    };
+
+    $.ajax({
+      type: "POST",
+      url: "grb.php",
+      data: data,
+    }).done(function (rsp) {
+      data = $.parseJSON(rsp);
+
+      if (data.errcod == 0) {
+        toastr.success(data.errmsg, "{Idioma_Guardar}");
+        //swal("GUARDAR", data.errmsg, "success").done();
+        showBrowser();
+      } else {
+        toastr.error(data.errmsg, "{Idioma_Guardar}");
+        //swal("GUARDAR", data.errmsg, "error").done();
+      }
+    });
+  }
+ 
+</script>
