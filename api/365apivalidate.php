@@ -1,5 +1,4 @@
 <?php
-require('func/constants.php');
 
 function eventUsers($user, $password)
 {
@@ -89,7 +88,7 @@ function validateUser($user, $password, $token)
 {
     $payload = ["email" => $user, "password" => $password];
     $response = apiCms('validate/ilf-2023', "POST", $payload, $token);
-
+    //var_dump($response);die;
     return $response->message == "Correct user credentials" ? true : false;
 }
 

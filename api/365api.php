@@ -1,5 +1,5 @@
 <?php
-require('../func/constants.php');
+
 include($_SERVER["DOCUMENT_ROOT"] . '/func/zglobals.php'); //PRD
 require_once GLBRutaFUNC . '/zdatabase.php';
 
@@ -62,7 +62,7 @@ function updateUser( $payload, $conn ) {
 				$percodigo 	= trim($row['PERCODIGO']);
 				
 				$query = "UPDATE PER_MAEST SET 
-				PERNOMBRE='$first_name',PERAPELLI='$last_name',PERCARGO='$position',PERCOMPAN='$company',PERTELEFO = '$phone', ESTCODIGO=$estcodigo1, PERUSUACC='$email', PERIDIOMA='$language_id', PERIMPEVE=1, PERURLWEB='$linkedin', PERAVATAR='$profile_picture', PAICODIGO = $country,PAICODIGO2 = $country, PERPARNOM2='$hash', TIMREG = $timereg
+				PERNOMBRE='$first_name',PERAPELLI='$last_name',PERCARGO='$position',PERCOMPAN='$company',PERTELEFO = '$phone', ESTCODIGO=$estcodigo1, PERUSUACC='$email', PERIDIOMA='$language_id', PERURLWEB='$linkedin', PERAVATAR='$profile_picture', PAICODIGO = $country,PAICODIGO2 = $country, PERPARNOM2='$hash', TIMREG = $timereg
 							WHERE PERCORREO='$email'";
 				$err   = sql_execute( $query, $conn );
 
@@ -90,8 +90,8 @@ function updateUser( $payload, $conn ) {
 				$query     = "SELECT FIRST 1 PERCODIGO FROM PER_MAEST ORDER BY PERCODIGO DESC ";
 				$last      = sql_query( $query, $conn );
 				$percodigo = $last->Rows[0]['PERCODIGO'] + 1;
-				$query     = " 	INSERT INTO PER_MAEST(PERCODIGO, PERNOMBRE, PERAPELLI, PERCARGO, PERCOMPAN, PERCORREO, PERTELEFO,ESTCODIGO,PERUSUACC,PERTIPO,PERCLASE,PERIMPEVE,PERIDIOMA,PERURLWEB,PERAVATAR,PAICODIGO,PAICODIGO2,PERPARNOM2,PERPOP,TIMREG)
-				VALUES($percodigo, '$first_name', '$last_name', '$position', '$company' ,'$email' ,'$phone',$estcodigo1,'$email',66,53, 1,'$language_id','$linkedin','$profile_picture',$country,$country,'$hash',0,$timereg) ";
+				$query     = " 	INSERT INTO PER_MAEST(PERCODIGO, PERNOMBRE, PERAPELLI, PERCARGO, PERCOMPAN, PERCORREO, PERTELEFO,ESTCODIGO,PERUSUACC,PERTIPO,PERCLASE,PERIDIOMA,PERURLWEB,PERAVATAR,PAICODIGO,PAICODIGO2,PERPARNOM2,PERPOP,TIMREG,TIPO,PERPOP2,TIMOFFSET)
+				VALUES($percodigo, '$first_name', '$last_name', '$position', '$company' ,'$email' ,'$phone',$estcodigo1,'$email',66,53,'$language_id','$linkedin','$profile_picture',$country,$country,'$hash',0,$timereg,2,0,-10800) ";
 				$err       = sql_execute( $query, $conn );
 
 				///// guardo sector/////////

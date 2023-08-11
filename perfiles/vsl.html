@@ -41,7 +41,8 @@
 	<div class="modal-body">
 		 <p class="col-12"><b>{Idioma_Descripcion}: 		</b>{perempdes}</p>
 
-		 <label class="col-12 color-main-event titulo-oferta fw-600">{Idioma_ClasificarVentas}<br><span class="color-secondary-event fw-400 texto-tipo-block">{Idioma_ClasificarVentasDescri}</span></label>
+		 <label class="col-12 color-main-event titulo-oferta fw-600 {visiblecompraventa2}">{Idioma_ClasificarVentas}<br><span class="color-secondary-event fw-400 texto-tipo-block">{Idioma_ClasificarVentasDescri}</span></label>
+		 <label class="col-12 color-main-event titulo-oferta fw-600 {visibleintereses}">{Idioma_ClasificarIntereses}<br><span class="color-secondary-event fw-400 texto-tipo-block">{Idioma_ClasificarInteresesDescri}</span></label>
 		
 			<!-- BEGIN sectores -->
 			<div class="row col-12">
@@ -53,10 +54,10 @@
 				</div>
 			</div>
 			<!-- END sectores -->
-			<label class="col-12 mt-2 color-main-event titulo-oferta fw-600">{Idioma_ClasificarCompras}<br><span class="color-secondary-event fw-400 texto-tipo-block">{Idioma_ClasificarComprasDescri}</span></label>
+			<label class="col-12 mt-2 color-main-event titulo-oferta fw-600 {visiblecompraventa1}">{Idioma_ClasificarCompras}<br><span class="color-secondary-event fw-400 texto-tipo-block">{Idioma_ClasificarComprasDescri}</span></label>
 		
 			<!-- BEGIN sectores1 -->
-			<div class="row col-12">
+			<div class="row col-12 {visiblecompraventa}">
 				<p class="badge badge-danger white {colorsector1} p-2 mb-1"><b>{secdescri1}</b></p>
 				<div class="row col-12" style="margin-left:30px;">
 					<!-- BEGIN subsectores1 -->
@@ -68,7 +69,7 @@
 
 			<!-- INICIO PRODUCTOS -->
 
-			<div>
+			<div class="d-none">
 
 				<label class="col-12 mt-2 color-main-event titulo-oferta fw-600">{Idioma_Productos}</label>
 

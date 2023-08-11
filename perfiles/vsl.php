@@ -15,7 +15,7 @@
 	//--------------------------------------------------------------------------------------------------------------
 	//--------------------------------------------------------------------------------------------------------------
 	$percodlog = (isset($_SESSION[GLBAPPPORT.'PERCODIGO']))? trim($_SESSION[GLBAPPPORT.'PERCODIGO']) : '';
-
+	$percodigo 	= (isset($_POST['percodigo']))? trim($_POST['percodigo']) : 0;
 	
 	$perestcod = 1; //Activo por defecto
 	$pernombre = '';
@@ -26,152 +26,31 @@
 	$perciudad = '';
 	$perestado = '';
 	$paicodigo = '';
-	$pathimagenes = '../perimg/'.$percodlog.'/';
+	$pathimagenes = '../perimg/'.$percodigo.'/';
 	$imgAvatarNull = '../app-assets/img/avatar.png';
 	//--------------------------------------------------------------------------------------------------------------
 	$conn= sql_conectar();//Apertura de Conexion
 	$whereVen = "PERVENCOM IN ('V','A') ";
 	$whereCom= "PERVENCOM IN ('C','A') ";
-	if($percodlog!=0){
+	if($percodigo!=0){
 		
 		//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 		$perfilLog = array();
 		$perfilLog = array();
-		//Cargo la Clasificacion de productos del Perfil logueado
-		$query = "	SELECT S.SECCODIGO, S.SECDESCRI
-					FROM PER_SECT PS
-					LEFT OUTER JOIN SEC_MAEST S ON S.SECCODIGO=PS.SECCODIGO
-					WHERE PS.PERCODIGO=$percodlog AND S.ESTCODIGO<>3 AND PS.$whereVen";
-		$TableSect = sql_query($query,$conn);
-		for($i=0; $i<$TableSect->Rows_Count; $i++){
-			$rowSect= $TableSect->Rows[$i];
-			$seccodigo = trim($rowSect['SECCODIGO']);
-			$secdescri = trim($rowSect['SECDESCRI']);
 		
-
-				$perfilLog[$seccodigo]['EXISTS'] = 1;
-
-			
-			//Busco si tiene un siguiente nivel / SubSector
-			$querySectSub = "	SELECT SB.SECSUBCOD, SB.SECSUBDES
-								FROM PER_SSEC PSB
-								LEFT OUTER JOIN SEC_SUB SB ON SB.SECSUBCOD=PSB.SECSUBCOD
-								WHERE PSB.PERCODIGO=$percodlog AND SB.SECCODIGO=$seccodigo AND sb.ESTCODIGO<>3 AND PSB.$whereVen";
-			$TableSSect = sql_query($querySectSub,$conn);
-			for($j=0; $j<$TableSSect->Rows_Count; $j++){
-				$rowSSect= $TableSSect->Rows[$j];
-				$secsubcod = trim($rowSSect['SECSUBCOD']);
-				$secsubdes = trim($rowSSect['SECSUBDES']);
-				
-					$perfilLog[$seccodigo][$secsubcod]['EXISTS'] = 1;
-	
-				
-				
-				//Busco si tiene un siguiente nivel / Categorias
-				$queryCat = "	SELECT C.CATCODIGO, C.CATDESCRI
-								FROM PER_CATE PC
-								LEFT OUTER JOIN CAT_MAEST C ON C.CATCODIGO=PC.CATCODIGO
-								WHERE PC.PERCODIGO=$percodlog AND C.SECSUBCOD=$secsubcod AND C.ESTCODIGO<>3 AND PC.$whereVen ";
-
-				$TableCat = sql_query($queryCat,$conn);
-				for($k=0; $k<$TableCat->Rows_Count; $k++){
-					$rowCat= $TableCat->Rows[$k];
-					$catcodigo = trim($rowCat['CATCODIGO']);
-					$catdescri = trim($rowCat['CATDESCRI']);
-					
-						$perfilLog[$seccodigo][$secsubcod][$catcodigo]['EXISTS'] = 1;
-		
-					
-					//Busco si tiene un siguiente nivel / SubCategorias
-					$queryCatSub = "	SELECT CS.CATSUBCOD,CS.CATSUBDES
-										FROM PER_SCAT PSC
-										LEFT OUTER JOIN CAT_SUB CS ON CS.CATSUBCOD=PSC.CATSUBCOD
-										WHERE PSC.PERCODIGO=$percodlog AND CS.CATCODIGO=$catcodigo AND CS.ESTCODIGO<>3 AND PSC.$whereVen";
-
-					$TableCatSub = sql_query($queryCatSub,$conn);
-					for($m=0; $m<$TableCatSub->Rows_Count; $m++){
-						$rowCatSub= $TableCatSub->Rows[$m];
-						$catsubcod = trim($rowCatSub['CATSUBCOD']);
-						$catsubdes = trim($rowCatSub['CATSUBDES']);
-						
-
-							$perfilLog[$seccodigo][$secsubcod][$catcodigo][$catsubcod]['EXISTS'] = 1;
-			
-					}
-				}
-			}
-		}
-		$query = "	SELECT S.SECCODIGO, S.SECDESCRI
-					FROM PER_SECT PS
-					LEFT OUTER JOIN SEC_MAEST S ON S.SECCODIGO=PS.SECCODIGO
-					WHERE PS.PERCODIGO=$percodlog AND S.ESTCODIGO<>3 AND PS.$whereCom";
-		$TableSect = sql_query($query,$conn);
-		for($i=0; $i<$TableSect->Rows_Count; $i++){
-			$rowSect= $TableSect->Rows[$i];
-			$seccodigo1 = trim($rowSect['SECCODIGO']);
-			$secdescri1 = trim($rowSect['SECDESCRI']);
-		
-
-				$perfilLog1[$seccodigo1]['EXISTS'] = 1;
-
-			
-			//Busco si tiene un siguiente nivel / SubSector
-			$querySectSub = "	SELECT SB.SECSUBCOD, SB.SECSUBDES
-								FROM PER_SSEC PSB
-								LEFT OUTER JOIN SEC_SUB SB ON SB.SECSUBCOD=PSB.SECSUBCOD
-								WHERE PSB.PERCODIGO=$percodlog AND SB.SECCODIGO=$seccodigo1 AND sb.ESTCODIGO<>3 AND PSB.$whereCom";
-			$TableSSect = sql_query($querySectSub,$conn);
-			for($j=0; $j<$TableSSect->Rows_Count; $j++){
-				$rowSSect= $TableSSect->Rows[$j];
-				$secsubcod1 = trim($rowSSect['SECSUBCOD']);
-				$secsubdes1 = trim($rowSSect['SECSUBDES']);
-				
-					$perfilLog1[$seccodigo1][$secsubcod1]['EXISTS'] = 1;
-	
-				
-				
-				//Busco si tiene un siguiente nivel / Categorias
-				$queryCat = "	SELECT C.CATCODIGO, C.CATDESCRI
-								FROM PER_CATE PC
-								LEFT OUTER JOIN CAT_MAEST C ON C.CATCODIGO=PC.CATCODIGO
-								WHERE PC.PERCODIGO=$percodlog AND C.SECSUBCOD=$secsubcod1 AND C.ESTCODIGO<>3 AND PC.$whereCom ";
-
-				$TableCat = sql_query($queryCat,$conn);
-				for($k=0; $k<$TableCat->Rows_Count; $k++){
-					$rowCat= $TableCat->Rows[$k];
-					$catcodigo1 = trim($rowCat['CATCODIGO']);
-					$catdescri1 = trim($rowCat['CATDESCRI']);
-					
-						$perfilLog1[$seccodigo1][$secsubcod1][$catcodigo1]['EXISTS'] = 1;
-		
-					
-					//Busco si tiene un siguiente nivel / SubCategorias
-					$queryCatSub = "	SELECT CS.CATSUBCOD,CS.CATSUBDES
-										FROM PER_SCAT PSC
-										LEFT OUTER JOIN CAT_SUB CS ON CS.CATSUBCOD=PSC.CATSUBCOD
-										WHERE PSC.PERCODIGO=$percodlog AND CS.CATCODIGO=$catcodigo1 AND CS.ESTCODIGO<>3 AND PSC.$whereCom";
-
-					$TableCatSub = sql_query($queryCatSub,$conn);
-					for($m=0; $m<$TableCatSub->Rows_Count; $m++){
-						$rowCatSub= $TableCatSub->Rows[$m];
-						$catsubcod1 = trim($rowCatSub['CATSUBCOD']);
-						$catsubdes1 = trim($rowCatSub['CATSUBDES']);
-						
-
-							$perfilLog1[$seccodigo1][$secsubcod1][$catcodigo1][$catsubcod1]['EXISTS'] = 1;
-			
-					}
-				}
-			}
-		}
 		//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-		
+		//// ME FIJO QUE TIPO DE REUNION ES
+		$queryreunion = " SELECT ZVALUE FROM ZZZ_CONF WHERE ZPARAM = 'TipoReunion'";
+		$Tablereunion = sql_query($queryreunion, $conn);
+			$rowreunion = $Tablereunion->Rows[0];
+			$tiporeunion = trim($rowreunion['ZVALUE']);
+			
 		$query = "	SELECT P.PERCODIGO,P.PERNOMBRE,P.PERAPELLI,P.ESTCODIGO,P.PERCOMPAN,P.PERCORREO,P.PERCIUDAD,P.PERESTADO,
 							P.PERCODPOS,P.PERTELEFO,P.PERURLWEB,P.PERUSUACC,P.PERPASACC,P.PERDIRECC,P.PERCARGO,
 							P.PAICODIGO,I.PAIDESCRI,P.PEREMPDES,P.PERAVATAR
 					FROM PER_MAEST P
 					LEFT OUTER JOIN TBL_PAIS I ON I.PAICODIGO=P.PAICODIGO
-					WHERE P.PERCODIGO=$percodlog ";
+					WHERE P.PERCODIGO=$percodigo ";
 		$Table = sql_query($query,$conn);
 		if($Table->Rows_Count>0){
 			$row= $Table->Rows[0];
@@ -304,12 +183,9 @@
 							$tmpl->parse('subcategorias');
 						}
 						if($TableCatSub->Rows_Count==-1){
-							if(isset($perfilLog1[$seccodigo][$secsubcod][$catcodigo])){
-								$tmpl->setVariable('colorcategoria'	, 'bg-main-event');
-							}else{
-
+							
 								$tmpl->setVariable('colorcategoria'	, 'bg-color-gris');
-							}
+							
 						}
 						
 						$tmpl->parse('categorias');
@@ -317,12 +193,10 @@
 					//logerror($queryCat);
 					//logerror($seccodigo.'-'.$secsubcod.'-'.$TableCat->Rows_Count);
 					if($TableCat->Rows_Count==-1){
-						if(isset($perfilLog1[$seccodigo][$secsubcod])){
-							$tmpl->setVariable('colorsubsector'	, 'bg-main-event');
-						}else{
+						
 							$tmpl->setVariable('colorsubsector'	, 'bg-color-gris');
 
-						}
+					
 					
 					}
 					
@@ -330,13 +204,20 @@
 				}
 				$tmpl->setVariable('colorsector'	, 'bg-color-gris');
 				if($TableSSect->Rows_Count==-1){
-					if(isset($perfilLog1[$seccodigo])){
-						$tmpl->setVariable('colorsector'	, 'bg-main-event');
-					}else{
+					
 						$tmpl->setVariable('colorsector'	, 'bg-color-gris');
-					}
+					
 				}
-				
+				////Verificio si es tipo Oferta/Demanda o es Networking
+				if ($tiporeunion == 'true') {
+					$tmpl->setVariable('visiblecompraventa'	, ''	);
+					$tmpl->setVariable('visibleintereses'	, 'd-none'	);
+				}else{
+					$tmpl->setVariable('visiblecompraventa'	, 'd-none'	);
+					$tmpl->setVariable('visiblecompraventa1'	, 'd-none'	);
+					$tmpl->setVariable('visiblecompraventa2'	, 'd-none'	);
+					$tmpl->setVariable('visibleintereses'	, ''	);
+				}
 				$tmpl->parse('sectores');
 				
 			}
@@ -406,22 +287,18 @@
 							$tmpl->setVariable('catsubcod1'	, $catsubcod1	);
 							$tmpl->setVariable('catsubdes1'	, $catsubdes1	);
 							
-							if(isset($perfilLog[$seccodigo1][$secsubcod1][$catcodigo1][$catsubcod1])){
-								$tmpl->setVariable('colorsubcategoria1'	, 'bg-main-event');
-							}else{
+							
 								$tmpl->setVariable('colorsubcategoria1'	, 'bg-color-gris');
 								
-							}
+							
 							
 							$tmpl->parse('subcategorias1');
 						}
 						if($TableCatSub->Rows_Count==-1){
-							if(isset($perfilLog[$seccodigo1][$secsubcod1][$catcodigo1])){
-								$tmpl->setVariable('colorcategoria1'	, 'bg-main-event');
-							}else{
+							
 
 								$tmpl->setVariable('colorcategoria1'	, 'bg-color-gris');
-							}
+							
 						}
 						
 						$tmpl->parse('categorias1');
@@ -429,12 +306,10 @@
 					//logerror($queryCat);
 					//logerror($seccodigo.'-'.$secsubcod.'-'.$TableCat->Rows_Count);
 					if($TableCat->Rows_Count==-1){
-						if(isset($perfilLog[$seccodigo1][$secsubcod1])){
-							$tmpl->setVariable('colorsubsector1'	, 'bg-main-event');
-						}else{
+						
 							$tmpl->setVariable('colorsubsector1'	, 'bg-color-gris');
 
-						}
+						
 					
 					}
 					
@@ -442,13 +317,20 @@
 				}
 				$tmpl->setVariable('colorsector1'	, 'bg-color-gris');
 				if($TableSSect->Rows_Count==-1){
-					if(isset($perfilLog[$seccodigo1])){
-						$tmpl->setVariable('colorsector1'	, 'bg-main-event');
-					}else{
+					
 						$tmpl->setVariable('colorsector1'	, 'bg-color-gris');
-					}
+					
 				}
-				
+				////Verificio si es tipo Oferta/Demanda o es Networking
+				if ($tiporeunion == 'true') {
+					$tmpl->setVariable('visiblecompraventa'	, ''	);
+					$tmpl->setVariable('visibleintereses'	, 'd-none'	);
+				}else{
+					$tmpl->setVariable('visiblecompraventa'	, 'd-none'	);
+					$tmpl->setVariable('visiblecompraventa1'	, 'd-none'	);
+					$tmpl->setVariable('visiblecompraventa2'	, 'd-none'	);
+					$tmpl->setVariable('visibleintereses'	, ''	);
+				}
 				$tmpl->parse('sectores1');
 				
 			}

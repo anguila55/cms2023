@@ -345,7 +345,16 @@
 						$tmpl->setVariable('colorsector'	, 'bg-color-gris');
 					}
 				}
-				
+				////Verificio si es tipo Oferta/Demanda o es Networking
+				if ($tiporeunion == 'true') {
+					$tmpl->setVariable('visiblecompraventa'	, ''	);
+					$tmpl->setVariable('visibleintereses'	, 'd-none'	);
+				}else{
+					$tmpl->setVariable('visiblecompraventa'	, 'd-none'	);
+					$tmpl->setVariable('visiblecompraventa1'	, 'd-none'	);
+					$tmpl->setVariable('visiblecompraventa2'	, 'd-none'	);
+					$tmpl->setVariable('visibleintereses'	, ''	);
+				}	
 				$tmpl->parse('sectores');
 				
 			}

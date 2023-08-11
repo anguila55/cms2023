@@ -172,9 +172,9 @@
 			location.reload();
 		}
 
-		function showView() {
-
-			$('#DataViewPerfil').load('vsl.php');
+		function showView(reg) {
+			var data = {"percodigo":reg};
+			$('#DataViewPerfil').load('../perfiles/vsl.php',data);
 			$('#DataMaestroViewPerfil').modal('show');
 		}
 
