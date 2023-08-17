@@ -91,7 +91,7 @@ function updateUser( $payload, $conn ) {
 				$last      = sql_query( $query, $conn );
 				$percodigo = $last->Rows[0]['PERCODIGO'] + 1;
 				$query     = " 	INSERT INTO PER_MAEST(PERCODIGO, PERNOMBRE, PERAPELLI, PERCARGO, PERCOMPAN, PERCORREO, PERTELEFO,ESTCODIGO,PERUSUACC,PERTIPO,PERCLASE,PERIDIOMA,PERURLWEB,PERAVATAR,PAICODIGO,PAICODIGO2,PERPARNOM2,PERPOP,TIMREG,TIPO,PERPOP2,TIMOFFSET)
-				VALUES($percodigo, '$first_name', '$last_name', '$position', '$company' ,'$email' ,'$phone',$estcodigo1,'$email',66,53,'$language_id','$linkedin','$profile_picture',$country,$country,'$hash',0,$timereg,2,0,-10800) ";
+				VALUES($percodigo, '$first_name', '$last_name', '$position', '$company' ,'$email' ,'$phone',$estcodigo1,'$email',75,59,'$language_id','$linkedin','$profile_picture',$country,$country,'$hash',0,$timereg,2,0,-10800) ";
 				$err       = sql_execute( $query, $conn );
 
 				///// guardo sector/////////
