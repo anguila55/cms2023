@@ -46,7 +46,7 @@
                         <input type="hidden" id="peridiomaglobal" name="peridiomaglobal" value="{peridioma}">  
                         <li class="dropdown nav-item mt-1 show"><a id="dropdownBasic" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-toggle" aria-expanded="true"><i class="ft-flag blue-grey darken-4"></i> {Idioma_Idioma}<span class="selected-language d-none"></span></a>
                             <div class="dropdown-menu dropdown-menu-right">
-                              <div class="arrow_box_right"><a href="../login.php?ID=ING" class="dropdown-item py-1"><img src="../app-assets/img/flags/us.png" alt="English Flag" class="langimg"><span> English</span></a><a href="../login.php?ID=ESP" class="dropdown-item py-1"><img src="../app-assets/img/flags/es.png" alt="Spanish Flag" class="langimg"><span> Spanish</span></a><!--<a href="javascript:;" class="dropdown-item py-1"><img src="../app-assets/img/flags/br.png" alt="Portuguese Flag" class="langimg"><span> Portuguese</span></a><a href="javascript:;" class="dropdown-item"><img src="../app-assets/img/flags/de.png" alt="French Flag" class="langimg"><span> French</span></a>--></div>
+                              <div class="arrow_box_right"><a href="../login.php?ID=ING" class="dropdown-item py-1"><img src="../app-assets/img/flags/us.png" alt="English Flag" class="langimg"><span> English</span></a><a href="../login.php?ID=ESP" class="dropdown-item py-1"><img src="../app-assets/img/flags/es.png" alt="Spanish Flag" class="langimg"><span> Spanish</span></a><a href="javascript:;" class="dropdown-item py-1"><img src="../app-assets/img/flags/br.png" alt="Portuguese Flag" class="langimg"><span> Portuguese</span></a><!--<a href="javascript:;" class="dropdown-item"><img src="../app-assets/img/flags/de.png" alt="French Flag" class="langimg"><span> French</span></a>--></div>
                             </div>
                           </li>                    
                     </div>
@@ -174,7 +174,7 @@
         $(document).ready(function () {
 			
 			document.querySelector('#registroidioma').href = '../registro.php?USER=0&ID='+document.querySelector('#peridiomaglobal').value;
-            document.querySelector('#recuperaridioma').href = '../recuperar.php?USER=0&ID='+document.querySelector('#peridiomaglobal').value;
+           
 
             var x = document.getElementById("loginweb");
             var y = document.getElementById("logincel");
