@@ -20,11 +20,15 @@ require_once GLBRutaFUNC . '/constants.php';
 	  
 	  $IdiomView = strtoupper('esp');
 	  
-	  }else{
+	  }else if ($peridioma=='ING'){
 		  
 		  require_once GLBRutaFUNC.'/idiomaing.php';
 		  $IdiomView = strtoupper('ing');
-	  }
+	  }else if ($peridioma=='POR'){
+		  
+		require_once GLBRutaFUNC.'/idiomapor.php';
+		$IdiomView = strtoupper('por');
+	}
 
 $tmpl = new HTML_Template_Sigma();
 $tmpl->loadTemplateFile('login.html');

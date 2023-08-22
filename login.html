@@ -25,7 +25,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900%7CMontserrat:300,400,500,600,700,800,900" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../assets-nuevodisenio/index.css">
-	<link rel="manifest" href="./manifest.json">
+	<!-- <link rel="manifest" href="./manifest.json"> -->
 	
 
   </head>
@@ -46,7 +46,7 @@
                         <input type="hidden" id="peridiomaglobal" name="peridiomaglobal" value="{peridioma}">  
                         <li class="dropdown nav-item mt-1 show"><a id="dropdownBasic" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-toggle" aria-expanded="true"><i class="ft-flag blue-grey darken-4"></i> {Idioma_Idioma}<span class="selected-language d-none"></span></a>
                             <div class="dropdown-menu dropdown-menu-right">
-                              <div class="arrow_box_right"><a href="../login.php?ID=ING" class="dropdown-item py-1"><img src="../app-assets/img/flags/us.png" alt="English Flag" class="langimg"><span> English</span></a><a href="../login.php?ID=ESP" class="dropdown-item py-1"><img src="../app-assets/img/flags/es.png" alt="Spanish Flag" class="langimg"><span> Spanish</span></a><a href="javascript:;" class="dropdown-item py-1"><img src="../app-assets/img/flags/br.png" alt="Portuguese Flag" class="langimg"><span> Portuguese</span></a><!--<a href="javascript:;" class="dropdown-item"><img src="../app-assets/img/flags/de.png" alt="French Flag" class="langimg"><span> French</span></a>--></div>
+                              <div class="arrow_box_right"><a href="../login.php?ID=ING" class="dropdown-item py-1"><img src="../app-assets/img/flags/us.png" alt="English Flag" class="langimg"><span> English</span></a><a href="../login.php?ID=ESP" class="dropdown-item py-1"><img src="../app-assets/img/flags/es.png" alt="Spanish Flag" class="langimg"><span> Spanish</span></a><a href="../login.php?ID=POR" class="dropdown-item py-1"><img src="../app-assets/img/flags/br.png" alt="Portuguese Flag" class="langimg"><span> Portuguese</span></a><!--<a href="javascript:;" class="dropdown-item"><img src="../app-assets/img/flags/de.png" alt="French Flag" class="langimg"><span> French</span></a>--></div>
                             </div>
                           </li>                    
                     </div>
@@ -138,47 +138,17 @@
     <!-- END CONVEX JS-->
     <!-- BEGIN PAGE LEVEL JS-->
     <!-- END PAGE LEVEL JS-->
-    <script type="text/javascript">
+    <script>
         
-		// window.onload = function() {
-		// 	if ('serviceWorker' in navigator) {
-		// 		navigator.serviceWorker.register('sw.js').then(function() {
-		// 			console.log('Service Worker Registered');
-		// 		});
-		// 	}
-		// 	let deferredPrompt;
-		// 	const addBtn = document.querySelector('#enable-banner-install');
-			
-		// 	window.addEventListener('beforeinstallprompt', (e) => {
-		// 		console.log('beforeinstallprompt...');
-		// 		addBtn.style.display = 'block';
-		// 		e.preventDefault();
-		// 		deferredPrompt = e;
-		// 		addBtn.addEventListener('click', (e) => {
-		// 			addBtn.style.display = 'none';
-		// 			deferredPrompt.prompt();
-		// 			deferredPrompt.userChoice.then((choiceResult) => {
-		// 				if (choiceResult.outcome === 'accepted') {
-		// 					console.log('User accepted the prompt');
-							
-		// 				} else {
-		// 					console.log('User dismissed the prompt');
-		// 				}
-		// 				deferredPrompt = null;
-		// 			});
-		// 		});
-		// 	});
-		   
-		// };
-		
+    
         $(document).ready(function () {
 			
 			document.querySelector('#registroidioma').href = '../registro.php?USER=0&ID='+document.querySelector('#peridiomaglobal').value;
-           
 
             var x = document.getElementById("loginweb");
             var y = document.getElementById("logincel");
-           
+
+        
             if (window.innerWidth < 800){
             
             // console.log("entro aca")
@@ -206,11 +176,8 @@
                 this.classList.toggle('ft-eye');
             });
             
-        
-		
-
-	
-	  
+            
+    
 	</script>
 
 

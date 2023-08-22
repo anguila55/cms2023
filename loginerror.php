@@ -16,14 +16,18 @@
     
 	if ($peridioma=='ESP'){
 
-	  require_once GLBRutaFUNC.'/idiomaesp.php';
-	  
-	  $IdiomView = strtoupper('esp');
-	  
-	  }else{
-		  
-		  require_once GLBRutaFUNC.'/idiomaing.php';
-		  $IdiomView = strtoupper('ing');
+		require_once GLBRutaFUNC.'/idiomaesp.php';
+		
+		$IdiomView = strtoupper('esp');
+		
+		}else if ($peridioma=='ING'){
+			
+			require_once GLBRutaFUNC.'/idiomaing.php';
+			$IdiomView = strtoupper('ing');
+		}else if ($peridioma=='POR'){
+			
+		  require_once GLBRutaFUNC.'/idiomapor.php';
+		  $IdiomView = strtoupper('por');
 	  }
 
 $tmpl = new HTML_Template_Sigma();
