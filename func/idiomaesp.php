@@ -36,7 +36,7 @@ function Message(){
 //-----------------------------------------------------------------------------------------------------
 
 function DDIdioma($tmpl){
-
+    $tmpl->setVariable('cambiar_contrasena','Editar Perfil / Contraseña');
     $tmpl->setVariable('mesatipo','Tipo de Mesa'); 
     $tmpl->setVariable('textopopinicio1','Para todas las actividades de este evento es importante que elijas el horario del país donde vas a vivirlo.');
     $tmpl->setVariable('textopopinicio2','Para que otras personas sepan de ti, completa la descripción de tu empresa.');

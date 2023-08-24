@@ -21,16 +21,16 @@
 
 <div id="horizontal-form-layouts">
 	
-	<div class="col-md-12 d-flex justify-content-center">
-		<div>
-			<img id="imgavatar" src="{peravatar}" class="rounded-circle mr-2" width="200px" alt="user image" onclick="findAvatar();" >
-		
-			<form id="frmfileavatar" enctype="multipart/form-data">
-				<input id="fileavatar" name="fileavatar" type="file" value="{peravatar}" accept=".png, .jpg, .jpeg"
-					style="display:none;" onchange="readURLAvatar(this);" />
-			</form>
-		</div>
-	</div>
+			<div class="col-12 mt-3" style="text-align: right;">
+				
+					<img id="imgavatar" alt="" class="" src="{peravatar}"
+						style="width: 80px; height: 80px;"  style="display: none">
+				
+				<form id="frmfileavatar" enctype="multipart/form-data">
+					<input id="fileavatar" name="fileavatar" type="file" value="{peravatar}" accept=".png, .jpg, .jpeg"
+						style="display:none;" onchange="readURLAvatar(this);" />
+				</form>
+			</div>
 
 	<div class="p-3">
 		<div class="col-md-12 col-sm-12 d-flex justify-content-center">
@@ -38,6 +38,7 @@
 			<button id="btnguardar" type="button" class="boton-new-rounded mb-1" style="width: 230px;" onclick="guardarMaestroMsg();">
 				<i class="icon-note"></i> {Idioma_Guardar}
 			</button>
+			<a  id="btnguardar2" href="{linkeditarperfil}" target="_blank" type="button" class="boton-new-rounded mb-1" style="width: 290px;">{cambiar_contrasena}</a>
 			<button id="btncancelar" type="button" class="boton-new-rounded-o mb-1 {ocultarcancelar}" style="width: 230px;" onclick="cerrarMaestro();">
 				<i class="icon-arrow-left"></i> {atras}
 			</button>
@@ -440,6 +441,7 @@
 				<button id="btnguardar" type="button" class="boton-new-rounded mb-1" style="width: 230px;" onclick="guardarMaestroMsg();">
 					<i class="icon-note"></i> {Idioma_Guardar}
 				</button>
+				<a  id="btnguardar2" href="{linkeditarperfil}" target="_blank" type="button" class="boton-new-rounded mb-1" style="width: 290px;">{cambiar_contrasena}</a>
 				<button id="btncancelar" type="button" class="boton-new-rounded-o mb-1 {ocultarcancelar}" style="width: 230px;" onclick="cerrarMaestro();">
 					<i class="icon-arrow-left"></i> {atras}
 				</button>

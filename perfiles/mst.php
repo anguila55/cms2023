@@ -238,7 +238,7 @@
 							P.PERCODPOS,P.PERTELEFO,P.PERURLWEB,P.PERUSUACC,P.PERPASACC,P.PERDIRECC,P.PERCARGO,
 							P.PAICODIGO,P.PERTIPO,P.PERCLASE,P.PEREMPDES,P.PERAVATAR,P.PERADMIN,PC.PERUSAREU,
 							P.PERCOMENT,P.MESCODIGO,P.PERIDIOMA,
-							P.TIMREG2,P.TIMOFFSET,P.PERREUURL,P.PERINDCOD,P.PERARECOD,P.PERCPF,P.PERFAC,P.PERTWI,P.PERINS,P.PERCODEVE,P.PERLINKED,P.PAICODIGO2,P.TIPO,P.PREG_ADC
+							P.TIMREG2,P.TIMOFFSET,P.PERREUURL,P.PERINDCOD,P.PERARECOD,P.PERCPF,P.PERFAC,P.PERTWI,P.PERINS,P.PERCODEVE,P.PERLINKED,P.PAICODIGO2,P.TIPO,P.PREG_ADC,P.PERPARNOM2
 					FROM PER_MAEST P
 					LEFT OUTER JOIN PER_CLASE PC ON PC.PERCLASE=P.PERCLASE 
 					WHERE P.PERCODIGO=$percodigo ";
@@ -285,6 +285,7 @@
 			$perins 	= trim($row['PERINS']);
 			$perlinked 	= trim($row['PERLINKED']);
 			$percodeve 	= trim($row['PERCODEVE']);
+			$hash 	= trim($row['PERPARNOM2']);
 			$tipo 	= trim($row['TIPO']);
 		
 		$pregadc = htmlspecialchars_decode(trim($row['PREG_ADC']));
@@ -345,6 +346,7 @@
 			$tmpl->setVariable('perins'		, $perins 		);
 			$tmpl->setVariable('perlinked'		, $perlinked 		);
 			$tmpl->setVariable('percodeve'	, $percodeve 	);
+			$tmpl->setVariable('linkeditarperfil'	, 'https://cmseventos.com/user-profile/'.$percorreo.'/'.$hash 	);
 
 			if ($tipo == 0){ // virtuales
 				$tmpl->setVariable('tipo0'	, 'selected' );

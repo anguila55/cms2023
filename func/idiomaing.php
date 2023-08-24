@@ -39,7 +39,7 @@ function Message(){
  * @param $tmpl
  */
 function DDIdioma($tmpl){
-
+    $tmpl->setVariable('cambiar_contrasena','Edit Profile / Password');
     $tmpl->setVariable('textopopinicio1','For all the activities of this event it is important that you choose the time of the country where you are going to live it.');
     $tmpl->setVariable('textopopinicio2','To let other people know about you, fill in your company description.');
     $tmpl->setVariable('textopopinicio3','Select your availability of Schedules, tell others about your available spaces.');
