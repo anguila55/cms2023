@@ -3,7 +3,7 @@
 		<h4 class="card-title pb-2">
 			<a class="success p-0" style="position:absolute;right:20px;" title="Nuevo Registro"
 				onclick="showMaestro();">
-				<i class="fa ft-plus-circle font-medium-5 mr-2"></i>
+				<span class="crearspan">{Idioma_Crear}</span><i class="fa ft-plus-circle font-medium-5 mr-2"></i>
 			</a>
 		</h4>
 	</div>
@@ -22,14 +22,14 @@
 			<!-- BEGIN browser -->
 			<tr>
 				<td class="text-truncate"><span>{accreg}</span></td>
-				<td class="text-truncate"><span>{{acctitulo}}</span></td>
+				<td class="text-truncate"><span>{acctitulo}</span></td>
 				<td class="text-truncate" id="elegido"><span><input type="checkbox" id="{accreg}" class="switchery"
 							{checkedmostrar}/></span>
 					<!-- <a class="success p-0" data-original-title="" title="Modificar" onclick="showMaestro({accreg});">
 						<i class="fa fa-pencil font-medium-3 mr-2"></i>
-					</a>
+					</a>-->
 					<a class="danger p-0" data-original-title="" title="Eliminar" onclick="eliminarMaestro({accreg});">
-						<i class="fa fa-trash-o font-medium-3 mr-2"></i> -->
+						<i class="fa fa-trash-o font-medium-3 mr-2"></i> 
 					</a>
 				</td>
 
@@ -72,14 +72,14 @@
 			cancelButtonClass: 'btn btn-danger btn-raised',
 			buttonsStyling: false
 		}).then(function () {
-			guardarMaestro();
+			guardarMaestro2();
 		}, function (dismiss) {
 			// dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
 			if (dismiss === 'cancel') { }
 		}).done();
 	}
 
-	function guardarMaestro() {
+	function guardarMaestro2() {
 
 		accesos = accesos.filter(item => item.id !== '')
 		console.log("🚀 ~ file: brw.html ~ line 77 ~ guardarMaestro ~ accesos", accesos)
@@ -101,6 +101,7 @@
 			data = $.parseJSON(rsp);
 			if (data.errcod == 0) {
 				toastr.success(data.errmsg, '{Idioma_Guardar}');
+				showBrowser();
 			} else {
 				toastr.error(data.errmsg, '{Idioma_Guardar}');
 			}

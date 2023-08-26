@@ -27,7 +27,12 @@
 		$accmostrar 	= trim($row['ACCMOSTRAR']);
 		
 		$tmpl->setCurrentBlock('browser');
-		$tmpl->setVariable('acctitulo'	,  trim($acctitulo, "{}"));
+		if($accreg<9){
+			$tmpl->setVariable('acctitulo'	, '{'.$acctitulo.'}');
+		}else{
+			$tmpl->setVariable('acctitulo'	, $acctitulo);
+		}
+		
 		$tmpl->setVariable('accreg'		, $accreg);
 		$tmpl->setVariable('checkedmostrar', $accmostrar==="true"?"checked":'');
 
