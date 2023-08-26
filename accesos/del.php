@@ -29,11 +29,11 @@
 	if($err == 'SQLACCEPT' && $errcod==0){
 		sql_commit_trans($trans);
 		$errcod = 0;
-		$errmsg = 'Articulo eliminado!';      
+		$errmsg = 'Acceso directo eliminado!';      
 	}else{            
 		sql_rollback_trans($trans);
 		$errcod = 2;
-		$errmsg = ($errmsg=='')? 'Error al eliminar el articulo!' : $errmsg;
+		$errmsg = ($errmsg=='')? 'Error al eliminar el acceso directo!' : $errmsg;
 	}	
 	//--------------------------------------------------------------------------------------------------------------
 	sql_close($conn);	

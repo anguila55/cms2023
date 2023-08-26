@@ -1150,7 +1150,7 @@ if ($Table->Rows_Count > 0) {
 //busco los accesos directos en la tabla
 $query = "	SELECT *
 				FROM ACC_MAEST
-			 ";
+                WHERE ESTCODIGO<>3";
 $Table = sql_query($query, $conn);
 for ($i = 0; $i < $Table->Rows_Count; $i++) {
     $row = $Table->Rows[$i];
@@ -1163,7 +1163,11 @@ for ($i = 0; $i < $Table->Rows_Count; $i++) {
     $tmpl->setCurrentBlock('accesos');
    //var_dump($acctitulo);
     $tmpl->setVariable('accreg', $accreg);
-    $tmpl->setVariable('acctitulo', $acctitulo);
+    if($accreg<9){
+        $tmpl->setVariable('acctitulo'	, '{'.$acctitulo.'}');
+    }else{
+        $tmpl->setVariable('acctitulo'	, $acctitulo);
+    }
     $tmpl->setVariable('accmostrar', $accmostrar == 'true' ? '' : 'd-none');
     if ($acchref == 'onclick'){
 
