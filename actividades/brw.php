@@ -111,7 +111,7 @@ for ($i = 0; $i < count($salas); $i++) {
 		$where= "AND AGELUGAR = '$sala'";
 	}
 
-	$query = "SELECT AGEREG, AGEFCH, AGETITULO, AGEDESCRI, AGEHORINI, AGEHORFIN, AGELUGAR,SPKREG,AGEYOULNK, AGETITING,AGEDESING,QRCODE
+	$query = "SELECT AGEREG, AGEFCH, AGETITULO, AGEDESCRI, AGEHORINI, AGEHORFIN, AGELUGAR,SPKREG,AGEYOULNK, AGETITING,AGEDESING,QRCODE,AGEYOULNKING, AGEYOULNKPOR
 				FROM AGE_MAEST
 				WHERE ESTCODIGO<>3 AND AGEFCH='$fecha' $where
 				ORDER BY AGEFCH,AGEHORINI ";
@@ -134,6 +134,8 @@ for ($i = 0; $i < count($salas); $i++) {
 			$spkreg   	= trim($row['SPKREG']);
 			$agefch     = BDConvFch($row['AGEFCH']);
 			$ageyoulnk 	= trim($row['AGEYOULNK']);
+			$ageyoulnking 	= trim($row['AGEYOULNKING']);
+			$ageyoulnkpor 	= trim($row['AGEYOULNKPOR']);
 
 			$agehorini  = substr(trim($row['AGEHORINI']), 0, 5);
 			
@@ -204,7 +206,7 @@ for ($i = 0; $i < count($salas); $i++) {
 			$TableFav = sql_query($queryFav, $conn);
 			$tmpl->setCurrentBlock('actividades');
 
-			if ($ageyoulnk != '') {
+			if ($ageyoulnk != '' || $ageyoulnking != '' || $ageyoulnkpor != '') {
 				$tmpl->setVariable('video', 'd-flex d-block');
 				$tmpl->setVariable('ageyoulnk', $ageyoulnk);
 				$tmpl->setVariable('verageopc', 1);

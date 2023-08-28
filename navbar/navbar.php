@@ -26,7 +26,7 @@ if($menu == 'activechat'){
 
 $tmpl->setVariable('pernombre', $pernombre);
 $tmpl->setVariable('perapelli', $perapelli);
-$tmpl->setVariable('peravatar', $peravatar);
+
 $tmpl->setVariable('percodnotif', $percodigo);
 
 $tmpl->setVariable($menu, "active");
@@ -41,7 +41,7 @@ if ($peradmin != 1) {
 
 $conn = sql_conectar(); //Apertura de Conexion
 
-$query = "	SELECT PERCODIGO,QRCODE
+$query = "	SELECT PERCODIGO,QRCODE,PERAVATAR
 				FROM PER_MAEST
 				WHERE PERCODIGO=$percodigo				
 				ORDER BY PERNOMBRE ";
@@ -50,7 +50,9 @@ for ($i = 0; $i < $Table->Rows_Count; $i++) {
 	$row = $Table->Rows[$i];
 	$percodigo 	= trim($row['PERCODIGO']);
 	$qrreg	= trim($row['QRCODE']);
+	$peravatar	= trim($row['PERAVATAR']);
 
+	$tmpl->setVariable('peravatar', $peravatar);
 	$tmpl->setVariable('percodigo', $percodigo);
 	$tmpl->setVariable('qrreg', $qrreg);
 }

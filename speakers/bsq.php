@@ -80,7 +80,9 @@
 	$tmpl->setVariable('peravatar'	, $peravatar	);
 	
 	
-	if($peradmin!=1) $tmpl->setVariable('viewadmin','none');
+	if ($peradmin!=1){
+		header('Location: ../login');	
+	}
 	
 	$conn= sql_conectar();//Apertura de Conexion
 	

@@ -32,10 +32,10 @@
 	$tmpl->setVariable('peravatar'	, $peravatar	);
 
 	
-	if ($peradmin!=1){
+	/*if ($peradmin!=1){
 		header('Location: ../login');	
-	}
-	
+	}*/
+	if($peradmin!=1) $tmpl->setVariable('viewadmin','none');
 	//Nombre del Evento
 	// $tmpl->setVariable('SisNombreEvento', $_SESSION['PARAMETROS']['SisNombreEvento']);	
 	$tmpl->setVariable('SisNombreEvento', NAME_TITLE );
